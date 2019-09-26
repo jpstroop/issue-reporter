@@ -1,6 +1,5 @@
 from datetime import datetime
-from github import Github
-from json import dumps
+from json import dump
 from json import load
 from os import environ
 from os.path import abspath
@@ -9,21 +8,22 @@ from os.path import exists
 from os.path import join
 from sys import exit
 from sys import stderr
+import github
+import requests_cache
 
 SECRETS_FILENAME = 'secrets.json'
 ENV_VARS = ('GITHUB_TOKEN','GITHUB_ORGANIZATION')
 
 def main():
+    # github.enable_console_debug_logging()
+    requests_cache.install_cache('github_reporter', expire_after=300)
     config = _init_config()
     reporter = IssueReporter(config['GITHUB_TOKEN'], config['GITHUB_ORGANIZATION'])
     # https://pygithub.readthedocs.io/en/latest/github.html#github.MainClass.Github.search_issues
-    date = '2019-09-25T00:00:00'
+    date = '2019-09-26T00:00:00'
     issue_report = reporter.issues_updated_since(date)
-    for i in issue_report:
-        print(dumps(i, indent=2))
-
-    # TODO: make a dict/JSON structure that contains everything we need to make
-    # HTML formatting as easy as possible
+    with open('tmp/sample.json', 'w') as f:
+        dump(issue_report, f, indent=2, ensure_ascii=False)
 
 def _init_config():
     dev_config_path = join(abspath(dirname(__file__)), SECRETS_FILENAME)
@@ -49,7 +49,7 @@ class IssueReporter():
     @property
     def github(self):
         if self._github is None:
-            self._github = Github(self._github_token)
+            self._github = github.Github(self._github_token)
         return self._github
 
     @property
@@ -62,9 +62,7 @@ class IssueReporter():
         return self._all_repos
 
     def issues_updated_since(self, date):
-        '''Returns a list of github.Issue.Issue
-        https://pygithub.readthedocs.io/en/latest/github_objects/Issue.html#github.Issue.Issue
-        '''
+        # Returns a list of github.Issue.Issue(s)
         q = f'org:{self._github_organization} updated:>={date}'
         paged_issues = [i for i in self.github.search_issues(query=q)]
         paged_issues.sort(key=lambda i: (i.repository.name, i.updated_at))
@@ -73,7 +71,7 @@ class IssueReporter():
         # TODO: these need to be dicts at some point, maybe??
         # return GroupedIssueReport(reports).asdict()
 
-# TODO: group reports by repository_name
+# TODO: group reports by repository_name: use itertools: https://www.saltycrane.com/blog/2014/10/example-using-groupby-and-defaultdict-do-same-task/i8
 # Dump to a file as JSON
 # Move classes into a module
 
@@ -124,12 +122,24 @@ class IssueReport():
     @property
     def events(self):
 
-        def event_filter(e):
-            ok_types = ('closed', 'merged', 'reopened')
-            return e.created_at >= self.date and event.event in ok_types
+        def issue_event_filter(e):
+            # Note that this filter works on github.IssueEvent.IssueEvent(s)
+            ok_types = ('closed', 'merged', 'reopened') # config option?
+            return e.created_at >= self.date and e.event in ok_types
 
-        events = [Event(e) for e in self.issue.get_events()]
-        return [dict(e) for e in filter(event_filter, events)]
+        # DO NOT WRITE THIS LIKE THIS: Is should be faster, but something,
+        # perhaps to do with github.PaginatedList.PaginatedList, slows it down
+        # to the point of ocassionally timing out:
+        #
+        # events = [Event(e) for e in filter(issue_event_filter, self.issue.get_events())]
+        # return [dict(e) for e in events]
+
+        events = []
+        for e in self.issue.get_events():
+            if issue_event_filter(e):
+                events.append(dict(Event(e)))
+        return events
+
 
     @property
     def pull_request_html_url(self):
