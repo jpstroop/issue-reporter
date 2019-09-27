@@ -5,7 +5,6 @@ from os.path import abspath, dirname, exists, join
 from sys import exit, stderr
 import requests_cache
 
-# TODO: grouping
 # TODO: set 'since' date dynamically
 # TODO: save out data as json w/ date-based name
 # TODO: explore delegation patterns, e.g.:

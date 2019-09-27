@@ -1,5 +1,7 @@
+from collections import OrderedDict
 from datetime import datetime
 from github import Github
+from itertools import groupby
 
 class IssueReporter():
     def __init__(self, github_token, github_organization):
@@ -15,15 +17,20 @@ class IssueReporter():
         return self._github
 
     def issues_updated_since(self, date):
-        # Returns a list of github.Issue.Issue(s)
         q = f'org:{self._github_organization} updated:>={date}'
         paged_issues = [i for i in self.github.search_issues(query=q)]
         paged_issues.sort(key=lambda i: (i.repository.name, i.updated_at))
         reports = [dict(IssueReport(i, date)) for i in paged_issues]
-        return reports
+        return IssueReporter.group_reports(reports)
 
+    @staticmethod
     def group_reports(report_list, key='repository_name'):
-        pass
+        groups = OrderedDict()
+        for repo, issues in groupby(report_list, lambda o: o[key]):
+            issues = list(issues)
+            [d.pop(key) for d in issues]
+            groups[repo] = issues
+        return groups
 
     def publish_report(dir):
         pass
