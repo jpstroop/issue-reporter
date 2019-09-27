@@ -6,13 +6,15 @@ from os.path import abspath, dirname, exists, join
 from sys import exit, stderr
 import requests_cache
 
-# TODO: explore delegation patterns, e.g.:
+# TODO: write data to a data dir; config how many days we want to keep
+# TODO: explore batch delegation patterns, e.g.:
 #     class Event():
 #         def __init__(self, event):
 #             self.actor_name = event.actor.name
 #             self.created_at = event.created_at
 # ...seems lame
 # TODO: Save HTML (index and pages), either w/ templating or javascript
+# TODO: config file?
 
 SECRETS_FILENAME = 'secrets.json'
 ENV_VARS = ('GITHUB_TOKEN','GITHUB_ORGANIZATION')
@@ -22,8 +24,7 @@ def main():
     requests_cache.install_cache('github_reporter', expire_after=300)
     config = _init_config()
     reporter = IssueReporter(config['GITHUB_TOKEN'], config['GITHUB_ORGANIZATION'])
-    today = datetime.today().isoformat(timespec='seconds')
-    yesterday = (datetime.today()-timedelta(days=1)).isoformat(timespec='seconds')
+    yesterday, today = _get_dates()
     issue_report = reporter.issues_updated_since(yesterday)
     issue_report['today'] = today
     issue_report['yesterday'] = yesterday
@@ -32,6 +33,12 @@ def main():
     file_name = join(HERE, 'tmp', f'{today}.json')
     with open(file_name, 'w') as f:
         dump(issue_report, f, indent=2, ensure_ascii=False)
+
+def _get_dates():
+    today_dt = datetime.today()
+    today = today_dt.isoformat(timespec='seconds')
+    yesterday = (today_dt-timedelta(days=1)).isoformat(timespec='seconds')
+    return (yesterday, today)
 
 def _init_config():
     dev_config_path = join(HERE, SECRETS_FILENAME)
