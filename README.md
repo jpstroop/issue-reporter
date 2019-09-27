@@ -46,7 +46,7 @@ Reports are serialized as JSON data, with issues grouped using the repository na
       "pull_request_html_url": "https://github.com/my_org/repo_name/pull/42",
       "repository_html_url": "https://github.com/my_org/repo_name",
       "state": "closed",
-      "title": "Add CSV export to bookmarks page",
+      "title": "The widget is broken",
       "user_name": null,
       "comments": [
         {
