@@ -62,8 +62,8 @@ class IssueReport():
     def events(self):
 
         def issue_event_filter(e):
-            # Note that this filter works on github.IssueEvent.IssueEvent(s)
-            # (not our Events)
+            # Note that this filter works on github.IssueEvent.IssueEvent(s),
+            # not our Events.
             # Event types: https://developer.github.com/v3/issues/events/
             ok_types = ('closed', 'merged', 'reopened')
             return e.created_at >= self.date and e.event in ok_types

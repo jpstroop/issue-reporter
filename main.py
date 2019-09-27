@@ -1,18 +1,19 @@
-from json import dump
-from json import load
+from json import dump, load
 from github_reporter import IssueReporter
 from os import environ
-from os.path import abspath
-from os.path import dirname
-from os.path import exists
-from os.path import join
-from sys import exit
-from sys import stderr
+from os.path import abspath, dirname, exists, join
+from sys import exit, stderr
 import requests_cache
 
 # TODO: grouping
 # TODO: set 'since' date dynamically
 # TODO: save out data as json w/ date-based name
+# TODO: explore delegation patterns, e.g.:
+#     class Event():
+#         def __init__(self, event):
+#             self.actor_name = event.actor.name
+#             self.created_at = event.created_at
+# ...seems lame
 # TODO: Save HTML (index and pages), either w/ templating or javascript
 
 SECRETS_FILENAME = 'secrets.json'
