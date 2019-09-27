@@ -30,6 +30,10 @@ Sample `secrets.json`:
 
 Issues changed over the past 24 hours are reported. This is presently hard-coded but could be made a configuration option (as an arg to a `timedelta`?) in the future.
 
+## Related
+
+https://gist.github.com/jpstroop/6ed0c98f6a960f69f8142b56064cdb84
+
 ## JSON Data
 
 Reports are serialized as JSON data, with issues grouped using the repository name as the key. The structure is as follows:
