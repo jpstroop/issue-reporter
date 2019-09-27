@@ -5,16 +5,8 @@ from itertools import groupby
 
 class IssueReporter():
     def __init__(self, github_token, github_organization):
-        self._github_token = github_token
         self._github_organization = github_organization
-        self._github = None
-        self._all_repos = None
-
-    @property
-    def github(self):
-        if self._github is None:
-            self._github = Github(self._github_token)
-        return self._github
+        self.github = Github(github_token)
 
     def issues_updated_since(self, date):
         q = f'org:{self._github_organization} updated:>={date}'

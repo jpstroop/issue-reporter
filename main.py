@@ -1,12 +1,11 @@
-from json import dump, load
+from datetime import datetime, timedelta
 from github_reporter import IssueReporter
+from json import dump, load
 from os import environ
 from os.path import abspath, dirname, exists, join
 from sys import exit, stderr
 import requests_cache
 
-# TODO: set 'since' date dynamically
-# TODO: save out data as json w/ date-based name
 # TODO: explore delegation patterns, e.g.:
 #     class Event():
 #         def __init__(self, event):
@@ -17,18 +16,25 @@ import requests_cache
 
 SECRETS_FILENAME = 'secrets.json'
 ENV_VARS = ('GITHUB_TOKEN','GITHUB_ORGANIZATION')
+HERE = abspath(dirname(__file__))
 
 def main():
     requests_cache.install_cache('github_reporter', expire_after=300)
     config = _init_config()
     reporter = IssueReporter(config['GITHUB_TOKEN'], config['GITHUB_ORGANIZATION'])
-    date = '2019-09-26T00:00:00'
-    issue_report = reporter.issues_updated_since(date)
-    with open('tmp/sample.json', 'w') as f:
+    today = datetime.today().isoformat(timespec='seconds')
+    yesterday = (datetime.today()-timedelta(days=1)).isoformat(timespec='seconds')
+    issue_report = reporter.issues_updated_since(yesterday)
+    issue_report['today'] = today
+    issue_report['yesterday'] = yesterday
+    issue_report.move_to_end('yesterday', last=False)
+    issue_report.move_to_end('today', last=False)
+    file_name = join(HERE, 'tmp', f'{today}.json')
+    with open(file_name, 'w') as f:
         dump(issue_report, f, indent=2, ensure_ascii=False)
 
 def _init_config():
-    dev_config_path = join(abspath(dirname(__file__)), SECRETS_FILENAME)
+    dev_config_path = join(HERE, SECRETS_FILENAME)
     if exists(dev_config_path):
         with open(dev_config_path, 'r') as f:
             config = load(f)
