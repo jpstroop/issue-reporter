@@ -10,7 +10,6 @@ from sys import exit
 from sys import stderr
 import requests_cache
 
-# TODO: better datetime -> str serialization
 # TODO: grouping
 # TODO: set 'since' date dynamically
 # TODO: save out data as json w/ date-based name

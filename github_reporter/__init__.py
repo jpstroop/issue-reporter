@@ -14,15 +14,6 @@ class IssueReporter():
             self._github = Github(self._github_token)
         return self._github
 
-    @property
-    def all_repos(self):
-        if self._all_repos is None:
-            # TODO: https://pygithub.readthedocs.io/en/latest/github_objects/Organization.html#github.Organization.Organization.get_repos
-            org = self.github.get_organization(self._github_organization)
-            paged_repos = org.get_repos(type='all', sort='full_name')
-            self._all_repos = [r for r in paged_repos]
-        return self._all_repos
-
     def issues_updated_since(self, date):
         # Returns a list of github.Issue.Issue(s)
         q = f'org:{self._github_organization} updated:>={date}'
@@ -30,21 +21,12 @@ class IssueReporter():
         paged_issues.sort(key=lambda i: (i.repository.name, i.updated_at))
         reports = [dict(IssueReport(i, date)) for i in paged_issues]
         return reports
-        # return GroupedIssueReport(reports)
+
+    def group_reports(report_list, key='repository_name'):
+        pass
 
     def publish_report(dir):
         pass
-
-class GroupedIssueReport():
-    def __init__(self, issue_reports):
-        self.issue_reports = issue_reports
-    # TODO: holds logic for grouping issues into a dict by repository, i.e.:
-    # repo_name : [IssueReport(), IssueReport(), ...]
-
-    def asdict(self):
-        # TODO: grouping, and then something more idiomatic that allows us
-        # to call dict() https://stackoverflow.com/a/35282286
-        return self.issue_reports
 
 class IssueReport():
     def __init__(self, issue, date):
@@ -65,7 +47,7 @@ class IssueReport():
             'comments','events')
 
     def __getitem__(self, key):
-        vals = (str(self.created_at), self.html_url, self.number,
+        vals = (self.created_at.isoformat(), self.html_url, self.number,
             self.pull_request_html_url, self.repository_html_url,
             self.repository_name, self.state, self.title, self.user_name,
             self.comments, self.events)
@@ -82,7 +64,8 @@ class IssueReport():
         def issue_event_filter(e):
             # Note that this filter works on github.IssueEvent.IssueEvent(s)
             # (not our Events)
-            ok_types = ('closed', 'merged', 'reopened') # config option?
+            # Event types: https://developer.github.com/v3/issues/events/
+            ok_types = ('closed', 'merged', 'reopened')
             return e.created_at >= self.date and e.event in ok_types
 
         events = [Event(e) for e in filter(issue_event_filter, self.issue.get_events())]
@@ -104,7 +87,7 @@ class Event():
         return ('actor_name', 'created_at', 'type')
 
     def __getitem__(self, key):
-        vals = (self.actor_name, str(self.created_at), self.type)
+        vals = (self.actor_name, self.created_at.isoformat(), self.type)
         return dict(zip(self.keys(), vals))[key]
 
 class Comment():
@@ -118,5 +101,6 @@ class Comment():
         return ('user_name','updated_at','html_url','body')
 
     def __getitem__(self, key):
-        vals = (self.user_name, str(self.updated_at), self.html_url, self.body)
+        vals = (self.user_name, self.updated_at.isoformat(), self.html_url,
+            self.body)
         return dict(zip(self.keys(), vals))[key]

@@ -8,7 +8,20 @@ Function Dependencies are managed in `requirements.txt` because [that's what Goo
 
 ## Secrets
 
-If a `secrets.json` file exists in the same directory as `main.py`, the required keys will be read from it. Otherwise, the function will look for the following environment variables, [which must be set when the function is deployed](https://cloud.google.com/functions/docs/env-var). The following must be set:
+If a `secrets.json` file exists in the same directory as `main.py`, the required keys will be read from it. Otherwise, the application will look for the following environment variables, [which must be set when the function is deployed](https://cloud.google.com/functions/docs/env-var). The following must be set:
 
  * `GITHUB_TOKEN` (See https://github.com/settings/tokens)
- * `GITHUB_ORGANIZATION` 
+ * `GITHUB_ORGANIZATION`
+
+Sample `secrets.json`:
+
+```json
+{
+  "GITHUB_TOKEN":"1a2b3c4d5e6f7g8h9i0k",
+  "GITHUB_ORGANIZATION":"myorg"
+}
+```
+
+## Caching
+
+[`PyGithub`](https://github.com/PyGithub/PyGithub) doesn't do a great job of memoizing API responses (i.e. it makes several repetitive calls), so [`requests-cache`](https://github.com/reclosedev/requests-cache) is used to speed things up and help keep us from hitting the GitHub API request limit. API responses are cached locally for 5 minutes in an sqlite database (`github_reporter.sqlite`) which can safely be deleted at any time.
