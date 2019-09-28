@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 from github_reporter import IssueReporter
+from github_reporter import HTMLReportRenderer
 from json import dump, load
 from os import environ
 from os.path import abspath, dirname, exists, join
@@ -19,29 +20,48 @@ import requests_cache
 SECRETS_FILENAME = 'secrets.json'
 ENV_VARS = ('GITHUB_TOKEN','GITHUB_ORGANIZATION')
 HERE = abspath(dirname(__file__))
-DATA_DIR = join(HERE, 'docs', 'data')
 
 def main():
     requests_cache.install_cache('github_reporter', expire_after=300)
-    secrets = _init_secrets()
+    secrets = init_secrets()
     reporter = IssueReporter(secrets['GITHUB_TOKEN'], secrets['GITHUB_ORGANIZATION'])
-    yesterday, today = _get_dates()
+    yesterday, today = get_dates()
     issue_report = reporter.issues_updated_since(yesterday)
+
+    ### TODO: add these to the issue report class? Would need to pass though
+    ### issue reporter
     issue_report['today'] = today
     issue_report['yesterday'] = yesterday
     issue_report.move_to_end('yesterday', last=False)
     issue_report.move_to_end('today', last=False)
-    file_name = join(DATA_DIR, f'{today}.json')
-    with open(file_name, 'w') as f:
+    ###
+
+    serialize_report(issue_report)
+
+def serialize_report(issue_report):
+    render_as_json(issue_report)
+    render_as_html(issue_report)
+
+def render_as_json(issue_report):
+    file_name = f'{issue_report["today"].split("T")[0]}.json'
+    file_path = join(HERE, 'docs', 'data', file_name)
+    with open(file_path, 'w') as f:
         dump(issue_report, f, indent=2, ensure_ascii=False)
 
-def _get_dates():
+def render_as_html(issue_report):
+    renderer = HTMLReportRenderer()
+    file_name = f'{issue_report["today"].split("T")[0]}.html'
+    file_path = join(HERE, 'docs', 'reports', file_name)
+    with open(file_path, 'w') as f:
+        f.write(renderer.render(r=issue_report))
+
+def get_dates():
     today_dt = datetime.today()
     today = today_dt.isoformat(timespec='seconds')
     yesterday = (today_dt-timedelta(days=1)).isoformat(timespec='seconds')
     return (yesterday, today)
 
-def _init_secrets():
+def init_secrets():
     dev_secrets_path = join(HERE, SECRETS_FILENAME)
     if exists(dev_secrets_path):
         with open(dev_secrets_path, 'r') as f:

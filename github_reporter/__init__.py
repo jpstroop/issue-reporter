@@ -1,3 +1,5 @@
 import github_reporter.issue_reporter
+import github_reporter.html_report_renderer
 
 IssueReporter = github_reporter.issue_reporter.IssueReporter
+HTMLReportRenderer = github_reporter.html_report_renderer.HTMLReportRenderer
