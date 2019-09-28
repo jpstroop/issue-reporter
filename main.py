@@ -19,6 +19,7 @@ import requests_cache
 SECRETS_FILENAME = 'secrets.json'
 ENV_VARS = ('GITHUB_TOKEN','GITHUB_ORGANIZATION')
 HERE = abspath(dirname(__file__))
+DATA_DIR = join(HERE, 'docs', 'data')
 
 def main():
     requests_cache.install_cache('github_reporter', expire_after=300)
@@ -30,7 +31,7 @@ def main():
     issue_report['yesterday'] = yesterday
     issue_report.move_to_end('yesterday', last=False)
     issue_report.move_to_end('today', last=False)
-    file_name = join(HERE, 'tmp', f'{today}.json')
+    file_name = join(DATA_DIR, f'{today}.json')
     with open(file_name, 'w') as f:
         dump(issue_report, f, indent=2, ensure_ascii=False)
 
