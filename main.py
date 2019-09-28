@@ -22,8 +22,8 @@ HERE = abspath(dirname(__file__))
 
 def main():
     requests_cache.install_cache('github_reporter', expire_after=300)
-    config = _init_config()
-    reporter = IssueReporter(config['GITHUB_TOKEN'], config['GITHUB_ORGANIZATION'])
+    secrets = _init_secrets()
+    reporter = IssueReporter(secrets['GITHUB_TOKEN'], secrets['GITHUB_ORGANIZATION'])
     yesterday, today = _get_dates()
     issue_report = reporter.issues_updated_since(yesterday)
     issue_report['today'] = today
@@ -40,18 +40,18 @@ def _get_dates():
     yesterday = (today_dt-timedelta(days=1)).isoformat(timespec='seconds')
     return (yesterday, today)
 
-def _init_config():
-    dev_config_path = join(HERE, SECRETS_FILENAME)
-    if exists(dev_config_path):
-        with open(dev_config_path, 'r') as f:
-            config = load(f)
+def _init_secrets():
+    dev_secrets_path = join(HERE, SECRETS_FILENAME)
+    if exists(dev_secrets_path):
+        with open(dev_secrets_path, 'r') as f:
+            secrets = load(f)
     else:
         try:
-            config = { v : environ[v] for v in ENV_VARS }
+            secrets = { v : environ[v] for v in ENV_VARS }
         except KeyError as ke:
             print(f'{ke} environment variable must be defined.', file=stderr)
             exit(78)
-    return config
+    return secrets
 
 
 if __name__ == '__main__':
