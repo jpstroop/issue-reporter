@@ -40,7 +40,7 @@ def main():
 
 def serialize_report(issue_report):
     render_as_json(issue_report)
-    render_as_html(issue_report)
+    render_as_html(issue_report, 'issue_report.html.mako')
 
 def render_as_json(issue_report):
     file_name = f'{issue_report["today"].split("T")[0]}.json'
@@ -48,12 +48,12 @@ def render_as_json(issue_report):
     with open(file_path, 'w') as f:
         dump(issue_report, f, indent=2, ensure_ascii=False)
 
-def render_as_html(issue_report):
+def render_as_html(issue_report, template):
     renderer = HTMLReportRenderer()
     file_name = f'{issue_report["today"].split("T")[0]}.html'
     file_path = join(HERE, 'docs', 'reports', file_name)
     with open(file_path, 'w') as f:
-        f.write(renderer.render(r=issue_report))
+        f.write(renderer.render(template, r=issue_report))
 
 def get_dates():
     today_dt = datetime.today()
