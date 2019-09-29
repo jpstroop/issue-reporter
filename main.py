@@ -7,7 +7,11 @@ from os.path import abspath, dirname, exists, join
 from sys import exit, stderr
 import requests_cache
 
+# TODO: How do we know if something is a PR?
+#     https://pygithub.readthedocs.io/en/latest/github_objects/Issue.html#github.Issue.Issue.pull_request
 # TODO: write data to a data dir; config how many days we want to keep
+#  - use UserList API to make a list-like object:
+#        https://subscription.packtpub.com/book/application_development/9781788294874/4/ch04lvl1sec53/implementing-userlist
 # TODO: explore batch delegation patterns, e.g.:
 #     class Event():
 #         def __init__(self, event):
@@ -40,7 +44,7 @@ def main():
 
 def serialize_report(issue_report):
     render_as_json(issue_report)
-    render_as_html(issue_report, 'issue_report.html.mako')
+    render_as_html(issue_report, 'issue_report_page.html.mako')
 
 def render_as_json(issue_report):
     file_name = f'{issue_report["today"].split("T")[0]}.json'

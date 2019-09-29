@@ -14,17 +14,21 @@ class IssueReport():
         self.state = issue.state
         self.title = issue.title
         self.user_name = issue.user.name
+        self.pr_html_url = None
+        if issue.pull_request:
+            self.pr_html_url = issue.pull_request.html_url
+
 
     def keys(self):
         return ('created_at','html_url','number','pull_request_html_url',
             'repository_html_url','repository_name','state','title','user_name',
-            'comments','events')
+            'comments','events','pr_html_url')
 
     def __getitem__(self, key):
         vals = (self.created_at.isoformat(), self.html_url, self.number,
             self.pull_request_html_url, self.repository_html_url,
             self.repository_name, self.state, self.title, self.user_name,
-            self.comments, self.events)
+            self.comments, self.events, self.pr_html_url)
         return dict(zip(self.keys(), vals))[key]
 
     @property

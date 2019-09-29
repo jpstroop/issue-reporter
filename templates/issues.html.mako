@@ -7,8 +7,12 @@
           <dd>${i['user_name']}</dd>
           <dt>Created:</dt>
           <dd>${i['created_at'].split('T')[0]}</dd>
-          <dt>State:</dt>
-          <dd>${i['state']}</dd>
+          <dt>Status:</dt>
+          <dd>${str.capitalize(i['state']) }
+      % if i['pr_html_url']:
+          (<a href="${i['pr_html_url']}">pull request</a>)
+      % endif
+          </dd>
       % if i['comments']:
           <dt>Comments:</dt>
           <%include file="comments.html.mako" args="comments=i['comments']"/>
