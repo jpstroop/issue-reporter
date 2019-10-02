@@ -14,9 +14,12 @@ import requests_cache
 #             self.actor_name = event.actor.name
 #             self.created_at = event.created_at
 # ...seems lame. See: https://www.michaelcho.me/article/method-delegation-in-python
+# TODO: html and json should be at the same path
+#    (html should be [tree of YYYY/MM/DD/index.html, json should be
+#     YYYY/MM/DD.json)
 # TODO: config file?
 #  - base title for HTML
-#  - number of days to keep
+#  - number of days to keep (?)
 #  - email addresses / names
 #  - github org
 #  - cache timing

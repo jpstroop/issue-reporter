@@ -45,8 +45,8 @@ class IssueReport():
             # Note that this filter works on github.IssueEvent.IssueEvent(s),
             # not our Events.
             # Event types: https://developer.github.com/v3/issues/events/
-            ok_types = ('closed', 'merged', 'reopened')
-            return e.created_at >= self.date and e.event in ok_types
+            # ok_types = ('closed', 'merged', 'reopened')
+            return e.created_at >= self.date and e.event# in ok_types
 
         events = [Event(e) for e in filter(issue_event_filter, self.issue.get_events())]
         return [dict(e) for e in events]
