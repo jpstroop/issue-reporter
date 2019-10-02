@@ -14,6 +14,8 @@ class IssueReport():
         self.state = issue.state
         self.title = issue.title
         self.user_name = issue.user.name
+        if not self.user_name:
+            self.user_name = issue.user.login
         self.pr_html_url = None
         if issue.pull_request:
             self.pr_html_url = issue.pull_request.html_url

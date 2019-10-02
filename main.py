@@ -7,19 +7,23 @@ from os.path import abspath, dirname, exists, join
 from sys import exit, stderr
 import requests_cache
 
-# TODO: How do we know if something is a PR?
-#     https://pygithub.readthedocs.io/en/latest/github_objects/Issue.html#github.Issue.Issue.pull_request
 # TODO: write data to a data dir; config how many days we want to keep
 #  - use UserList API to make a list-like object:
 #        https://subscription.packtpub.com/book/application_development/9781788294874/4/ch04lvl1sec53/implementing-userlist
-# TODO: explore batch delegation patterns, e.g.:
+# TODO: explore batch delegation patterns, e.g.
 #     class Event():
 #         def __init__(self, event):
 #             self.actor_name = event.actor.name
 #             self.created_at = event.created_at
-# ...seems lame
-# TODO: Save HTML (index and pages), either w/ templating or javascript
+# ...seems lame. See: https://www.michaelcho.me/article/method-delegation-in-python
+# TODO: push to github: https://stackoverflow.com/a/39627647/714478
 # TODO: config file?
+#  - base title for HTML
+#  - number of days to keep
+#  - email addresses / names
+#  - github org
+#  - cache timing
+#  - github repo and branch to push
 
 SECRETS_FILENAME = 'secrets.json'
 ENV_VARS = ('GITHUB_TOKEN','GITHUB_ORGANIZATION')
@@ -43,14 +47,26 @@ def main():
     serialize_report(issue_report)
 
 def serialize_report(issue_report):
-    render_as_json(issue_report)
-    render_as_html(issue_report, 'issue_report_page.html.mako')
+    json_path = render_as_json(issue_report)
+    html_path = render_as_html(issue_report, 'issue_report_page.html.mako')
+    return (json_path, html_path)
+
+def commit_and_push():
+    ## How? will the Cloud Function runtime have what we need (e.g. origin
+    ## remotes?) Can we shell out if PyGithub doesn't push? See:
+    ## https://stackoverflow.com/a/39627647/714478
+    ## Seems like the cloud function will need a way to auth with github? Or is
+    ## the API key enough?.
+    ## Or, is there something we can do with basic auth over HTTP if we shell
+    ## out? Looks like yes: https://stackoverflow.com/a/10054470/714478
+    pass
 
 def render_as_json(issue_report):
     file_name = f'{issue_report["today"].split("T")[0]}.json'
     file_path = join(HERE, 'docs', 'data', file_name)
     with open(file_path, 'w') as f:
         dump(issue_report, f, indent=2, ensure_ascii=False)
+    return file_path
 
 def render_as_html(issue_report, template):
     renderer = HTMLReportRenderer()
@@ -58,6 +74,7 @@ def render_as_html(issue_report, template):
     file_path = join(HERE, 'docs', 'reports', file_name)
     with open(file_path, 'w') as f:
         f.write(renderer.render(template, r=issue_report))
+    return file_path
 
 def get_dates():
     today_dt = datetime.today()
