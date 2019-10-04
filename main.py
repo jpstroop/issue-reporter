@@ -14,13 +14,14 @@ import requests_cache
 #             self.actor_name = event.actor.name
 #             self.created_at = event.created_at
 # ...seems lame. See: https://www.michaelcho.me/article/method-delegation-in-python
-# TODO: html and json should be at the same path
-#    (html should be [tree of YYYY/MM/DD/index.html, json should be
-#     YYYY/MM/DD.json)
+# TODO: Link back to index from report page. Stats on index page??
 # TODO: wrap all of the stuff not in main in a class. main() could even go in
 #  the class and then be aliased (if main is static) or instantiate the class
-#  and then call whatever it needs to call. All of these functions and HERE are
-#  getting annoying.
+#  and then call whatever it needs to call. main.py is curently not very DRY,
+#  and all of these functions and HERE are getting annoying.
+# TODO: Make HTML responsive. Much more likely to be reading on phone.
+# TODO: Delete files after they are committed to the remote; otherwise the local
+#  copy of the repo is in conflict and pushing updates is a pain.
 # TODO: config file?
 #  - base title for HTML
 #  - number of days to keep (?)
