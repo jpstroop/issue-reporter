@@ -3,7 +3,7 @@ from github_reporter import IssueReporter
 from github_reporter import GithubCommitter
 from github_reporter import HTMLReportRenderer
 from json import dump, load
-from os import environ, makedirs, sep
+from os import environ, makedirs, sep, walk
 from os.path import abspath, dirname, exists, join
 from sys import exit, stderr
 import requests_cache
@@ -52,17 +52,16 @@ def main():
     committer.commit(file_paths, message)
 
 def make_date_dirs(iso_datetime):
-    renderer = HTMLReportRenderer()
     date_dirs = iso_datetime.split("T")[0].split('-')
     dir = join(HERE, 'docs', 'reports', *date_dirs)
     makedirs(dir, exist_ok=True)
     return dir
 
-
 def serialize_report(issue_report):
     json_path = render_as_json(issue_report)
     html_path = render_as_html(issue_report, 'issue_report_page.html.mako')
-    return (json_path, html_path)
+    index_path = make_index()
+    return (json_path, html_path, index_path)
 
 def render_as_json(issue_report):
     html_dir = make_date_dirs(issue_report["today"])
@@ -100,6 +99,18 @@ def init_secrets():
             exit(78)
     return secrets
 
+def make_index():
+    base = join(HERE, 'docs')
+    index_files = []
+    for root, _, files in walk(base):
+        for name in filter(lambda f: f.endswith('index.html'), files):
+            index_files.append(join(root, name).split(base)[1][1:])
+    index_files.pop(0)
+    renderer = HTMLReportRenderer()
+    file_path = join(base, 'index.html')
+    with open(file_path, 'w') as f:
+        f.write(renderer.render('site_index.html.mako', index_files=index_files))
+    return file_path
 
 if __name__ == '__main__':
     main()

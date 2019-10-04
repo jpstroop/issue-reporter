@@ -14,6 +14,3 @@ class HTMLReportRenderer():
     def render(self, template, **kwargs):
         base_template = self.lookup.get_template(template)
         return base_template.render_unicode(title=TITLE, **kwargs)
-
-    def render_index(self, **kwargs):
-        pass
