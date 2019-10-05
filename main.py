@@ -34,7 +34,7 @@ SECRETS_FILENAME = 'secrets.json'
 ENV_VARS = ('GITHUB_TOKEN','GITHUB_ORGANIZATION')
 HERE = abspath(dirname(__file__))
 
-def main():
+def main(event=None, context=None):
     requests_cache.install_cache('github_reporter', expire_after=300)
     secrets = init_secrets()
 
