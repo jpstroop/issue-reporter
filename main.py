@@ -1,12 +1,14 @@
 from datetime import datetime, timedelta
-from github_reporter import IssueReporter
 from github_reporter import GithubCommitter
 from github_reporter import HTMLReportRenderer
+from github_reporter import IssueReporter
+from google.cloud import error_reporting
 from json import dump, load
 from os import environ, makedirs, sep, walk
 from os.path import abspath, dirname, exists, join
 from sys import exit, stderr
 import requests_cache
+
 
 # TODO: explore batch delegation patterns, e.g.
 #     class Event():
@@ -33,27 +35,33 @@ import requests_cache
 SECRETS_FILENAME = 'secrets.json'
 ENV_VARS = ('GITHUB_TOKEN','GITHUB_ORGANIZATION')
 HERE = abspath(dirname(__file__))
+ERROR_REPORTING_CLIENT = error_reporting.Client()
 
 def main(event=None, context=None):
-    requests_cache.install_cache('github_reporter', expire_after=300)
-    secrets = init_secrets()
+    try:
+        print('Google found me!')
+        requests_cache.install_cache('github_reporter', expire_after=300)
+        secrets = init_secrets()
 
-    reporter = IssueReporter(secrets['GITHUB_TOKEN'], secrets['GITHUB_ORGANIZATION'])
-    yesterday, today = get_dates()
-    issue_report = reporter.issues_updated_since(yesterday)
+        reporter = IssueReporter(secrets['GITHUB_TOKEN'], secrets['GITHUB_ORGANIZATION'])
+        yesterday, today = get_dates()
+        issue_report = reporter.issues_updated_since(yesterday)
 
-    issue_report['today'] = today
-    issue_report['yesterday'] = yesterday
-    issue_report.move_to_end('yesterday', last=False)
-    issue_report.move_to_end('today', last=False)
+        issue_report['today'] = today
+        issue_report['yesterday'] = yesterday
+        issue_report.move_to_end('yesterday', last=False)
+        issue_report.move_to_end('today', last=False)
 
-    file_paths = serialize_report(issue_report)
-    committer = GithubCommitter(secrets['GITHUB_TOKEN'], HERE)
-    message = f'reports for {today.split("T")[0]}'
-    print(f'{datetime.now().isoformat()} - Committing {message}')
-    commit_success = committer.commit(file_paths, message)
-    print(f'{datetime.now().isoformat()} - Commit success: {commit_success}')
-    return commit_success
+        file_paths = serialize_report(issue_report)
+        committer = GithubCommitter(secrets['GITHUB_TOKEN'], HERE)
+        message = f'reports for {today.split("T")[0]}'
+        print(f'{datetime.now().isoformat()} - Committing {message}')
+        commit_success = committer.commit(file_paths, message)
+        print(f'{datetime.now().isoformat()} - Commit success: {commit_success}')
+        return commit_success
+    except RuntimeError:
+        ERROR_REPORTING_CLIENT.report_exceptions()
+
 
 def make_date_dirs(iso_datetime):
     date_dirs = iso_datetime.split("T")[0].split('-')
