@@ -51,6 +51,7 @@ def main(event=None, context=None):
     committer = GithubCommitter(secrets['GITHUB_TOKEN'], HERE)
     message = f'reports for {today.split("T")[0]}'
     committer.commit(file_paths, message)
+    return 0
 
 def make_date_dirs(iso_datetime):
     date_dirs = iso_datetime.split("T")[0].split('-')
