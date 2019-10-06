@@ -50,8 +50,10 @@ def main(event=None, context=None):
     file_paths = serialize_report(issue_report)
     committer = GithubCommitter(secrets['GITHUB_TOKEN'], HERE)
     message = f'reports for {today.split("T")[0]}'
-    committer.commit(file_paths, message)
-    return 0
+    print(f'{datetime.now().isoformat()} - Committing {message}')
+    commit_success = committer.commit(file_paths, message)
+    print(f'{datetime.now().isoformat()} - Commit success: {commit_success}')
+    return commit_success
 
 def make_date_dirs(iso_datetime):
     date_dirs = iso_datetime.split("T")[0].split('-')
