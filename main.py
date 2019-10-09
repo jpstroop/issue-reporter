@@ -6,6 +6,12 @@ from os import environ
 from os.path import abspath, dirname, exists, join
 from sys import exit, stderr
 
+# TODO: No email. Set a commit message that includes the link to the report
+#   Then anyone who wants a notification can just watch the repo.
+# TODO: Index file. Easier to draw with javascript.
+#   * Get a JSON file w/ HTTP (default to '{}')
+#   * Update it
+#   * Commit it back
 # TODO: explore batch delegation patterns, e.g.
 #     class Event():
 #         def __init__(self, event):

@@ -24,7 +24,7 @@ Sample `secrets.json`:
 
 ## Caching
 
-[`PyGithub`](https://github.com/PyGithub/PyGithub) doesn't do a great job of memoizing API responses (i.e. it makes several repetitive calls), so [`requests-cache`](https://github.com/reclosedev/requests-cache) is used to speed things up and help keep us from hitting the GitHub API request limit. API responses are cached locally for 5 minutes in an sqlite database (`github_reporter.sqlite`) which can safely be deleted at any time. This should all happen perfectly transparently. Just letting you know.
+[`PyGithub`](https://github.com/PyGithub/PyGithub) doesn't do a great job of memoizing API responses (i.e. it makes several repetitive calls), so [`requests-cache`](https://github.com/reclosedev/requests-cache) is used to speed things up and help keep us from hitting the GitHub API request limit. API responses are cached locally for 5 minutes in memory. This should all happen perfectly transparently. Just letting you know.
 
 ## Time Range
 
