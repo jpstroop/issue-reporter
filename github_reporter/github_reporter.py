@@ -93,3 +93,6 @@ class GithubReporter():
             )
             commit_success = committer.commit(path_data_pairs, message)
         return commit_success
+
+    def update_index(self):
+        pass
