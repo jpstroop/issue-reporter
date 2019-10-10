@@ -6,7 +6,7 @@ from os import environ
 from os.path import abspath, dirname, exists, join
 from sys import exit, stderr
 
-# TODO: No email. Set a commit message that includes the link to the report
+# TODO: No email. Set a commit message that includes the link to the report.
 #   Then anyone who wants a notification can just watch the repo.
 # TODO: Index file. Easier to draw with javascript.
 #   * Get a JSON file w/ HTTP (default to '{}')
@@ -56,10 +56,12 @@ def main(event=None, context=None):
         gh_reporter = GithubReporter(secrets)
         commit_success = gh_reporter.run_report()
         print(f'{datetime.now().isoformat()} - Commit success: {commit_success}')
+        return 0
     except Exception:
         if is_google_run:
             erc = error_reporting.Client()
             erc.report_exception()
+            return 1
         else:
             raise
 

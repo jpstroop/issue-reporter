@@ -51,6 +51,8 @@ class GithubReporter():
         today_dt = datetime.today()
         today = today_dt.isoformat(timespec='seconds')
         yesterday = (today_dt-timedelta(days=1)).isoformat(timespec='seconds')
+        print(f'{datetime.now().isoformat()} - Today: {today}')
+        print(f'{datetime.now().isoformat()} - Yesterday: {yesterday}')
         return (yesterday, today)
 
     @contextmanager
