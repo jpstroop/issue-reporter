@@ -6,6 +6,7 @@ from github_reporter.issue_reporter import IssueReporter
 from io import StringIO
 from json import dumps
 from os.path import join
+from pytz import timezone
 import requests_cache
 
 class GithubReporter():
@@ -48,7 +49,7 @@ class GithubReporter():
 
     @staticmethod
     def get_dates():
-        today_dt = datetime.today()
+        today_dt = datetime.now(timezone('America/New_York')).replace(tzinfo=None)
         today = today_dt.isoformat(timespec='seconds')
         yesterday = (today_dt-timedelta(days=1)).isoformat(timespec='seconds')
         print(f'{datetime.now().isoformat()} - Today: {today}')
@@ -83,7 +84,8 @@ class GithubReporter():
             print(f'{datetime.now().isoformat()} - HTML path: {html_path}')
 
             committer = GithubCommitter(self.secrets['GITHUB_TOKEN'])
-            message = f'reports for {self.today_iso.split("T")[0]}'
+            date = self.today_iso.split("T")[0]
+            message = f'[automated commit] reports for {date}'
             print(f'{datetime.now().isoformat()} - Committing {message}')
             path_data_pairs = (
                 (json_path, json_str),
