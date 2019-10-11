@@ -9,12 +9,15 @@ from os.path import join
 from pytz import timezone
 import requests_cache
 
+
+GITHUB_RAW_BASE = 'https://raw.githubusercontent.com'
+
 class GithubReporter():
-    def __init__(self, secrets, config={}):
+    def __init__(self, secrets, config):
         requests_cache.install_cache('ghr', backend='memory', expire_after=300)
-        self.yesterday_iso, self.today_iso = GithubReporter.get_dates()
+        self.yesterday_iso, self.today_iso = self.get_dates(config['timezone'])
         self.secrets = secrets
-        self.config = config # TODO
+        self.config = config
         # memoized vars
         self._report_path = None
         self._issue_report = None
@@ -47,9 +50,8 @@ class GithubReporter():
         self.issue_report.move_to_end('today', last=False)
         print(f'{datetime.now().isoformat()} - Dates added to report')
 
-    @staticmethod
-    def get_dates():
-        today_dt = datetime.now(timezone('America/New_York')).replace(tzinfo=None)
+    def get_dates(self, tz):
+        today_dt = datetime.now(timezone(tz)).replace(tzinfo=None)
         today = today_dt.isoformat(timespec='seconds')
         yesterday = (today_dt-timedelta(days=1)).isoformat(timespec='seconds')
         print(f'{datetime.now().isoformat()} - Today: {today}')
@@ -83,7 +85,8 @@ class GithubReporter():
             html_path = join(self.report_path, 'index.html')
             print(f'{datetime.now().isoformat()} - HTML path: {html_path}')
 
-            committer = GithubCommitter(self.secrets['GITHUB_TOKEN'])
+            repo = self.config['github_repo_name']
+            committer = GithubCommitter(self.secrets['GITHUB_TOKEN'], repo)
             date = self.today_iso.split("T")[0]
             message = f'[automated commit] reports for {date}'
             print(f'{datetime.now().isoformat()} - Committing {message}')
@@ -91,8 +94,17 @@ class GithubReporter():
                 (json_path, json_str),
                 (html_path, html_str),
             )
-            commit_success = committer.commit(path_data_pairs, message)
+            branch = self.config['branch']
+            commit_success = committer.commit(path_data_pairs, message, branch)
         return commit_success
 
     def update_index(self):
+        #TODO: get the current index, append, and add the json as a StringIO
+        # to the report_strings so that it can be committed with the report
         pass
+
+    def get_current_index(self):
+        org = self.config['github_org']
+        repo = self.config['github_repo_name']
+        branch = self.config['branch']
+        return f'{GITHUB_RAW_BASE}/{org}/{repo}/{branch}/docs/index.json'

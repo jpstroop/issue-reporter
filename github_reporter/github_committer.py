@@ -4,11 +4,11 @@ from os import sep
 from sys import stderr
 
 class GithubCommitter():
-    def __init__(self, github_token, repo_name='issue-reporter'):
+    def __init__(self, github_token, repo_name):
         self.github = Github(github_token)
         self.repo = self.github.get_user().get_repo(repo_name)
 
-    def commit(self, path_data_pairs, commit_message='', branch='master'):
+    def commit(self, path_data_pairs, commit_message, branch):
         try:
             branch_ref = self.repo.get_git_ref(f'heads/{branch}')
             branch_sha = branch_ref.object.sha
