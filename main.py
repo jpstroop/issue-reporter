@@ -9,6 +9,7 @@ from traceback import print_exc
 
 # TODO: No email. Set a commit message that includes the link to the report.
 #   Then anyone who wants a notification can just watch the repo.
+# TODO: Move config to a ConfiguredObject superclass
 # TODO: Index file. Easier to draw with javascript.
 #   * Get a JSON file w/ HTTP (default to '{}')
 #   * Update it
