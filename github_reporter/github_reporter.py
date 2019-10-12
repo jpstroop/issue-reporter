@@ -109,6 +109,7 @@ class GithubReporter():
         index = list(filter(lambda e: e['date'] != date, index))
         entry = {
             'date' : date,
+            'run_start' : self.today_iso,
             'html' : sep.join(self.html_path.split(sep)[1:]), # removes docs/
             'json' : sep.join(self.json_path.split(sep)[1:])  # removes docs/
         }
