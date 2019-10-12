@@ -9,7 +9,7 @@ from os import sep
 from os.path import join
 from pytz import timezone
 from requests import get
-from requests_cache import install_cache
+from requests_cache import install_cache, cache_disabled
 
 class GithubReporter():
     def __init__(self, secrets, config):
@@ -120,8 +120,11 @@ class GithubReporter():
         org = self.config['github_org']
         repo = self.config['github_repo_name']
         url = f'https://{org}.github.io/{repo}/index.json'
-        print(f'{datetime.now().isoformat()} - Getting {url} for updating')
-        return get(url).json()
+        with cache_disabled():
+            print(f'{datetime.now().isoformat()} - Getting {url} for updating')
+            headers = { 'cache-control' : 'no-store'} # not sure if this makes a differnce; 
+            index_json = get(url, headers=headers).json()
+        return index_json
 
     def run_report(self):
         with self.report_strings() as (json_str, html_str, index_str):
