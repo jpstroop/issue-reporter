@@ -8,34 +8,12 @@
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"></script>
+      <script src="js/index.js"></script>
   </head>
-  <body>
+  <body onload="listReports()">
     <header>
       <h1>PUL GitHub Issues</h1>
     </header>
     <ol id="entries"/>
-
-    <script>
-
-    function eo(i){
-      if (i % 2 == 0) {
-        return "even";
-      } else {
-        return "odd";
-      }
-    };
-
-    // :-(
-    function styleEntry(entry, i) {
-      return "<li class=\"" + eo(i) + "\"><a href=\"" + entry.html + "\">" + entry.date + "</a></li>"
-    };
-
-    $.getJSON( "./index.json", function(data) {
-        $.each( data, function(index, entry) {
-            $(styleEntry(entry, index)).appendTo("#entries");
-        });
-    });
-
-    </script>
   </body>
 </html>
