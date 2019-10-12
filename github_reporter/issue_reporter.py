@@ -15,7 +15,8 @@ class IssueReporter():
         paged_issues = [i for i in self.github.search_issues(query=q)]
         paged_issues.sort(key=lambda i: (i.repository.name, i.updated_at))
         reports = [dict(IssueReport(i, date)) for i in paged_issues]
-        return IssueReporter.group_reports(reports)
+        issue_count = len(reports)
+        return (IssueReporter.group_reports(reports), issue_count)
 
     @staticmethod
     def group_reports(report_list, key='repository_name'):

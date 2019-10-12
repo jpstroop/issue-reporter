@@ -18,6 +18,7 @@ class GithubReporter():
         self.yesterday_iso, self.today_iso = self.get_dates(config['timezone'])
         self.secrets = secrets
         self.config = config
+        self.issue_count = None
         # memoized vars
         self._report_path = None
         self._html_path = None
@@ -62,7 +63,8 @@ class GithubReporter():
             token = self.secrets['GITHUB_TOKEN']
             org = self.secrets['GITHUB_ORGANIZATION']
             r = IssueReporter(token, org)
-            self._issue_report = r.issues_updated_since(self.yesterday_iso)
+            d = self.yesterday_iso
+            self._issue_report, self.issue_count = r.issues_updated_since(d)
             self._add_dates_to_report()
             print(f'{datetime.now().isoformat()} - Report ran successfully')
         return self._issue_report
@@ -110,6 +112,7 @@ class GithubReporter():
         index = list(filter(lambda e: e['date'] != date, index))
         entry = {
             'date' : date,
+            'issue_count' : self.issue_count,
             'run_start' : self.today_iso,
             'html' : sep.join(self.html_path.split(sep)[1:]), # removes docs/
             'json' : sep.join(self.json_path.split(sep)[1:])  # removes docs/

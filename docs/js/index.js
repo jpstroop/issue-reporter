@@ -4,7 +4,10 @@ function eo(i){
 
 // :-(
 function styleEntry(entry, i) {
-  return "<li class=\"" + eo(i) + "\"><a href=\"" + entry.html + "\">" + entry.date + "</a></li>"
+  return "<li class=\"" + eo(i) + "\">" +
+    "<a href=\"" + entry.html + "\">" + entry.date + "</a>" +
+    " <span class=\"issue-count\">(" + entry.issue_count + " issues created/updated/closed)</span>"
+  "</li>"
 };
 
 function listReports() {
