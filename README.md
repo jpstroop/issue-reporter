@@ -34,6 +34,15 @@ Issues changed over the past 24 hours are reported. This is presently hard-coded
 
 https://gist.github.com/jpstroop/6ed0c98f6a960f69f8142b56064cdb84
 
+## The Index Page
+
+...isn't too pretty. To work on it, start a server with:
+
+```bash
+$ pipenv run python -m http.server
+```
+and visit http://localhost:8000/docs/
+
 ## JSON Data
 
 Reports are serialized as JSON data, with issues grouped using the repository name as the key. The structure is as follows:

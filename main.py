@@ -8,7 +8,6 @@ from sys import exit, stderr
 from traceback import print_exc
 
 # TODO: tidy up history
-# TODO: Move config to a ConfiguredObject superclass: https://www.digitalocean.com/community/tutorials/understanding-class-inheritance-in-python-3
 # TODO: Link back to index from report page. Stats on index page??
 # TODO: move to PUL Github
 # TODO: Make HTML responsive. Much more likely to be reading on phone.
