@@ -106,7 +106,7 @@ class GithubReporter():
     def updated_index(self):
         index = self.get_current_index()
         date = self.today_iso.split('T')[0]
-        index = list(filter(lambda e: e['date'] == date, index))
+        index = list(filter(lambda e: e['date'] != date, index))
         entry = {
             'date' : date,
             'html' : sep.join(self.html_path.split(sep)[1:]), # removes docs/
