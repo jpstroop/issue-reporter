@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime as dt
 from github_reporter.github_reporter import GithubReporter
 from google.cloud import error_reporting
 from json import load
@@ -7,16 +7,13 @@ from os.path import abspath, dirname, exists, join
 from sys import exit, stderr
 from traceback import print_exc
 
-# TODO: No email. Set a commit message that includes the link to the report.
-#   Then anyone who wants a notification can just watch the repo.
 # TODO: Move config to a ConfiguredObject superclass
-# TODO: Index file. Easier to draw with javascript.
-#   * Get a JSON file w/ HTTP (default to '{}')
-#   * Update it
-#   * Commit it back
 # TODO: Link back to index from report page. Stats on index page??
+# TODO: move to PUL Github
 # TODO: Make HTML responsive. Much more likely to be reading on phone.
 # TODO: atom
+# TODO: post to Slack: https://slack.dev/python-slackclient/basic_usage.html#sending-a-message
+# TODO: implement a method for deleting (from index and pages)
 
 CONFIG_FILENAME = 'config.json'
 CONFIG_KEYS = ('base_page_title','github_repo_name','branch','github_org','timezone')
@@ -43,7 +40,7 @@ def load_config():
         except KeyError:
             print_exc()
             exit(78)
-    print(f'{datetime.now().isoformat()} - Config loaded')
+    print(f'{dt.now().isoformat()} - Config loaded')
     return config
 
 def load_secrets():
@@ -57,7 +54,7 @@ def load_secrets():
         except KeyError as ke:
             print(f'{ke} environment variable must be defined.', file=stderr)
             exit(78)
-    print(f'{datetime.now().isoformat()} - Secrets initialized')
+    print(f'{dt.now().isoformat()} - Secrets initialized')
     return secrets
 
 def main(event=None, context=None):
@@ -66,10 +63,10 @@ def main(event=None, context=None):
     config = load_config()
     try:
         if is_google_run:
-            print(f'{datetime.now().isoformat()} - Google called me!')
+            print(f'{dt.now().isoformat()} - Google called me!')
         gh_reporter = GithubReporter(secrets, config)
         commit_success = gh_reporter.run_report()
-        print(f'{datetime.now().isoformat()} - Commit success: {commit_success}')
+        print(f'{dt.now().isoformat()} - Commit success: {commit_success}')
         return 0
     except Exception:
         if is_google_run:

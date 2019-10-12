@@ -11,8 +11,6 @@ from pytz import timezone
 from requests import get
 from requests_cache import install_cache
 
-GITHUB_RAW_BASE = 'https://raw.githubusercontent.com'
-
 class GithubReporter():
     def __init__(self, secrets, config):
         install_cache('ghr', backend='memory', expire_after=300)
@@ -107,8 +105,10 @@ class GithubReporter():
 
     def updated_index(self):
         index = self.get_current_index()
+        date = self.today_iso.split('T')[0]
+        index = list(filter(lambda e: e['date'] == date, index))
         entry = {
-            'date' : self.today_iso.split('T')[0],
+            'date' : date,
             'html' : sep.join(self.html_path.split(sep)[1:]), # removes docs/
             'json' : sep.join(self.json_path.split(sep)[1:])  # removes docs/
         }
@@ -119,7 +119,7 @@ class GithubReporter():
         org = self.config['github_org']
         repo = self.config['github_repo_name']
         branch = self.config['branch']
-        url = f'{GITHUB_RAW_BASE}/{org}/{repo}/{branch}/docs/index.json'
+        url = f'{org}.github.io/{repo}/index.json'
         print(f'{datetime.now().isoformat()} - Getting {url} for updating')
         return get(url).json()
 
