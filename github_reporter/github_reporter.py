@@ -119,8 +119,7 @@ class GithubReporter():
     def get_current_index(self):
         org = self.config['github_org']
         repo = self.config['github_repo_name']
-        branch = self.config['branch']
-        url = f'{org}.github.io/{repo}/index.json'
+        url = f'https://{org}.github.io/{repo}/index.json'
         print(f'{datetime.now().isoformat()} - Getting {url} for updating')
         return get(url).json()
 
