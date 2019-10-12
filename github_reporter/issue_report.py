@@ -1,5 +1,5 @@
 from datetime import datetime
-from github_reporter.abstract_data_class import AbstractDataClass
+from github_reporter import AbstractDataClass
 from github_reporter.comment import Comment
 from github_reporter.event import Event
 

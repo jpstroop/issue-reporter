@@ -1,4 +1,4 @@
-from github_reporter.abstract_data_class import AbstractDataClass
+from github_reporter import AbstractDataClass
 
 class Event(AbstractDataClass):
     def __init__(self, event):
