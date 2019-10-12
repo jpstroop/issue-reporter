@@ -7,7 +7,8 @@ from os.path import abspath, dirname, exists, join
 from sys import exit, stderr
 from traceback import print_exc
 
-# TODO: Move config to a ConfiguredObject superclass
+# TODO: tidy up history
+# TODO: Move config to a ConfiguredObject superclass: https://www.digitalocean.com/community/tutorials/understanding-class-inheritance-in-python-3
 # TODO: Link back to index from report page. Stats on index page??
 # TODO: move to PUL Github
 # TODO: Make HTML responsive. Much more likely to be reading on phone.
@@ -59,12 +60,15 @@ def load_secrets():
 
 def main(event=None, context=None):
     is_google_run = event.get('is_google_run', True)
+    dump_to_stdout = event.get('dump_to_stdout', False)
     secrets = load_secrets()
     config = load_config()
     try:
         if is_google_run:
-            print(f'{dt.now().isoformat()} - Google called me!')
-        gh_reporter = GithubReporter(secrets, config)
+            print(f'{dt.now().isoformat()} - Google called me')
+        if dump_to_stdout:
+            print(f'{dt.now().isoformat()} - Local run, will dump JSON to stdout')
+        gh_reporter = GithubReporter(secrets, config, dump_to_stdout)
         commit_success = gh_reporter.run_report()
         print(f'{dt.now().isoformat()} - Commit success: {commit_success}')
         return 0
@@ -77,4 +81,4 @@ def main(event=None, context=None):
             raise
 
 if __name__ == '__main__':
-    main(event={'is_google_run':False})
+    main(event={'is_google_run':False, 'dump_to_stdout':True})

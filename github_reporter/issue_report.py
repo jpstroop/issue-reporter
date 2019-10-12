@@ -1,9 +1,11 @@
 from datetime import datetime
+from github_reporter.abstract_data_class import AbstractDataClass
 from github_reporter.comment import Comment
 from github_reporter.event import Event
 
-class IssueReport():
+class IssueReport(AbstractDataClass):
     def __init__(self, issue, date):
+        super().__init__()
         self.date = datetime.fromisoformat(date)
         self.issue = issue
         self.created_at = issue.created_at.isoformat()
@@ -19,25 +21,18 @@ class IssueReport():
         self.pr_html_url = None
         if issue.pull_request:
             self.pr_html_url = issue.pull_request.html_url
-        self.__asdict = None
 
     @property
-    def _asdict(self):
-        if self.__asdict is None:
-            vals = (self.created_at, self.html_url, self.number,
-                self.pull_request_html_url, self.repository_html_url,
-                self.repository_name, self.state, self.title, self.user_name,
-                self.comments, self.events, self.pr_html_url)
-            self.__asdict = dict(zip(self.keys(), vals))
-        return self.__asdict
+    def _vals(self):
+        return (self.created_at, self.html_url, self.number,
+            self.pull_request_html_url, self.repository_html_url,
+            self.repository_name, self.state, self.title, self.user_name,
+            self.comments, self.events, self.pr_html_url)
 
     def keys(self):
         return ('created_at','html_url','number','pull_request_html_url',
             'repository_html_url','repository_name','state','title','user_name',
             'comments','events','pr_html_url')
-
-    def __getitem__(self, key):
-        return self._asdict[key]
 
     @property
     def comments(self):

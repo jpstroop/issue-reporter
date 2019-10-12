@@ -12,8 +12,9 @@ from requests import get
 import requests_cache as rc
 
 class GithubReporter():
-    def __init__(self, secrets, config):
+    def __init__(self, secrets, config, dump_to_stdout=False):
         rc.install_cache('ghr', backend='memory', expire_after=300)
+        self.dump_to_stdout = dump_to_stdout
         self.yesterday_iso, self.today_iso = self.get_dates(config['timezone'])
         self.secrets = secrets
         self.config = config
@@ -128,16 +129,20 @@ class GithubReporter():
 
     def run_report(self):
         with self.report_strings() as (json_str, html_str, index_str):
-            repo = self.config['github_repo_name']
-            committer = GithubCommitter(self.secrets['GITHUB_TOKEN'], repo)
-            date = self.today_iso.split("T")[0]
-            message = f'[automated commit] reports for {date}'
-            print(f'{datetime.now().isoformat()} - Committing {message}')
-            path_data_pairs = (
-                (self.json_path, json_str),
-                (self.html_path, html_str),
-                (self.index_json_path, index_str)
-            )
-            branch = self.config['branch']
-            commit_success = committer.commit(path_data_pairs, message, branch)
+            if self.dump_to_stdout:
+                print(json_str.read())
+                commit_success = True
+            else:
+                repo = self.config['github_repo_name']
+                committer = GithubCommitter(self.secrets['GITHUB_TOKEN'], repo)
+                date = self.today_iso.split("T")[0]
+                message = f'[automated commit] reports for {date}'
+                print(f'{datetime.now().isoformat()} - Committing {message}')
+                path_data_pairs = (
+                    (self.json_path, json_str),
+                    (self.html_path, html_str),
+                    (self.index_json_path, index_str)
+                )
+                branch = self.config['branch']
+                commit_success = committer.commit(path_data_pairs, message, branch)
         return commit_success
