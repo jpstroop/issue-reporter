@@ -4,7 +4,7 @@
 %>
 % for name, issues in repos:
     <section class="repo" id="${name}">
-      <h2><a href="${issues[0]['repository_html_url']}">${name}</a></h2>
+      <h2><a href="${issues[0]['repository_html_url']}">pulibrary/${name}</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
       <div class="issues" id="${name}_issues">
         <%include file="issues.html.mako" args="issues=issues"/>
       </div>

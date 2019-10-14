@@ -1,6 +1,7 @@
-
-body {
-  font-family: sans-serif;
+/*  Index Page Styles */
+.container {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .issue-count {
@@ -8,69 +9,139 @@ body {
 }
 
 #entries {
-  list-style-type: none;
-  max-width: 800px;
   padding-left: 0;
 }
 
-#entries:last-child {
-  border-bottom: 1px solid #000;
-}
-
 #entries li {
-  border-top: 1px solid #000;
-  padding: .4em 0 .4em 1em ;
+  padding: .4em 0 .4em 2em;
   font-family: monospace;
   font-size: larger;
 }
 
-#entries li.odd {
-  background-color: #d3d3d3;
+#entries li.even {
+  background-color: #dcdcdc;
 }
 
+/* Floating back-to-top button */
+#btt-button {
+  display: inline-block;
+  background-color: #343a40;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s,
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+#btt-button::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+
+#btt-button:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+
+#btt-button:active {
+  background-color: #555;
+}
+
+#btt-button.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Issue Report Page Styles */
 dt {
   font-weight: bold;
 }
 
-.repo h2 {
-  font-family: monospace;
+h1 {
+  margin-top: .2em;
+  text-align: center;
+}
+
+h2 {
+  color: #343a40;
   font-size: 2em;
   padding: 1em 0;
-  text-align: center;
   margin: 0;
-  border: 1px solid #000;
+  text-align: center;
+  border-top: none;
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;
+  border-bottom: 1px solid #000;
   background-color: #e77500;
 }
 
+h2 a {
+  font-family: monospace;
+}
+
+h2 i, h2 a {
+  color: inherit;
+}
+
+h2 a:hover {
+  color: #343a40;
+  font-style: underline;
+}
+
+.nav-item {
+  font-family: monospace;
+  font-size: larger;
+}
+
 .issue {
-  padding: .4em;
+  padding: .5em;
   margin: 0;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;
 }
 
 .issue h3 {
-  margin: .3em 0 0 0;
+  margin: .3em 0;
+  padding-left: 1.5em;
+  text-indent: -1.5em;
 }
 
 .issue dl {
-  margin: .5em 0 0 0;
+  max-width: 800px;
+}
+
+.issue dd {
+  margin-left: 2em;
 }
 
 .issue.even {
-  background-color: #d3d3d3;
+  background-color: #dcdcdc;
 }
 
-.comments dt {
-  padding: .3em 0;
-  /* background-color: #d3d3d3; */
-  max-width: 800px;
+.comments dl {
+  margin: 0 2em .5em 0;
 }
+
 .comments dd {
   margin-left: 0;
-  max-width: 800px;
 }
 
 .comments dd p {
-  margin-top: 0;
+  margin: 0 0 .5em 0;
+  overflow-wrap: break-word;
 }
 
 .comments blockquote {
@@ -88,6 +159,47 @@ dt {
   margin: 0;
 }
 
-.comments .not_last {
+.comments dd:not(:last-child) {
   border-bottom: 1px solid #000;
+}
+
+.events {
+  list-style-type: disc;
+  padding-left: 1.5em;
+}
+
+.event {
+  padding: 0;
+  margin: 0;
+}
+
+.event code {
+  font-size: 1em;
+}
+
+@media (max-width: 576px) {
+  .container-fluid {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .issue {
+    padding-left: 1em;
+    padding-right: 1em;
+    border-right: none;
+    border-left: none;
+  }
+
+  .repo h2 {
+    border-right: none;
+    border-left: none;
+  }
+
+  h3 {
+    text-align: center;
+    padding-left: 0;
+    text-indent: 0;
+  }
 }

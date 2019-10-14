@@ -19,8 +19,12 @@
       % endif
       % if i['events']:
           <dt>Events:</dt>
-          <%include file="events.html.mako" args="events=i['events']"/>
+          <dd>
+            <ul class="events">
+            <%include file="events.html.mako" args="events=i['events']"/>
+            </ul>
+          </dd>
       % endif
-        <dl>
+        </dl>
       </div>
 % endfor
