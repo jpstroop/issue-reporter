@@ -114,7 +114,7 @@ class GithubReporter():
             'date' : date,
             'issue_count' : self.issue_count,
             'run_start' : self.today_iso,
-            'html' : sep.join(self.html_path.split(sep)[1:]), # removes docs/
+            'html' : f'{sep.join(self.html_path.split(sep)[1:-1])}{sep}', # removes docs/ and index.html
             'json' : sep.join(self.json_path.split(sep)[1:])  # removes docs/
         }
         index.insert(0, entry)
