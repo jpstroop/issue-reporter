@@ -47,7 +47,8 @@ def rerender_html():
 
 ## TODO: pick this up when we have more data and actually want it
 ## TODO: don't forget to update index.json
-## TODO: don't forget empty month and year dirs
+## TODO: don't forget empty month and year dirs-
+##   Maybe just run something like this: https://www.jacobtomlinson.co.uk/posts/2014/python-script-recursively-remove-empty-folders/directories/
 def remove_old_reports(days):
     json_paths = accumulate_json(docs_dir())
     to_rm = []
