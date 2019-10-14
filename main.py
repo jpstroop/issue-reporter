@@ -7,14 +7,6 @@ from os.path import abspath, dirname, exists, join
 from sys import exit, stderr
 from traceback import print_exc
 
-# TODO: atom or rss
-# TODO: move to PUL Github
-# TODO: post to Slack: https://slack.dev/python-slackclient/basic_usage.html#sending-a-message
-# TODO: tidy up history
-# TODO: Make HTML responsive. Much more likely to be reading on phone.
-# TODO: Link back to index from report page. Stats on index page??
-# TODO: implement a method for deleting (from index and pages)
-
 CONFIG_FILENAME = 'config.json'
 CONFIG_KEYS = ('base_page_title','github_repo_name','branch','github_org','timezone')
 SECRET_ENV_VARS = ('GITHUB_TOKEN','GITHUB_ORGANIZATION')

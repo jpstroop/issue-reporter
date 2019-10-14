@@ -1,6 +1,6 @@
-<%page args="issues"/>
+<%page args="issues,name"/>
 % for i in issues:
-      <div class="issue ${loop.cycle('even', 'odd')}">
+      <div class="issue ${loop.cycle('even', 'odd')}" id="${name}-${i['number']}">
         <h3><a href="${i['html_url']}">#${i['number']}</a> ${i['title']}</h3>
         <dl>
           <dt>Creator:</dt>
