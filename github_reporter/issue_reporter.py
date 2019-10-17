@@ -1,7 +1,7 @@
 from collections import OrderedDict
 from datetime import datetime as dt
 from github import Github
-from github_reporter.issue_report import IssueReport
+from github_reporter.data_classes.issue import Issue
 from itertools import groupby
 
 class IssueReporter():
@@ -14,7 +14,7 @@ class IssueReporter():
         print(f'{dt.now().isoformat()} - Report started')
         paged_issues = [i for i in self.github.search_issues(query=q)]
         paged_issues.sort(key=lambda i: (i.repository.name, i.updated_at))
-        reports = [IssueReport(i, date) for i in paged_issues]
+        reports = [Issue(i, date) for i in paged_issues]
         stats = IssueReporter.stats(reports)
         # TODO: we need to stop passing around dicts, and work with objects.
         # Implement JSONEncoder.

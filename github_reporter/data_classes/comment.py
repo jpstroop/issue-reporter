@@ -1,4 +1,4 @@
-from github_reporter import AbstractDataClass
+from github_reporter.data_classes.anstract_data_class import AbstractDataClass
 
 class Comment(AbstractDataClass):
     def __init__(self, comment):

@@ -1,10 +1,10 @@
 from cached_property import cached_property
 from datetime import datetime
-from github_reporter import AbstractDataClass
-from github_reporter.comment import Comment
-from github_reporter.event import Event
+from github_reporter.data_classes.anstract_data_class import AbstractDataClass
+from github_reporter.data_classes.comment import Comment
+from github_reporter.data_classes.event import Event
 
-class IssueReport(AbstractDataClass):
+class Issue(AbstractDataClass):
     def __init__(self, issue, date):
         super().__init__()
         self.date = datetime.fromisoformat(date)
