@@ -4,7 +4,7 @@ class Event(AbstractDataClass):
     def __init__(self, event):
         super().__init__()
         self.actor_name = event.actor.name
-        self.created_at = event.created_at.isoformat()
+        self.created_at = event.created_at
         self.type = event.event
 
     @property

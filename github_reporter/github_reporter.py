@@ -1,6 +1,7 @@
 from cached_property import cached_property
 from contextlib import contextmanager
 from datetime import datetime, timedelta
+from github_reporter.data_classes import ReportJSONEncoder
 from github_reporter.github_committer import GithubCommitter
 from github_reporter.html_report_renderer import HTMLReportRenderer
 from github_reporter.issue_reporter import IssueReporter
@@ -19,7 +20,6 @@ class GithubReporter():
         self.yesterday_iso, self.today_iso = self.get_dates(config['timezone'])
         self.secrets = secrets
         self.config = config
-        self.meta = None
         # memoized vars
         self._report_path = None
         self._html_path = None
@@ -60,16 +60,11 @@ class GithubReporter():
         org = self.secrets['GITHUB_ORGANIZATION']
         r = IssueReporter(token, org)
         d = self.yesterday_iso
-        self._issue_report, self.meta = r.issues_updated_since(d)
-        self._add_metadata()
-        print(f'{datetime.now().isoformat()} - Report ran successfully')
-        return self._issue_report
-
-    def _add_metadata(self):
-        self._issue_report['__meta__'] = self.meta
+        self._issue_report = r.issues_updated_since(d)
         self._issue_report['__meta__']['today'] = self.today_iso
         self._issue_report['__meta__']['yesterday'] = self.yesterday_iso
-        print(f'{datetime.now().isoformat()} - Metadata added to report')
+        print(f'{datetime.now().isoformat()} - Report ran successfully')
+        return self._issue_report
 
     def get_dates(self, tz):
         today_dt = datetime.now(timezone(tz)).replace(tzinfo=None)
@@ -90,7 +85,7 @@ class GithubReporter():
         index_string.close()
 
     def render_as_json(self):
-        json = dumps(self.issue_report, indent=2, ensure_ascii=False)
+        json = dumps(self.issue_report, indent=2, ensure_ascii=False, cls=ReportJSONEncoder)
         print(f'{datetime.now().isoformat()} - JSON serialized successfully')
         return json
 
@@ -107,7 +102,7 @@ class GithubReporter():
         index = list(filter(lambda e: e['date'] != date, index))
         entry = {
             'date' : date,
-            'meta' : self.meta,
+            'meta' : self._issue_report['__meta__'],
             'run_start' : self.today_iso,
             'html' : f'{sep.join(self.html_path.split(sep)[1:-1])}{sep}', # removes docs/ and index.html
             'json' : sep.join(self.json_path.split(sep)[1:])  # removes docs/

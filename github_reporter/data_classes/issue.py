@@ -10,6 +10,7 @@ class Issue(AbstractDataClass):
         self.date = datetime.fromisoformat(date)
         self.issue = issue
         self.created_at = issue.created_at
+        self.updated_at = issue.updated_at
         self.html_url = issue.html_url
         self.number = issue.number
         self.repository_html_url = issue.repository.html_url
@@ -28,27 +29,27 @@ class Issue(AbstractDataClass):
 
     @property
     def _vals(self):
-        return (self.created_at.isoformat(), self.html_url, self.number,
+        return (self.created_at, self.created_at, self.html_url, self.number,
             self.pull_request_html_url, self.repository_html_url,
             self.repository_name, self.state, self.title, self.user_name,
             self.comments, self.events, self.pr_html_url, self.action)
 
     def keys(self):
-        return ('created_at','html_url','number','pull_request_html_url',
+        return ('created_at','updated_at','html_url','number','pull_request_html_url',
             'repository_html_url','repository_name','state','title','user_name',
             'comments','events','pr_html_url', 'action')
 
     @cached_property
     def comments(self):
         cs = [Comment(c) for c in self.issue.get_comments(since=self.date)]
-        self._comments = [dict(c) for c in cs]
+        self._comments = map(dict, cs)
         return self._comments
 
     @cached_property
     def events(self):
         filtr = lambda e: e.created_at >= self.date and e.event
         es = [Event(e) for e in filter(filtr, self.issue.get_events())]
-        self._events = [dict(e) for e in es]
+        self._events = map(dict, es)
         return self._events
 
     @property

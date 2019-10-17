@@ -5,7 +5,7 @@ class Comment(AbstractDataClass):
         super().__init__()
         self.body = comment.body
         self.html_url = comment.html_url
-        self.updated_at = comment.updated_at.isoformat()
+        self.updated_at = comment.updated_at
         self.user_name = comment.user.name
         if not self.user_name:
             self.user_name = comment.user.login
