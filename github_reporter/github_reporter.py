@@ -18,7 +18,7 @@ class GithubReporter():
         self.yesterday_iso, self.today_iso = self.get_dates(config['timezone'])
         self.secrets = secrets
         self.config = config
-        self.issue_count = None
+        self.meta = None
         # memoized vars
         self._report_path = None
         self._html_path = None
@@ -64,17 +64,16 @@ class GithubReporter():
             org = self.secrets['GITHUB_ORGANIZATION']
             r = IssueReporter(token, org)
             d = self.yesterday_iso
-            self._issue_report, self.issue_count = r.issues_updated_since(d)
-            self._add_dates_to_report()
+            self._issue_report, self.meta = r.issues_updated_since(d)
+            self._add_metadata()
             print(f'{datetime.now().isoformat()} - Report ran successfully')
         return self._issue_report
 
-    def _add_dates_to_report(self):
-        self.issue_report['today'] = self.today_iso
-        self.issue_report['yesterday'] = self.yesterday_iso
-        self.issue_report.move_to_end('yesterday', last=False)
-        self.issue_report.move_to_end('today', last=False)
-        print(f'{datetime.now().isoformat()} - Dates added to report')
+    def _add_metadata(self):
+        self._issue_report['__meta__'] = self.meta
+        self._issue_report['__meta__']['today'] = self.today_iso
+        self._issue_report['__meta__']['yesterday'] = self.yesterday_iso
+        print(f'{datetime.now().isoformat()} - Metadata added to report')
 
     def get_dates(self, tz):
         today_dt = datetime.now(timezone(tz)).replace(tzinfo=None)
@@ -112,7 +111,7 @@ class GithubReporter():
         index = list(filter(lambda e: e['date'] != date, index))
         entry = {
             'date' : date,
-            'issue_count' : self.issue_count,
+            'meta' : self.meta,
             'run_start' : self.today_iso,
             'html' : f'{sep.join(self.html_path.split(sep)[1:-1])}{sep}', # removes docs/ and index.html
             'json' : sep.join(self.json_path.split(sep)[1:])  # removes docs/

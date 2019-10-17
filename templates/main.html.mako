@@ -1,6 +1,5 @@
 <%
-    exclude = ('yesterday', 'today')
-    repos = [(n,i) for n,i in r.items() if n not in exclude]
+    repos = [(n,i) for n,i in r.items() if n != '__meta__']
 %>
 % for name, issues in repos:
     <section class="repo" id="${name}">

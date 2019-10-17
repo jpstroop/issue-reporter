@@ -1,8 +1,8 @@
 <%
-    exclude = ('yesterday', 'today')
-    repos = [k for k in r.keys() if k not in exclude]
+    repos = [k for k in r.keys() if k != '__meta__']
 %>
-<h1 class="bg-dark text-light">PUL GitHub Issues<br /><small class="text-white-70">${r['today'].split('T')[0]}</small></h1>
+<h1 class="bg-dark text-light">PUL GitHub Issues<br />
+  <small class="text-white-70">${r['__meta__']['today'].split('T')[0]}</small></h1>
 <nav class="navbar sticky-top navbar-dark bg-dark">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

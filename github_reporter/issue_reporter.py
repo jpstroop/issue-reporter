@@ -14,9 +14,12 @@ class IssueReporter():
         print(f'{dt.now().isoformat()} - Report started')
         paged_issues = [i for i in self.github.search_issues(query=q)]
         paged_issues.sort(key=lambda i: (i.repository.name, i.updated_at))
-        reports = [dict(IssueReport(i, date)) for i in paged_issues]
-        issue_count = len(reports)
-        return (IssueReporter.group_reports(reports), issue_count)
+        reports = [IssueReport(i, date) for i in paged_issues]
+        stats = IssueReporter.stats(reports)
+        # TODO: we need to stop passing around dicts, and work with objects.
+        # Implement JSONEncoder.
+        reports = list(map(dict, reports))
+        return (IssueReporter.group_reports(reports), stats)
 
     @staticmethod
     def group_reports(report_list, key='repository_name'):
@@ -26,4 +29,12 @@ class IssueReporter():
             issues = list(issues)
             [d.pop(key) for d in issues]
             groups[repo] = issues
+        return groups
+
+    @staticmethod
+    def stats(reports):
+        groups = { 'issue_count' : len(reports) }
+        reports.sort(key=lambda r: r.action)
+        for action, issues in groupby(reports, lambda r: r.action):
+            groups[f'{action}_count'] = len(list(issues))
         return groups
