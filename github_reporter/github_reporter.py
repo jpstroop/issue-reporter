@@ -59,8 +59,7 @@ class GithubReporter():
         token = self.secrets['GITHUB_TOKEN']
         org = self.secrets['GITHUB_ORGANIZATION']
         r = IssueReporter(token, org)
-        d = self.yesterday_iso
-        self._issue_report = r.issues_updated_since(d)
+        self._issue_report = r.issues_updated_since(self.yesterday_iso)
         self._issue_report['__meta__']['today'] = self.today_iso
         self._issue_report['__meta__']['yesterday'] = self.yesterday_iso
         print(f'{datetime.now().isoformat()} - Report ran successfully')

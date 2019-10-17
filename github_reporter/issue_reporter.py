@@ -9,14 +9,12 @@ class IssueReporter():
         self._github_organization = github_organization
         self.github = Github(github_token)
 
-    def issues_updated_since(self, date):
-        # TODO: FOr consistency, let's pass a datetime rather than a string,
-        # and serialize here.
-        q = f'org:{self._github_organization} updated:>={date}'
+    def issues_updated_since(self, iso_date_str):
+        q = f'org:{self._github_organization} updated:>={iso_date_str}'
         print(f'{dt.now().isoformat()} - Report started')
         paged_issues = [i for i in self.github.search_issues(query=q)]
-        issues = [Issue(i, date) for i in paged_issues]
-        # NB issues needs to be a list (as opposed to generator) for when we
+        issues = [Issue(i, iso_date_str) for i in paged_issues]
+        # NB. `issues` needs to be a list (as opposed to generator) for when we
         # sort/group below
         grouped_issues = IssueReporter.group_issues(issues)
         grouped_issues['__meta__'] = IssueReporter.stats(issues)

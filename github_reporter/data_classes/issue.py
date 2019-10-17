@@ -5,9 +5,9 @@ from github_reporter.data_classes.comment import Comment
 from github_reporter.data_classes.event import Event
 
 class Issue(AbstractDataClass):
-    def __init__(self, issue, date):
+    def __init__(self, issue, iso_date_str):
         super().__init__()
-        self.date = datetime.fromisoformat(date)
+        self.date = datetime.fromisoformat(iso_date_str)
         self.issue = issue
         self.created_at = issue.created_at
         self.updated_at = issue.updated_at
@@ -59,7 +59,9 @@ class Issue(AbstractDataClass):
 
     @cached_property
     def action(self):
-        if self.created_at >= self.date:
+        if self.pull_request_html_url:
+            self._action = 'pull_request'
+        elif self.created_at >= self.date:
             self._action = 'created'
         elif self.state == 'closed':
             self._action = 'closed'
