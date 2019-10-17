@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5fda38894b.js" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" type="text/css" href="../../../../css/main.css" />
+    <title>PUL GitHub Issues for 2019-10-16T22:00:00</title>
+  </head>
+
+<body>
+  <div class="container-fluid">
+    <a id="btt-button"></a>
+    
+<h1 class="bg-dark text-light">PUL GitHub Issues<br /><small class="text-white-70">2019-10-16</small></h1>
+<nav class="navbar sticky-top navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Repositories</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar-toggler">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item not-mono">
+        <a class="nav-link" href="../../../../index.html"><i class="fas fa-arrow-left"></i> Back to Report List Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#figgy">pulibrary/figgy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#firestone_locator">pulibrary/firestone_locator</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#orangelight">pulibrary/orangelight</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#plantain">pulibrary/plantain</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#princeton_ansible">pulibrary/princeton_ansible</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pulmap">pulibrary/pulmap</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#requests">pulibrary/requests</a>
+      </li>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    
+    <section class="repo" id="figgy">
+      <h2><a href="https://github.com/pulibrary/figgy">pulibrary/figgy</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="figgy-3283">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3283">#3283</a> Preserve everything except Music Reserves</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2019-08-12</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Eliot Jordan at <a href="https://github.com/pulibrary/figgy/issues/3283#issuecomment-541146770">2019-10-16T03:27:40</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>This ticket proposes to preserve &quot;everything&quot;, but that is a little misleading. A few thoughts...</p>
+
+<ul>
+<li>We should not preserve resource types that are only nested within other resources. Correct?</li>
+<li>The existing preservation logic only preserves resources that are &quot;complete&quot;., however there are a number of resource types without a state property. We will need to change the logic for these. I assume it&#39;s preserve on save when there is no state.</li>
+<li>There are handful of resources that I don&#39;t know if we should preserve or not (see below). </li>
+</ul>
+
+<p>Resource | Preserve | Has State Property
+-- | -- | --
+Collection | Y | Y |
+DateRange | N | N
+EphemeraBox | Y | Y
+EphemeraField | Y | N
+EphemeraFolder | Y | Y
+EphemeraProject | Y | N
+EphemeraTerm | Y | N
+EphemeraVocabularies | Y | N
+Event |   | N
+FileSet |   | N
+MediaResource | Y | Y
+NameWithPlace | N | N
+NestedResource | N | N
+NumismaticAccession | Y | N
+NumismaticArtist | N | N
+NumismaticAttribute | N | N
+NumismaticCitation | N | N
+NumismaticCoin | Y | Y
+NumismaticFind | N | N
+NumismaticFirm | Y | N
+NumismaticIssue | Y | Y
+NumismaticLoan | N | N
+NumismaticMonogram | Y | N
+NumismaticNote | N | N
+NumismaticPerson | Y | N
+NumismaticPlace | Y | N
+NumismaticProvenance | N | N
+NumismaticReference | Y | N
+NumismaticSubject | N | N
+PreservationObject |   | N
+ProxyFileSet |   | N
+RasterResource | Y | Y
+ScannedMap | Y | Y
+ScannedResource | Y | Y
+Template | Y | N
+Tombstone |   | N
+VectorResource | Y | Y
+WorkflowNote | N | N</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-3437">
+        <h3><a href="https://github.com/pulibrary/figgy/pull/3437">#3437</a> Add transliterated title to jsonld title for ephemera folders</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackmastera</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-16</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/figgy/pull/3437">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>head_ref_force_pushed</code> by None at 2019-10-16T20:07:53.</li>
+          <li class="event odd"><code>deployed</code> by Trey Pendragon at 2019-10-16T20:09:38.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="figgy-3436">
+        <h3><a href="https://github.com/pulibrary/figgy/pull/3436">#3436</a> Preserve everything</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Eliot Jordan</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-16</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/figgy/pull/3436">pull request</a>)
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Eliot Jordan at <a href="https://github.com/pulibrary/figgy/pull/3436#issuecomment-542852365">2019-10-16T19:19:42</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Next step is to build the preservation logic for music reserves.</p>
+
+              </dd>
+              <dt>Eliot Jordan at <a href="https://github.com/pulibrary/figgy/pull/3436#issuecomment-542905609">2019-10-16T21:48:01</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>Updated with logic to not preserve Audio Reserves.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>head_ref_force_pushed</code> by Eliot Jordan at 2019-10-16T19:22:15.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="firestone_locator">
+      <h2><a href="https://github.com/pulibrary/firestone_locator">pulibrary/firestone_locator</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="firestone_locator-28">
+        <h3><a href="https://github.com/pulibrary/firestone_locator/pull/28">#28</a> Fixing a bug in the locator</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-16</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/firestone_locator/pull/28">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>referenced</code> by Kevin Reiss at 2019-10-16T15:58:31.</li>
+          <li class="event odd"><code>merged</code> by Kevin Reiss at 2019-10-16T15:58:31.</li>
+          <li class="event even"><code>closed</code> by Kevin Reiss at 2019-10-16T15:58:31.</li>
+          <li class="event odd"><code>head_ref_deleted</code> by Kevin Reiss at 2019-10-16T15:58:35.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="firestone_locator-29">
+        <h3><a href="https://github.com/pulibrary/firestone_locator/pull/29">#29</a> Allowing for the location to be at any index</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-16</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/firestone_locator/pull/29">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>referenced</code> by Kevin Reiss at 2019-10-16T16:41:31.</li>
+          <li class="event odd"><code>merged</code> by Kevin Reiss at 2019-10-16T16:41:31.</li>
+          <li class="event even"><code>closed</code> by Kevin Reiss at 2019-10-16T16:41:31.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="firestone_locator-26">
+        <h3><a href="https://github.com/pulibrary/firestone_locator/issues/26">#26</a> Items at the circulation desk</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-15</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>carolyncole at <a href="https://github.com/pulibrary/firestone_locator/issues/26#issuecomment-542450065">2019-10-15T23:47:25</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Here is another one that is not working: <a href="https://catalog.princeton.edu/catalog?utf8=%E2%9C%93&amp;search_field=all_fields&amp;q=Evicted+%3A+poverty+and+profit+in+the+American+city">https://catalog.princeton.edu/catalog?utf8=✓&amp;search_field=all_fields&amp;q=Evicted+%3A+poverty+and+profit+in+the+American+city</a></p>
+
+<p><a href="https://catalog.princeton.edu/catalog/10926564">https://catalog.princeton.edu/catalog/10926564</a></p>
+
+              </dd>
+              <dt>Kevin Reiss at <a href="https://github.com/pulibrary/firestone_locator/issues/26#issuecomment-542453887">2019-10-16T00:04:54</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>This may be data problem. This view doesn&#39;t work, <a href="https://bibdata.princeton.edu/bibliographic/10926564/items">https://bibdata.princeton.edu/bibliographic/10926564/items</a>. </p>
+
+              </dd>
+              <dt>carolyncole at <a href="https://github.com/pulibrary/firestone_locator/issues/26#issuecomment-542468943">2019-10-16T01:19:27</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>That could be part of the problem, but this one does have items: <a href="https://bibdata.princeton.edu/bibliographic/9573790/items">https://bibdata.princeton.edu/bibliographic/9573790/items</a></p>
+
+<p>I&#39;ll take a look at it tomorrow.</p>
+
+              </dd>
+              <dt>carolyncole at <a href="https://github.com/pulibrary/firestone_locator/issues/26#issuecomment-542874186">2019-10-16T20:18:33</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>Here are two more issues: <a href="https://library.princeton.edu/locator/index.php?loc=resc&amp;id=4830941&amp;embed=true">https://library.princeton.edu/locator/index.php?loc=resc&amp;id=4830941&amp;embed=true</a> &amp; <a href="https://locator-prod.princeton.edu/index.php?loc=resc&amp;id=6095425&amp;embed=true">https://locator-prod.princeton.edu/index.php?loc=resc&amp;id=6095425&amp;embed=true</a></p>
+
+              </dd>
+              <dt>Kevin Reiss at <a href="https://github.com/pulibrary/firestone_locator/issues/26#issuecomment-542900361">2019-10-16T21:31:33</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>This is looking good from my perspective. Okay to close?</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>reopened</code> by None at 2019-10-15T23:44:42.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="orangelight">
+      <h2><a href="https://github.com/pulibrary/orangelight">pulibrary/orangelight</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="orangelight-1873">
+        <h3><a href="https://github.com/pulibrary/orangelight/pull/1873">#1873</a> Update coveralls badge</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackmastera</dd>
+          <dt>Created:</dt>
+          <dd>2019-09-19</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/orangelight/pull/1873">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>referenced</code> by Nikitas Tampakis at 2019-10-16T14:30:38.</li>
+          <li class="event odd"><code>merged</code> by Nikitas Tampakis at 2019-10-16T14:30:38.</li>
+          <li class="event even"><code>closed</code> by Nikitas Tampakis at 2019-10-16T14:30:38.</li>
+          <li class="event odd"><code>head_ref_deleted</code> by Nikitas Tampakis at 2019-10-16T14:30:43.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="plantain">
+      <h2><a href="https://github.com/pulibrary/plantain">pulibrary/plantain</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="plantain-26">
+        <h3><a href="https://github.com/pulibrary/plantain/pull/26">#26</a> Adds PULFA indexing Rake tasks</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-16</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/plantain/pull/26">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>head_ref_force_pushed</code> by James R. Griffin III at 2019-10-16T05:09:44.</li>
+          <li class="event odd"><code>head_ref_force_pushed</code> by James R. Griffin III at 2019-10-16T05:37:19.</li>
+          <li class="event even"><code>head_ref_force_pushed</code> by James R. Griffin III at 2019-10-16T05:53:05.</li>
+          <li class="event odd"><code>referenced</code> by Nikitas Tampakis at 2019-10-16T13:18:42.</li>
+          <li class="event even"><code>merged</code> by Nikitas Tampakis at 2019-10-16T13:18:42.</li>
+          <li class="event odd"><code>closed</code> by Nikitas Tampakis at 2019-10-16T13:18:42.</li>
+          <li class="event even"><code>head_ref_deleted</code> by Nikitas Tampakis at 2019-10-16T13:18:45.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="plantain-28">
+        <h3><a href="https://github.com/pulibrary/plantain/issues/28">#28</a> Deprecate chromedriver-helper and selenium-webdriver in favor of webdrivers.</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-16</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>assigned</code> by Christina Chortaria at 2019-10-16T14:09:25.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="plantain-12">
+        <h3><a href="https://github.com/pulibrary/plantain/issues/12">#12</a> Index PULFA EADs in Staging</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-14</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/plantain/issues/12#issuecomment-542704699">2019-10-16T13:37:13</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>This is going to require that the PULFA EADs be checked out by SVN in <a href="https://github.com/pulibrary/princeton_ansible/blob/master/playbooks/plantain_staging.yml">https://github.com/pulibrary/princeton_ansible/blob/master/playbooks/plantain_staging.yml</a></p>
+
+              </dd>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/plantain/issues/12#issuecomment-542765732">2019-10-16T15:45:16</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>Blocked by <a href="https://github.com/pulibrary/princeton_ansible/pull/933">https://github.com/pulibrary/princeton_ansible/pull/933</a></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+      <div class="issue odd" id="plantain-22">
+        <h3><a href="https://github.com/pulibrary/plantain/issues/22">#22</a> Implement Rake tasks for seeding and indexing PULFA EADs</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-15</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/plantain/issues/22#issuecomment-542765883">2019-10-16T15:45:34</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Closed by #26 </p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>closed</code> by James R. Griffin III at 2019-10-16T15:45:34.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="plantain-17">
+        <h3><a href="https://github.com/pulibrary/plantain/pull/17">#17</a> Update arclight</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-14</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/plantain/pull/17">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>head_ref_deleted</code> by Christina Chortaria at 2019-10-16T16:27:16.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="plantain-13">
+        <h3><a href="https://github.com/pulibrary/plantain/issues/13">#13</a> Setup Staging Box</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-14</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>closed</code> by James R. Griffin III at 2019-10-16T20:10:52.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="plantain-27">
+        <h3><a href="https://github.com/pulibrary/plantain/pull/27">#27</a> 13 capistrano</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Nikitas Tampakis</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-16</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/plantain/pull/27">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>review_requested</code> by James R. Griffin III at 2019-10-16T17:08:32.</li>
+          <li class="event odd"><code>referenced</code> by James R. Griffin III at 2019-10-16T20:10:52.</li>
+          <li class="event even"><code>merged</code> by James R. Griffin III at 2019-10-16T20:10:52.</li>
+          <li class="event odd"><code>closed</code> by James R. Griffin III at 2019-10-16T20:10:52.</li>
+          <li class="event even"><code>head_ref_deleted</code> by James R. Griffin III at 2019-10-16T20:10:55.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="plantain-30">
+        <h3><a href="https://github.com/pulibrary/plantain/pull/30">#30</a> Introduces the Capistrano tasks plantain:link_pulfa and plantain:index_pulfa for linking to the directory containing PULFA EADs and indexing them into Solr</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-16</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/plantain/pull/30">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>head_ref_force_pushed</code> by James R. Griffin III at 2019-10-16T20:12:19.</li>
+          <li class="event odd"><code>ready_for_review</code> by James R. Griffin III at 2019-10-16T20:19:36.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="plantain-29">
+        <h3><a href="https://github.com/pulibrary/plantain/pull/29">#29</a> Circleci coverage</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-16</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/plantain/pull/29">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>head_ref_force_pushed</code> by Christina Chortaria at 2019-10-16T20:03:42.</li>
+          <li class="event odd"><code>head_ref_force_pushed</code> by Christina Chortaria at 2019-10-17T01:21:01.</li>
+          <li class="event even"><code>head_ref_force_pushed</code> by Christina Chortaria at 2019-10-17T01:24:49.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="princeton_ansible">
+      <h2><a href="https://github.com/pulibrary/princeton_ansible">pulibrary/princeton_ansible</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="princeton_ansible-927">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/927">#927</a> 878 bad gateway response</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-15</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/927">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>head_ref_force_pushed</code> by Francis Kayiwa at 2019-10-16T12:32:11.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-931">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/issues/931">#931</a> plantain_staging should use SVN to checkout PULFA EADs into the server environment</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-16</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>labeled</code> by James R. Griffin III at 2019-10-16T13:54:25.</li>
+          <li class="event odd"><code>assigned</code> by James R. Griffin III at 2019-10-16T13:54:26.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-932">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/issues/932">#932</a> Update Ezproxy init Script</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kevin Reiss</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-16</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-929">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/929">#929</a> Plantains config</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-16</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/929">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>review_requested</code> by Francis Kayiwa at 2019-10-16T00:08:29.</li>
+          <li class="event odd"><code>review_requested</code> by Francis Kayiwa at 2019-10-16T00:08:29.</li>
+          <li class="event even"><code>referenced</code> by James R. Griffin III at 2019-10-16T16:08:23.</li>
+          <li class="event odd"><code>merged</code> by James R. Griffin III at 2019-10-16T16:08:23.</li>
+          <li class="event even"><code>closed</code> by James R. Griffin III at 2019-10-16T16:08:23.</li>
+          <li class="event odd"><code>head_ref_deleted</code> by James R. Griffin III at 2019-10-16T16:08:27.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-933">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/933">#933</a> Implements a pulibrary.subversion-pulfa Role for plantain_staging</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-16</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/933">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>head_ref_force_pushed</code> by James R. Griffin III at 2019-10-16T16:13:58.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-930">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/issues/930">#930</a> plantain_staging Playbook should install a local version of Solr 8.2</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-16</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/princeton_ansible/issues/930#issuecomment-542816584">2019-10-16T17:49:34</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p><a href="https://github.com/projectblacklight/arclight/pull/565">https://github.com/projectblacklight/arclight/pull/565</a> is where the change was introduced requiring this.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>labeled</code> by James R. Griffin III at 2019-10-16T13:53:28.</li>
+          <li class="event odd"><code>assigned</code> by James R. Griffin III at 2019-10-16T19:24:38.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-898">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/898">#898</a> initial molecularization [WIP]</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-04</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/898">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+          <li class="event even"><code>head_ref_force_pushed</code> by Francis Kayiwa at 2019-10-16T12:33:24.</li>
+          <li class="event odd"><code>head_ref_force_pushed</code> by Francis Kayiwa at 2019-10-16T19:39:45.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="pulmap">
+      <h2><a href="https://github.com/pulibrary/pulmap">pulibrary/pulmap</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="pulmap-805">
+        <h3><a href="https://github.com/pulibrary/pulmap/issues/805">#805</a> Revert date range facet to original format</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Eliot Jordan</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-16</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="requests">
+      <h2><a href="https://github.com/pulibrary/requests">pulibrary/requests</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="requests-421">
+        <h3><a href="https://github.com/pulibrary/requests/issues/421">#421</a> 3 /24 hour Reserves Should not have a Request button</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-16</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Kevin Reiss at <a href="https://github.com/pulibrary/requests/issues/421#issuecomment-542908200">2019-10-16T22:18:12</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>If you look at the request form for the first bib ID:</p>
+
+<p><a href="https://catalog.princeton.edu/requests/1782308?mfhd=4056129&amp;source=pulsearch">https://catalog.princeton.edu/requests/1782308?mfhd=4056129&amp;source=pulsearch</a></p>
+
+<p>You&#39;ll see the 3-hour reserve copies are not requestable on that form. The issue lies somewhere in the OL codebase that decides whether or not to display the request button. The permanent location for these is &quot;res&quot; which is an offsite annex location where the button should be displayed so I suspect the OL code is missing something and not considering the temporary location assignment in deciding whether or not to display the button. If you look at the &quot;data-requestable&quot; attribute in the element with the selector <code>location-services.service-conditional</code> that decides if a button is shown in when the page loads. An ajax call in the availability.js script is supposed to look at the bibdata availability route results and decide if any of the default button behaviors need to be overridden based on a item&#39;s status or temporaray location assignment. Likely something is going wrong here: <a href="https://github.com/pulibrary/orangelight/blob/master/app/assets/javascripts/availability.js.coffee.erb#L120">https://github.com/pulibrary/orangelight/blob/master/app/assets/javascripts/availability.js.coffee.erb#L120</a>. </p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../../../../js/report.js"></script>
+  </div>
+</body>
+
+</html>

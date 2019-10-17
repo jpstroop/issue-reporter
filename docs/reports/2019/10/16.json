@@ -1,0 +1,698 @@
+{
+  "today": "2019-10-16T22:00:00",
+  "yesterday": "2019-10-15T22:00:00",
+  "figgy": [
+    {
+      "created_at": "2019-08-12T17:16:19",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3283",
+      "number": 3283,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "state": "open",
+      "title": "Preserve everything except Music Reserves",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Eliot Jordan",
+          "updated_at": "2019-10-16T03:27:40",
+          "html_url": "https://github.com/pulibrary/figgy/issues/3283#issuecomment-541146770",
+          "body": "This ticket proposes to preserve \"everything\", but that is a little misleading. A few thoughts...\r\n\r\n- We should not preserve resource types that are only nested within other resources. Correct?\r\n- The existing preservation logic only preserves resources that are \"complete\"., however there are a number of resource types without a state property. We will need to change the logic for these. I assume it's preserve on save when there is no state.\r\n- There are handful of resources that I don't know if we should preserve or not (see below). \r\n\r\nResource | Preserve | Has State Property\r\n-- | -- | --\r\nCollection | Y | Y |\r\nDateRange | N | N\r\nEphemeraBox | Y | Y\r\nEphemeraField | Y | N\r\nEphemeraFolder | Y | Y\r\nEphemeraProject | Y | N\r\nEphemeraTerm | Y | N\r\nEphemeraVocabularies | Y | N\r\nEvent |   | N\r\nFileSet |   | N\r\nMediaResource | Y | Y\r\nNameWithPlace | N | N\r\nNestedResource | N | N\r\nNumismaticAccession | Y | N\r\nNumismaticArtist | N | N\r\nNumismaticAttribute | N | N\r\nNumismaticCitation | N | N\r\nNumismaticCoin | Y | Y\r\nNumismaticFind | N | N\r\nNumismaticFirm | Y | N\r\nNumismaticIssue | Y | Y\r\nNumismaticLoan | N | N\r\nNumismaticMonogram | Y | N\r\nNumismaticNote | N | N\r\nNumismaticPerson | Y | N\r\nNumismaticPlace | Y | N\r\nNumismaticProvenance | N | N\r\nNumismaticReference | Y | N\r\nNumismaticSubject | N | N\r\nPreservationObject |   | N\r\nProxyFileSet |   | N\r\nRasterResource | Y | Y\r\nScannedMap | Y | Y\r\nScannedResource | Y | Y\r\nTemplate | Y | N\r\nTombstone |   | N\r\nVectorResource | Y | Y\r\nWorkflowNote | N | N"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null
+    },
+    {
+      "created_at": "2019-10-16T19:56:38",
+      "html_url": "https://github.com/pulibrary/figgy/pull/3437",
+      "number": 3437,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/3437",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "state": "open",
+      "title": "Add transliterated title to jsonld title for ephemera folders",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2019-10-16T20:07:53",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2019-10-16T20:09:38",
+          "type": "deployed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/3437"
+    },
+    {
+      "created_at": "2019-10-16T19:19:02",
+      "html_url": "https://github.com/pulibrary/figgy/pull/3436",
+      "number": 3436,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/3436",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "state": "open",
+      "title": "Preserve everything",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Eliot Jordan",
+          "updated_at": "2019-10-16T19:19:42",
+          "html_url": "https://github.com/pulibrary/figgy/pull/3436#issuecomment-542852365",
+          "body": "Next step is to build the preservation logic for music reserves."
+        },
+        {
+          "user_name": "Eliot Jordan",
+          "updated_at": "2019-10-16T21:48:01",
+          "html_url": "https://github.com/pulibrary/figgy/pull/3436#issuecomment-542905609",
+          "body": "Updated with logic to not preserve Audio Reserves."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2019-10-16T19:22:15",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/3436"
+    }
+  ],
+  "firestone_locator": [
+    {
+      "created_at": "2019-10-16T15:33:17",
+      "html_url": "https://github.com/pulibrary/firestone_locator/pull/28",
+      "number": 28,
+      "pull_request_html_url": "https://github.com/pulibrary/firestone_locator/pull/28",
+      "repository_html_url": "https://github.com/pulibrary/firestone_locator",
+      "state": "closed",
+      "title": "Fixing a bug in the locator",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2019-10-16T15:58:31",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2019-10-16T15:58:31",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2019-10-16T15:58:31",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2019-10-16T15:58:35",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/firestone_locator/pull/28"
+    },
+    {
+      "created_at": "2019-10-16T16:39:16",
+      "html_url": "https://github.com/pulibrary/firestone_locator/pull/29",
+      "number": 29,
+      "pull_request_html_url": "https://github.com/pulibrary/firestone_locator/pull/29",
+      "repository_html_url": "https://github.com/pulibrary/firestone_locator",
+      "state": "closed",
+      "title": "Allowing for the location to be at any index",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2019-10-16T16:41:31",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2019-10-16T16:41:31",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2019-10-16T16:41:31",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/firestone_locator/pull/29"
+    },
+    {
+      "created_at": "2019-10-15T18:50:23",
+      "html_url": "https://github.com/pulibrary/firestone_locator/issues/26",
+      "number": 26,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/firestone_locator",
+      "state": "open",
+      "title": "Items at the circulation desk",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "carolyncole",
+          "updated_at": "2019-10-15T23:47:25",
+          "html_url": "https://github.com/pulibrary/firestone_locator/issues/26#issuecomment-542450065",
+          "body": "Here is another one that is not working: https://catalog.princeton.edu/catalog?utf8=✓&search_field=all_fields&q=Evicted+%3A+poverty+and+profit+in+the+American+city\r\n\r\nhttps://catalog.princeton.edu/catalog/10926564"
+        },
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2019-10-16T00:04:54",
+          "html_url": "https://github.com/pulibrary/firestone_locator/issues/26#issuecomment-542453887",
+          "body": "This may be data problem. This view doesn't work, https://bibdata.princeton.edu/bibliographic/10926564/items. "
+        },
+        {
+          "user_name": "carolyncole",
+          "updated_at": "2019-10-16T01:19:27",
+          "html_url": "https://github.com/pulibrary/firestone_locator/issues/26#issuecomment-542468943",
+          "body": "That could be part of the problem, but this one does have items: https://bibdata.princeton.edu/bibliographic/9573790/items\r\n\r\nI'll take a look at it tomorrow."
+        },
+        {
+          "user_name": "carolyncole",
+          "updated_at": "2019-10-16T20:18:33",
+          "html_url": "https://github.com/pulibrary/firestone_locator/issues/26#issuecomment-542874186",
+          "body": "Here are two more issues: https://library.princeton.edu/locator/index.php?loc=resc&id=4830941&embed=true & https://locator-prod.princeton.edu/index.php?loc=resc&id=6095425&embed=true"
+        },
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2019-10-16T21:31:33",
+          "html_url": "https://github.com/pulibrary/firestone_locator/issues/26#issuecomment-542900361",
+          "body": "This is looking good from my perspective. Okay to close?"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2019-10-15T23:44:42",
+          "type": "reopened"
+        }
+      ],
+      "pr_html_url": null
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2019-09-19T18:27:34",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/1873",
+      "number": 1873,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/1873",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "state": "closed",
+      "title": "Update coveralls badge",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Nikitas Tampakis",
+          "created_at": "2019-10-16T14:30:38",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Nikitas Tampakis",
+          "created_at": "2019-10-16T14:30:38",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Nikitas Tampakis",
+          "created_at": "2019-10-16T14:30:38",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Nikitas Tampakis",
+          "created_at": "2019-10-16T14:30:43",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/1873"
+    }
+  ],
+  "plantain": [
+    {
+      "created_at": "2019-10-16T04:40:58",
+      "html_url": "https://github.com/pulibrary/plantain/pull/26",
+      "number": 26,
+      "pull_request_html_url": "https://github.com/pulibrary/plantain/pull/26",
+      "repository_html_url": "https://github.com/pulibrary/plantain",
+      "state": "closed",
+      "title": "Adds PULFA indexing Rake tasks",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T05:09:44",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T05:37:19",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T05:53:05",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Nikitas Tampakis",
+          "created_at": "2019-10-16T13:18:42",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Nikitas Tampakis",
+          "created_at": "2019-10-16T13:18:42",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Nikitas Tampakis",
+          "created_at": "2019-10-16T13:18:42",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Nikitas Tampakis",
+          "created_at": "2019-10-16T13:18:45",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/plantain/pull/26"
+    },
+    {
+      "created_at": "2019-10-16T14:09:08",
+      "html_url": "https://github.com/pulibrary/plantain/issues/28",
+      "number": 28,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/plantain",
+      "state": "open",
+      "title": "Deprecate chromedriver-helper and selenium-webdriver in favor of webdrivers.",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2019-10-16T14:09:25",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null
+    },
+    {
+      "created_at": "2019-10-14T18:04:34",
+      "html_url": "https://github.com/pulibrary/plantain/issues/12",
+      "number": 12,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/plantain",
+      "state": "open",
+      "title": "Index PULFA EADs in Staging",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2019-10-16T13:37:13",
+          "html_url": "https://github.com/pulibrary/plantain/issues/12#issuecomment-542704699",
+          "body": "This is going to require that the PULFA EADs be checked out by SVN in https://github.com/pulibrary/princeton_ansible/blob/master/playbooks/plantain_staging.yml"
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2019-10-16T15:45:16",
+          "html_url": "https://github.com/pulibrary/plantain/issues/12#issuecomment-542765732",
+          "body": "Blocked by https://github.com/pulibrary/princeton_ansible/pull/933"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null
+    },
+    {
+      "created_at": "2019-10-15T15:23:44",
+      "html_url": "https://github.com/pulibrary/plantain/issues/22",
+      "number": 22,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/plantain",
+      "state": "closed",
+      "title": "Implement Rake tasks for seeding and indexing PULFA EADs",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2019-10-16T15:45:34",
+          "html_url": "https://github.com/pulibrary/plantain/issues/22#issuecomment-542765883",
+          "body": "Closed by #26 "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T15:45:34",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null
+    },
+    {
+      "created_at": "2019-10-14T20:17:11",
+      "html_url": "https://github.com/pulibrary/plantain/pull/17",
+      "number": 17,
+      "pull_request_html_url": "https://github.com/pulibrary/plantain/pull/17",
+      "repository_html_url": "https://github.com/pulibrary/plantain",
+      "state": "closed",
+      "title": "Update arclight",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2019-10-16T16:27:16",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/plantain/pull/17"
+    },
+    {
+      "created_at": "2019-10-14T18:05:08",
+      "html_url": "https://github.com/pulibrary/plantain/issues/13",
+      "number": 13,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/plantain",
+      "state": "closed",
+      "title": "Setup Staging Box",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T20:10:52",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null
+    },
+    {
+      "created_at": "2019-10-16T13:32:43",
+      "html_url": "https://github.com/pulibrary/plantain/pull/27",
+      "number": 27,
+      "pull_request_html_url": "https://github.com/pulibrary/plantain/pull/27",
+      "repository_html_url": "https://github.com/pulibrary/plantain",
+      "state": "closed",
+      "title": "13 capistrano",
+      "user_name": "Nikitas Tampakis",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T17:08:32",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T20:10:52",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T20:10:52",
+          "type": "merged"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T20:10:52",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T20:10:55",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/plantain/pull/27"
+    },
+    {
+      "created_at": "2019-10-16T19:21:12",
+      "html_url": "https://github.com/pulibrary/plantain/pull/30",
+      "number": 30,
+      "pull_request_html_url": "https://github.com/pulibrary/plantain/pull/30",
+      "repository_html_url": "https://github.com/pulibrary/plantain",
+      "state": "open",
+      "title": "Introduces the Capistrano tasks plantain:link_pulfa and plantain:index_pulfa for linking to the directory containing PULFA EADs and indexing them into Solr",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T20:12:19",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T20:19:36",
+          "type": "ready_for_review"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/plantain/pull/30"
+    },
+    {
+      "created_at": "2019-10-16T18:23:21",
+      "html_url": "https://github.com/pulibrary/plantain/pull/29",
+      "number": 29,
+      "pull_request_html_url": "https://github.com/pulibrary/plantain/pull/29",
+      "repository_html_url": "https://github.com/pulibrary/plantain",
+      "state": "open",
+      "title": "Circleci coverage",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2019-10-16T20:03:42",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2019-10-17T01:21:01",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2019-10-17T01:24:49",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/plantain/pull/29"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2019-10-15T19:33:10",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/927",
+      "number": 927,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/927",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "state": "open",
+      "title": "878 bad gateway response",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2019-10-16T12:32:11",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/927"
+    },
+    {
+      "created_at": "2019-10-16T13:54:25",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/931",
+      "number": 931,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "state": "open",
+      "title": "plantain_staging should use SVN to checkout PULFA EADs into the server environment",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T13:54:25",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T13:54:26",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null
+    },
+    {
+      "created_at": "2019-10-16T15:01:38",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/932",
+      "number": 932,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "state": "open",
+      "title": "Update Ezproxy init Script",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null
+    },
+    {
+      "created_at": "2019-10-16T00:08:29",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/929",
+      "number": 929,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/929",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "state": "closed",
+      "title": "Plantains config",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2019-10-16T00:08:29",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2019-10-16T00:08:29",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T16:08:23",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T16:08:23",
+          "type": "merged"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T16:08:23",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T16:08:27",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/929"
+    },
+    {
+      "created_at": "2019-10-16T15:44:02",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/933",
+      "number": 933,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/933",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "state": "open",
+      "title": "Implements a pulibrary.subversion-pulfa Role for plantain_staging",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T16:13:58",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/933"
+    },
+    {
+      "created_at": "2019-10-16T13:53:28",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/930",
+      "number": 930,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "state": "open",
+      "title": "plantain_staging Playbook should install a local version of Solr 8.2",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2019-10-16T17:49:34",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/930#issuecomment-542816584",
+          "body": "https://github.com/projectblacklight/arclight/pull/565 is where the change was introduced requiring this."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T13:53:28",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-10-16T19:24:38",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null
+    },
+    {
+      "created_at": "2019-10-04T12:07:25",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/898",
+      "number": 898,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/898",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "state": "open",
+      "title": "initial molecularization [WIP]",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2019-10-16T12:33:24",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2019-10-16T19:39:45",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/898"
+    }
+  ],
+  "pulmap": [
+    {
+      "created_at": "2019-10-16T18:55:00",
+      "html_url": "https://github.com/pulibrary/pulmap/issues/805",
+      "number": 805,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulmap",
+      "state": "open",
+      "title": "Revert date range facet to original format",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null
+    }
+  ],
+  "requests": [
+    {
+      "created_at": "2019-10-16T20:30:20",
+      "html_url": "https://github.com/pulibrary/requests/issues/421",
+      "number": 421,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "state": "open",
+      "title": "3 /24 hour Reserves Should not have a Request button",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2019-10-16T22:18:12",
+          "html_url": "https://github.com/pulibrary/requests/issues/421#issuecomment-542908200",
+          "body": "If you look at the request form for the first bib ID:\r\n\r\nhttps://catalog.princeton.edu/requests/1782308?mfhd=4056129&source=pulsearch\r\n\r\nYou'll see the 3-hour reserve copies are not requestable on that form. The issue lies somewhere in the OL codebase that decides whether or not to display the request button. The permanent location for these is \"res\" which is an offsite annex location where the button should be displayed so I suspect the OL code is missing something and not considering the temporary location assignment in deciding whether or not to display the button. If you look at the \"data-requestable\" attribute in the element with the selector ```location-services.service-conditional``` that decides if a button is shown in when the page loads. An ajax call in the availability.js script is supposed to look at the bibdata availability route results and decide if any of the default button behaviors need to be overridden based on a item's status or temporaray location assignment. Likely something is going wrong here: https://github.com/pulibrary/orangelight/blob/master/app/assets/javascripts/availability.js.coffee.erb#L120. "
+        }
+      ],
+      "events": [],
+      "pr_html_url": null
+    }
+  ]
+}
