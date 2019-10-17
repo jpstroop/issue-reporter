@@ -1,3 +1,4 @@
+from cached_property import cached_property
 from contextlib import contextmanager
 from datetime import datetime, timedelta
 from github_reporter.github_committer import GithubCommitter
@@ -26,47 +27,42 @@ class GithubReporter():
         self._index_json_path = None
         self._issue_report = None
 
-    @property
+    @cached_property
     def report_path(self):
         # returns a str representing the path where we'll ultimately want this
         # in the repo, without /index.html or .json, i.e.
         # docs/reports/YYYY/MM/DD
-        if self._report_path is None:
-            ymd = self.today_iso.split("T")[0].split('-')
-            self._report_path = join('docs', 'reports', *ymd)
+        ymd = self.today_iso.split("T")[0].split('-')
+        self._report_path = join('docs', 'reports', *ymd)
         return self._report_path
 
-    @property
+    @cached_property
     def index_json_path(self):
-        if self._index_json_path is None:
-            self._index_json_path = join('docs', 'index.json')
-            print(f'{datetime.now().isoformat()} - Index JSON path: {self._index_json_path}')
+        self._index_json_path = join('docs', 'index.json')
+        print(f'{datetime.now().isoformat()} - Index JSON path: {self._index_json_path}')
         return self._index_json_path
 
-    @property
+    @cached_property
     def html_path(self):
-        if self._html_path is None:
-            self._html_path = join(self.report_path, 'index.html')
-            print(f'{datetime.now().isoformat()} - HTML path: {self._html_path}')
+        self._html_path = join(self.report_path, 'index.html')
+        print(f'{datetime.now().isoformat()} - HTML path: {self._html_path}')
         return self._html_path
 
-    @property
+    @cached_property
     def json_path(self):
-        if self._json_path is None:
-            self._json_path = f'{self.report_path}.json'
-            print(f'{datetime.now().isoformat()} - JSON path: {self._json_path}')
+        self._json_path = f'{self.report_path}.json'
+        print(f'{datetime.now().isoformat()} - JSON path: {self._json_path}')
         return self._json_path
 
-    @property
+    @cached_property
     def issue_report(self):
-        if self._issue_report is None:
-            token = self.secrets['GITHUB_TOKEN']
-            org = self.secrets['GITHUB_ORGANIZATION']
-            r = IssueReporter(token, org)
-            d = self.yesterday_iso
-            self._issue_report, self.meta = r.issues_updated_since(d)
-            self._add_metadata()
-            print(f'{datetime.now().isoformat()} - Report ran successfully')
+        token = self.secrets['GITHUB_TOKEN']
+        org = self.secrets['GITHUB_ORGANIZATION']
+        r = IssueReporter(token, org)
+        d = self.yesterday_iso
+        self._issue_report, self.meta = r.issues_updated_since(d)
+        self._add_metadata()
+        print(f'{datetime.now().isoformat()} - Report ran successfully')
         return self._issue_report
 
     def _add_metadata(self):

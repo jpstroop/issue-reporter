@@ -1,3 +1,4 @@
+from cached_property import cached_property
 from datetime import datetime
 from github_reporter import AbstractDataClass
 from github_reporter.comment import Comment
@@ -37,19 +38,17 @@ class IssueReport(AbstractDataClass):
             'repository_html_url','repository_name','state','title','user_name',
             'comments','events','pr_html_url', 'action')
 
-    @property
+    @cached_property
     def comments(self):
-        if self._comments is None:
-            cs = [Comment(c) for c in self.issue.get_comments(since=self.date)]
-            self._comments = [dict(c) for c in cs]
+        cs = [Comment(c) for c in self.issue.get_comments(since=self.date)]
+        self._comments = [dict(c) for c in cs]
         return self._comments
 
-    @property
+    @cached_property
     def events(self):
-        if self._events is None:
-            filtr = lambda e: e.created_at >= self.date and e.event
-            es = [Event(e) for e in filter(filtr, self.issue.get_events())]
-            self._events = [dict(e) for e in es]
+        filtr = lambda e: e.created_at >= self.date and e.event
+        es = [Event(e) for e in filter(filtr, self.issue.get_events())]
+        self._events = [dict(e) for e in es]
         return self._events
 
     @property
@@ -57,13 +56,12 @@ class IssueReport(AbstractDataClass):
         if self.issue.pull_request:
             return self.issue.pull_request.html_url
 
-    @property
+    @cached_property
     def action(self):
-        if self._action is None:
-            if self.created_at >= self.date:
-                self._action = 'created'
-            elif self.state == 'closed':
-                self._action = 'closed'
-            else:
-                self._action = 'updated'
+        if self.created_at >= self.date:
+            self._action = 'created'
+        elif self.state == 'closed':
+            self._action = 'closed'
+        else:
+            self._action = 'updated'
         return self._action
