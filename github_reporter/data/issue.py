@@ -1,8 +1,8 @@
 from cached_property import cached_property
 from datetime import datetime
-from github_reporter.data_classes.anstract_data_class import AbstractDataClass
-from github_reporter.data_classes.comment import Comment
-from github_reporter.data_classes.event import Event
+from github_reporter.data.abstract_data_class import AbstractDataClass
+from github_reporter.data.comment import Comment
+from github_reporter.data.event import Event
 
 class Issue(AbstractDataClass):
     def __init__(self, issue, iso_date_str):

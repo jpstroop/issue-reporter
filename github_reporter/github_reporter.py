@@ -1,10 +1,8 @@
 from cached_property import cached_property
 from contextlib import contextmanager
 from datetime import datetime, timedelta
-from github_reporter.data_classes import ReportJSONEncoder
+from github_reporter.data.issue_report import IssueReport
 from github_reporter.github_committer import GithubCommitter
-from github_reporter.html_report_renderer import HTMLReportRenderer
-from github_reporter.issue_reporter import IssueReporter
 from io import StringIO
 from json import dumps
 from os import sep
@@ -21,48 +19,14 @@ class GithubReporter():
         self.secrets = secrets
         self.config = config
         # memoized vars
-        self._report_path = None
-        self._html_path = None
-        self._json_path = None
         self._index_json_path = None
         self._issue_report = None
-
-    @cached_property
-    def report_path(self):
-        # returns a str representing the path where we'll ultimately want this
-        # in the repo, without /index.html or .json, i.e.
-        # docs/reports/YYYY/MM/DD
-        ymd = self.today_iso.split("T")[0].split('-')
-        self._report_path = join('docs', 'reports', *ymd)
-        return self._report_path
-
-    @cached_property
-    def index_json_path(self):
-        self._index_json_path = join('docs', 'index.json')
-        print(f'{datetime.now().isoformat()} - Index JSON path: {self._index_json_path}')
-        return self._index_json_path
-
-    @cached_property
-    def html_path(self):
-        self._html_path = join(self.report_path, 'index.html')
-        print(f'{datetime.now().isoformat()} - HTML path: {self._html_path}')
-        return self._html_path
-
-    @cached_property
-    def json_path(self):
-        self._json_path = f'{self.report_path}.json'
-        print(f'{datetime.now().isoformat()} - JSON path: {self._json_path}')
-        return self._json_path
 
     @cached_property
     def issue_report(self):
         token = self.secrets['GITHUB_TOKEN']
         org = self.secrets['GITHUB_ORGANIZATION']
-        r = IssueReporter(token, org)
-        self._issue_report = r.issues_updated_since(self.yesterday_iso)
-        self._issue_report['__meta__']['today'] = self.today_iso
-        self._issue_report['__meta__']['yesterday'] = self.yesterday_iso
-        print(f'{datetime.now().isoformat()} - Report ran successfully')
+        self._issue_report = IssueReport(token, org, self.yesterday_iso, self.today_iso)
         return self._issue_report
 
     def get_dates(self, tz):
@@ -75,25 +39,19 @@ class GithubReporter():
 
     @contextmanager
     def report_strings(self):
-        json_string = StringIO(self.render_as_json())
-        html_string = StringIO(self.render_as_html())
+        json_string = StringIO(self.issue_report.as_json())
+        html_string = StringIO(self.issue_report.as_html())
         index_string = StringIO(self.updated_index())
         yield json_string, html_string, index_string
         json_string.close()
         html_string.close()
         index_string.close()
 
-    def render_as_json(self):
-        json = dumps(self.issue_report, indent=2, ensure_ascii=False, cls=ReportJSONEncoder)
-        print(f'{datetime.now().isoformat()} - JSON serialized successfully')
-        return json
-
-    def render_as_html(self):
-        renderer = HTMLReportRenderer()
-        template = 'issue_report_page.html.mako'
-        html = renderer.render(template, r=self.issue_report)
-        print(f'{datetime.now().isoformat()} - HTML serialized successfully')
-        return html
+    @cached_property
+    def index_json_path(self):
+        self._index_json_path = join('docs', 'index.json')
+        print(f'{datetime.now().isoformat()} - Index JSON path: {self._index_json_path}')
+        return self._index_json_path
 
     def updated_index(self):
         index = self.get_current_index()
@@ -101,10 +59,10 @@ class GithubReporter():
         index = list(filter(lambda e: e['date'] != date, index))
         entry = {
             'date' : date,
-            'meta' : self._issue_report['__meta__'],
+            'meta' : self.issue_report.grouped_issues['__meta__'],
             'run_start' : self.today_iso,
-            'html' : f'{sep.join(self.html_path.split(sep)[1:-1])}{sep}', # removes docs/ and index.html
-            'json' : sep.join(self.json_path.split(sep)[1:])  # removes docs/
+            'html' : f'{sep.join(self.issue_report.html_path.split(sep)[1:-1])}{sep}', # removes docs/ and index.html
+            'json' : sep.join(self.issue_report.json_path.split(sep)[1:])  # removes docs/
         }
         index.insert(0, entry)
         return dumps(index, indent=2, ensure_ascii=False)
@@ -131,8 +89,8 @@ class GithubReporter():
                 message = f'[automated commit] reports for {date}'
                 print(f'{datetime.now().isoformat()} - Committing {message}')
                 path_data_pairs = (
-                    (self.json_path, json_str),
-                    (self.html_path, html_str),
+                    (self.issue_report.json_path, json_str),
+                    (self.issue_report.html_path, html_str),
                     (self.index_json_path, index_str)
                 )
                 branch = self.config['branch']

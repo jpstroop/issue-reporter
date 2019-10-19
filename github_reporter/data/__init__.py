@@ -1,7 +1,7 @@
 from datetime import datetime
-from github_reporter.data_classes.comment import Comment
-from github_reporter.data_classes.event import Event
-from github_reporter.data_classes.issue import Issue
+from github_reporter.data.comment import Comment
+from github_reporter.data.event import Event
+from github_reporter.data.issue import Issue
 from json import JSONEncoder
 
 class ReportJSONEncoder(JSONEncoder):
