@@ -43,14 +43,14 @@ class Issue(AbstractDataClass):
     def comments(self):
         cs = [Comment(c) for c in self.issue.get_comments(since=self.date)]
         self._comments = map(dict, cs)
-        return self._comments
+        return list(self._comments)
 
     @cached_property
     def events(self):
         filtr = lambda e: e.created_at >= self.date and e.event
         es = [Event(e) for e in filter(filtr, self.issue.get_events())]
         self._events = map(dict, es)
-        return self._events
+        return list(self._events)
 
     @property
     def pull_request_html_url(self):
