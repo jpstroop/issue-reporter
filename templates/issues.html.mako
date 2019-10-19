@@ -6,7 +6,7 @@
           <dt>Creator:</dt>
           <dd>${i['user_name']}</dd>
           <dt>Created:</dt>
-          <dd>${str(i['created_at'].date())}</dd>
+          <dd>${i['created_at']}</dd>
           <dt>Status:</dt>
           <dd>${str.capitalize(i['state']) }
       % if i['pr_html_url']:
