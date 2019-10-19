@@ -14,8 +14,6 @@ class IssueReporter():
         print(f'{dt.now().isoformat()} - Report started')
         paged_issues = [i for i in self.github.search_issues(query=q)]
         issues = [Issue(i, iso_date_str) for i in paged_issues]
-        # NB. `issues` needs to be a list (as opposed to generator) for when we
-        # sort/group below
         grouped_issues = IssueReporter.group_issues(issues)
         grouped_issues['__meta__'] = IssueReporter.stats(issues)
         return grouped_issues #OrderedDict

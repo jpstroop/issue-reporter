@@ -59,8 +59,10 @@ class Issue(AbstractDataClass):
 
     @cached_property
     def action(self):
-        if self.pull_request_html_url:
-            self._action = 'pull_request'
+        if self.pull_request_html_url and self.state == 'closed':
+            self._action = 'pull_request_closed'
+        elif self.pull_request_html_url and self.state == 'open':
+            self._action = 'pull_request_open'
         elif self.created_at >= self.date:
             self._action = 'created'
         elif self.state == 'closed':
