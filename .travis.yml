@@ -1,0 +1,18 @@
+dist: bionic
+language: python
+python:
+  - 3.7
+install:
+  - pipenv install --dev
+script:
+  - pipenv run pytest
+after_success:
+  - coveralls
+env:
+  - PIPENV_VERBOSITY=-1
+notifications:
+  email:
+    recipients: jpstroop@gmail.com
+    on_failure: always
+    template:
+      - "%{repository}//%{branch}@%{commit} by %{author}: %{message} - %{build_url}"
