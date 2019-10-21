@@ -15,5 +15,5 @@ class AbstractDataClass(ABC):
         return self.__asdict
 
     @abstractproperty
-    def _vals(self):
+    def _vals(self): # pragma: no cover
         return

@@ -1,10 +1,40 @@
 # GitHub Reporter
 
-A [Google Cloud Function](https://cloud.google.com/functions/) for reporting GitHub activity on a regular basis
+A [Google Cloud Function](https://cloud.google.com/functions/) for reporting GitHub activity on a regular basis.
+
+[![Build Status](https://travis-ci.org/jpstroop/issue-reporter.svg?branch=master)](https://travis-ci.org/jpstroop/issue-reporter)
+[![Requirements Status](https://requires.io/github/jpstroop/issue-reporter/requirements.svg?branch=tests)](https://requires.io/github/jpstroop/issue-reporter/requirements/?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/jpstroop/issue-reporter/badge.svg?branch=master)](https://coveralls.io/github/jpstroop/issue-reporter?branch=master)
+[![Python 3.7](https://img.shields.io/badge/python-3.7-yellow.svg)](https://img.shields.io/badge/python-3.7-yellow.svg)
+[![License: Simplified BSD](https://img.shields.io/badge/license-Simplified%20BSD-blue.svg)](https://github.com/jpstroop/issue-reporter/blob/master/LICENSE)
 
 ## Dependencies
 
-Function Dependencies are managed in `requirements.txt` because [that's what Google wants](https://cloud.google.com/functions/docs/writing/specifying-dependencies-python). [`pipenv`](https://github.com/pypa/pipenv) is used for development/debugging. Generally, you can just worry about tracking dependencies in `requirements.txt`, and calling `pipenv install -r requirements.txt` to update and keep things in sync. However, if you need to remove a dependency, it must be manually removed from both `requirements.txt` and `Pipfile`.
+[`pipenv`](https://github.com/pypa/pipenv) is used for development/debugging.
+
+To add a dependency (add `--dev` if necessary):
+```
+$ pipenv install <my_dep>
+```
+To update all dependencies:
+```
+$ pipenv update --outdated
+```
+After removing a dependency, you can remove it from the enviroment with:
+```
+$ pipenv clean
+```
+We need a `requirements.txt` because [that's what Google wants](https://cloud.google.com/functions/docs/writing/specifying-dependencies-python). Generate / keep it up to date with:
+```
+$ pipenv lock -r > requirements.txt
+```
+
+## Running tests
+
+Make sure you have development dependencies installed (`pipenv install --dev`) and then:
+```
+$ pipenv run py.test
+```
 
 ## Secrets
 
@@ -38,7 +68,7 @@ https://gist.github.com/jpstroop/6ed0c98f6a960f69f8142b56064cdb84
 
 ...isn't too pretty. To work on it, start a server with:
 
-```bash
+```
 $ pipenv run python -m http.server
 ```
 and visit http://localhost:8000/docs/
