@@ -4,6 +4,7 @@ from github_reporter.data.abstract_data_class import AbstractDataClass
 from github_reporter.data.comment import Comment
 from github_reporter.data.event import Event
 
+
 class Issue(AbstractDataClass):
     def __init__(self, issue, iso_date_str):
         super().__init__()
@@ -29,15 +30,40 @@ class Issue(AbstractDataClass):
 
     @property
     def _vals(self):
-        return (self.created_at, self.created_at, self.html_url, self.number,
-            self.pull_request_html_url, self.repository_html_url,
-            self.repository_name, self.state, self.title, self.user_name,
-            self.comments, self.events, self.pr_html_url, self.action)
+        return (
+            self.created_at,
+            self.created_at,
+            self.html_url,
+            self.number,
+            self.pull_request_html_url,
+            self.repository_html_url,
+            self.repository_name,
+            self.state,
+            self.title,
+            self.user_name,
+            self.comments,
+            self.events,
+            self.pr_html_url,
+            self.action,
+        )
 
     def keys(self):
-        return ('created_at','updated_at','html_url','number','pull_request_html_url',
-            'repository_html_url','repository_name','state','title','user_name',
-            'comments','events','pr_html_url', 'action')
+        return (
+            "created_at",
+            "updated_at",
+            "html_url",
+            "number",
+            "pull_request_html_url",
+            "repository_html_url",
+            "repository_name",
+            "state",
+            "title",
+            "user_name",
+            "comments",
+            "events",
+            "pr_html_url",
+            "action",
+        )
 
     @cached_property
     def comments(self):
@@ -59,14 +85,14 @@ class Issue(AbstractDataClass):
 
     @cached_property
     def action(self):
-        if self.pull_request_html_url and self.state == 'closed':
-            self._action = 'pull_request_closed'
-        elif self.pull_request_html_url and self.state == 'open':
-            self._action = 'pull_request_open'
+        if self.pull_request_html_url and self.state == "closed":
+            self._action = "pull_request_closed"
+        elif self.pull_request_html_url and self.state == "open":
+            self._action = "pull_request_open"
         elif self.created_at >= self.date:
-            self._action = 'created'
-        elif self.state == 'closed':
-            self._action = 'closed'
+            self._action = "created"
+        elif self.state == "closed":
+            self._action = "closed"
         else:
-            self._action = 'updated'
+            self._action = "updated"
         return self._action

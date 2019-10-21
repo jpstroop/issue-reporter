@@ -7,6 +7,8 @@ A [Google Cloud Function](https://cloud.google.com/functions/) for reporting Git
 [![Coverage Status](https://coveralls.io/repos/github/jpstroop/issue-reporter/badge.svg?branch=master)](https://coveralls.io/github/jpstroop/issue-reporter?branch=master)
 [![Python 3.7](https://img.shields.io/badge/python-3.7-yellow.svg)](https://img.shields.io/badge/python-3.7-yellow.svg)
 [![License: Simplified BSD](https://img.shields.io/badge/license-Simplified%20BSD-blue.svg)](https://github.com/jpstroop/issue-reporter/blob/master/LICENSE)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+
 
 ## Dependencies
 
@@ -59,6 +61,14 @@ Sample `secrets.json`:
 ## Time Range
 
 Issues changed over the past 24 hours are reported. This is presently hard-coded but could be made a configuration option (as an arg to a `timedelta`?) in the future.
+
+## Style
+
+When in doubt, run [Black](https://black.readthedocs.io/en/stable/index.html)
+
+```
+$ pipenv run black -t py37 github_reporter/
+```
 
 ## Related
 

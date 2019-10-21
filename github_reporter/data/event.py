@@ -1,5 +1,6 @@
 from github_reporter.data.abstract_data_class import AbstractDataClass
 
+
 class Event(AbstractDataClass):
     def __init__(self, event):
         super().__init__()
@@ -12,4 +13,4 @@ class Event(AbstractDataClass):
         return (self.actor_name, self.created_at, self.type)
 
     def keys(self):
-        return ('actor_name', 'created_at', 'type')
+        return ("actor_name", "created_at", "type")

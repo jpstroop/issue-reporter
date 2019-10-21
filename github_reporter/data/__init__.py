@@ -4,8 +4,8 @@ from github_reporter.data.event import Event
 from github_reporter.data.issue import Issue
 from json import JSONEncoder
 
-class ReportJSONEncoder(JSONEncoder):
 
+class ReportJSONEncoder(JSONEncoder):
     def default(self, obj):
         if isinstance(obj, datetime):
             return obj.isoformat()
