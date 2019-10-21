@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod, abstractproperty
 
+
 class AbstractDataClass(ABC):
     @abstractmethod
     def __init__(self):
@@ -15,5 +16,5 @@ class AbstractDataClass(ABC):
         return self.__asdict
 
     @abstractproperty
-    def _vals(self): # pragma: no cover
+    def _vals(self):  # pragma: no cover
         return

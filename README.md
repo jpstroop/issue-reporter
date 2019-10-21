@@ -7,6 +7,8 @@ A [Google Cloud Function](https://cloud.google.com/functions/) for reporting Git
 [![Coverage Status](https://coveralls.io/repos/github/jpstroop/issue-reporter/badge.svg?branch=master)](https://coveralls.io/github/jpstroop/issue-reporter?branch=master)
 [![Python 3.7](https://img.shields.io/badge/python-3.7-yellow.svg)](https://img.shields.io/badge/python-3.7-yellow.svg)
 [![License: Simplified BSD](https://img.shields.io/badge/license-Simplified%20BSD-blue.svg)](https://github.com/jpstroop/issue-reporter/blob/master/LICENSE)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+
 
 ## Dependencies
 

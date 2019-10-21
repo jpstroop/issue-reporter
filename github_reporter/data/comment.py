@@ -1,5 +1,6 @@
 from github_reporter.data.abstract_data_class import AbstractDataClass
 
+
 class Comment(AbstractDataClass):
     def __init__(self, comment):
         super().__init__()
@@ -15,4 +16,4 @@ class Comment(AbstractDataClass):
         return (self.user_name, self.updated_at, self.html_url, self.body)
 
     def keys(self):
-        return ('user_name','updated_at','html_url','body')
+        return ("user_name", "updated_at", "html_url", "body")
