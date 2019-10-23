@@ -2,9 +2,9 @@ from cached_property import cached_property
 from collections import OrderedDict
 from datetime import datetime as dt
 from github import Github
-from github_reporter.data import ReportJSONEncoder
 from github_reporter.data.issue import Issue
-from github_reporter.html_report_renderer import HTMLReportRenderer
+from github_reporter.serializers.html_report_renderer import HTMLReportRenderer
+from github_reporter.serializers.report_json_encoder import ReportJSONEncoder
 from itertools import groupby
 from json import dumps
 from os.path import join

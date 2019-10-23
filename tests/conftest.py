@@ -1,4 +1,3 @@
-
 from faker import Faker
 from faker.providers import date_time, internet, lorem, person
 from custom_fakers import Provider as CustomProviders
