@@ -8,6 +8,7 @@ from github_reporter.data.event import Event
 class Issue(AbstractDataClass):
     def __init__(self, issue, iso_date_str):
         super().__init__()
+        # TODO, below: type check so that an ISO date str or a datetime can be passed
         self.date = datetime.fromisoformat(iso_date_str)
         self.issue = issue
         self.created_at = issue.created_at
