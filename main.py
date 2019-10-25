@@ -1,24 +1,24 @@
+from configparser import ConfigParser
 from datetime import datetime as dt
 from github_reporter.github_reporter import GithubReporter
 from google.cloud import error_reporting
-from json import load
 from os import environ
 from os.path import abspath, dirname, exists, join
 from sys import exit, stderr
 from traceback import print_exc
 
-CONFIG_FILENAME = 'config.json'
+CONFIG_FILENAME = 'setup.cfg'
+CONFIG_SECTION_NAME = 'github_reporter'
 CONFIG_KEYS = ('base_page_title','github_repo_name','branch','github_org','timezone')
 SECRET_ENV_VARS = ('GITHUB_TOKEN','GITHUB_ORGANIZATION')
 SECRETS_FILENAME = 'secrets.json'
 HERE = abspath(dirname(__file__))
 
 def load_config():
-    config_path = join(HERE, CONFIG_FILENAME)
-    with open(config_path, 'r') as f:
-        config = load(f)
+    parser = ConfigParser()
+    parser.read(join(HERE, CONFIG_FILENAME))
+    config = parser[CONFIG_SECTION_NAME]
     misconf = False
-    msg = ''
     if not all([key in config for key in CONFIG_KEYS]):
         msg = f'{CONFIG_KEYS} must all be defined in config.json.'
         misconf = True
@@ -38,6 +38,7 @@ def load_config():
 def load_secrets():
     dev_secrets_path = join(HERE, SECRETS_FILENAME)
     if exists(dev_secrets_path):
+        from json import load
         with open(dev_secrets_path, 'r') as f:
             secrets = load(f)
     else:
