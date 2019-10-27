@@ -1,6 +1,7 @@
 from cached_property import cached_property
 from contextlib import contextmanager
 from datetime import datetime, timedelta
+from github_reporter import timestamp
 from github_reporter.data.issue_report import IssueReport
 from github_reporter.github_committer import GithubCommitter
 from io import StringIO
@@ -34,8 +35,8 @@ class GithubReporter:
         today_dt = datetime.now(timezone(tz)).replace(tzinfo=None)
         today = today_dt.isoformat(timespec="seconds")
         yesterday = (today_dt - timedelta(days=1)).isoformat(timespec="seconds")
-        print(f"{datetime.now().isoformat()} - Today: {today}")
-        print(f"{datetime.now().isoformat()} - Yesterday: {yesterday}")
+        print(f"{timestamp()} - Today: {today}")
+        print(f"{timestamp()} - Yesterday: {yesterday}")
         return (yesterday, today)
 
     @contextmanager
@@ -51,9 +52,7 @@ class GithubReporter:
     @cached_property
     def index_json_path(self):
         self._index_json_path = join("docs", "index.json")
-        print(
-            f"{datetime.now().isoformat()} - Index JSON path: {self._index_json_path}"
-        )
+        print(f"{timestamp()} - Index JSON path: {self._index_json_path}")
         return self._index_json_path
 
     def updated_index(self):
@@ -77,7 +76,7 @@ class GithubReporter:
         repo = self.config["github_repo_name"]
         url = f"https://{org}.github.io/{repo}/index.json"
         with rc.disabled():
-            print(f"{datetime.now().isoformat()} - Getting {url} for updating")
+            print(f"{timestamp()} - Getting {url} for updating")
             headers = {
                 "cache-control": "no-store"
             }  # not sure if this makes a differnce;
@@ -94,7 +93,7 @@ class GithubReporter:
                 committer = GithubCommitter(self.secrets["GITHUB_TOKEN"], repo)
                 date = self.today_iso.split("T")[0]
                 message = f"[automated commit] reports for {date}"
-                print(f"{datetime.now().isoformat()} - Committing {message}")
+                print(f"{timestamp()} - Committing {message}")
                 path_data_pairs = (
                     (self.issue_report.json_path, json_str),
                     (self.issue_report.html_path, html_str),

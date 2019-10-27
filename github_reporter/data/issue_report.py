@@ -1,7 +1,7 @@
 from cached_property import cached_property
 from collections import OrderedDict
-from datetime import datetime as dt
 from github import Github
+from github_reporter import timestamp
 from github_reporter.data.issue import Issue
 from github_reporter.serializers.html_report_renderer import HTMLReportRenderer
 from github_reporter.serializers.report_json_encoder import ReportJSONEncoder
@@ -20,27 +20,27 @@ class IssueReport:
         self.yesterday_iso = yesterday_iso
         self.today_iso = today_iso
         q = f"org:{gh_org} updated:>={self.yesterday_iso}"
-        print(f"{dt.now().isoformat()} - Report started")
+        print(f"{timestamp()} - Report started")
         paged_issues = [i for i in Github(gh_token).search_issues(query=q)]
         self.issues = [Issue(i, self.yesterday_iso) for i in paged_issues]
         self.grouped_issues = IssueReport.group_issues(self.issues)
         self.grouped_issues["__meta__"] = IssueReport.gather_stats(self.issues)
         self.grouped_issues["__meta__"]["today"] = self.today_iso
         self.grouped_issues["__meta__"]["yesterday"] = self.yesterday_iso
-        print(f"{dt.now().isoformat()} - Report ran successfully")
+        print(f"{timestamp()} - Report ran successfully")
 
     def as_json(self):
         json = dumps(
             self.grouped_issues, indent=2, ensure_ascii=False, cls=ReportJSONEncoder
         )
-        print(f"{dt.now().isoformat()} - JSON serialized successfully")
+        print(f"{timestamp()} - JSON serialized successfully")
         return json
 
     def as_html(self):
         renderer = HTMLReportRenderer()
         template = "issue_report_page.html.mako"
         html = renderer.render(template, r=self.grouped_issues)
-        print(f"{dt.now().isoformat()} - HTML serialized successfully")
+        print(f"{timestamp()} - HTML serialized successfully")
         return html
 
     @cached_property
@@ -55,18 +55,18 @@ class IssueReport:
     @cached_property
     def html_path(self):
         self._html_path = join(self.generic_report_path, "index.html")
-        print(f"{dt.now().isoformat()} - HTML path: {self._html_path}")
+        print(f"{timestamp()} - HTML path: {self._html_path}")
         return self._html_path
 
     @cached_property
     def json_path(self):
         self._json_path = f"{self.generic_report_path}.json"
-        print(f"{dt.now().isoformat()} - JSON path: {self._json_path}")
+        print(f"{timestamp()} - JSON path: {self._json_path}")
         return self._json_path
 
     @staticmethod
     def group_issues(issues):
-        print(f"{dt.now().isoformat()} - Grouping by repo started")
+        print(f"{timestamp()} - Grouping by repo started")
         groups = OrderedDict()
         issues.sort(key=lambda i: (i.repository_name, i.updated_at))
         for repo, issues in groupby(issues, lambda i: i.repository_name):

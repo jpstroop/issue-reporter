@@ -7,7 +7,7 @@ TITLE = "PUL GitHub Issues"
 
 class HTMLReportRenderer:
     def __init__(self):
-        project_root = abspath(dirname(dirname(__file__)))
+        project_root = abspath(dirname(dirname(dirname(__file__))))
         templates_dir = join(project_root, "templates")
         self.lookup = TemplateLookup(directories=[templates_dir])
         print(f"{datetime.now().isoformat()} - Initialized HTML renderer")

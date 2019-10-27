@@ -1,5 +1,5 @@
-from datetime import datetime as dt
 from github import Github, InputGitTreeElement
+from github_reporter import timestamp
 from os import sep
 from sys import stderr
 
@@ -18,10 +18,10 @@ class GithubCommitter:
             tree = self.repo.create_git_tree(element_list, base_tree)
             parent = self.repo.get_git_commit(branch_sha)
             commit = self.repo.create_git_commit(commit_message, tree, [parent])
-            print(f"{dt.now().isoformat()} - Commit sha: {commit.sha}")
+            print(f"{timestamp()} - Commit sha: {commit.sha}")
             branch_ref.edit(commit.sha)
         except Exception as e:
-            print(f"{dt.now().isoformat()} - {e}")
+            print(f"{timestamp()} - {e}")
             return False
         else:
             return True
@@ -29,7 +29,7 @@ class GithubCommitter:
     def _build_element_list(self, path_data_pairs):
         element_list = []
         for path, data in path_data_pairs:
-            print(f"{dt.now().isoformat()} - Adding {path} to commit")
+            print(f"{timestamp()} - Adding {path} to commit")
             element = InputGitTreeElement(path, "100644", "blob", data.read())
             element_list.append(element)
         return element_list
