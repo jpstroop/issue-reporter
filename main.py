@@ -1,7 +1,6 @@
 from datetime import datetime as dt
 from github_reporter.app_setup import load_config, load_secrets
 from github_reporter.github_reporter import GithubReporter
-from google.cloud import error_reporting
 from sys import stderr
 
 def main(event={}, context={}):
