@@ -22,23 +22,24 @@ def load_config():
     parser = ConfigParser()
     parser.read(join(HERE, CONFIG_FILENAME))
     config = parser[CONFIG_SECTION_NAME]
-    misconf = False
-    if not all([key in config for key in CONFIG_KEYS]):
-        msg = f"{CONFIG_KEYS} must all be defined in config.json."
-        misconf = True
-    if any([key not in CONFIG_KEYS for key in config.keys()]):
-        msg = "config.json contains an undefined key."
-        msg += f"Allowed keys are:\n{CONFIG_KEYS}"
-        misconf = True
-    if misconf:
-        raise KeyError(msg)
+    check_config(config)
     print(f"{timestamp()} - Config loaded")
     return config
 
 
-def load_secrets():
+def check_config(config):
+    if not all([key in config for key in CONFIG_KEYS]):
+        msg = f"{CONFIG_KEYS} must all be defined in setup.cfg[github_reporter]."
+        raise KeyError(msg)
+    if any([key not in CONFIG_KEYS for key in config.keys()]):
+        msg = "setup.cfg[github_reporter] contains an undefined key."
+        msg += f"Allowed keys are:\n{CONFIG_KEYS}"
+        raise KeyError(msg)
+
+
+def load_secrets(allow_from_file=True):
     dev_secrets_path = join(HERE, SECRETS_FILENAME)
-    if exists(dev_secrets_path):
+    if exists(dev_secrets_path) and allow_from_file:  # pragma: no cover
         from json import load
 
         with open(dev_secrets_path, "r") as f:
@@ -47,7 +48,7 @@ def load_secrets():
         try:
             secrets = {v: environ[v] for v in SECRET_ENV_VARS}
         except KeyError as ke:
-            print(f"{ke} environment variable must be defined.", file=stderr)
-            exit(78)
-    print(f"{timestamp()} - Secrets initialized")
-    return secrets
+            msg = f"{ke} environment variable must be defined."
+            raise KeyError(msg) from ke
+    print(f"{timestamp()} - Secrets initialized")  # pragma: no cover
+    return secrets  # pragma: no cover
