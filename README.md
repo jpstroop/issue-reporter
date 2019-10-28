@@ -8,6 +8,7 @@ A [Google Cloud Function](https://cloud.google.com/functions/) for reporting Git
 [![Python 3.7](https://img.shields.io/badge/python-3.7-yellow.svg)](https://img.shields.io/badge/python-3.7-yellow.svg)
 [![License: Simplified BSD](https://img.shields.io/badge/license-Simplified%20BSD-blue.svg)](https://github.com/jpstroop/issue-reporter/blob/master/LICENSE)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+[![Maintainability](https://api.codeclimate.com/v1/badges/c80d6ee046159351eba3/maintainability)](https://codeclimate.com/github/jpstroop/issue-reporter/maintainability)
 
 
 ## Dependencies
@@ -67,7 +68,7 @@ Issues changed over the past 24 hours are reported. This is presently hard-coded
 When in doubt, run [Black](https://black.readthedocs.io/en/stable/index.html)
 
 ```
-$ pipenv run black -t py37 github_reporter/
+$ pipenv run black -t py37 -l 79 github_reporter/ main.py
 ```
 
 ## Related

@@ -29,7 +29,9 @@ def load_config():
 
 def check_config(config):
     if not all([key in config for key in CONFIG_KEYS]):
-        msg = f"{CONFIG_KEYS} must all be defined in setup.cfg[github_reporter]."
+        msg = (
+            f"{CONFIG_KEYS} must all be defined in setup.cfg[github_reporter]."
+        )
         raise KeyError(msg)
     if any([key not in CONFIG_KEYS for key in config.keys()]):
         msg = "setup.cfg[github_reporter] contains an undefined key."

@@ -31,7 +31,10 @@ class IssueReport:
 
     def as_json(self):
         json = dumps(
-            self.grouped_issues, indent=2, ensure_ascii=False, cls=ReportJSONEncoder
+            self.grouped_issues,
+            cls=ReportJSONEncoder,
+            ensure_ascii=False,
+            indent=2,
         )
         print(f"{timestamp()} - JSON serialized successfully")
         return json
