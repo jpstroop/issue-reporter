@@ -28,13 +28,17 @@ class GithubReporter:
     def issue_report(self):
         token = self.secrets["GITHUB_TOKEN"]
         org = self.secrets["GITHUB_ORGANIZATION"]
-        self._issue_report = IssueReport(token, org, self.yesterday_iso, self.today_iso)
+        self._issue_report = IssueReport(
+            token, org, self.yesterday_iso, self.today_iso
+        )
         return self._issue_report
 
     def get_dates(self, tz):
         today_dt = datetime.now(timezone(tz)).replace(tzinfo=None)
         today = today_dt.isoformat(timespec="seconds")
-        yesterday = (today_dt - timedelta(days=1)).isoformat(timespec="seconds")
+        yesterday = (today_dt - timedelta(days=1)).isoformat(
+            timespec="seconds"
+        )
         print(f"{timestamp()} - Today: {today}")
         print(f"{timestamp()} - Yesterday: {yesterday}")
         return (yesterday, today)
@@ -59,11 +63,14 @@ class GithubReporter:
         index = self.get_current_index()
         date = self.today_iso.split("T")[0]
         index = list(filter(lambda e: e["date"] != date, index))
+        html = (
+            f"{sep.join(self.issue_report.html_path.split(sep)[1:-1])}{sep}"
+        )  # removes docs/ and index.html
         entry = {
             "date": date,
             "meta": self.issue_report.grouped_issues["__meta__"],
             "run_start": self.today_iso,
-            "html": f"{sep.join(self.issue_report.html_path.split(sep)[1:-1])}{sep}",  # removes docs/ and index.html
+            "html": html,
             "json": sep.join(
                 self.issue_report.json_path.split(sep)[1:]
             ),  # removes docs/
@@ -100,5 +107,7 @@ class GithubReporter:
                     (self.index_json_path, index_str),
                 )
                 branch = self.config["branch"]
-                commit_success = committer.commit(path_data_pairs, message, branch)
+                commit_success = committer.commit(
+                    path_data_pairs, message, branch
+                )
         return commit_success

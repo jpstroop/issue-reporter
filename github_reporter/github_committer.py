@@ -17,7 +17,9 @@ class GithubCommitter:
             element_list = self._build_element_list(path_data_pairs)
             tree = self.repo.create_git_tree(element_list, base_tree)
             parent = self.repo.get_git_commit(branch_sha)
-            commit = self.repo.create_git_commit(commit_message, tree, [parent])
+            commit = self.repo.create_git_commit(
+                commit_message, tree, [parent]
+            )
             print(f"{timestamp()} - Commit sha: {commit.sha}")
             branch_ref.edit(commit.sha)
         except Exception as e:
