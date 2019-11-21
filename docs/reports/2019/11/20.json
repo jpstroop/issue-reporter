@@ -1,0 +1,547 @@
+{
+  "cicognara-rails": [
+    {
+      "created_at": "2019-11-19T22:37:36",
+      "updated_at": "2019-11-19T22:37:36",
+      "html_url": "https://github.com/pulibrary/cicognara-rails/issues/422",
+      "number": 422,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/cicognara-rails",
+      "repository_name": "cicognara-rails",
+      "state": "open",
+      "title": "Quickstart directions for development don't work",
+      "user_name": "Cliff Wulfman",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Cliff Wulfman",
+          "created_at": "2019-11-19T22:37:52",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2019-02-25T19:45:49",
+      "updated_at": "2019-02-25T19:45:49",
+      "html_url": "https://github.com/pulibrary/cicognara-rails/issues/334",
+      "number": 334,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/cicognara-rails",
+      "repository_name": "cicognara-rails",
+      "state": "open",
+      "title": "Display digital object metadata",
+      "user_name": "Esmé Cowles",
+      "comments": [
+        {
+          "user_name": "hackmastera",
+          "updated_at": "2019-11-20T16:05:17",
+          "html_url": "https://github.com/pulibrary/cicognara-rails/issues/334#issuecomment-556074842",
+          "body": "@escowles regarding the toggle functionality you outlined:\n\n> My understanding is that what we talked about is:\n\n> When you first load the page, the microfiche should display with the NGA MARC metadata\n> When you switch to a different digital object, it should display the metadata associated with that digital object (replacing the NGA MARC metadata)\n> If there is no microfiche or other digital objects, then we can display the NGA MARC metadata as a fallback\n \nWhen you first load the page there is a digital object selected with that viewer displayed. Shouldn't we start out displaying the metadata associated with that digital object? I.e. the MARC metadata will only display in the 3rd case you reference, when there are no digital objects. \n\n"
+        },
+        {
+          "user_name": "Esmé Cowles",
+          "updated_at": "2019-11-20T16:09:48",
+          "html_url": "https://github.com/pulibrary/cicognara-rails/issues/334#issuecomment-556077011",
+          "body": "@hackmastera I think the metadata associated with the microfiche is the MARC metadata from NGA. So I think we should show the microfiche objects by default, with the associated metadata from NGA (and having that be filtered through the Getty is fine, to make that process more consistent across different digital objects)."
+        },
+        {
+          "user_name": "hackmastera",
+          "updated_at": "2019-11-20T16:50:50",
+          "html_url": "https://github.com/pulibrary/cicognara-rails/issues/334#issuecomment-556095700",
+          "body": "Okay, currently the microfiche isn't the one shown by default, so we'll have to do that."
+        },
+        {
+          "user_name": "Esmé Cowles",
+          "updated_at": "2019-11-20T16:55:48",
+          "html_url": "https://github.com/pulibrary/cicognara-rails/issues/334#issuecomment-556099242",
+          "body": "👍 I thought we had an issue for that, but I don't see one.  So I created https://github.com/pulibrary/cicognara-rails/issues/423 for displaying the microfiche first."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2019-11-20T16:05:18",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2019-11-20T16:05:18",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2019-11-20T16:09:48",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2019-11-20T16:09:48",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2019-11-20T16:55:06",
+      "updated_at": "2019-11-20T16:55:06",
+      "html_url": "https://github.com/pulibrary/cicognara-rails/issues/423",
+      "number": 423,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/cicognara-rails",
+      "repository_name": "cicognara-rails",
+      "state": "open",
+      "title": "Display microfiche digital objects first",
+      "user_name": "Esmé Cowles",
+      "comments": [
+        {
+          "user_name": "hackmastera",
+          "updated_at": "2019-11-20T17:08:03",
+          "html_url": "https://github.com/pulibrary/cicognara-rails/issues/423#issuecomment-556114110",
+          "body": "implementation note from @tpendragon: it’s the microfiche copy if `version.based_on_original == true`"
+        },
+        {
+          "user_name": "lightgivener",
+          "updated_at": "2019-11-20T19:20:32",
+          "html_url": "https://github.com/pulibrary/cicognara-rails/issues/423#issuecomment-556273846",
+          "body": "Hey all!\n\n \n\nI do agree it makes most sense to have the microfiche first, but i do think it makes sense to run this by the group first. (Or if it is not too complicated to change then just do it and we can discuss later).\n\n \n\nIs it possible to set an individual default depending on what a user would prefer? We haven't to my knowledge talked about user accounts yet although they might be helpful especially regarding item feedback.\n\n \n\nThanks!\n\n \n \n\nGesendet: Mittwoch, 20. November 2019 um 12:08 Uhr\nVon: \"hackmastera\" <notifications@github.com>\nAn: pulibrary/cicognara-rails <cicognara-rails@noreply.github.com>\nCc: Subscribed <subscribed@noreply.github.com>\nBetreff: Re: [pulibrary/cicognara-rails] Display microfiche digital objects first (#423)\n\n\nimplementation note from @tpendragon: it’s the microfiche copy if version.based_on_original == true\n\n—\nYou are receiving this because you are subscribed to this thread.\nReply to this email directly, view it on GitHub, or unsubscribe."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2019-11-20T16:55:14",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2019-11-20T17:08:03",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2019-11-20T17:08:03",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2019-11-20T19:20:32",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2019-11-20T19:20:32",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2019-11-12T15:42:35",
+      "updated_at": "2019-11-12T15:42:35",
+      "html_url": "https://github.com/pulibrary/cicognara-rails/issues/400",
+      "number": 400,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/cicognara-rails",
+      "repository_name": "cicognara-rails",
+      "state": "open",
+      "title": "Update README to give instructions for logging in by creating a User",
+      "user_name": "Cliff Wulfman",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2019-11-20T20:19:05",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2019-11-20T20:25:57",
+          "type": "referenced"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2019-11-20T20:26:04",
+      "updated_at": "2019-11-20T20:26:04",
+      "html_url": "https://github.com/pulibrary/cicognara-rails/pull/425",
+      "number": 425,
+      "pull_request_html_url": "https://github.com/pulibrary/cicognara-rails/pull/425",
+      "repository_html_url": "https://github.com/pulibrary/cicognara-rails",
+      "repository_name": "cicognara-rails",
+      "state": "open",
+      "title": "Update user creation documentation in README",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/cicognara-rails/pull/425",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2019-11-20T19:58:50",
+      "updated_at": "2019-11-20T19:58:50",
+      "html_url": "https://github.com/pulibrary/cicognara-rails/pull/424",
+      "number": 424,
+      "pull_request_html_url": "https://github.com/pulibrary/cicognara-rails/pull/424",
+      "repository_html_url": "https://github.com/pulibrary/cicognara-rails",
+      "repository_name": "cicognara-rails",
+      "state": "open",
+      "title": "Add imported_metadata field to Version",
+      "user_name": "hackmastera",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2019-11-20T20:58:23",
+          "html_url": "https://github.com/pulibrary/cicognara-rails/pull/424#issuecomment-556386605",
+          "body": "Assuming this works in staging, I'm :+1:. I'll add the review after the comment."
+        },
+        {
+          "user_name": "hackmastera",
+          "updated_at": "2019-11-20T21:23:10",
+          "html_url": "https://github.com/pulibrary/cicognara-rails/pull/424#issuecomment-556414879",
+          "body": "okay I started the import on staging and I added that comment."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2019-11-20T21:16:43",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2019-11-20T21:20:20",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/cicognara-rails/pull/424",
+      "action": "pull_request_open"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2019-11-18T23:48:26",
+      "updated_at": "2019-11-18T23:48:26",
+      "html_url": "https://github.com/pulibrary/figgy/pull/3504",
+      "number": 3504,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/3504",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Implement OAI-PMH for MARC21",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2019-11-20T23:51:27",
+          "type": "deployed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/3504",
+      "action": "pull_request_open"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2019-11-20T16:51:02",
+      "updated_at": "2019-11-20T16:51:02",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/1902",
+      "number": 1902,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Request to index finding aids at the component-level for members of the General Manuscripts Miscellaneous Collection (C0140)",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-11-20T16:51:02",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-11-20T16:51:02",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2019-11-20T06:29:46",
+      "updated_at": "2019-11-20T06:29:46",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/1901",
+      "number": 1901,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/1901",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Introduces Solr-based alternative for the Browse Lists feature",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2019-11-20T20:03:39",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/1901#issuecomment-556034073",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/27122686/badge)](https://coveralls.io/builds/27122686)\n\nCoverage decreased (-15.3%) to 81.101% when pulling **a2c9d48e518f56a0211aa0e9b380a844d55c8ea7 on issues-1626-jrgriffiniii-facet-browse-lists** into **602c4ea588d3fcc9ff3987bc5fbcb1f99e88e24f on master**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2019-11-20T18:19:41",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/1901",
+      "action": "pull_request_open"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2019-11-18T20:51:46",
+      "updated_at": "2019-11-18T20:51:46",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1034",
+      "number": 1034,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1034",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Initial addition of molecule to solrcloud",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1034",
+      "action": "pull_request_open"
+    }
+  ],
+  "special_collections": [
+    {
+      "created_at": "2019-11-15T21:41:12",
+      "updated_at": "2019-11-15T21:41:12",
+      "html_url": "https://github.com/pulibrary/special_collections/issues/582",
+      "number": 582,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/special_collections",
+      "repository_name": "special_collections",
+      "state": "closed",
+      "title": "Emails to libanswers.princeton.edu fail",
+      "user_name": "Kevin Reiss",
+      "comments": [
+        {
+          "user_name": "Axa Mei Liauw",
+          "updated_at": "2019-11-20T14:06:26",
+          "html_url": "https://github.com/pulibrary/special_collections/issues/582#issuecomment-556017540",
+          "body": "This is now active and working on the production server"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2019-11-20T14:06:26",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2019-11-14T20:57:38",
+      "updated_at": "2019-11-14T20:57:38",
+      "html_url": "https://github.com/pulibrary/special_collections/issues/581",
+      "number": 581,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/special_collections",
+      "repository_name": "special_collections",
+      "state": "open",
+      "title": "Gutenberg Exhibit thumbnail does not display on Special Collections webpage",
+      "user_name": "Kim Leaman",
+      "comments": [
+        {
+          "user_name": "Axa Mei Liauw",
+          "updated_at": "2019-11-20T14:07:11",
+          "html_url": "https://github.com/pulibrary/special_collections/issues/581#issuecomment-556017823",
+          "body": "@kelea99 can we have the source image so we can upload the file?"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2019-11-20T14:07:11",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2019-11-20T14:07:11",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2019-11-20T15:40:34",
+      "updated_at": "2019-11-20T15:40:34",
+      "html_url": "https://github.com/pulibrary/special_collections/issues/591",
+      "number": 591,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/special_collections",
+      "repository_name": "special_collections",
+      "state": "open",
+      "title": "Some capistrano tasks are getting Operation: not permitted errors",
+      "user_name": "Axa Mei Liauw",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2019-11-20T15:40:39",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2019-11-04T14:31:08",
+      "updated_at": "2019-11-04T14:31:08",
+      "html_url": "https://github.com/pulibrary/special_collections/issues/567",
+      "number": 567,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/special_collections",
+      "repository_name": "special_collections",
+      "state": "open",
+      "title": "Rename the repo special_collections",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "Axa Mei Liauw",
+          "updated_at": "2019-11-20T16:22:44",
+          "html_url": "https://github.com/pulibrary/special_collections/issues/567#issuecomment-556082849",
+          "body": "Do we also want to rename the theme and solr configs to move from rbsc to special collections?"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2019-11-20T15:29:11",
+      "updated_at": "2019-11-20T15:29:11",
+      "html_url": "https://github.com/pulibrary/special_collections/pull/590",
+      "number": 590,
+      "pull_request_html_url": "https://github.com/pulibrary/special_collections/pull/590",
+      "repository_html_url": "https://github.com/pulibrary/special_collections",
+      "repository_name": "special_collections",
+      "state": "closed",
+      "title": "SECURITY UPDATE for admin_views",
+      "user_name": "Axa Mei Liauw",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2019-11-20T15:29:21",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2019-11-20T19:58:46",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2019-11-20T19:58:46",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2019-11-20T19:58:46",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2019-11-20T19:59:00",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/special_collections/pull/590",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2019-07-18T16:41:45",
+      "updated_at": "2019-07-18T16:41:45",
+      "html_url": "https://github.com/pulibrary/special_collections/issues/556",
+      "number": 556,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/special_collections",
+      "repository_name": "special_collections",
+      "state": "closed",
+      "title": "Add Donor Information to Division Pages",
+      "user_name": "Shaun Ellis",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2019-11-20T20:48:30",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2019-11-20T20:40:14",
+      "updated_at": "2019-11-20T20:40:14",
+      "html_url": "https://github.com/pulibrary/special_collections/pull/592",
+      "number": 592,
+      "pull_request_html_url": "https://github.com/pulibrary/special_collections/pull/592",
+      "repository_html_url": "https://github.com/pulibrary/special_collections",
+      "repository_name": "special_collections",
+      "state": "closed",
+      "title": "Updates webform styles and adds select other module",
+      "user_name": "Shaun Ellis",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2019-11-20T20:48:30",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2019-11-20T20:48:30",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2019-11-20T20:48:31",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2019-11-20T20:49:32",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/special_collections/pull/592",
+      "action": "pull_request_closed"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 17,
+    "closed_count": 2,
+    "created_count": 4,
+    "pull_request_closed_count": 2,
+    "pull_request_open_count": 5,
+    "updated_count": 4,
+    "today": "2019-11-20T22:00:05",
+    "yesterday": "2019-11-19T22:00:05"
+  }
+}
