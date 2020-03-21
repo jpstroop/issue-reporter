@@ -1,0 +1,1024 @@
+{
+  "figgy": [
+    {
+      "created_at": "2020-03-20T12:54:25",
+      "updated_at": "2020-03-20T12:54:25",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3767",
+      "number": 3767,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Bulk ingest doesn't update identifier attribute",
+      "user_name": "Cliff Wulfman",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2020-03-20T12:54:26",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2020-03-20T12:54:26",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-03-20T15:05:35",
+      "updated_at": "2020-03-20T15:05:35",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3768",
+      "number": 3768,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "In Order Manager, I would like to select and auto-number multiple pages that have been shot and ingested two up (two pages in one frame). ",
+      "user_name": "Kim Leaman",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2020-03-20T15:06:39",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-03-18T20:21:11",
+      "updated_at": "2020-03-18T20:21:11",
+      "html_url": "https://github.com/pulibrary/figgy/pull/3765",
+      "number": 3765,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/3765",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Use Pyramidal Tiffs",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-03-20T18:40:36",
+          "html_url": "https://github.com/pulibrary/figgy/pull/3765#issuecomment-601854790",
+          "body": "The AWS Lambda is shipped and is taking ~ 3 seconds to serve literally as many requests as you can possibly give it. I zoom'd with Michael Klein from Northwestern for a bit and he helped me gain some insight to the stack.\r\n\r\nTheirs responds faster. They use the following derivative generation rules:\r\n\r\n```\r\n    const pyramidTiff = await sharp(inputFile, { limitInputPixels: false })\r\n      .resize({\r\n        width: 15000,\r\n        height: 15000,\r\n        fit: \"inside\",\r\n        withoutEnlargement: true\r\n      })\r\n      .tiff({\r\n        compression: \"jpeg\",\r\n        quality: 75,\r\n        tile: true,\r\n        tileHeight: 256,\r\n        tileWidth: 256,\r\n        pyramid: true\r\n      })\r\n      .toBuffer();\r\n```\r\n\r\nThey limit derivatives to 15k pixels at the largest, jpeg compress to 75 quality, and set tiles to 256x256."
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-03-20T20:04:40",
+          "html_url": "https://github.com/pulibrary/figgy/pull/3765#issuecomment-601887907",
+          "body": "If I set the JPEG quality to `75` and the tiles to `256x256` the really large images load in a few seconds, but smaller zoomed in tiles take about half a second. The derivatives are much smaller too. Only issue is they take much longer to generate."
+        }
+      ],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/3765",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-03-20T20:27:11",
+      "updated_at": "2020-03-20T20:27:11",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3769",
+      "number": 3769,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "\"brew install imagemagick\" no longer accepts --with-little-cms2 and --with-openjpeg option",
+      "user_name": "Cliff Wulfman",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-03-20T20:30:18",
+      "updated_at": "2020-03-20T20:30:18",
+      "html_url": "https://github.com/pulibrary/figgy/pull/3770",
+      "number": 3770,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/3770",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Updates installation instructions for imagemagick on mac",
+      "user_name": "Cliff Wulfman",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/3770",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-03-20T21:24:05",
+      "updated_at": "2020-03-20T21:24:05",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3772",
+      "number": 3772,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "bundler can't install tiny_tds",
+      "user_name": "Cliff Wulfman",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-03-20T21:22:57",
+      "updated_at": "2020-03-20T21:22:57",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3771",
+      "number": 3771,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "figgy install requires postgres",
+      "user_name": "Cliff Wulfman",
+      "comments": [
+        {
+          "user_name": "Cliff Wulfman",
+          "updated_at": "2020-03-20T21:33:44",
+          "html_url": "https://github.com/pulibrary/figgy/issues/3771#issuecomment-601920004",
+          "body": "Already specified in the installation instructions."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Cliff Wulfman",
+          "created_at": "2020-03-20T21:33:44",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "lux": [
+    {
+      "created_at": "2020-03-20T20:40:46",
+      "updated_at": "2020-03-20T20:40:46",
+      "html_url": "https://github.com/pulibrary/lux/issues/318",
+      "number": 318,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/lux",
+      "repository_name": "lux",
+      "state": "open",
+      "title": "Add RequestCart Pattern",
+      "user_name": "Shaun Ellis",
+      "comments": [
+        {
+          "user_name": "Shaun Ellis",
+          "updated_at": "2020-03-20T20:59:02",
+          "html_url": "https://github.com/pulibrary/lux/issues/318#issuecomment-601908253",
+          "body": "Also, the cart inventory will need to work across multiple pages. The proposed solution will be to use Vuex storage with client-side (localStorage) persistence. \r\n\r\nTwo potential approaches: \r\n\r\n- https://www.mikestreety.co.uk/blog/vue-js-using-localstorage-with-the-vuex-store\r\n- https://flaviocopes.com/vuex-persist-localstorage/"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2020-03-20T20:42:00",
+          "type": "referenced"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "marc_liberation": [
+    {
+      "created_at": "2020-03-20T13:34:42",
+      "updated_at": "2020-03-20T13:34:42",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/608",
+      "number": 608,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/608",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "[WIP] Replace my-sql with postgres",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-03-20T13:34:52",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-03-20T14:51:13",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-03-20T15:06:34",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-03-20T15:42:45",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/608",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-03-16T17:49:46",
+      "updated_at": "2020-03-16T17:49:46",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/603",
+      "number": 603,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Change all locations to requestable true",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "carolyncole",
+          "updated_at": "2020-03-20T17:11:14",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/603#issuecomment-601813477",
+          "body": "We should go ahead and do this change in production."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-03-16T16:01:43",
+      "updated_at": "2020-03-16T16:01:43",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/602",
+      "number": 602,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/602",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Add section for importing locations locally",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-03-20T18:55:49",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/602",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2019-05-09T12:15:02",
+      "updated_at": "2019-05-09T12:15:02",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/541",
+      "number": 541,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "move off mysql to postgresql",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-03-20T19:47:54",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/541#issuecomment-601876839",
+          "body": "1. Dump mysql on **production**:\r\n      - `mysqldump -u user -p password database_name > dump_file.sql`  \r\n1. In your local environment:\r\n     1. make sure you are running mysql 5.7\r\n     1. `brew install pgloader` (https://github.com/dimitri/pgloader)\r\n     1. `pgloader mysql://user:pass@localhost/marc_liberation_dev  postgresql://user:pass@localhost/marc_liberation_dev`\r\n     1. connect to postgres:\r\n         - `psql postgres`:\r\n                run: `alter database marc_liberation_dev set search_path to marc_liberation_dev, public;`\r\n      1. export a pg_dump:\r\n             - `pg_dump marc_liberation_dev > marc_liberation.dump`\r\n1. on **bibdata-staging** server\r\n   1. scp the pg_dump from your local\r\n   1. restore the pg_dump:\r\n      - `pgsql database_name < marc_liberation.dump`\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-03-20T17:48:08",
+          "type": "moved_columns_in_project"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2020-03-19T14:41:54",
+      "updated_at": "2020-03-19T14:41:54",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/1971",
+      "number": 1971,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Add mailcatcher to staging server",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-03-20T13:23:37",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-03-18T18:11:03",
+      "updated_at": "2020-03-18T18:11:03",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/1967",
+      "number": 1967,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Call numbers issues because of the load balancer",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-03-20T14:16:26",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/1967#issuecomment-601722460",
+          "body": "I checked today the call_numbers_browse_s.sorted file and it seems larger (contains more lines) than the previous one (which was missing 147,000 lines). Pointing to a solr8-box fixed the issue. It is better not to run this task through the Load Balancer. \r\n\r\nThis task runs on lib-pulindexer1. Someone can check the `call_numbers_browse_s` file on the `/tmp` directory.\r\n"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-03-20T14:04:27",
+      "updated_at": "2020-03-20T14:04:27",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/1978",
+      "number": 1978,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/1978",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Adding mailcatcher configuration for staging",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2020-03-20T14:28:05",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/1978#issuecomment-601727943",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/29501620/badge)](https://coveralls.io/builds/29501620)\n\nCoverage increased (+0.05%) to 96.498% when pulling **c36eefec022db8676ddbfdda2db889543062de1c on i1971-readme-update** into **b273c4b5155842877c59a1423d77fb2f88727d2a on master**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-03-20T14:06:44",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-03-20T14:44:34",
+          "type": "review_requested"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/1978",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-03-17T13:36:34",
+      "updated_at": "2020-03-17T13:36:34",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/1961",
+      "number": 1961,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Home Page Updates",
+      "user_name": "Esmé Cowles",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-03-20T20:16:46",
+      "updated_at": "2020-03-20T20:16:46",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/1979",
+      "number": 1979,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/1979",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "[WIP Do Not Merge] Update request form message and banner.",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-03-20T20:16:54",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-03-20T20:16:54",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-03-20T20:16:54",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-03-20T20:36:34",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/1979",
+      "action": "pull_request_closed"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2020-03-19T19:46:15",
+      "updated_at": "2020-03-19T19:46:15",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1380",
+      "number": 1380,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Extract mailcatcher into a role",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-03-20T02:21:28",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-03-19T20:32:37",
+      "updated_at": "2020-03-19T20:32:37",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1381",
+      "number": 1381,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1381",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Extracting mailcatcher steps to a role",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-03-20T02:21:27",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-03-20T02:21:27",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-03-20T02:21:28",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-03-20T02:21:31",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1381",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-03-20T12:08:11",
+      "updated_at": "2020-03-20T12:08:11",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1382",
+      "number": 1382,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1382",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[Orangelight] Adding mailcatcher to orangelight-staging",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-03-20T12:34:03",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-03-20T12:34:03",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-03-20T12:34:03",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-03-20T12:34:08",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1382",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-02-27T20:52:24",
+      "updated_at": "2020-02-27T20:52:24",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1320",
+      "number": 1320,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Create qa server for Orangelight",
+      "user_name": "mzelesky",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2020-03-20T13:35:10",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1320#issuecomment-601703978",
+          "body": "- [ ] create a orangelight qa nginx config\r\n- [ ] create a orangelight qa playbook\r\n- [ ] deploy orangelight via cap (pulbot?)"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-03-20T13:19:01",
+      "updated_at": "2020-03-20T13:19:01",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1383",
+      "number": 1383,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1383",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Allowing mailcatcher install location to change",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-03-20T13:19:13",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-03-20T14:55:15",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-03-20T14:55:15",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-03-20T14:55:15",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-03-20T14:55:19",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1383",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-03-20T18:40:35",
+      "updated_at": "2020-03-20T18:40:35",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1385",
+      "number": 1385,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1385",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add signal sciences adding back the signal science module",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-03-20T19:16:07",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-03-20T19:16:07",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-03-20T19:16:07",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-03-20T19:16:10",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1385",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-03-19T17:00:15",
+      "updated_at": "2020-03-19T17:00:15",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1378",
+      "number": 1378,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1378",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add idp and proxy redirect make the loadbalancer re-redirect all content from idp to upstream",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-03-20T19:44:05",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-03-20T19:44:52",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-03-20T19:44:52",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-03-20T19:44:52",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-03-20T19:44:55",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1378",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-03-20T18:24:58",
+      "updated_at": "2020-03-20T18:24:58",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1384",
+      "number": 1384,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add signal sciences back",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-03-20T20:14:10",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-03-19T13:46:11",
+      "updated_at": "2020-03-19T13:46:11",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1376",
+      "number": 1376,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1376",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "update to molecule 3",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-03-20T20:52:40",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-03-20T20:52:43",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1376",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-03-03T13:25:15",
+      "updated_at": "2020-03-03T13:25:15",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1332",
+      "number": 1332,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1332",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "add orangelight qa host and group variables",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-03-20T20:53:38",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1332",
+      "action": "pull_request_open"
+    }
+  ],
+  "pul_library_drupal": [
+    {
+      "created_at": "2020-03-20T18:49:57",
+      "updated_at": "2020-03-20T18:49:57",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1611",
+      "number": 1611,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1611",
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "closed",
+      "title": "Adds CORS module; Updates alerts feature",
+      "user_name": "Axa Mei Liauw",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-03-20T19:34:15",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-03-20T19:34:15",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-03-20T19:34:15",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-03-20T19:34:19",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1611",
+      "action": "pull_request_closed"
+    }
+  ],
+  "pul_solr": [
+    {
+      "created_at": "2020-03-19T22:28:03",
+      "updated_at": "2020-03-19T22:28:03",
+      "html_url": "https://github.com/pulibrary/pul_solr/pull/229",
+      "number": 229,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_solr/pull/229",
+      "repository_html_url": "https://github.com/pulibrary/pul_solr",
+      "repository_name": "pul_solr",
+      "state": "closed",
+      "title": "Allow for 5xx fields in CJK to be searched.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Nikitas Tampakis",
+          "created_at": "2020-03-20T17:30:10",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Nikitas Tampakis",
+          "created_at": "2020-03-20T17:30:10",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Nikitas Tampakis",
+          "created_at": "2020-03-20T17:30:10",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Nikitas Tampakis",
+          "created_at": "2020-03-20T17:30:18",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul_solr/pull/229",
+      "action": "pull_request_closed"
+    }
+  ],
+  "pulfalight": [
+    {
+      "created_at": "2020-03-20T12:59:03",
+      "updated_at": "2020-03-20T12:59:03",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/188",
+      "number": 188,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/188",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Fixes issues with seeding the Solr Collection with PULFA EADs and ensures that IndexJob commits to Solr",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/188",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-03-13T17:56:18",
+      "updated_at": "2020-03-13T17:56:18",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/141",
+      "number": 141,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Integrate \"Request\" buttons for multiple levels of access",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2020-03-20T17:41:14",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/141#issuecomment-601828837",
+          "body": "current values for @type are:\r\n\r\n'closed'\r\n'curatorreview'\r\n'curatorreview ' <-- this one needs to be cleaned up\r\n'digital'\r\n'open'\r\n'remotestorage'\r\n'restricted'\r\n\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Type",
+          "created_at": "2020-03-20T17:40:53",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Type",
+          "created_at": "2020-03-20T17:40:53",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-03-02T17:00:13",
+      "updated_at": "2020-03-02T17:00:13",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/134",
+      "number": 134,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Why is it called \"Collection context\"?",
+      "user_name": "Amanda Ferrara",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-03-20T18:16:35",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/134#issuecomment-601844415",
+          "body": "Wireframes for this should be provided in order to capture feedback on earlier design ideas."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-03-20T17:59:42",
+      "updated_at": "2020-03-20T17:59:42",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/189",
+      "number": 189,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Review ARKs for PUDL content and ensure that these items are not already in Figgy",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-03-20T18:01:24",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/189#issuecomment-601837881",
+          "body": "@regineheberlein shall attempt to produce a Google Sheet assessing the current values stored in the `<dao>` element. 6,300 elements is the approximate count."
+        },
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2020-03-20T18:51:37",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/189#issuecomment-601848330",
+          "body": "dao's starting with \"http:\": Google sheet with current values, cid's, and collection id's can be found in the Pulfa 3.0/PULFAlight Google drive [here](https://drive.google.com/drive/u/1/folders/1HyJGlT1YBinFpKOdW7jw1po-HB66IQ6o)"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-03-20T17:59:42",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-03-20T17:59:43",
+          "type": "milestoned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-03-20T18:00:31",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-03-20T18:01:25",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-03-20T18:01:25",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "requests": [
+    {
+      "created_at": "2020-03-17T21:12:17",
+      "updated_at": "2020-03-17T21:12:17",
+      "html_url": "https://github.com/pulibrary/requests/issues/444",
+      "number": 444,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "closed",
+      "title": "Add Note about Resource Sharing Service Discruption",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-03-20T17:13:58",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-03-20T20:15:23",
+      "updated_at": "2020-03-20T20:15:23",
+      "html_url": "https://github.com/pulibrary/requests/pull/454",
+      "number": 454,
+      "pull_request_html_url": "https://github.com/pulibrary/requests/pull/454",
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "closed",
+      "title": "Update message",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-03-20T20:15:43",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-03-20T20:15:43",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-03-20T20:15:43",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/requests/pull/454",
+      "action": "pull_request_closed"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 35,
+    "closed_count": 3,
+    "created_count": 8,
+    "pull_request_closed_count": 11,
+    "pull_request_open_count": 6,
+    "updated_count": 7,
+    "today": "2020-03-20T22:00:06",
+    "yesterday": "2020-03-19T22:00:06"
+  }
+}
