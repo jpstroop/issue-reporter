@@ -1,0 +1,1919 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5fda38894b.js" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" type="text/css" href="../../../../css/main.css" />
+    <title>PUL GitHub Issues for 2020-04-07T22:00:06</title>
+  </head>
+
+<body>
+  <div class="container-fluid">
+    <a id="btt-button"></a>
+    
+<h1 class="bg-dark text-light">PUL GitHub Issues<br />
+  <small class="text-white-70">2020-04-07</small></h1>
+<nav class="navbar sticky-top navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar-toggler">
+    <ul class="navbar-nav mr-auto mt-2 pt-3 mt-lg-0">
+      <li class="nav-item not-mono">
+        <a class="nav-link" href="../../../../index.html"><i class="fas fa-arrow-left"></i> Back to Report List Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#DSS">pulibrary/DSS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#figgy">pulibrary/figgy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#orangelight">pulibrary/orangelight</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#orcid-client">pulibrary/orcid-client</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pomegranate">pulibrary/pomegranate</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#princeton_ansible">pulibrary/princeton_ansible</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pul_uv_rails">pulibrary/pul_uv_rails</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pulfalight">pulibrary/pulfalight</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#requests">pulibrary/requests</a>
+      </li>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    
+    <section class="repo" id="DSS">
+      <h2><a href="https://github.com/pulibrary/DSS">pulibrary/DSS</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="DSS-153">
+        <h3><a href="https://github.com/pulibrary/DSS/issues/153">#153</a> Guest Users are not being properly deleted</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kevin Reiss</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 04:00:22</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Kevin Reiss at 2020-04-07 04:00:22.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="figgy">
+      <h2><a href="https://github.com/pulibrary/figgy">pulibrary/figgy</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="figgy-3785">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3785">#3785</a> GeoServer Event Published after generating a scanned map PDF</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-06 21:57:48</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Eliot Jordan at <a href="https://github.com/pulibrary/figgy/issues/3785#issuecomment-610061937">2020-04-06 22:06:14</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>A guess would be that this check:</p>
+
+<p><a href="https://github.com/pulibrary/figgy/blob/master/app/services/event_generator/geoserver_event_generator.rb#L92">https://github.com/pulibrary/figgy/blob/master/app/services/event_generator/geoserver_event_generator.rb#L92</a></p>
+
+<p>is ignoring the GeoTIFF mime type extension:
+<a href="https://github.com/pulibrary/figgy/blob/master/config/authorities/geo_raster_formats.yml#L2">https://github.com/pulibrary/figgy/blob/master/config/authorities/geo_raster_formats.yml#L2</a></p>
+
+<p>and matching a plain <code>image/tiff</code> instead.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Eliot Jordan at 2020-04-06 22:00:35.</li>
+  <li class="event odd">
+    <code>labeled</code> by Eliot Jordan at 2020-04-06 22:00:35.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-3641">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3641">#3641</a> Evaluate Ephemera Subject Heading entry for trained cataloguers</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2020-02-06 22:18:24</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Kim Leaman at <a href="https://github.com/pulibrary/figgy/issues/3641#issuecomment-610065376">2020-04-06 22:15:39</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>My two cents, @tpendragon:  Looking at Ephemera as a whole and as I understand how it was/is? intended to be used, controlled vocabularies are put in place to ensure that collections may be searched not only within their own collections, but throughout the Ephemera collections as a whole. I like the idea of 2a, where the list at large may be chosen from but (certain?) collections may request adding their own things as well. The requests would then be reviewed by the metadata specialist put in charge by Jennifer (currently Rex) and a decision made for that subject to be added to the controlled vocab.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>mentioned</code> by Trey Pendragon at 2020-04-06 22:15:39.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Trey Pendragon at 2020-04-06 22:15:39.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="figgy-3638">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3638">#3638</a> Provide very obvious information that Figgy is staff-only.</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2020-02-06 22:10:21</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Kim Leaman at <a href="https://github.com/pulibrary/figgy/issues/3638#issuecomment-610072753">2020-04-06 22:36:41</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>How about something like this @escowles and @tpendragon? <em>Figgy is the backend Staff Only Digital Repository system developed at Princeton University Library and is the primary tool used for our digital content management. Once published by staff in Figgy, digital objects are displayed to users in one or more of our many online gateways.</em></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>mentioned</code> by Esmé Cowles at 2020-04-06 22:36:41.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Esmé Cowles at 2020-04-06 22:36:41.</li>
+  <li class="event even">
+    <code>mentioned</code> by Trey Pendragon at 2020-04-06 22:36:41.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Trey Pendragon at 2020-04-06 22:36:42.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-3637">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3637">#3637</a> Saving many files on Order Manager is really slow and provides no feedback.</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2020-02-06 22:09:28</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Kim Leaman at <a href="https://github.com/pulibrary/figgy/issues/3637#issuecomment-610074084">2020-04-06 22:40:51</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>I have had feedback regarding this by individuals now working in Order manager for the past two weeks, @tpendragon. I&#39;d say its worth prioritizing this, since the likelihood of having more people contributing to figgy in this way is high. </p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>mentioned</code> by Trey Pendragon at 2020-04-06 22:40:51.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Trey Pendragon at 2020-04-06 22:40:51.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="figgy-3784">
+        <h3><a href="https://github.com/pulibrary/figgy/pull/3784">#3784</a> Don't validate pyramidals post-upload</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-06 18:22:52</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/figgy/pull/3784">pull request</a>)
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-3786">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3786">#3786</a> Typo in download/usage disclaimer on PDFs</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Jon Stroop</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 13:55:46</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Jon Stroop at <a href="https://github.com/pulibrary/figgy/issues/3786#issuecomment-610410026">2020-04-07 14:11:02</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>The URL in the blurb could be updated as well: <a href="https://library.princeton.edu/special-collections/policies/forms-citation">https://library.princeton.edu/special-collections/policies/forms-citation</a> </p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+      <div class="issue even" id="figgy-3787">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3787">#3787</a> Order Manager Vue Performance Problems</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 17:30:41</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Trey Pendragon at 2020-04-07 17:30:41.</li>
+  <li class="event odd">
+    <code>labeled</code> by Trey Pendragon at 2020-04-07 17:30:41.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-3650">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3650">#3650</a> 1890 Trenton Sanborns are missing. Re-Ingest & Ensure Figgy Uses existing ARKs</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Eliot Jordan</dd>
+          <dt>Created:</dt>
+          <dd>2020-02-11 17:38:39</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Esmé Cowles at <a href="https://github.com/pulibrary/figgy/issues/3650#issuecomment-610577674">2020-04-07 19:30:26</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>How much work would it be to ingest the JP2s? Given the uncertainty of when we&#39;ll be able to rephotograph these, it might  make sense to do that if we really can&#39;t find the original TIFFs anywhere.</p>
+
+              </dd>
+              <dt>Kim Leaman at <a href="https://github.com/pulibrary/figgy/issues/3650#issuecomment-610623489">2020-04-07 21:12:56</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>@eliotjordan : @roelmoon found tiff backups on the isilon for the GIS stuff (what they are, unknown...but there is a lot of them. thousands).   In the PUDL share on the isilon: Its in Vol4<em>pudl</em>merged<em>rm. There are 2 subdirectories there for the GIS Archive (/Volumes/pudl/Vol4</em>pudl<em>merged</em>rm/gis ).  we don&#39;t know what the numbers mean post PUmap_xxxx.? Is this what you are looking for? Also @escowles re: JP2 bulk ingest into figgy. Is this a question for us? in theory its doable but would figgy try to create jp2s from the jp2s because that&#39;s what it does?  </p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>mentioned</code> by Eliot Jordan at 2020-04-07 21:12:56.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Eliot Jordan at 2020-04-07 21:12:56.</li>
+  <li class="event even">
+    <code>mentioned</code> by Esmé Cowles at 2020-04-07 21:12:56.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Esmé Cowles at 2020-04-07 21:12:56.</li>
+  <li class="event even">
+    <code>mentioned</code> by Roel Munoz at 2020-04-07 21:12:57.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Roel Munoz at 2020-04-07 21:12:57.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="figgy-3788">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3788">#3788</a> Request another verification for Figgy from Google for Drive Support</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 22:33:33</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/figgy/issues/3788#issuecomment-610655327">2020-04-07 22:40:39</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>I have the following status now reported:</p>
+
+<p><img src="https://user-images.githubusercontent.com/1443986/78726146-44885380-78ff-11ea-8f3b-a9d85bd09a98.png" alt="image"></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by James R. Griffin III at 2020-04-07 22:33:34.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="orangelight">
+      <h2><a href="https://github.com/pulibrary/orangelight">pulibrary/orangelight</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="orangelight-2004">
+        <h3><a href="https://github.com/pulibrary/orangelight/pull/2004">#2004</a> Adds new icon options for announcements</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Axa Mei Liauw</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 02:45:31</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/orangelight/pull/2004">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>review_requested</code> by Axa Mei Liauw at 2020-04-07 02:45:45.</li>
+  <li class="event odd">
+    <code>referenced</code> by Kevin Reiss at 2020-04-07 04:27:05.</li>
+  <li class="event even">
+    <code>merged</code> by Kevin Reiss at 2020-04-07 04:27:05.</li>
+  <li class="event odd">
+    <code>closed</code> by Kevin Reiss at 2020-04-07 04:27:06.</li>
+  <li class="event even">
+    <code>head_ref_deleted</code> by Kevin Reiss at 2020-04-07 04:27:09.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="orangelight-1949">
+        <h3><a href="https://github.com/pulibrary/orangelight/issues/1949">#1949</a> Create a RAILS_ENV staging for the orangelight staging boxes</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2020-03-12 14:40:55</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Christina Chortaria at <a href="https://github.com/pulibrary/orangelight/issues/1949#issuecomment-610376889">2020-04-07 13:10:01</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>we have a rails<em>env staging. I will revisit this one for the orangelight</em>staging rabbitmq</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+      <div class="issue even" id="orangelight-1961">
+        <h3><a href="https://github.com/pulibrary/orangelight/issues/1961">#1961</a> Home Page Updates</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Esmé Cowles</dd>
+          <dt>Created:</dt>
+          <dd>2020-03-17 13:36:34</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="orangelight-1960">
+        <h3><a href="https://github.com/pulibrary/orangelight/pull/1960">#1960</a> Update gem solr_wrapper to 2.0</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2020-03-17 13:13:04</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/orangelight/pull/1960">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_deleted</code> by Christina Chortaria at 2020-04-07 18:44:25.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="orangelight-1951">
+        <h3><a href="https://github.com/pulibrary/orangelight/pull/1951">#1951</a> Update cron-job solr-url</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2020-03-12 15:27:56</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/orangelight/pull/1951">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_deleted</code> by Christina Chortaria at 2020-04-07 18:44:26.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="orangelight-1997">
+        <h3><a href="https://github.com/pulibrary/orangelight/pull/1997">#1997</a> Ensures that single strings in facet queries raise errors</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-03 07:17:53</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/orangelight/pull/1997">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_deleted</code> by Christina Chortaria at 2020-04-07 18:44:41.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="orangelight-2003">
+        <h3><a href="https://github.com/pulibrary/orangelight/pull/2003">#2003</a> Update the banner with a new message and the homepage with an announcement </h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-06 19:45:34</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/orangelight/pull/2003">pull request</a>)
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Coveralls at <a href="https://github.com/pulibrary/orangelight/pull/2003#issuecomment-610013605">2020-04-07 19:46:01</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p><a href="https://coveralls.io/builds/29919369"><img src="https://coveralls.io/builds/29919369/badge" alt="Coverage Status"></a></p>
+
+<p>Coverage remained the same at 96.484% when pulling <strong>0fe9f6322b4df0f18da0f34c36df3893ebcefa29 on update-homepage2-ad</strong> into <strong>ac320547d6b6d110f8d6d0fe0be28dd1879903cd on master</strong>.</p>
+
+              </dd>
+              <dt>Christina Chortaria at <a href="https://github.com/pulibrary/orangelight/pull/2003#issuecomment-610344273">2020-04-07 11:57:44</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>with the icon-bell:
+1.<img src="https://user-images.githubusercontent.com/9905193/78666422-5b01c100-78a5-11ea-8bec-97d3abafaa6d.png" alt="Screen Shot 2020-04-07 at 7 56 14 AM">
+2.<img src="https://user-images.githubusercontent.com/9905193/78666424-5b9a5780-78a5-11ea-900c-4c7eb2c18aad.png" alt="Screen Shot 2020-04-07 at 7 55 45 AM">
+3.<img src="https://user-images.githubusercontent.com/9905193/78666426-5c32ee00-78a5-11ea-8f03-f9a6086a6485.png" alt="Screen Shot 2020-04-07 at 7 54 48 AM"></p>
+
+              </dd>
+              <dt>Christina Chortaria at <a href="https://github.com/pulibrary/orangelight/pull/2003#issuecomment-610346325">2020-04-07 12:02:28</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>with the icon-announce:
+1.<img src="https://user-images.githubusercontent.com/9905193/78666804-e4b18e80-78a5-11ea-91ec-d28e4b310309.png" alt="Screen Shot 2020-04-07 at 7 58 28 AM"></p>
+
+<p>2.<img src="https://user-images.githubusercontent.com/9905193/78666825-eda26000-78a5-11ea-9007-03cd18794461.png" alt="Screen Shot 2020-04-07 at 7 58 50 AM">
+3.<img src="https://user-images.githubusercontent.com/9905193/78666879-03b02080-78a6-11ea-9c1b-f45c98a3ade5.png" alt="Screen Shot 2020-04-07 at 8 00 18 AM"></p>
+
+              </dd>
+              <dt>Esmé Cowles at <a href="https://github.com/pulibrary/orangelight/pull/2003#issuecomment-610352086">2020-04-07 12:16:19</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>Those all look good to me — I like option 3 the best, since it&#39;s going in the direction of having the megaphone icon take a similar role to the Hathi icon above, making the multiple boxes look like desktop notifications a little bit.</p>
+
+              </dd>
+              <dt>Christina Chortaria at <a href="https://github.com/pulibrary/orangelight/pull/2003#issuecomment-610353416">2020-04-07 12:19:18</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>@escowles I deployed megaphone- option 3 on staging</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by Christina Chortaria at 2020-04-07 11:46:44.</li>
+  <li class="event odd">
+    <code>head_ref_force_pushed</code> by Christina Chortaria at 2020-04-07 12:12:28.</li>
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by Christina Chortaria at 2020-04-07 12:15:42.</li>
+  <li class="event odd">
+    <code>deployed</code> by Trey Pendragon at 2020-04-07 12:18:08.</li>
+  <li class="event even">
+    <code>mentioned</code> by Esmé Cowles at 2020-04-07 12:19:18.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Esmé Cowles at 2020-04-07 12:19:18.</li>
+  <li class="event even">
+    <code>renamed</code> by Christina Chortaria at 2020-04-07 12:32:38.</li>
+  <li class="event odd">
+    <code>head_ref_force_pushed</code> by Christina Chortaria at 2020-04-07 13:09:51.</li>
+  <li class="event even">
+    <code>deployed</code> by Trey Pendragon at 2020-04-07 13:11:25.</li>
+  <li class="event odd">
+    <code>head_ref_force_pushed</code> by Christina Chortaria at 2020-04-07 14:32:35.</li>
+  <li class="event even">
+    <code>deployed</code> by Trey Pendragon at 2020-04-07 14:33:15.</li>
+  <li class="event odd">
+    <code>head_ref_force_pushed</code> by Christina Chortaria at 2020-04-07 14:34:02.</li>
+  <li class="event even">
+    <code>deployed</code> by Trey Pendragon at 2020-04-07 17:46:11.</li>
+  <li class="event odd">
+    <code>deployed</code> by Trey Pendragon at 2020-04-07 18:51:51.</li>
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by Christina Chortaria at 2020-04-07 19:22:32.</li>
+  <li class="event odd">
+    <code>deployed</code> by Trey Pendragon at 2020-04-07 19:23:28.</li>
+  <li class="event even">
+    <code>referenced</code> by None at 2020-04-07 19:49:19.</li>
+  <li class="event odd">
+    <code>merged</code> by None at 2020-04-07 19:49:19.</li>
+  <li class="event even">
+    <code>closed</code> by None at 2020-04-07 19:49:19.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by None at 2020-04-07 19:49:30.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="orangelight-2005">
+        <h3><a href="https://github.com/pulibrary/orangelight/issues/2005">#2005</a> Update staging deploy with new staging boxes name</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 20:13:11</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by Christina Chortaria at 2020-04-07 20:13:19.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="orangelight-2006">
+        <h3><a href="https://github.com/pulibrary/orangelight/pull/2006">#2006</a> Update deploy/staging with new staging boxes names</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 20:49:08</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/orangelight/pull/2006">pull request</a>)
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="orangelight-1950">
+        <h3><a href="https://github.com/pulibrary/orangelight/issues/1950">#1950</a> Create a RAILS_ENV qa for the orangelight qa box</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2020-03-12 14:44:19</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by Christina Chortaria at 2020-04-07 20:50:31.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="orangelight-2007">
+        <h3><a href="https://github.com/pulibrary/orangelight/issues/2007">#2007</a> Shorten banner notice</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Esmé Cowles</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 20:59:18</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="orcid-client">
+      <h2><a href="https://github.com/pulibrary/orcid-client">pulibrary/orcid-client</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="orcid-client-3">
+        <h3><a href="https://github.com/pulibrary/orcid-client/issues/3">#3</a> Report of orcid results for a list of individuals</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackmastera</dd>
+          <dt>Created:</dt>
+          <dd>2020-03-25 16:03:20</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>hackmastera at <a href="https://github.com/pulibrary/orcid-client/issues/3#issuecomment-610394303">2020-04-07 13:42:35</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>example csv:
+<code>
+Eliot, Jordan, eliotj@princeton.edu
+Wind, Cowles, Wind Cowles, windcowles@princeton.edu
+</code></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+      <div class="issue odd" id="orcid-client-6">
+        <h3><a href="https://github.com/pulibrary/orcid-client/issues/6">#6</a> Normalized search by institution</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackmastera</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-03 15:04:36</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by None at 2020-04-07 13:42:49.</li>
+  <li class="event odd">
+    <code>referenced</code> by None at 2020-04-07 13:43:24.</li>
+  <li class="event even">
+    <code>referenced</code> by None at 2020-04-07 15:35:10.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="orcid-client-1">
+        <h3><a href="https://github.com/pulibrary/orcid-client/issues/1">#1</a> Report of all orcid individuals affiliated with Princeton University</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackmastera</dd>
+          <dt>Created:</dt>
+          <dd>2020-03-25 15:54:32</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by Eliot Jordan at 2020-04-07 13:43:59.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="orcid-client-11">
+        <h3><a href="https://github.com/pulibrary/orcid-client/pull/11">#11</a> Integrate the swagger client for search_institution</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackmastera</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 15:29:49</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/orcid-client/pull/11">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by None at 2020-04-07 15:31:19.</li>
+  <li class="event odd">
+    <code>merged</code> by None at 2020-04-07 15:31:19.</li>
+  <li class="event even">
+    <code>closed</code> by None at 2020-04-07 15:31:20.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by None at 2020-04-07 15:31:27.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="orcid-client-10">
+        <h3><a href="https://github.com/pulibrary/orcid-client/pull/10">#10</a> Add grid and ringgold search</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackmastera</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 13:43:35</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/orcid-client/pull/10">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by None at 2020-04-07 15:35:10.</li>
+  <li class="event odd">
+    <code>referenced</code> by Eliot Jordan at 2020-04-07 15:35:51.</li>
+  <li class="event even">
+    <code>merged</code> by Eliot Jordan at 2020-04-07 15:35:51.</li>
+  <li class="event odd">
+    <code>closed</code> by Eliot Jordan at 2020-04-07 15:35:51.</li>
+  <li class="event even">
+    <code>head_ref_deleted</code> by Eliot Jordan at 2020-04-07 15:35:55.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="orcid-client-12">
+        <h3><a href="https://github.com/pulibrary/orcid-client/pull/12">#12</a> Use documented Authorization type and Access token headers</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackmastera</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 18:39:07</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/orcid-client/pull/12">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Eliot Jordan at 2020-04-07 18:39:59.</li>
+  <li class="event odd">
+    <code>merged</code> by Eliot Jordan at 2020-04-07 18:39:59.</li>
+  <li class="event even">
+    <code>closed</code> by Eliot Jordan at 2020-04-07 18:39:59.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Eliot Jordan at 2020-04-07 18:40:02.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="orcid-client-13">
+        <h3><a href="https://github.com/pulibrary/orcid-client/pull/13">#13</a> Search all</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackmastera</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 19:54:20</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/orcid-client/pull/13">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by None at 2020-04-07 19:54:30.</li>
+  <li class="event odd">
+    <code>merged</code> by None at 2020-04-07 19:54:30.</li>
+  <li class="event even">
+    <code>closed</code> by None at 2020-04-07 19:54:30.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by None at 2020-04-07 19:54:33.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="orcid-client-14">
+        <h3><a href="https://github.com/pulibrary/orcid-client/pull/14">#14</a> Rewrite interface for query service</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Eliot Jordan</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 20:58:09</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/orcid-client/pull/14">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Eliot Jordan at 2020-04-07 20:58:18.</li>
+  <li class="event odd">
+    <code>merged</code> by Eliot Jordan at 2020-04-07 20:58:18.</li>
+  <li class="event even">
+    <code>closed</code> by Eliot Jordan at 2020-04-07 20:58:18.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Eliot Jordan at 2020-04-07 20:58:21.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="pomegranate">
+      <h2><a href="https://github.com/pulibrary/pomegranate">pulibrary/pomegranate</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="pomegranate-766">
+        <h3><a href="https://github.com/pulibrary/pomegranate/issues/766">#766</a> "Curator" role in Dashboard only gives access to Curation options and no configuration options. Is this what we want to happen?</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kim Leaman</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 19:37:55</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Kim Leaman at 2020-04-07 19:37:55.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pomegranate-765">
+        <h3><a href="https://github.com/pulibrary/pomegranate/issues/765">#765</a> Missing image and font overflow on home page</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Jon Stroop</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 18:58:06</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Kim Leaman at <a href="https://github.com/pulibrary/pomegranate/issues/765#issuecomment-610591801">2020-04-07 20:01:31</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Checking browsers, @jpstroop. Image isn&#39;t broken for me in Safari or Chrome, but is missing in Firefox. need to boot up other computer for Brave. </p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>mentioned</code> by Jon Stroop at 2020-04-07 20:01:31.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Jon Stroop at 2020-04-07 20:01:31.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="princeton_ansible">
+      <h2><a href="https://github.com/pulibrary/princeton_ansible">pulibrary/princeton_ansible</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="princeton_ansible-1426">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1426">#1426</a> this unbreaks the currect nginxplus prod</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-06 20:42:48</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1426">pull request</a>)
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/princeton_ansible/pull/1426#issuecomment-610188019">2020-04-07 05:48:49</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>This is currently blocked by <a href="https://github.com/pulibrary/pulfalight/pull/229">https://github.com/pulibrary/pulfalight/pull/229</a></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>review_requested</code> by James R. Griffin III at 2020-04-07 05:49:03.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-1419">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1419">#1419</a> Issue 1418 orangelight staging</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-03 19:52:38</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1419">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Christina Chortaria at 2020-04-07 12:52:14.</li>
+  <li class="event odd">
+    <code>merged</code> by Christina Chortaria at 2020-04-07 12:52:14.</li>
+  <li class="event even">
+    <code>closed</code> by Christina Chortaria at 2020-04-07 12:52:14.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-1427">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1427">#1427</a> Update solr 7 cloud http checks off migrated collections</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackmastera</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 14:21:52</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1427">pull request</a>)
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="pul_uv_rails">
+      <h2><a href="https://github.com/pulibrary/pul_uv_rails">pulibrary/pul_uv_rails</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="pul_uv_rails-11">
+        <h3><a href="https://github.com/pulibrary/pul_uv_rails/pull/11">#11</a> [WIP] Update UV to 2.0.2</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Eliot Jordan</dd>
+          <dt>Created:</dt>
+          <dd>2018-09-04 22:32:50</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/pul_uv_rails/pull/11">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by Trey Pendragon at 2020-04-07 18:43:11.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pul_uv_rails-16">
+        <h3><a href="https://github.com/pulibrary/pul_uv_rails/pull/16">#16</a> Adding deprecation note to the README</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Esmé Cowles</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 18:41:38</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/pul_uv_rails/pull/16">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Trey Pendragon at 2020-04-07 18:42:53.</li>
+  <li class="event odd">
+    <code>merged</code> by Trey Pendragon at 2020-04-07 18:42:53.</li>
+  <li class="event even">
+    <code>closed</code> by Trey Pendragon at 2020-04-07 18:42:54.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Christina Chortaria at 2020-04-07 18:43:18.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="pulfalight">
+      <h2><a href="https://github.com/pulibrary/pulfalight">pulibrary/pulfalight</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="pulfalight-228">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/228">#228</a> Implement support for automatically generating the robots.txt file</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 05:46:12</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by James R. Griffin III at 2020-04-07 05:46:12.</li>
+  <li class="event odd">
+    <code>milestoned</code> by James R. Griffin III at 2020-04-07 05:46:12.</li>
+  <li class="event even">
+    <code>assigned</code> by James R. Griffin III at 2020-04-07 05:46:12.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pulfalight-230">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/230">#230</a> The name of the repository doesn't show in the collection context at the top of the screen</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Amanda Ferrara</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 14:10:58</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>milestoned</code> by Amanda Ferrara at 2020-04-07 14:13:37.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="pulfalight-231">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/231">#231</a> While looking at the facets on the main search results page, the "More" section is hard to distinguish from the actual results.</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Amanda Ferrara</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 14:52:15</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>milestoned</code> by Amanda Ferrara at 2020-04-07 14:52:15.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pulfalight-232">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/232">#232</a> While looking at the facets on the main search results page, can the "Access" drop down tab be changed to "Online Access" with no drop down?</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Amanda Ferrara</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 14:55:10</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>milestoned</code> by Amanda Ferrara at 2020-04-07 14:55:11.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="pulfalight-233">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/233">#233</a> Search facets on small window/mobile device</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Amanda Ferrara</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 15:24:16</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>milestoned</code> by Amanda Ferrara at 2020-04-07 15:24:43.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pulfalight-234">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/234">#234</a> Can the search facets have an "i" icon next to them so people can hover over the "i" and see what the filters actually mean?</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Amanda Ferrara</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 15:25:28</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>milestoned</code> by Amanda Ferrara at 2020-04-07 15:25:28.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="pulfalight-235">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/235">#235</a> The "more" pop-up window of the search facets is difficult to navigate. </h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Amanda Ferrara</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 15:26:49</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>milestoned</code> by Amanda Ferrara at 2020-04-07 15:26:49.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pulfalight-220">
+        <h3><a href="https://github.com/pulibrary/pulfalight/pull/220">#220</a> Fixes date range limited faceting and introduces functional tests</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-03 16:50:04</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/pulfalight/pull/220">pull request</a>)
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/pulfalight/pull/220#issuecomment-610452169">2020-04-07 15:24:33</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>This is still breaking due to there needing to be an authenticated user creating the configset (please see <a href="https://lucene.apache.org/solr/guide/8_4/configsets-api.html#configsets-upload">https://lucene.apache.org/solr/guide/8_4/configsets-api.html#configsets-upload</a>)</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by James R. Griffin III at 2020-04-07 15:31:16.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="pulfalight-219">
+        <h3><a href="https://github.com/pulibrary/pulfalight/pull/219">#219</a> Indexes dsc[2] elements into the collection-level documents in the "physical_holdings"</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-02 16:46:42</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/pulfalight/pull/219">pull request</a>)
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/pulfalight/pull/219#issuecomment-610471015">2020-04-07 15:57:14</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>The indexing for this is functional, but the <code>SolrDocument</code> does not permit me to retrieve these as desired. Currently, the adjusted query for the <code>fl</code> parameter is not being propagated to <a href="https://github.com/projectblacklight/blacklight/blob/v7.2.0/lib/blacklight/solr/repository.rb#L62">https://github.com/projectblacklight/blacklight/blob/v7.2.0/lib/blacklight/solr/repository.rb#L62</a>.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+      <div class="issue odd" id="pulfalight-229">
+        <h3><a href="https://github.com/pulibrary/pulfalight/pull/229">#229</a> Implementing the RobotsGeneratorService and adding a task for generating the robots.txt</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 05:48:02</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/pulfalight/pull/229">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>mentioned</code> by Eliot Jordan at 2020-04-07 05:48:02.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Eliot Jordan at 2020-04-07 05:48:02.</li>
+  <li class="event even">
+    <code>review_requested</code> by James R. Griffin III at 2020-04-07 21:00:25.</li>
+  <li class="event odd">
+    <code>referenced</code> by Trey Pendragon at 2020-04-07 21:10:32.</li>
+  <li class="event even">
+    <code>merged</code> by Trey Pendragon at 2020-04-07 21:10:32.</li>
+  <li class="event odd">
+    <code>closed</code> by Trey Pendragon at 2020-04-07 21:10:33.</li>
+  <li class="event even">
+    <code>head_ref_deleted</code> by Trey Pendragon at 2020-04-07 21:10:35.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="requests">
+      <h2><a href="https://github.com/pulibrary/requests">pulibrary/requests</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="requests-503">
+        <h3><a href="https://github.com/pulibrary/requests/pull/503">#503</a> Add button to illiad for all items not online or in aeon.</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kevin Reiss</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-06 13:16:23</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/requests/pull/503">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>renamed</code> by None at 2020-04-07 13:19:49.</li>
+  <li class="event odd">
+    <code>referenced</code> by None at 2020-04-07 13:19:56.</li>
+  <li class="event even">
+    <code>merged</code> by None at 2020-04-07 13:19:56.</li>
+  <li class="event odd">
+    <code>closed</code> by None at 2020-04-07 13:19:57.</li>
+  <li class="event even">
+    <code>head_ref_deleted</code> by None at 2020-04-07 13:20:51.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="requests-504">
+        <h3><a href="https://github.com/pulibrary/requests/issues/504">#504</a> Allow the users to Ask for Help finding an item</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-06 15:50:56</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by None at 2020-04-07 13:24:16.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="requests-508">
+        <h3><a href="https://github.com/pulibrary/requests/pull/508">#508</a> Refactoring form to make it easier to read</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 13:23:39</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/requests/pull/508">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Christina Chortaria at 2020-04-07 13:46:21.</li>
+  <li class="event odd">
+    <code>merged</code> by Christina Chortaria at 2020-04-07 13:46:21.</li>
+  <li class="event even">
+    <code>closed</code> by Christina Chortaria at 2020-04-07 13:46:21.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="requests-507">
+        <h3><a href="https://github.com/pulibrary/requests/issues/507">#507</a> Remove Login for Help Me</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 13:19:39</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by None at 2020-04-07 14:54:41.</li>
+  <li class="event odd">
+    <code>closed</code> by Christina Chortaria at 2020-04-07 15:39:06.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="requests-509">
+        <h3><a href="https://github.com/pulibrary/requests/pull/509">#509</a> for ask_me allow users to access the form without logging in</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 15:03:49</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/requests/pull/509">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Christina Chortaria at 2020-04-07 15:39:06.</li>
+  <li class="event odd">
+    <code>merged</code> by Christina Chortaria at 2020-04-07 15:39:06.</li>
+  <li class="event even">
+    <code>closed</code> by Christina Chortaria at 2020-04-07 15:39:06.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Christina Chortaria at 2020-04-07 15:39:13.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="requests-510">
+        <h3><a href="https://github.com/pulibrary/requests/pull/510">#510</a> Use the method ask_me?</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 16:05:13</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/requests/pull/510">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by None at 2020-04-07 16:23:24.</li>
+  <li class="event odd">
+    <code>referenced</code> by Christina Chortaria at 2020-04-07 16:48:23.</li>
+  <li class="event even">
+    <code>merged</code> by Christina Chortaria at 2020-04-07 16:48:23.</li>
+  <li class="event odd">
+    <code>closed</code> by Christina Chortaria at 2020-04-07 16:48:23.</li>
+  <li class="event even">
+    <code>head_ref_deleted</code> by Christina Chortaria at 2020-04-07 16:48:28.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="requests-513">
+        <h3><a href="https://github.com/pulibrary/requests/issues/513">#513</a> Request Form Won't Load for SCSB Records</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kevin Reiss</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 16:40:02</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Kevin Reiss at 2020-04-07 16:40:02.</li>
+  <li class="event odd">
+    <code>assigned</code> by Christina Chortaria at 2020-04-07 16:45:41.</li>
+  <li class="event even">
+    <code>closed</code> by None at 2020-04-07 18:31:27.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="requests-514">
+        <h3><a href="https://github.com/pulibrary/requests/pull/514">#514</a> check against zero as a regular number, not as a special value</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 18:11:09</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/requests/pull/514">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by Christina Chortaria at 2020-04-07 18:15:28.</li>
+  <li class="event odd">
+    <code>referenced</code> by None at 2020-04-07 18:31:27.</li>
+  <li class="event even">
+    <code>merged</code> by None at 2020-04-07 18:31:27.</li>
+  <li class="event odd">
+    <code>closed</code> by None at 2020-04-07 18:31:27.</li>
+  <li class="event even">
+    <code>head_ref_deleted</code> by None at 2020-04-07 18:31:31.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="requests-502">
+        <h3><a href="https://github.com/pulibrary/requests/pull/502">#502</a> Rebase1</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-06 12:46:29</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/requests/pull/502">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by None at 2020-04-07 18:42:46.</li>
+  <li class="event odd">
+    <code>merged</code> by None at 2020-04-07 18:42:46.</li>
+  <li class="event even">
+    <code>closed</code> by None at 2020-04-07 18:42:46.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by None at 2020-04-07 18:42:49.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="requests-512">
+        <h3><a href="https://github.com/pulibrary/requests/issues/512">#512</a> ILLiad OpenURL Should Include OCLC Number When Available</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kevin Reiss</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 16:36:38</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by None at 2020-04-07 18:08:46.</li>
+  <li class="event odd">
+    <code>referenced</code> by None at 2020-04-07 18:34:41.</li>
+  <li class="event even">
+    <code>closed</code> by None at 2020-04-07 18:43:31.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="requests-505">
+        <h3><a href="https://github.com/pulibrary/requests/issues/505">#505</a> ILLiad OpenURL Should Include Call Number When Available</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kevin Reiss</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-06 22:16:17</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Kevin Reiss at <a href="https://github.com/pulibrary/requests/issues/505#issuecomment-610066002">2020-04-06 22:17:20</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p><a href="https://github.com/pulibrary/requests/blob/09974084d075e6ecbd3ea8a2cb3c92cb712055ea/app/models/concerns/requests/illiad.rb#L20">https://github.com/pulibrary/requests/blob/09974084d075e6ecbd3ea8a2cb3c92cb712055ea/app/models/concerns/requests/illiad.rb#L20</a></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by None at 2020-04-07 17:40:29.</li>
+  <li class="event odd">
+    <code>referenced</code> by None at 2020-04-07 18:23:05.</li>
+  <li class="event even">
+    <code>referenced</code> by None at 2020-04-07 18:34:41.</li>
+  <li class="event odd">
+    <code>closed</code> by None at 2020-04-07 18:43:31.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="requests-511">
+        <h3><a href="https://github.com/pulibrary/requests/pull/511">#511</a> Adding the catalog url to the CitedIn </h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 16:22:26</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/requests/pull/511">pull request</a>)
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Kevin Reiss at <a href="https://github.com/pulibrary/requests/pull/511#issuecomment-610498012">2020-04-07 16:46:28</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>I&#39;m sorry I wrote this ticket poorly. Re-wrote it. </p>
+
+              </dd>
+              <dt>Kevin Reiss at <a href="https://github.com/pulibrary/requests/pull/511#issuecomment-610504054">2020-04-07 16:57:53</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>Instead of mapping this into &quot;Notes&quot; a change to the string we send to the &quot;CitedIn&quot; field is the change that can help the RS staff know which record generated a request. (rechecked ILLiad&#39;s mapping values for OpenURL). </p>
+
+              </dd>
+              <dt>carolyncole at <a href="https://github.com/pulibrary/requests/pull/511#issuecomment-610540446">2020-04-07 18:10:54</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>@kevinreiss I updated the open URL for the OCLC Number and the catalog URL.  I put the oclc field in where it would show up on the form...
+<img src="https://user-images.githubusercontent.com/1599081/78704225-84d4db00-78d9-11ea-8434-44802c0716d8.png" alt="Screen Shot 2020-04-07 at 2 09 22 PM"></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by None at 2020-04-07 18:08:32.</li>
+  <li class="event odd">
+    <code>mentioned</code> by Kevin Reiss at 2020-04-07 18:10:54.</li>
+  <li class="event even">
+    <code>subscribed</code> by Kevin Reiss at 2020-04-07 18:10:54.</li>
+  <li class="event odd">
+    <code>head_ref_force_pushed</code> by None at 2020-04-07 18:34:41.</li>
+  <li class="event even">
+    <code>renamed</code> by None at 2020-04-07 18:35:37.</li>
+  <li class="event odd">
+    <code>referenced</code> by None at 2020-04-07 18:43:31.</li>
+  <li class="event even">
+    <code>merged</code> by None at 2020-04-07 18:43:31.</li>
+  <li class="event odd">
+    <code>closed</code> by None at 2020-04-07 18:43:32.</li>
+  <li class="event even">
+    <code>head_ref_deleted</code> by None at 2020-04-07 18:43:36.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="requests-476">
+        <h3><a href="https://github.com/pulibrary/requests/issues/476">#476</a> Naming/FileName</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2020-03-30 18:54:20</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>carolyncole at <a href="https://github.com/pulibrary/requests/issues/476#issuecomment-610559918">2020-04-07 18:51:22</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>fixed by <a href="https://github.com/pulibrary/requests/pull/493">https://github.com/pulibrary/requests/pull/493</a></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by None at 2020-04-07 18:51:22.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="requests-477">
+        <h3><a href="https://github.com/pulibrary/requests/issues/477">#477</a> Naming/PredicateName</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2020-03-30 18:54:27</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>carolyncole at <a href="https://github.com/pulibrary/requests/issues/477#issuecomment-610560144">2020-04-07 18:51:52</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>fixed by <a href="https://github.com/pulibrary/requests/pull/494">https://github.com/pulibrary/requests/pull/494</a></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by None at 2020-04-07 18:51:52.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="requests-478">
+        <h3><a href="https://github.com/pulibrary/requests/issues/478">#478</a> Performance/HashEachMethods</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2020-03-30 18:54:35</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>carolyncole at <a href="https://github.com/pulibrary/requests/issues/478#issuecomment-610560377">2020-04-07 18:52:25</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>fixed by <a href="https://github.com/pulibrary/requests/pull/496">https://github.com/pulibrary/requests/pull/496</a></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by None at 2020-04-07 18:52:30.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="requests-506">
+        <h3><a href="https://github.com/pulibrary/requests/issues/506">#506</a> "sid" param in ILLiad Open URL should include bib and holdings ID values</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kevin Reiss</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-06 22:18:32</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>carolyncole at <a href="https://github.com/pulibrary/requests/issues/506#issuecomment-610560979">2020-04-07 18:53:39</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>closed by <a href="https://github.com/pulibrary/requests/pull/511">https://github.com/pulibrary/requests/pull/511</a></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by None at 2020-04-07 15:14:34.</li>
+  <li class="event odd">
+    <code>referenced</code> by None at 2020-04-07 18:34:40.</li>
+  <li class="event even">
+    <code>closed</code> by None at 2020-04-07 18:53:39.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="requests-515">
+        <h3><a href="https://github.com/pulibrary/requests/pull/515">#515</a> Refactoring recap and request for MethodLength</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 20:19:04</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/requests/pull/515">pull request</a>)
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../../../../js/report.js"></script>
+  </div>
+</body>
+
+</html>
