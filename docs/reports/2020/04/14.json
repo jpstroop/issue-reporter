@@ -1,0 +1,1685 @@
+{
+  "DSS": [
+    {
+      "created_at": "2020-04-07T04:00:22",
+      "updated_at": "2020-04-07T04:00:22",
+      "html_url": "https://github.com/pulibrary/DSS/issues/153",
+      "number": 153,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/DSS",
+      "repository_name": "DSS",
+      "state": "open",
+      "title": "Guest Users are not being properly deleted",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T13:33:22",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-03-30T15:13:23",
+      "updated_at": "2020-03-30T15:13:23",
+      "html_url": "https://github.com/pulibrary/DSS/issues/151",
+      "number": 151,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/DSS",
+      "repository_name": "DSS",
+      "state": "open",
+      "title": "Move to Postgres",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "carolyncole",
+          "updated_at": "2020-04-14T20:29:29",
+          "html_url": "https://github.com/pulibrary/DSS/issues/151#issuecomment-613625789",
+          "body": "export data from production on `dss-prod1`\r\n```\r\nmysqldump -h 128.112.200.45 -p -u dss dss_production > dss_production-4-14-2020.sql\r\ngzip dss_production-4-14-2020.sql\r\nmv dss_production-4-14-2020.sql.gz ~\r\n```\r\n\r\nstart a mysql 5.7 or earlier as pgloader has issues with later versions\r\n```\r\nbrew service stop mysql\r\nbrew uninstall mysql\r\nrm -rf /usr/local/var/mysql\r\nrm /usr/local/etc/my.cnf\r\nbrew install mysql@5.7\r\nbrew link --force mysql@5.7\r\nbrew services start mysql@5.7\r\ngem uninstall mysql2\r\ngem install mysql2\r\n```\r\n\r\nLocally - Change you database.yml dev name to match the server you are targeting `dss-staging` or `dss-production`\r\n```\r\nmysql -u root <target-server> < dss_production-4-14-2020.sql\r\npgloader mysql://root@localhost/dss_staging postgresql://localhost/dss_staging\r\n```\r\nupdate your database.yml to have the new postgres connection information\r\n\r\n\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T13:33:40",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-04-14T17:55:14",
+      "updated_at": "2020-04-14T17:55:14",
+      "html_url": "https://github.com/pulibrary/DSS/pull/155",
+      "number": 155,
+      "pull_request_html_url": "https://github.com/pulibrary/DSS/pull/155",
+      "repository_html_url": "https://github.com/pulibrary/DSS",
+      "repository_name": "DSS",
+      "state": "closed",
+      "title": "Making all test pass",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-14T21:26:07",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-14T21:26:07",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-14T21:26:07",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-14T21:26:22",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/DSS/pull/155",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2019-11-02T03:35:24",
+      "updated_at": "2019-11-02T03:35:24",
+      "html_url": "https://github.com/pulibrary/DSS/pull/131",
+      "number": 131,
+      "pull_request_html_url": "https://github.com/pulibrary/DSS/pull/131",
+      "repository_html_url": "https://github.com/pulibrary/DSS",
+      "repository_name": "DSS",
+      "state": "open",
+      "title": "Bump devise from 4.6.1 to 4.7.1",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T21:26:58",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/DSS/pull/131",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-04-14T21:27:04",
+      "updated_at": "2020-04-14T21:27:04",
+      "html_url": "https://github.com/pulibrary/DSS/pull/156",
+      "number": 156,
+      "pull_request_html_url": "https://github.com/pulibrary/DSS/pull/156",
+      "repository_html_url": "https://github.com/pulibrary/DSS",
+      "repository_name": "DSS",
+      "state": "open",
+      "title": "Bump nokogiri from 1.10.5 to 1.10.9",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T21:27:05",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T21:27:05",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/DSS/pull/156",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-02-25T02:25:25",
+      "updated_at": "2020-02-25T02:25:25",
+      "html_url": "https://github.com/pulibrary/DSS/pull/146",
+      "number": 146,
+      "pull_request_html_url": "https://github.com/pulibrary/DSS/pull/146",
+      "repository_html_url": "https://github.com/pulibrary/DSS",
+      "repository_name": "DSS",
+      "state": "closed",
+      "title": "Bump nokogiri from 1.10.5 to 1.10.8",
+      "user_name": "dependabot[bot]",
+      "comments": [
+        {
+          "user_name": "dependabot[bot]",
+          "updated_at": "2020-04-14T21:27:06",
+          "html_url": "https://github.com/pulibrary/DSS/pull/146#issuecomment-613690133",
+          "body": "Superseded by #156."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T21:27:06",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T21:27:08",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/DSS/pull/146",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-02-29T01:47:27",
+      "updated_at": "2020-02-29T01:47:27",
+      "html_url": "https://github.com/pulibrary/DSS/pull/148",
+      "number": 148,
+      "pull_request_html_url": "https://github.com/pulibrary/DSS/pull/148",
+      "repository_html_url": "https://github.com/pulibrary/DSS",
+      "repository_name": "DSS",
+      "state": "open",
+      "title": "Bump rake from 12.3.2 to 13.0.1",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T21:27:09",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/DSS/pull/148",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-03-04T04:34:04",
+      "updated_at": "2020-03-04T04:34:04",
+      "html_url": "https://github.com/pulibrary/DSS/pull/149",
+      "number": 149,
+      "pull_request_html_url": "https://github.com/pulibrary/DSS/pull/149",
+      "repository_html_url": "https://github.com/pulibrary/DSS",
+      "repository_name": "DSS",
+      "state": "open",
+      "title": "Bump puma from 3.12.0 to 3.12.4",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T21:27:10",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/DSS/pull/149",
+      "action": "pull_request_open"
+    }
+  ],
+  "authority_control": [
+    {
+      "created_at": "2020-04-14T13:23:25",
+      "updated_at": "2020-04-14T13:23:25",
+      "html_url": "https://github.com/pulibrary/authority_control/pull/15",
+      "number": 15,
+      "pull_request_html_url": "https://github.com/pulibrary/authority_control/pull/15",
+      "repository_html_url": "https://github.com/pulibrary/authority_control",
+      "repository_name": "authority_control",
+      "state": "closed",
+      "title": "add tasks",
+      "user_name": "mzelesky",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T13:23:54",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T13:23:55",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T13:23:55",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T13:23:59",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/authority_control/pull/15",
+      "action": "pull_request_closed"
+    }
+  ],
+  "cicognara-catalogo": [
+    {
+      "created_at": "2020-04-10T17:39:34",
+      "updated_at": "2020-04-10T17:39:34",
+      "html_url": "https://github.com/pulibrary/cicognara-catalogo/issues/119",
+      "number": 119,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/cicognara-catalogo",
+      "repository_name": "cicognara-catalogo",
+      "state": "closed",
+      "title": "dcl:cp7, German, and Black Letter/ Gothic Script",
+      "user_name": "David Platt",
+      "comments": [
+        {
+          "user_name": "David Platt",
+          "updated_at": "2020-04-14T16:38:46",
+          "html_url": "https://github.com/pulibrary/cicognara-catalogo/issues/119#issuecomment-613550220",
+          "body": "Excellent. Thanks so much, Charlotte. (And apologies for my delay in replying -- hope you had a good Easter!)"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "David Platt",
+          "created_at": "2020-04-14T16:42:34",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-04-14T17:08:46",
+      "updated_at": "2020-04-14T17:08:46",
+      "html_url": "https://github.com/pulibrary/cicognara-catalogo/issues/120",
+      "number": 120,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/cicognara-catalogo",
+      "repository_name": "cicognara-catalogo",
+      "state": "open",
+      "title": "Bib: 8543039 -- Bring All These Structmapped Volumes Under One MVW?",
+      "user_name": "David Platt",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2020-04-13T22:49:07",
+      "updated_at": "2020-04-13T22:49:07",
+      "html_url": "https://github.com/pulibrary/figgy/pull/3803",
+      "number": 3803,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/3803",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Add debounce to Order Manager.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-13T22:51:38",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/3803",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-04-14T15:12:49",
+      "updated_at": "2020-04-14T15:12:49",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3804",
+      "number": 3804,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Add ability to ingest JPEG2000 images directly",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-02-11T17:44:14",
+      "updated_at": "2020-02-11T17:44:14",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3651",
+      "number": 3651,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Swap FileSets on two Scanned Maps",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-04-14T15:13:23",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-02-11T17:38:39",
+      "updated_at": "2020-02-11T17:38:39",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3650",
+      "number": 3650,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "1890 Trenton Sanborns are missing. Re-Ingest & Ensure Figgy Uses existing ARKs",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2020-04-14T01:07:49",
+          "html_url": "https://github.com/pulibrary/figgy/issues/3650#issuecomment-613171092",
+          "body": "@eliotjordan , alas and I'm so sorry it was a no-go with locating the tiffs.  Would it faster for us to convert the jp2s to tiffs pre-ingest for this time, while you all work on the future of jp2 ingest? @roelmoon and/or I could do it, I'm sure? "
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2020-04-14T15:50:43",
+          "html_url": "https://github.com/pulibrary/figgy/issues/3650#issuecomment-613523135",
+          "body": "Just a heads up, @eliotjordan  : spoke with @roelmoon and conversion of JP2s to TIFFs for approx 40 files would take about an hour if he connects to one of the studio machines--if you put them somewhere where he can point one of the machines to it (PUDL share would be great)."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-04-14T01:07:36",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-04-14T01:07:36",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Roel Munoz",
+          "created_at": "2020-04-14T01:07:36",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Roel Munoz",
+          "created_at": "2020-04-14T01:07:36",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-04-14T15:50:43",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-04-14T15:50:44",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Roel Munoz",
+          "created_at": "2020-04-14T15:50:44",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Roel Munoz",
+          "created_at": "2020-04-14T15:50:44",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-02-07T18:19:42",
+      "updated_at": "2020-02-07T18:19:42",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3645",
+      "number": 3645,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Dashboard to display metrics of object counts.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-04-14T17:45:12",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-01-31T23:22:00",
+      "updated_at": "2020-01-31T23:22:00",
+      "html_url": "https://github.com/pulibrary/figgy/pull/3609",
+      "number": 3609,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/3609",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "use Lando for solr",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-04-14T18:12:26",
+          "html_url": "https://github.com/pulibrary/figgy/pull/3609#issuecomment-613597768",
+          "body": "This used to have redis and I removed it. Maybe a follow-up?"
+        },
+        {
+          "user_name": "hackmastera",
+          "updated_at": "2020-04-14T20:54:45",
+          "html_url": "https://github.com/pulibrary/figgy/pull/3609#issuecomment-613676498",
+          "body": "I left a couple of comments that can be addressed by documentation. Otherwise, the lando setup is nice but docker use is definitely taxing my system. I might need to work with it for a bit to gauge impact.\r\n\r\nI don’t think I’d want to move other services for now (e.g. redis)"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-04-14T22:38:16",
+          "html_url": "https://github.com/pulibrary/figgy/pull/3609#issuecomment-613715334",
+          "body": "@tpendragon lando ran smoothly. My only concern is that docker consumes a high amount of CPU but maybe this is something I can improve in my local docker installation."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-13T22:49:45",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-04-14T17:51:30",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T20:53:50",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-14T22:38:16",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-14T22:38:16",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/3609",
+      "action": "pull_request_open"
+    }
+  ],
+  "lux": [
+    {
+      "created_at": "2020-03-13T19:40:38",
+      "updated_at": "2020-03-13T19:40:38",
+      "html_url": "https://github.com/pulibrary/lux/pull/317",
+      "number": 317,
+      "pull_request_html_url": "https://github.com/pulibrary/lux/pull/317",
+      "repository_html_url": "https://github.com/pulibrary/lux",
+      "repository_name": "lux",
+      "state": "closed",
+      "title": "Makes sort icons clickable in DataTables",
+      "user_name": "Axa Mei Liauw",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2020-04-14T14:38:52",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2020-04-14T14:38:52",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2020-04-14T14:38:52",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2020-04-14T14:38:54",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/lux/pull/317",
+      "action": "pull_request_closed"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2019-09-20T17:50:30",
+      "updated_at": "2019-09-20T17:50:30",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/1876",
+      "number": 1876,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Ask DSSG about limits on pagination",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Esmé Cowles",
+          "updated_at": "2020-04-14T12:30:09",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/1876#issuecomment-613414354",
+          "body": "I asked about this at the 2/25/20 meeting, and got agreement that our current limits are fine."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2020-04-14T12:30:09",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-04-10T02:47:45",
+      "updated_at": "2020-04-10T02:47:45",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2011",
+      "number": 2011,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "A dspace item with Availability: embargoed should not display the 'Request reading room' button",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-14T21:30:39",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-04-14T21:08:31",
+      "updated_at": "2020-04-14T21:08:31",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2014",
+      "number": 2014,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2014",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Update code not to display the request button for a dsp thesis with availability:embargoed",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-04-14T21:11:06",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2014#issuecomment-613683497",
+          "body": "https://catalog.princeton.edu/catalog/dsp01k0698b34p\r\nvs\r\nhttps://catalog-staging.princeton.edu/catalog/dsp01k0698b34p"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-04-14T21:12:36",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2014#issuecomment-613684147",
+          "body": "https://catalog-staging.princeton.edu/catalog?utf8=%E2%9C%93&f%5Blocation%5D%5B%5D=Mudd+Manuscript+Library&per_page=20&search_field=all_fields&q=id%3Adsp*\r\ndsp thesis in the 'Mudd Manuscript Library'"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-04-14T21:14:47",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2014#issuecomment-613685063",
+          "body": "2 records with availability:embargoed that should not display a 'Request Reading Room'\r\nhttps://catalog-staging.princeton.edu/catalog/dsp01pv63g307b\r\nhttps://catalog-staging.princeton.edu/catalog/dsp01hq37vr42h"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-04-14T21:15:55",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2014#issuecomment-613685511",
+          "body": "Thank you for the help @kevinreiss !"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-04-14T21:08:35",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-14T21:09:25",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-14T21:15:55",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-14T21:15:55",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-14T21:30:39",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-14T21:30:39",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-14T21:30:39",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-14T21:30:44",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2014",
+      "action": "pull_request_closed"
+    }
+  ],
+  "orcid-client": [
+    {
+      "created_at": "2020-04-03T15:04:36",
+      "updated_at": "2020-04-03T15:04:36",
+      "html_url": "https://github.com/pulibrary/orcid-client/issues/6",
+      "number": 6,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orcid-client",
+      "repository_name": "orcid-client",
+      "state": "closed",
+      "title": "Normalized search by institution",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T14:49:40",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T15:23:05",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-03-25T15:54:50",
+      "updated_at": "2020-03-25T15:54:50",
+      "html_url": "https://github.com/pulibrary/orcid-client/issues/2",
+      "number": 2,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orcid-client",
+      "repository_name": "orcid-client",
+      "state": "closed",
+      "title": "CSV reports should have a header row",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T14:49:39",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T15:23:05",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-03-25T15:54:32",
+      "updated_at": "2020-03-25T15:54:32",
+      "html_url": "https://github.com/pulibrary/orcid-client/issues/1",
+      "number": 1,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orcid-client",
+      "repository_name": "orcid-client",
+      "state": "closed",
+      "title": "Report of all orcid individuals affiliated with Princeton University",
+      "user_name": "hackmastera",
+      "comments": [
+        {
+          "user_name": "hackmastera",
+          "updated_at": "2020-04-14T19:32:28",
+          "html_url": "https://github.com/pulibrary/orcid-client/issues/1#issuecomment-613639360",
+          "body": "4 reports have been added to https://drive.google.com/drive/folders/1IcQ7BtTOIqtvmvJKCo2Vd7t23mqvtBic:\n\n- Institutional (5232 results): this searches for any record with a “Princeton University” affiliation or with Princeton’s grid id or ringgold id.\n- Affiliation (5230 results): this retrieves records with a “Princeton University” affiliation\n- Ringgold (4205 results): this retrieves records with an affiliation to the Princeton Ringgold id.\n- Grid (187 results): this retrieves records with an affiliation to the Princeton grid id.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T14:49:39",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T15:23:05",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-03-25T16:03:20",
+      "updated_at": "2020-03-25T16:03:20",
+      "html_url": "https://github.com/pulibrary/orcid-client/issues/3",
+      "number": 3,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orcid-client",
+      "repository_name": "orcid-client",
+      "state": "closed",
+      "title": "Report of orcid results for a list of individuals",
+      "user_name": "hackmastera",
+      "comments": [
+        {
+          "user_name": "hackmastera",
+          "updated_at": "2020-04-14T18:35:18",
+          "html_url": "https://github.com/pulibrary/orcid-client/issues/3#issuecomment-610394303",
+          "body": "example csv:\n```\nEliot, Jordan, eliotj@princeton.edu\nWind, Cowles, windcowles@princeton.edu\n```"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T14:39:29",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T14:56:38",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T18:34:35",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-04-14T18:34:40",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T19:04:21",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-04-14T19:19:00",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T19:42:49",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-04-14T19:15:52",
+      "updated_at": "2020-04-14T19:15:52",
+      "html_url": "https://github.com/pulibrary/orcid-client/pull/19",
+      "number": 19,
+      "pull_request_html_url": "https://github.com/pulibrary/orcid-client/pull/19",
+      "repository_html_url": "https://github.com/pulibrary/orcid-client",
+      "repository_name": "orcid-client",
+      "state": "closed",
+      "title": "Search people",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-04-14T19:19:00",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T19:42:49",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T19:42:49",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T19:42:49",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T19:42:53",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orcid-client/pull/19",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-04-14T19:41:50",
+      "updated_at": "2020-04-14T19:41:50",
+      "html_url": "https://github.com/pulibrary/orcid-client/issues/21",
+      "number": 21,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orcid-client",
+      "repository_name": "orcid-client",
+      "state": "closed",
+      "title": "Run department report for physics",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T19:57:26",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T19:59:46",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-04-14T19:55:10",
+      "updated_at": "2020-04-14T19:55:10",
+      "html_url": "https://github.com/pulibrary/orcid-client/pull/22",
+      "number": 22,
+      "pull_request_html_url": "https://github.com/pulibrary/orcid-client/pull/22",
+      "repository_html_url": "https://github.com/pulibrary/orcid-client",
+      "repository_name": "orcid-client",
+      "state": "closed",
+      "title": "Adjust CSV reader to reflect actual CSV received",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-04-14T20:01:55",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-04-14T20:01:55",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-04-14T20:01:55",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-04-14T20:01:58",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orcid-client/pull/22",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-04-14T14:49:52",
+      "updated_at": "2020-04-14T14:49:52",
+      "html_url": "https://github.com/pulibrary/orcid-client/pull/18",
+      "number": 18,
+      "pull_request_html_url": "https://github.com/pulibrary/orcid-client/pull/18",
+      "repository_html_url": "https://github.com/pulibrary/orcid-client",
+      "repository_name": "orcid-client",
+      "state": "closed",
+      "title": "Add report task and service",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T15:23:04",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T15:23:05",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T15:23:05",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-04-14T20:02:15",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orcid-client/pull/18",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-04-03T18:50:34",
+      "updated_at": "2020-04-03T18:50:34",
+      "html_url": "https://github.com/pulibrary/orcid-client/pull/7",
+      "number": 7,
+      "pull_request_html_url": "https://github.com/pulibrary/orcid-client/pull/7",
+      "repository_html_url": "https://github.com/pulibrary/orcid-client",
+      "repository_name": "orcid-client",
+      "state": "closed",
+      "title": "Add swagger api client",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-04-14T20:02:17",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orcid-client/pull/7",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-04-06T15:47:54",
+      "updated_at": "2020-04-06T15:47:54",
+      "html_url": "https://github.com/pulibrary/orcid-client/pull/9",
+      "number": 9,
+      "pull_request_html_url": "https://github.com/pulibrary/orcid-client/pull/9",
+      "repository_html_url": "https://github.com/pulibrary/orcid-client",
+      "repository_name": "orcid-client",
+      "state": "closed",
+      "title": "Query service",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-04-14T20:02:18",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orcid-client/pull/9",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-04-14T19:18:31",
+      "updated_at": "2020-04-14T19:18:31",
+      "html_url": "https://github.com/pulibrary/orcid-client/issues/20",
+      "number": 20,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orcid-client",
+      "repository_name": "orcid-client",
+      "state": "open",
+      "title": "Update authorization tokens",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "page_label_generator": [
+    {
+      "created_at": "2020-04-13T21:02:05",
+      "updated_at": "2020-04-13T21:02:05",
+      "html_url": "https://github.com/pulibrary/page_label_generator/pull/3",
+      "number": 3,
+      "pull_request_html_url": "https://github.com/pulibrary/page_label_generator/pull/3",
+      "repository_html_url": "https://github.com/pulibrary/page_label_generator",
+      "repository_name": "page_label_generator",
+      "state": "open",
+      "title": "Bracket sides",
+      "user_name": "Jon Stroop",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/page_label_generator/pull/3",
+      "action": "pull_request_open"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2020-04-09T15:27:37",
+      "updated_at": "2020-04-09T15:27:37",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1429",
+      "number": 1429,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1429",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Lib-Jobs: Add secret key back into the vault",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-14T10:48:20",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-14T10:52:07",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-14T10:52:07",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-14T10:52:07",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-14T10:52:11",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1429",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-03-27T17:46:08",
+      "updated_at": "2020-03-27T17:46:08",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1402",
+      "number": 1402,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1402",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Upgrading Ruby to 2.6",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-14T11:02:15",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1402",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-04-14T13:57:02",
+      "updated_at": "2020-04-14T13:57:02",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1434",
+      "number": 1434,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "add datadog to lib-confluence-prod",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-04-10T20:54:44",
+      "updated_at": "2020-04-10T20:54:44",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1432",
+      "number": 1432,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "archivesspace upgrade consistently breaks ",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "faithc",
+          "updated_at": "2020-04-14T21:12:03",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1432#issuecomment-613683381",
+          "body": "Little more of a pressing issue that staff just discovered. It seems that the \"Download EAC-CPF\" option for agent records isn't exporting all of the metadata, specifically data found in the Notes subrecord. Please see the person record for Margaret Snyder in the Public Policy Papers repo: https://aspace-staff.princeton.edu/agents/agent_person/232 as an example. The exported xml record is missing the Biography/Historical note. Not sure what's going on here-whether it's something with our instance or a bug in the system. This is occurring in dev and prod.\r\n\r\nAlso, I'm not sure why two blank Assessment records are displaying as part of this record. Assessment records, which we haven't started using yet, are normally only associated with accession and resource records. Not sure whether this is another bug.\r\n\r\nThanks for your help, @jrgriffiniii. "
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-04-14T21:12:12",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1432#issuecomment-613683965",
+          "body": "I am sorry, I will address this now @faithc "
+        },
+        {
+          "user_name": "faithc",
+          "updated_at": "2020-04-14T21:22:22",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1432#issuecomment-613688215",
+          "body": "No worries; and it's not urgent! Just not as insignificant as the other issue I noticed. :) "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T21:11:16",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T21:11:16",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T21:12:12",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T21:12:12",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-04-08T21:03:54",
+      "updated_at": "2020-04-08T21:03:54",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1428",
+      "number": 1428,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1428",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "replacement postgresql role",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-13T23:20:09",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-13T23:28:06",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-13T23:47:19",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-14T00:06:48",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-14T01:21:00",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-14T02:29:16",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-14T02:45:23",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-14T11:48:32",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-15T00:18:04",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1428",
+      "action": "pull_request_open"
+    }
+  ],
+  "pul_library_drupal": [
+    {
+      "created_at": "2020-04-14T22:06:50",
+      "updated_at": "2020-04-14T22:06:50",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1614",
+      "number": 1614,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1614",
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "closed",
+      "title": "Adds new field for video embeds in news; more events tracking",
+      "user_name": "Axa Mei Liauw",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-14T22:19:46",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-14T22:19:46",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-14T22:19:46",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-14T22:19:50",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1614",
+      "action": "pull_request_closed"
+    }
+  ],
+  "pulfalight": [
+    {
+      "created_at": "2020-04-13T20:52:56",
+      "updated_at": "2020-04-13T20:52:56",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/240",
+      "number": 240,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Implement a Table of Contents interface for navigating collections and components",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-04-13T22:12:49",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/240#issuecomment-613123046",
+          "body": "Er, wait, I meant JSON blobs for the table of contents. You want JSON for the content too?"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-04-14T05:56:03",
+      "updated_at": "2020-04-14T05:56:03",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/241",
+      "number": 241,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Explore supporting EAD collection JSON serialization for the Table of Contents Vue components",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T05:56:03",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T05:56:03",
+          "type": "milestoned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T05:56:03",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T05:56:21",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-04-13T20:41:43",
+      "updated_at": "2020-04-13T20:41:43",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/239",
+      "number": 239,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Explore implementing a shallow EAD component View using unstyled server-side HTML",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-04-14T05:52:32",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/239#issuecomment-613239971",
+          "body": "I started advancing this earlier, but in response to https://github.com/pulibrary/pulfalight/issues/240#issuecomment-613117708 I instead implemented a JSON-serialized approach for generating the data: https://github.com/pulibrary/pulfalight/compare/issues-239-jrgriffiniii-view-component-spike"
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-04-14T14:21:11",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/239#issuecomment-613472048",
+          "body": "I've made some more progress with this on https://github.com/pulibrary/pulfalight/compare/issues-241-jrgriffiniii-collections-json...issues-239-jrgriffiniii-view-minimal-html, and will be looking to base my work upon the approach for  JSON serialization."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-03-31T20:40:12",
+      "updated_at": "2020-03-31T20:40:12",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/213",
+      "number": 213,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Allow requesting of components with level=\"otherlevel\" otherlevel=\"text\"",
+      "user_name": "faithc",
+      "comments": [
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2020-04-14T16:51:06",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/213#issuecomment-613556457",
+          "body": "I believe @faith may have used the word \"bug\" (`The fact that these items aren't requestable on the current site was deemed to be a bug`) generically to describe that a problem exists, not to identify the bug itself.\r\n\r\nIn my opinion, changing the data to accommodate existing code is not a good solution. The policy has been that only retrievable physical items can be requestable. @sdellis I worry that what you're suggesting would make non-physical items requestable in the finding aid. That would create a different problem for Public Services, since they're not in fact retrievable, so we'd have to address that issue in the request bundling anyway (we'd have to treat them like folders in a box or something like that). \r\n\r\nIf we're going to have to add a scenario anyway, I think it'd be much better to leave the container information on the physical item and add the scenario of non-retrievable othertypes to the code, not change the data to shoehorn it into existing code. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2020-04-14T16:51:07",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2020-04-14T16:51:07",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T16:51:07",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T16:51:07",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-04-14T17:17:53",
+      "updated_at": "2020-04-14T17:17:53",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/244",
+      "number": 244,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "pulfalight integration with the catalog",
+      "user_name": "faithc",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T17:17:53",
+          "type": "milestoned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-04-14T15:33:49",
+      "updated_at": "2020-04-14T15:33:49",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/243",
+      "number": 243,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/243",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Implements a minimal HTML view for EAD collections and components",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T16:12:46",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T16:16:01",
+          "type": "base_ref_force_pushed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T16:17:36",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T18:07:06",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/243",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-04-14T18:33:37",
+      "updated_at": "2020-04-14T18:33:37",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/245",
+      "number": 245,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Restructure how app/overrides is used to override the DigitalObject Class",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T18:33:37",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T18:33:37",
+          "type": "milestoned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T18:33:38",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-04-14T18:56:18",
+      "updated_at": "2020-04-14T18:56:18",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/246",
+      "number": 246,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Support the serialization of containers as first-order objects",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T18:56:18",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T18:56:18",
+          "type": "milestoned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-04-14T06:02:24",
+      "updated_at": "2020-04-14T06:02:24",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/242",
+      "number": 242,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/242",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "[WIP] Implements JSON serialization for EAD collections",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-04-14T18:54:37",
+          "html_url": "https://github.com/pulibrary/pulfalight/pull/242#issuecomment-613620611",
+          "body": "While reviewing this with @khanhvu98kk and @sdellis, it was determined that attempting to provide objects (rather than strings) for child container nodes should also be supported in this (or another related PR)."
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-04-14T18:57:23",
+          "html_url": "https://github.com/pulibrary/pulfalight/pull/242#issuecomment-613622131",
+          "body": "Only the title and the ID is necessary in order to render each individual component. I will work to remove the unneeded attributes.\r\n\r\nThe nested hierarchy is actually what is valuable here, and the structure alone might have performance impacts for larger EADs."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T16:16:01",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2020-04-14T18:54:37",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2020-04-14T18:54:37",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T18:54:37",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-14T18:54:37",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T18:57:30",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/242",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-04-14T19:26:42",
+      "updated_at": "2020-04-14T19:26:42",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/247",
+      "number": 247,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Traject indexing fails for `components` in Collections with more than 1 level of descendent nodes",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T19:26:42",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T19:26:42",
+          "type": "milestoned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T20:07:48",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-04-14T20:05:54",
+      "updated_at": "2020-04-14T20:05:54",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/248",
+      "number": 248,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/248",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Restructuring the DigitalObject override to use the Pulfalight namespace",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T20:13:15",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-14T20:33:00",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/248",
+      "action": "pull_request_open"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 50,
+    "closed_count": 7,
+    "created_count": 10,
+    "pull_request_closed_count": 12,
+    "pull_request_open_count": 12,
+    "updated_count": 9,
+    "today": "2020-04-14T22:00:05",
+    "yesterday": "2020-04-13T22:00:05"
+  }
+}
