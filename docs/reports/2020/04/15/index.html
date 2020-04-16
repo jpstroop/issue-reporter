@@ -1,0 +1,1208 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5fda38894b.js" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" type="text/css" href="../../../../css/main.css" />
+    <title>PUL GitHub Issues for 2020-04-15T22:00:05</title>
+  </head>
+
+<body>
+  <div class="container-fluid">
+    <a id="btt-button"></a>
+    
+<h1 class="bg-dark text-light">PUL GitHub Issues<br />
+  <small class="text-white-70">2020-04-15</small></h1>
+<nav class="navbar sticky-top navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar-toggler">
+    <ul class="navbar-nav mr-auto mt-2 pt-3 mt-lg-0">
+      <li class="nav-item not-mono">
+        <a class="nav-link" href="../../../../index.html"><i class="fas fa-arrow-left"></i> Back to Report List Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#DSS">pulibrary/DSS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#aspace_locales">pulibrary/aspace_locales</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#authority_control">pulibrary/authority_control</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#figgy">pulibrary/figgy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#lux">pulibrary/lux</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#page_label_generator">pulibrary/page_label_generator</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pomegranate">pulibrary/pomegranate</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#princeton_ansible">pulibrary/princeton_ansible</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pul_library_drupal">pulibrary/pul_library_drupal</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pulfalight">pulibrary/pulfalight</a>
+      </li>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    
+    <section class="repo" id="DSS">
+      <h2><a href="https://github.com/pulibrary/DSS">pulibrary/DSS</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="DSS-151">
+        <h3><a href="https://github.com/pulibrary/DSS/issues/151">#151</a> Move to Postgres</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2020-03-30 15:13:23</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>carolyncole at <a href="https://github.com/pulibrary/DSS/issues/151#issuecomment-613625789">2020-04-15 19:41:31</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>export data from production on <code>dss-prod1</code>
+<code>
+mysqldump -h 128.112.200.45 -p -u dss dss_production &gt; dss_production-4-14-2020.sql
+gzip dss_production-4-14-2020.sql
+mv dss_production-4-14-2020.sql.gz ~
+</code></p>
+
+<p>start a mysql 5.7 or earlier as pgloader has issues with later versions
+<code>
+brew service stop mysql
+brew uninstall mysql
+rm -rf /usr/local/var/mysql
+rm /usr/local/etc/my.cnf
+brew install mysql@5.7
+brew link --force mysql@5.7
+brew services start mysql@5.7
+gem uninstall mysql2
+gem install mysql2
+psql postgres
+  CREATE USER dss; 
+  Grant ALL PRIVILEGES on DATABASE dss_staging to dss;
+  ALTER USER dss CREATEDB;
+</code></p>
+
+<p>Locally - Change your database.yml dev name to match the server you are targeting <code>dss-staging</code> or <code>dss-production</code>.  This saves having to modify the postgres dump to match the new database.
+<code>
+mysql -u root &lt;target-server&gt; &lt; dss_production-4-14-2020.sql
+pgloader mysql://root@localhost/dss_staging postgresql://dss@localhost/dss_staging
+psql postgres
+  alter database dss_staging set search_path to dss_staging, public;
+</code>
+update your database.yml to have the new postgres connection information and check that the dev environment is still working
+<code>
+rake server
+rake dss:solr:deindex
+rake dss:solr:index
+</code>
+Run the test solr server
+<code>
+rake server:test
+RAILS_ENV=test be solr_wrapper -n blacklight-core-test clean #if the above command fails
+</code>
+run the tests
+<code>
+rspec
+</code>
+dump the postgres database
+<code>
+pg_dump -U dss dss_staging &gt; dss_staging.dump
+gzip dss_staging.dump
+</code></p>
+
+<p>Update princeton_ansible to point to the postgres database run the playbook</p>
+
+<p>deploy the new postgres code to staging
+<code>
+BRANCH=151postgres cap staging deploy
+</code></p>
+
+<p>scp the dump file to the server
+<code>
+scp dss_staging.dump.gz deploy@dss-staging1:~
+</code></p>
+
+<p>Get on the server and create the database as deploy
+<code>
+cd /opt/dss-blacklight/current
+RAILS_ENV=production bundle exec rake db:create
+RAILS_ENV=production bundle exec rake db:migrate
+</code></p>
+
+<p>Stop nginx on server as pulsys
+<code>
+sudo service nginx stop
+</code></p>
+
+<p>Log into the postgres server
+<code>
+psql -U postgresadmin
+  DROP DATABASE dss_staging;
+  Create DATABASE dss_staging;
+</code></p>
+
+<p>On the server import the database as deploy
+<code>
+cd ~
+gunzip dss_staging.dump.gz
+more app_configs/dss-blacklight
+psql -U dss -d dss_staging -h lib-postgres3.princeton.edu -f /home/deploy/dss_staging.dump
+</code></p>
+
+<p>start nginx as pulsys
+<code>
+sudo service nginx start
+</code></p>
+
+<p>reindex as deploy
+<code>
+/opt/dss-blacklight/current
+RAILS_ENV=production bundle exec rake dss:solr:deindex
+RAILS_ENV=production bundle exec rake dss:solr:index
+</code></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by Kevin Reiss at 2020-04-15 21:02:13.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="DSS-149">
+        <h3><a href="https://github.com/pulibrary/DSS/pull/149">#149</a> Bump puma from 3.12.0 to 3.12.4</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>dependabot[bot]</dd>
+          <dt>Created:</dt>
+          <dd>2020-03-04 04:34:04</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/DSS/pull/149">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by None at 2020-04-15 21:03:15.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="DSS-157">
+        <h3><a href="https://github.com/pulibrary/DSS/pull/157">#157</a> switching application to run with postgres</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-15 20:04:57</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/DSS/pull/157">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Kevin Reiss at 2020-04-15 21:02:13.</li>
+  <li class="event odd">
+    <code>merged</code> by Kevin Reiss at 2020-04-15 21:02:13.</li>
+  <li class="event even">
+    <code>closed</code> by Kevin Reiss at 2020-04-15 21:02:13.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Kevin Reiss at 2020-04-15 21:12:15.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="aspace_locales">
+      <h2><a href="https://github.com/pulibrary/aspace_locales">pulibrary/aspace_locales</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="aspace_locales-16">
+        <h3><a href="https://github.com/pulibrary/aspace_locales/pull/16">#16</a> Addresses missing locale entries found on the ArchivesSpace upgrade for release v2.7.1</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-15 15:37:55</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/aspace_locales/pull/16">pull request</a>)
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="authority_control">
+      <h2><a href="https://github.com/pulibrary/authority_control">pulibrary/authority_control</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="authority_control-5">
+        <h3><a href="https://github.com/pulibrary/authority_control/issues/5">#5</a> Migrate to postgreSQL</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>mzelesky</dd>
+          <dt>Created:</dt>
+          <dd>2020-03-27 13:23:23</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Christina Chortaria at <a href="https://github.com/pulibrary/authority_control/issues/5#issuecomment-614052842">2020-04-15 13:50:42</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>I have migrated the authorized_headings database locally.
+I created a back up to upload it to a new database on the postgres cluster. </p>
+
+<ul>
+<li><p>[ ] create a database on the postgres cluster</p></li>
+<li><p>[ ] upload the authorized_headings.dump on google drive</p></li>
+<li><p>[ ] add a role in princeton<em>ansible for authorized</em>heading</p></li>
+</ul>
+
+              </dd>
+              <dt>Christina Chortaria at <a href="https://github.com/pulibrary/authority_control/issues/5#issuecomment-614055254">2020-04-15 13:55:14</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>My thought on that is to do the first migration of the postgres database by using the authorized_headings.dump file and then use the LC files with the updates (weekly) to update the database with rake tasks.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="figgy">
+      <h2><a href="https://github.com/pulibrary/figgy">pulibrary/figgy</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="figgy-2649">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/2649">#2649</a> New content type: letters</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Esmé Cowles</dd>
+          <dt>Created:</dt>
+          <dd>2019-02-27 14:02:49</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Esmé Cowles at <a href="https://github.com/pulibrary/figgy/issues/2649#issuecomment-614076464">2020-04-15 14:34:04</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Closing this ticket, since the Hale/Eliot collection was ingested as Scanned Resources and accessed as PDFs linked to a static HTML version of the finding aid (like the Toni Morrison collection).</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by Esmé Cowles at 2020-04-15 14:34:04.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-2822">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/2822">#2822</a> Order manager should be able to assign page numbers for images that contain multiple pages</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackmastera</dd>
+          <dt>Created:</dt>
+          <dd>2019-04-03 12:40:24</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Shaun Ellis at <a href="https://github.com/pulibrary/figgy/issues/2822#issuecomment-614186846">2020-04-15 17:52:52</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>@hackmastera and @tpendragon the page<em>label</em>generator npm package has been updated to 1.1.0 and should allow multiple page labels per image. <a href="https://www.npmjs.com/package/page-label-generator">https://www.npmjs.com/package/page-label-generator</a></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>mentioned</code> by None at 2020-04-15 17:52:52.</li>
+  <li class="event odd">
+    <code>subscribed</code> by None at 2020-04-15 17:52:52.</li>
+  <li class="event even">
+    <code>mentioned</code> by Trey Pendragon at 2020-04-15 17:52:52.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Trey Pendragon at 2020-04-15 17:52:52.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="figgy-3604">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3604">#3604</a> Bulk ingest for single items are ingested as MVWs</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-01-28 17:14:09</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/figgy/issues/3604#issuecomment-614189630">2020-04-15 17:58:33</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Yes, this will definitely be fixed with the BrowseEverything upgrade.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-3791">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3791">#3791</a> Bulk Ingest not working</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kim Leaman</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-09 11:37:52</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/figgy/issues/3791#issuecomment-614190105">2020-04-15 17:59:37</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>This will be fixed with the upgrade to BrowseEverything on <a href="https://github.com/pulibrary/figgy/pull/3754">https://github.com/pulibrary/figgy/pull/3754</a></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+      <div class="issue even" id="figgy-3505">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3505">#3505</a> Bulk ingest of PDFs not pulling source metadata</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2019-11-19 19:13:30</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/figgy/issues/3505#issuecomment-614190524">2020-04-15 18:00:25</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>I am sorry, I haven&#39;t actually tested this with the BE upgrade, but I will investigate this further.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-3606">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3606">#3606</a> Browse Everything files come through twice</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2020-01-31 14:00:43</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/figgy/issues/3606#issuecomment-614191170">2020-04-15 18:01:40</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>This will be resolved with the BE upgrade.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by James R. Griffin III at 2020-04-15 18:01:17.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="figgy-3724">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3724">#3724</a> Test integrating the BrowseEverything 2.0.0.pre.alpha1 release</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-02-24 19:20:58</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by None at 2020-04-15 18:17:44.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-3591">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3591">#3591</a> File upload should work if I selected the file by clicking the name</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackmastera</dd>
+          <dt>Created:</dt>
+          <dd>2020-01-16 19:01:51</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/figgy/issues/3591#issuecomment-614193054">2020-04-15 18:05:26</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>This will be resolved for Google Drive with the BrowseEverything upgrade, but I don&#39;t believe that this is currently in place for the new UI for the File System driver.</p>
+
+              </dd>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/figgy/issues/3591#issuecomment-614199349">2020-04-15 18:18:29</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>Apologies for not clarifying this, the new UI is included in the upgrade (please see <a href="https://github.com/pulibrary/figgy/pull/3754/files?file-filters%5B%5D=.erb&amp;file-filters%5B%5D=.es6&amp;file-filters%5B%5D=.js&amp;file-filters%5B%5D=.json&amp;file-filters%5B%5D=.jsx&amp;file-filters%5B%5D=.lock&amp;file-filters%5B%5D=.rb&amp;file-filters%5B%5D=.scss&amp;file-filters%5B%5D=.sql&amp;file-filters%5B%5D=.vue&amp;file-filters%5B%5D=.yml&amp;file-filters%5B%5D=No+extension&amp;file-filters%5B%5D=dotfile#diff-b9cfc7f2cdf78a7f4b91a753d10865a2R16">the package.json</a>).</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>unassigned</code> by James R. Griffin III at 2020-04-15 18:04:10.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="figgy-3788">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3788">#3788</a> Request another verification for Figgy from Google for Drive Support</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 22:33:33</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/figgy/issues/3788#issuecomment-614200274">2020-04-15 18:20:25</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>This too would be closed by the BrowseEverything upgrade.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-3609">
+        <h3><a href="https://github.com/pulibrary/figgy/pull/3609">#3609</a> use Lando for solr</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2020-01-31 23:22:00</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/figgy/pull/3609">pull request</a>)
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Christina Chortaria at <a href="https://github.com/pulibrary/figgy/pull/3609#issuecomment-613715334">2020-04-14 22:38:16</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>@tpendragon lando ran smoothly. My only concern is that docker consumes a high amount of CPU but maybe this is something I can improve in my local docker installation.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>mentioned</code> by Trey Pendragon at 2020-04-14 22:38:16.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Trey Pendragon at 2020-04-14 22:38:16.</li>
+  <li class="event even">
+    <code>review_dismissed</code> by Trey Pendragon at 2020-04-15 16:55:04.</li>
+  <li class="event odd">
+    <code>referenced</code> by James R. Griffin III at 2020-04-15 18:43:58.</li>
+  <li class="event even">
+    <code>merged</code> by James R. Griffin III at 2020-04-15 18:43:58.</li>
+  <li class="event odd">
+    <code>closed</code> by James R. Griffin III at 2020-04-15 18:43:58.</li>
+  <li class="event even">
+    <code>head_ref_deleted</code> by James R. Griffin III at 2020-04-15 18:44:02.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="figgy-3805">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3805">#3805</a> Use released Browse Everything 2.x in Gemfile once it's available</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackmastera</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-15 18:50:21</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-3806">
+        <h3><a href="https://github.com/pulibrary/figgy/pull/3806">#3806</a> Add pyramidals_bucket config</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackmastera</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-15 18:55:43</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/figgy/pull/3806">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by None at 2020-04-15 19:18:26.</li>
+  <li class="event odd">
+    <code>merged</code> by None at 2020-04-15 19:18:27.</li>
+  <li class="event even">
+    <code>closed</code> by None at 2020-04-15 19:18:27.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by None at 2020-04-15 19:18:30.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="figgy-3754">
+        <h3><a href="https://github.com/pulibrary/figgy/pull/3754">#3754</a> Upgrades to browse-everything 2.x-stable</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-03-09 20:36:03</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/figgy/pull/3754">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by None at 2020-04-15 19:19:48.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-3803">
+        <h3><a href="https://github.com/pulibrary/figgy/pull/3803">#3803</a> Add debounce to Order Manager.</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-13 22:49:07</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/figgy/pull/3803">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>ready_for_review</code> by Trey Pendragon at 2020-04-15 16:52:55.</li>
+  <li class="event odd">
+    <code>head_ref_force_pushed</code> by Trey Pendragon at 2020-04-15 20:59:53.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="figgy-2171">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/2171">#2171</a> Order manager - lux-button.dropdown </h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2018-11-15 14:25:03</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Shaun Ellis at <a href="https://github.com/pulibrary/figgy/issues/2171#issuecomment-614185320">2020-04-15 17:49:45</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>@christinach this has been fixed for a while. You just need to update the lux version. Current is 2.16.3: <a href="https://pulibrary.github.io/lux/docs/#/Patterns/DropdownMenu">https://pulibrary.github.io/lux/docs/#/Patterns/DropdownMenu</a></p>
+
+              </dd>
+              <dt>Christina Chortaria at <a href="https://github.com/pulibrary/figgy/issues/2171#issuecomment-614354673">2020-04-16 01:03:18</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>Thank you @sdellis! I will check again when we update lux the version.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>mentioned</code> by Christina Chortaria at 2020-04-15 17:49:45.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Christina Chortaria at 2020-04-15 17:49:45.</li>
+  <li class="event even">
+    <code>mentioned</code> by Shaun Ellis at 2020-04-16 01:03:18.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Shaun Ellis at 2020-04-16 01:03:18.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="lux">
+      <h2><a href="https://github.com/pulibrary/lux">pulibrary/lux</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="lux-319">
+        <h3><a href="https://github.com/pulibrary/lux/pull/319">#319</a> Performance Improvements for Figgy's Order Manager</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-15 20:48:30</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/lux/pull/319">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>review_requested</code> by Trey Pendragon at 2020-04-15 20:57:02.</li>
+  <li class="event odd">
+    <code>review_requested</code> by Trey Pendragon at 2020-04-15 20:57:09.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="page_label_generator">
+      <h2><a href="https://github.com/pulibrary/page_label_generator">pulibrary/page_label_generator</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="page_label_generator-3">
+        <h3><a href="https://github.com/pulibrary/page_label_generator/pull/3">#3</a> Bracket sides</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Jon Stroop</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-13 21:02:05</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/page_label_generator/pull/3">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Shaun Ellis at 2020-04-15 13:43:44.</li>
+  <li class="event odd">
+    <code>merged</code> by Shaun Ellis at 2020-04-15 13:43:44.</li>
+  <li class="event even">
+    <code>closed</code> by Shaun Ellis at 2020-04-15 13:43:44.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Shaun Ellis at 2020-04-15 13:43:46.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="pomegranate">
+      <h2><a href="https://github.com/pulibrary/pomegranate">pulibrary/pomegranate</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="pomegranate-769">
+        <h3><a href="https://github.com/pulibrary/pomegranate/issues/769">#769</a> [Pomegranate/production] ActionView::Template::Error: key not found "tile_source_ssim"</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackmastera</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-15 19:20:49</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>hackmastera at <a href="https://github.com/pulibrary/pomegranate/issues/769#issuecomment-614254118">2020-04-15 20:07:24</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>This is a bug with the item embed widget for multi volume works.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by None at 2020-04-15 20:07:31.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="princeton_ansible">
+      <h2><a href="https://github.com/pulibrary/princeton_ansible">pulibrary/princeton_ansible</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="princeton_ansible-1428">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1428">#1428</a> replacement postgresql role</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-08 21:03:54</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1428">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by Francis Kayiwa at 2020-04-15 00:18:04.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-1435">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1435">#1435</a> Ezproxy conf exposed</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-15 12:18:53</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1435">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by Francis Kayiwa at 2020-04-15 12:19:04.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Francis Kayiwa at 2020-04-15 12:19:07.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-1437">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1437">#1437</a> Making sure that postges is restarted after access is changed</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-15 15:27:16</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1437">pull request</a>)
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-1438">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1438">#1438</a> Moving the dss role to postgres</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-15 19:52:07</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1438">pull request</a>)
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-1436">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1436">#1436</a> ezproxy-test conf was not vaulted</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-15 12:29:20</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1436">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>review_requested</code> by Francis Kayiwa at 2020-04-15 14:37:19.</li>
+  <li class="event odd">
+    <code>review_request_removed</code> by Francis Kayiwa at 2020-04-15 14:37:48.</li>
+  <li class="event even">
+    <code>review_requested</code> by Francis Kayiwa at 2020-04-15 14:37:48.</li>
+  <li class="event odd">
+    <code>referenced</code> by Kevin Reiss at 2020-04-15 20:01:14.</li>
+  <li class="event even">
+    <code>merged</code> by Kevin Reiss at 2020-04-15 20:01:14.</li>
+  <li class="event odd">
+    <code>closed</code> by Kevin Reiss at 2020-04-15 20:01:14.</li>
+  <li class="event even">
+    <code>head_ref_deleted</code> by Kevin Reiss at 2020-04-15 20:01:18.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-1432">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/issues/1432">#1432</a> archivesspace upgrade consistently breaks </h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-10 20:54:44</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/princeton_ansible/issues/1432#issuecomment-614149994">2020-04-15 16:42:38</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>I&#39;ve been looking the ArchivesSpace code base, and the export process should be located here: <a href="https://github.com/archivesspace/archivesspace/blob/master/backend/app/exporters/serializers/eac.rb#L109">https://github.com/archivesspace/archivesspace/blob/master/backend/app/exporters/serializers/eac.rb#L109</a>. I did not find there to be any step in the process for generating the XML which requires a configuration file, hence I suspect that this might be some database migration problem (the process currently maps record fields to XML elements).</p>
+
+              </dd>
+              <dt>faithc at <a href="https://github.com/pulibrary/princeton_ansible/issues/1432#issuecomment-614154441">2020-04-15 16:50:58</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>Thanks, James. And sorry, so do you mean this seems to be an issue with the code base? Something we should ping the ASpace listserv about?</p>
+
+              </dd>
+              <dt>faithc at <a href="https://github.com/pulibrary/princeton_ansible/issues/1432#issuecomment-614268400">2020-04-15 20:59:59</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Also, just noticed another missing translation (I think this came up before too after an upgrade?): same record that I pointed to above. You&#39;ll see it if you try to edit the record by adding another Note. And actually, in reviewing the user manual, the option with the missing translation is not supposed to be there. The only option in the drop-down menu should be Biography/History (so, not sure why they even added a drop-down feature there...)
+Thanks</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="pul_library_drupal">
+      <h2><a href="https://github.com/pulibrary/pul_library_drupal">pulibrary/pul_library_drupal</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="pul_library_drupal-1614">
+        <h3><a href="https://github.com/pulibrary/pul_library_drupal/pull/1614">#1614</a> Adds new field for video embeds in news; more events tracking</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Axa Mei Liauw</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-14 22:06:50</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/pul_library_drupal/pull/1614">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Kevin Reiss at 2020-04-14 22:19:46.</li>
+  <li class="event odd">
+    <code>merged</code> by Kevin Reiss at 2020-04-14 22:19:46.</li>
+  <li class="event even">
+    <code>closed</code> by Kevin Reiss at 2020-04-14 22:19:46.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Kevin Reiss at 2020-04-14 22:19:50.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="pulfalight">
+      <h2><a href="https://github.com/pulibrary/pulfalight">pulibrary/pulfalight</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="pulfalight-249">
+        <h3><a href="https://github.com/pulibrary/pulfalight/pull/249">#249</a> Ensures that Traject indexes nested component trees for collections with deeply-nested components</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-15 06:19:05</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/pulfalight/pull/249">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>renamed</code> by James R. Griffin III at 2020-04-15 06:19:12.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pulfalight-243">
+        <h3><a href="https://github.com/pulibrary/pulfalight/pull/243">#243</a> Implements a minimal HTML view for EAD collections and components</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-14 15:33:49</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/pulfalight/pull/243">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by James R. Griffin III at 2020-04-15 07:08:04.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="pulfalight-246">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/246">#246</a> Support the serialization of containers as first-order objects</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-14 18:56:18</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/pulfalight/issues/246#issuecomment-614179596">2020-04-15 17:38:40</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>This is going to be blocked by <a href="https://github.com/pulibrary/pulfalight/pull/249">https://github.com/pulibrary/pulfalight/pull/249</a></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by James R. Griffin III at 2020-04-15 17:38:26.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pulfalight-248">
+        <h3><a href="https://github.com/pulibrary/pulfalight/pull/248">#248</a> Restructuring the DigitalObject override to use the Pulfalight namespace</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-14 20:05:54</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/pulfalight/pull/248">pull request</a>)
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="pulfalight-242">
+        <h3><a href="https://github.com/pulibrary/pulfalight/pull/242">#242</a> Implements JSON serialization for EAD collections</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-14 06:02:24</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/pulfalight/pull/242">pull request</a>)
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/pulfalight/pull/242#issuecomment-613854933">2020-04-15 06:59:34</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>This now also ensures that JSON-serialized Documents are retrieved using the <code>/catalog/:id/raw</code> route, as well as ensuring that the child components of a collection are serialized.</p>
+
+              </dd>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/pulfalight/pull/242#issuecomment-614225781">2020-04-15 19:08:33</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>This is blocked by #249 as well as #248 </p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>renamed</code> by James R. Griffin III at 2020-04-15 06:59:41.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../../../../js/report.js"></script>
+  </div>
+</body>
+
+</html>

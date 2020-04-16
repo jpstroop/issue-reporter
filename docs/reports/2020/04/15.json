@@ -1,0 +1,1049 @@
+{
+  "DSS": [
+    {
+      "created_at": "2020-03-30T15:13:23",
+      "updated_at": "2020-03-30T15:13:23",
+      "html_url": "https://github.com/pulibrary/DSS/issues/151",
+      "number": 151,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/DSS",
+      "repository_name": "DSS",
+      "state": "closed",
+      "title": "Move to Postgres",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "carolyncole",
+          "updated_at": "2020-04-15T19:41:31",
+          "html_url": "https://github.com/pulibrary/DSS/issues/151#issuecomment-613625789",
+          "body": "export data from production on `dss-prod1`\r\n```\r\nmysqldump -h 128.112.200.45 -p -u dss dss_production > dss_production-4-14-2020.sql\r\ngzip dss_production-4-14-2020.sql\r\nmv dss_production-4-14-2020.sql.gz ~\r\n```\r\n\r\nstart a mysql 5.7 or earlier as pgloader has issues with later versions\r\n```\r\nbrew service stop mysql\r\nbrew uninstall mysql\r\nrm -rf /usr/local/var/mysql\r\nrm /usr/local/etc/my.cnf\r\nbrew install mysql@5.7\r\nbrew link --force mysql@5.7\r\nbrew services start mysql@5.7\r\ngem uninstall mysql2\r\ngem install mysql2\r\npsql postgres\r\n  CREATE USER dss; \r\n  Grant ALL PRIVILEGES on DATABASE dss_staging to dss;\r\n  ALTER USER dss CREATEDB;\r\n```\r\n\r\nLocally - Change your database.yml dev name to match the server you are targeting `dss-staging` or `dss-production`.  This saves having to modify the postgres dump to match the new database.\r\n```\r\nmysql -u root <target-server> < dss_production-4-14-2020.sql\r\npgloader mysql://root@localhost/dss_staging postgresql://dss@localhost/dss_staging\r\npsql postgres\r\n  alter database dss_staging set search_path to dss_staging, public;\r\n```\r\nupdate your database.yml to have the new postgres connection information and check that the dev environment is still working\r\n```\r\nrake server\r\nrake dss:solr:deindex\r\nrake dss:solr:index\r\n```\r\nRun the test solr server\r\n```\r\nrake server:test\r\nRAILS_ENV=test be solr_wrapper -n blacklight-core-test clean #if the above command fails\r\n```\r\nrun the tests\r\n```\r\nrspec\r\n```\r\ndump the postgres database\r\n```\r\npg_dump -U dss dss_staging > dss_staging.dump\r\ngzip dss_staging.dump\r\n```\r\n\r\nUpdate princeton_ansible to point to the postgres database run the playbook\r\n\r\ndeploy the new postgres code to staging\r\n```\r\nBRANCH=151postgres cap staging deploy\r\n```\r\n\r\nscp the dump file to the server\r\n```\r\nscp dss_staging.dump.gz deploy@dss-staging1:~\r\n```\r\n\r\nGet on the server and create the database as deploy\r\n```\r\ncd /opt/dss-blacklight/current\r\nRAILS_ENV=production bundle exec rake db:create\r\nRAILS_ENV=production bundle exec rake db:migrate\r\n```\r\n\r\nStop nginx on server as pulsys\r\n```\r\nsudo service nginx stop\r\n```\r\n\r\nLog into the postgres server\r\n```\r\npsql -U postgresadmin\r\n  DROP DATABASE dss_staging;\r\n  Create DATABASE dss_staging;\r\n```\r\n\r\nOn the server import the database as deploy\r\n```\r\ncd ~\r\ngunzip dss_staging.dump.gz\r\nmore app_configs/dss-blacklight\r\npsql -U dss -d dss_staging -h lib-postgres3.princeton.edu -f /home/deploy/dss_staging.dump\r\n```\r\n\r\nstart nginx as pulsys\r\n```\r\nsudo service nginx start\r\n```\r\n\r\nreindex as deploy\r\n```\r\n/opt/dss-blacklight/current\r\nRAILS_ENV=production bundle exec rake dss:solr:deindex\r\nRAILS_ENV=production bundle exec rake dss:solr:index\r\n```"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-15T21:02:13",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-03-04T04:34:04",
+      "updated_at": "2020-03-04T04:34:04",
+      "html_url": "https://github.com/pulibrary/DSS/pull/149",
+      "number": 149,
+      "pull_request_html_url": "https://github.com/pulibrary/DSS/pull/149",
+      "repository_html_url": "https://github.com/pulibrary/DSS",
+      "repository_name": "DSS",
+      "state": "open",
+      "title": "Bump puma from 3.12.0 to 3.12.4",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-15T21:03:15",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/DSS/pull/149",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-04-15T20:04:57",
+      "updated_at": "2020-04-15T20:04:57",
+      "html_url": "https://github.com/pulibrary/DSS/pull/157",
+      "number": 157,
+      "pull_request_html_url": "https://github.com/pulibrary/DSS/pull/157",
+      "repository_html_url": "https://github.com/pulibrary/DSS",
+      "repository_name": "DSS",
+      "state": "closed",
+      "title": "switching application to run with postgres",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-15T21:02:13",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-15T21:02:13",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-15T21:02:13",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-15T21:12:15",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/DSS/pull/157",
+      "action": "pull_request_closed"
+    }
+  ],
+  "aspace_locales": [
+    {
+      "created_at": "2020-04-15T15:37:55",
+      "updated_at": "2020-04-15T15:37:55",
+      "html_url": "https://github.com/pulibrary/aspace_locales/pull/16",
+      "number": 16,
+      "pull_request_html_url": "https://github.com/pulibrary/aspace_locales/pull/16",
+      "repository_html_url": "https://github.com/pulibrary/aspace_locales",
+      "repository_name": "aspace_locales",
+      "state": "open",
+      "title": "Addresses missing locale entries found on the ArchivesSpace upgrade for release v2.7.1",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/aspace_locales/pull/16",
+      "action": "pull_request_open"
+    }
+  ],
+  "authority_control": [
+    {
+      "created_at": "2020-03-27T13:23:23",
+      "updated_at": "2020-03-27T13:23:23",
+      "html_url": "https://github.com/pulibrary/authority_control/issues/5",
+      "number": 5,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/authority_control",
+      "repository_name": "authority_control",
+      "state": "open",
+      "title": "Migrate to postgreSQL",
+      "user_name": "mzelesky",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-04-15T13:50:42",
+          "html_url": "https://github.com/pulibrary/authority_control/issues/5#issuecomment-614052842",
+          "body": "I have migrated the authorized_headings database locally.\r\nI created a back up to upload it to a new database on the postgres cluster. \r\n\r\n- [ ] create a database on the postgres cluster\r\n\r\n- [ ] upload the authorized_headings.dump on google drive\r\n\r\n- [ ] add a role in princeton_ansible for authorized_heading\r\n"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-04-15T13:55:14",
+          "html_url": "https://github.com/pulibrary/authority_control/issues/5#issuecomment-614055254",
+          "body": "My thought on that is to do the first migration of the postgres database by using the authorized_headings.dump file and then use the LC files with the updates (weekly) to update the database with rake tasks."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2019-02-27T14:02:49",
+      "updated_at": "2019-02-27T14:02:49",
+      "html_url": "https://github.com/pulibrary/figgy/issues/2649",
+      "number": 2649,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "New content type: letters",
+      "user_name": "Esmé Cowles",
+      "comments": [
+        {
+          "user_name": "Esmé Cowles",
+          "updated_at": "2020-04-15T14:34:04",
+          "html_url": "https://github.com/pulibrary/figgy/issues/2649#issuecomment-614076464",
+          "body": "Closing this ticket, since the Hale/Eliot collection was ingested as Scanned Resources and accessed as PDFs linked to a static HTML version of the finding aid (like the Toni Morrison collection)."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2020-04-15T14:34:04",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2019-04-03T12:40:24",
+      "updated_at": "2019-04-03T12:40:24",
+      "html_url": "https://github.com/pulibrary/figgy/issues/2822",
+      "number": 2822,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Order manager should be able to assign page numbers for images that contain multiple pages",
+      "user_name": "hackmastera",
+      "comments": [
+        {
+          "user_name": "Shaun Ellis",
+          "updated_at": "2020-04-15T17:52:52",
+          "html_url": "https://github.com/pulibrary/figgy/issues/2822#issuecomment-614186846",
+          "body": "@hackmastera and @tpendragon the page_label_generator npm package has been updated to 1.1.0 and should allow multiple page labels per image. https://www.npmjs.com/package/page-label-generator"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-15T17:52:52",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-15T17:52:52",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-15T17:52:52",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-15T17:52:52",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-01-28T17:14:09",
+      "updated_at": "2020-01-28T17:14:09",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3604",
+      "number": 3604,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Bulk ingest for single items are ingested as MVWs",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-04-15T17:58:33",
+          "html_url": "https://github.com/pulibrary/figgy/issues/3604#issuecomment-614189630",
+          "body": "Yes, this will definitely be fixed with the BrowseEverything upgrade."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-04-09T11:37:52",
+      "updated_at": "2020-04-09T11:37:52",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3791",
+      "number": 3791,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Bulk Ingest not working",
+      "user_name": "Kim Leaman",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-04-15T17:59:37",
+          "html_url": "https://github.com/pulibrary/figgy/issues/3791#issuecomment-614190105",
+          "body": "This will be fixed with the upgrade to BrowseEverything on https://github.com/pulibrary/figgy/pull/3754"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2019-11-19T19:13:30",
+      "updated_at": "2019-11-19T19:13:30",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3505",
+      "number": 3505,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Bulk ingest of PDFs not pulling source metadata",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-04-15T18:00:25",
+          "html_url": "https://github.com/pulibrary/figgy/issues/3505#issuecomment-614190524",
+          "body": "I am sorry, I haven't actually tested this with the BE upgrade, but I will investigate this further."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-01-31T14:00:43",
+      "updated_at": "2020-01-31T14:00:43",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3606",
+      "number": 3606,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Browse Everything files come through twice",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-04-15T18:01:40",
+          "html_url": "https://github.com/pulibrary/figgy/issues/3606#issuecomment-614191170",
+          "body": "This will be resolved with the BE upgrade."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-15T18:01:17",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-02-24T19:20:58",
+      "updated_at": "2020-02-24T19:20:58",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3724",
+      "number": 3724,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Test integrating the BrowseEverything 2.0.0.pre.alpha1 release",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-15T18:17:44",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-01-16T19:01:51",
+      "updated_at": "2020-01-16T19:01:51",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3591",
+      "number": 3591,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "File upload should work if I selected the file by clicking the name",
+      "user_name": "hackmastera",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-04-15T18:05:26",
+          "html_url": "https://github.com/pulibrary/figgy/issues/3591#issuecomment-614193054",
+          "body": "This will be resolved for Google Drive with the BrowseEverything upgrade, but I don't believe that this is currently in place for the new UI for the File System driver."
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-04-15T18:18:29",
+          "html_url": "https://github.com/pulibrary/figgy/issues/3591#issuecomment-614199349",
+          "body": "Apologies for not clarifying this, the new UI is included in the upgrade (please see [the package.json](https://github.com/pulibrary/figgy/pull/3754/files?file-filters%5B%5D=.erb&file-filters%5B%5D=.es6&file-filters%5B%5D=.js&file-filters%5B%5D=.json&file-filters%5B%5D=.jsx&file-filters%5B%5D=.lock&file-filters%5B%5D=.rb&file-filters%5B%5D=.scss&file-filters%5B%5D=.sql&file-filters%5B%5D=.vue&file-filters%5B%5D=.yml&file-filters%5B%5D=No+extension&file-filters%5B%5D=dotfile#diff-b9cfc7f2cdf78a7f4b91a753d10865a2R16))."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-15T18:04:10",
+          "type": "unassigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-04-07T22:33:33",
+      "updated_at": "2020-04-07T22:33:33",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3788",
+      "number": 3788,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Request another verification for Figgy from Google for Drive Support",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-04-15T18:20:25",
+          "html_url": "https://github.com/pulibrary/figgy/issues/3788#issuecomment-614200274",
+          "body": "This too would be closed by the BrowseEverything upgrade."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-01-31T23:22:00",
+      "updated_at": "2020-01-31T23:22:00",
+      "html_url": "https://github.com/pulibrary/figgy/pull/3609",
+      "number": 3609,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/3609",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "use Lando for solr",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-04-14T22:38:16",
+          "html_url": "https://github.com/pulibrary/figgy/pull/3609#issuecomment-613715334",
+          "body": "@tpendragon lando ran smoothly. My only concern is that docker consumes a high amount of CPU but maybe this is something I can improve in my local docker installation."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-14T22:38:16",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-14T22:38:16",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-15T16:55:04",
+          "type": "review_dismissed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-15T18:43:58",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-15T18:43:58",
+          "type": "merged"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-15T18:43:58",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-15T18:44:02",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/3609",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-04-15T18:50:21",
+      "updated_at": "2020-04-15T18:50:21",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3805",
+      "number": 3805,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Use released Browse Everything 2.x in Gemfile once it's available",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-04-15T18:55:43",
+      "updated_at": "2020-04-15T18:55:43",
+      "html_url": "https://github.com/pulibrary/figgy/pull/3806",
+      "number": 3806,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/3806",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Add pyramidals_bucket config",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-15T19:18:26",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-15T19:18:27",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-15T19:18:27",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-15T19:18:30",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/3806",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-03-09T20:36:03",
+      "updated_at": "2020-03-09T20:36:03",
+      "html_url": "https://github.com/pulibrary/figgy/pull/3754",
+      "number": 3754,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/3754",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Upgrades to browse-everything 2.x-stable",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-15T19:19:48",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/3754",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-04-13T22:49:07",
+      "updated_at": "2020-04-13T22:49:07",
+      "html_url": "https://github.com/pulibrary/figgy/pull/3803",
+      "number": 3803,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/3803",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Add debounce to Order Manager.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-15T16:52:55",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-15T20:59:53",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/3803",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2018-11-15T14:25:03",
+      "updated_at": "2018-11-15T14:25:03",
+      "html_url": "https://github.com/pulibrary/figgy/issues/2171",
+      "number": 2171,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Order manager - lux-button.dropdown ",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Shaun Ellis",
+          "updated_at": "2020-04-15T17:49:45",
+          "html_url": "https://github.com/pulibrary/figgy/issues/2171#issuecomment-614185320",
+          "body": "@christinach this has been fixed for a while. You just need to update the lux version. Current is 2.16.3: https://pulibrary.github.io/lux/docs/#/Patterns/DropdownMenu"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-04-16T01:03:18",
+          "html_url": "https://github.com/pulibrary/figgy/issues/2171#issuecomment-614354673",
+          "body": "Thank you @sdellis! I will check again when we update lux the version."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-04-15T17:49:45",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-04-15T17:49:45",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2020-04-16T01:03:18",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2020-04-16T01:03:18",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "lux": [
+    {
+      "created_at": "2020-04-15T20:48:30",
+      "updated_at": "2020-04-15T20:48:30",
+      "html_url": "https://github.com/pulibrary/lux/pull/319",
+      "number": 319,
+      "pull_request_html_url": "https://github.com/pulibrary/lux/pull/319",
+      "repository_html_url": "https://github.com/pulibrary/lux",
+      "repository_name": "lux",
+      "state": "open",
+      "title": "Performance Improvements for Figgy's Order Manager",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-15T20:57:02",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-15T20:57:09",
+          "type": "review_requested"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/lux/pull/319",
+      "action": "pull_request_open"
+    }
+  ],
+  "page_label_generator": [
+    {
+      "created_at": "2020-04-13T21:02:05",
+      "updated_at": "2020-04-13T21:02:05",
+      "html_url": "https://github.com/pulibrary/page_label_generator/pull/3",
+      "number": 3,
+      "pull_request_html_url": "https://github.com/pulibrary/page_label_generator/pull/3",
+      "repository_html_url": "https://github.com/pulibrary/page_label_generator",
+      "repository_name": "page_label_generator",
+      "state": "closed",
+      "title": "Bracket sides",
+      "user_name": "Jon Stroop",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2020-04-15T13:43:44",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2020-04-15T13:43:44",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2020-04-15T13:43:44",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2020-04-15T13:43:46",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/page_label_generator/pull/3",
+      "action": "pull_request_closed"
+    }
+  ],
+  "pomegranate": [
+    {
+      "created_at": "2020-04-15T19:20:49",
+      "updated_at": "2020-04-15T19:20:49",
+      "html_url": "https://github.com/pulibrary/pomegranate/issues/769",
+      "number": 769,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pomegranate",
+      "repository_name": "pomegranate",
+      "state": "open",
+      "title": "[Pomegranate/production] ActionView::Template::Error: key not found \"tile_source_ssim\"",
+      "user_name": "hackmastera",
+      "comments": [
+        {
+          "user_name": "hackmastera",
+          "updated_at": "2020-04-15T20:07:24",
+          "html_url": "https://github.com/pulibrary/pomegranate/issues/769#issuecomment-614254118",
+          "body": "This is a bug with the item embed widget for multi volume works."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-15T20:07:31",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2020-04-08T21:03:54",
+      "updated_at": "2020-04-08T21:03:54",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1428",
+      "number": 1428,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1428",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "replacement postgresql role",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-15T00:18:04",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1428",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-04-15T12:18:53",
+      "updated_at": "2020-04-15T12:18:53",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1435",
+      "number": 1435,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1435",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Ezproxy conf exposed",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-15T12:19:04",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-15T12:19:07",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1435",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-04-15T15:27:16",
+      "updated_at": "2020-04-15T15:27:16",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1437",
+      "number": 1437,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1437",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Making sure that postges is restarted after access is changed",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1437",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-04-15T19:52:07",
+      "updated_at": "2020-04-15T19:52:07",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1438",
+      "number": 1438,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1438",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Moving the dss role to postgres",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1438",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-04-15T12:29:20",
+      "updated_at": "2020-04-15T12:29:20",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1436",
+      "number": 1436,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1436",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "ezproxy-test conf was not vaulted",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-15T14:37:19",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-15T14:37:48",
+          "type": "review_request_removed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-15T14:37:48",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-15T20:01:14",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-15T20:01:14",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-15T20:01:14",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-15T20:01:18",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1436",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-04-10T20:54:44",
+      "updated_at": "2020-04-10T20:54:44",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1432",
+      "number": 1432,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "archivesspace upgrade consistently breaks ",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-04-15T16:42:38",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1432#issuecomment-614149994",
+          "body": "I've been looking the ArchivesSpace code base, and the export process should be located here: https://github.com/archivesspace/archivesspace/blob/master/backend/app/exporters/serializers/eac.rb#L109. I did not find there to be any step in the process for generating the XML which requires a configuration file, hence I suspect that this might be some database migration problem (the process currently maps record fields to XML elements)."
+        },
+        {
+          "user_name": "faithc",
+          "updated_at": "2020-04-15T16:50:58",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1432#issuecomment-614154441",
+          "body": "Thanks, James. And sorry, so do you mean this seems to be an issue with the code base? Something we should ping the ASpace listserv about?"
+        },
+        {
+          "user_name": "faithc",
+          "updated_at": "2020-04-15T20:59:59",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1432#issuecomment-614268400",
+          "body": "Also, just noticed another missing translation (I think this came up before too after an upgrade?): same record that I pointed to above. You'll see it if you try to edit the record by adding another Note. And actually, in reviewing the user manual, the option with the missing translation is not supposed to be there. The only option in the drop-down menu should be Biography/History (so, not sure why they even added a drop-down feature there...)\r\nThanks"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "pul_library_drupal": [
+    {
+      "created_at": "2020-04-14T22:06:50",
+      "updated_at": "2020-04-14T22:06:50",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1614",
+      "number": 1614,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1614",
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "closed",
+      "title": "Adds new field for video embeds in news; more events tracking",
+      "user_name": "Axa Mei Liauw",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-14T22:19:46",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-14T22:19:46",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-14T22:19:46",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-04-14T22:19:50",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1614",
+      "action": "pull_request_closed"
+    }
+  ],
+  "pulfalight": [
+    {
+      "created_at": "2020-04-15T06:19:05",
+      "updated_at": "2020-04-15T06:19:05",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/249",
+      "number": 249,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/249",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Ensures that Traject indexes nested component trees for collections with deeply-nested components",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-15T06:19:12",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/249",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-04-14T15:33:49",
+      "updated_at": "2020-04-14T15:33:49",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/243",
+      "number": 243,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/243",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Implements a minimal HTML view for EAD collections and components",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-15T07:08:04",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/243",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-04-14T18:56:18",
+      "updated_at": "2020-04-14T18:56:18",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/246",
+      "number": 246,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Support the serialization of containers as first-order objects",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-04-15T17:38:40",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/246#issuecomment-614179596",
+          "body": "This is going to be blocked by https://github.com/pulibrary/pulfalight/pull/249"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-15T17:38:26",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-04-14T20:05:54",
+      "updated_at": "2020-04-14T20:05:54",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/248",
+      "number": 248,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/248",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Restructuring the DigitalObject override to use the Pulfalight namespace",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/248",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-04-14T06:02:24",
+      "updated_at": "2020-04-14T06:02:24",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/242",
+      "number": 242,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/242",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Implements JSON serialization for EAD collections",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-04-15T06:59:34",
+          "html_url": "https://github.com/pulibrary/pulfalight/pull/242#issuecomment-613854933",
+          "body": "This now also ensures that JSON-serialized Documents are retrieved using the `/catalog/:id/raw` route, as well as ensuring that the child components of a collection are serialized."
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-04-15T19:08:33",
+          "html_url": "https://github.com/pulibrary/pulfalight/pull/242#issuecomment-614225781",
+          "body": "This is blocked by #249 as well as #248 "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-15T06:59:41",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/242",
+      "action": "pull_request_open"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 35,
+    "closed_count": 2,
+    "created_count": 2,
+    "pull_request_closed_count": 7,
+    "pull_request_open_count": 12,
+    "updated_count": 12,
+    "today": "2020-04-15T22:00:05",
+    "yesterday": "2020-04-14T22:00:05"
+  }
+}
