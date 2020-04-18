@@ -1,0 +1,823 @@
+{
+  "authority_control": [
+    {
+      "created_at": "2020-04-08T19:26:40",
+      "updated_at": "2020-04-08T19:26:40",
+      "html_url": "https://github.com/pulibrary/authority_control/issues/13",
+      "number": 13,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/authority_control",
+      "repository_name": "authority_control",
+      "state": "open",
+      "title": "Skip undifferentiated names",
+      "user_name": "mzelesky",
+      "comments": [
+        {
+          "user_name": "M Chen",
+          "updated_at": "2020-04-17T13:12:36",
+          "html_url": "https://github.com/pulibrary/authority_control/issues/13#issuecomment-615236440",
+          "body": "A total of 51,000 undifferentiated names are in this cluster http://id.loc.gov/search/?q=memberOf:http://id.loc.gov/authorities/names/collection_NamesUndifferentiated I can see Mark's idea that there might be some utility in keeping undifferentiated names and have yet to form a clearer thought on this..."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-04-08T19:32:33",
+      "updated_at": "2020-04-08T19:32:33",
+      "html_url": "https://github.com/pulibrary/authority_control/issues/14",
+      "number": 14,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/authority_control",
+      "repository_name": "authority_control",
+      "state": "open",
+      "title": "Geographic headings that appear in other headings need to be updated",
+      "user_name": "mzelesky",
+      "comments": [
+        {
+          "user_name": "M Chen",
+          "updated_at": "2020-04-17T13:27:44",
+          "html_url": "https://github.com/pulibrary/authority_control/issues/14#issuecomment-615243782",
+          "body": "If I understand the issue correctly, there is a way to take care of at least some of the cases. In the MARC record of \"Kyïv (Ukraine)\" we have these fields:\r\n151##$a Kyïv (Ukraine)\r\n451##$w nne $a Kiev (Ukraine)\r\n781#0 $z Ukraine $z Kyïv\r\n\r\nNote that 781 is the correct form to be used in 650 for geographical subdivision. The pathway to convert $z Kiev into $z Kyïv looks like below--\r\n\r\nFor \"650#0…$z Ukraine $z Kiev…\" i.e., [\"650#0…$z A $z B…\"]\r\nConvert to: Kiev (Ukraine) i.e., [B (A)]\r\nCompare with 451, if there is a match\r\nConvert to 781: \"650#0…$z Ukraine $z Kyïv…\"\r\n"
+        },
+        {
+          "user_name": "M Chen",
+          "updated_at": "2020-04-17T14:09:38",
+          "html_url": "https://github.com/pulibrary/authority_control/issues/14#issuecomment-615265691",
+          "body": "This solution/pathway is limited to \"some of the cases\" because if it is a US geographical name, the AB -->B(A) conversion would not be as straightforward. For example,\r\n151##$a Princeton (N.J.)\r\n781#0$z New Jersey $z Princeton\r\n\r\nSee https://www.loc.gov/marc/authority/ad781.html as well as\r\nSHM: H 810 Qualification of Geographic Headings <http://desktop.loc.gov/search?view=document&id=Infobasescmshm0Dash0Dash0Dash294&fq=coreresources|true#>"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "drds-handbook": [
+    {
+      "created_at": "2020-04-17T19:02:35",
+      "updated_at": "2020-04-17T19:02:35",
+      "html_url": "https://github.com/pulibrary/drds-handbook/pull/36",
+      "number": 36,
+      "pull_request_html_url": "https://github.com/pulibrary/drds-handbook/pull/36",
+      "repository_html_url": "https://github.com/pulibrary/drds-handbook",
+      "repository_name": "drds-handbook",
+      "state": "open",
+      "title": "Add guidelines for specifying issues",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/drds-handbook/pull/36",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-04-17T19:11:59",
+      "updated_at": "2020-04-17T19:11:59",
+      "html_url": "https://github.com/pulibrary/drds-handbook/pull/37",
+      "number": 37,
+      "pull_request_html_url": "https://github.com/pulibrary/drds-handbook/pull/37",
+      "repository_html_url": "https://github.com/pulibrary/drds-handbook",
+      "repository_name": "drds-handbook",
+      "state": "open",
+      "title": "Add Incident report process",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/drds-handbook/pull/37",
+      "action": "pull_request_open"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2020-04-16T21:06:08",
+      "updated_at": "2020-04-16T21:06:08",
+      "html_url": "https://github.com/pulibrary/figgy/pull/3810",
+      "number": 3810,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/3810",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Fix Order Manager Sidebar display in Firefox.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-17T00:44:28",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-17T00:44:28",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-17T00:44:28",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-17T00:44:32",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/3810",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-04-17T14:37:50",
+      "updated_at": "2020-04-17T14:37:50",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3811",
+      "number": 3811,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "[Figgy/production] RuntimeError: TIFFFetchNormalTag: Warning, Incorrect value for \"Photoshop\"; tag ignored.\ntiftoimage: Bad color format 0.\n\tOnly RGB(A) and GRAY(A) has been implemented\n\tAborting.\nUnable to load tiff file",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-03-09T20:36:03",
+      "updated_at": "2020-03-09T20:36:03",
+      "html_url": "https://github.com/pulibrary/figgy/pull/3754",
+      "number": 3754,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/3754",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Upgrades to browse-everything 2.x-stable",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/3754",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-04-07T17:30:41",
+      "updated_at": "2020-04-07T17:30:41",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3787",
+      "number": 3787,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Order Manager Vue Performance Problems",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-04-17T17:27:38",
+          "html_url": "https://github.com/pulibrary/figgy/issues/3787#issuecomment-615370490",
+          "body": "Closed by #3803 and #3809"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-17T17:27:38",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-02-06T22:09:28",
+      "updated_at": "2020-02-06T22:09:28",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3637",
+      "number": 3637,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Saving many files on Order Manager is really slow and provides no feedback.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-17T17:28:14",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-04-17T18:04:47",
+      "updated_at": "2020-04-17T18:04:47",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3812",
+      "number": 3812,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "enable CORS for manifest logo image",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-17T18:04:47",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2018-11-13T15:05:33",
+      "updated_at": "2018-11-13T15:05:33",
+      "html_url": "https://github.com/pulibrary/figgy/issues/2153",
+      "number": 2153,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "[Figgy/production] PDFGenerator::Error: PDFGenerator::Error",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-04-17T19:22:12",
+          "html_url": "https://github.com/pulibrary/figgy/issues/2153#issuecomment-615422679",
+          "body": "https://figgy.princeton.edu/catalog/ddf9afb7-8de4-4ccf-bfa7-9c3137f52427/ this one fails to download as well"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-04-17T18:14:55",
+      "updated_at": "2020-04-17T18:14:55",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3813",
+      "number": 3813,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "In the Ephemera form, I would like to be able to save an item without being required to add dimensions/measurements.",
+      "user_name": "Kim Leaman",
+      "comments": [
+        {
+          "user_name": "Esmé Cowles",
+          "updated_at": "2020-04-17T18:43:41",
+          "html_url": "https://github.com/pulibrary/figgy/issues/3813#issuecomment-615404198",
+          "body": "It looks like boxless ephemera do not require measurements — I think the plan was to have born digital items not be in boxes, and we changed the required fields based on that."
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2020-04-17T18:56:52",
+          "html_url": "https://github.com/pulibrary/figgy/issues/3813#issuecomment-615409866",
+          "body": "@escowles . Thanks for the information!  Ellen (SAE subject Selector) and I talked a lot about boxes versus collections and it was decided the virtual boxes with dummy barcodes would be the best way forward. I share our rationale here, as well as the proposed workflow. If there is any downside and it would, indeed, be preferable to not use boxes, please let me know! :) \r\n\r\n- **Decision:** create dummy boxes (use \"00000000000000\" for the barcodes, since they will be required) — those boxes won't show up in dpul, but can be used in figgy to segment the items for management\r\n\r\n- **Rationale:** Creation of dummy boxes versus adding collections would simplify ingest, and diminish potential for human error when adding to/deciding on collections in the future.\r\n\r\n- **Workflow:** https://docs.google.com/document/d/1-k8jQuP8DbUVFjQZ0srz2PSA2EJ7rI4sqwn52IwpNYs/edit"
+        },
+        {
+          "user_name": "Esmé Cowles",
+          "updated_at": "2020-04-17T19:26:19",
+          "html_url": "https://github.com/pulibrary/figgy/issues/3813#issuecomment-615424609",
+          "body": "It seems like there are a couple of different options here to resolve these two competing needs:\r\n1. Have collections that don't show up in DPUL (maybe draft vs. complete?)\r\n2. Have boxes that are \"virtual\" boxes whose members don't require dimensions\r\n3. Have some new kind of grouping in ephemera projects for born-digital collections"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2020-04-17T18:14:55",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2020-04-17T18:56:52",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2020-04-17T18:56:52",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-04-17T21:57:15",
+      "updated_at": "2020-04-17T21:57:15",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3814",
+      "number": 3814,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "[Figgy/staging] ActionView::Template::Error: undefined method `preserved_resource' for nil:NilClass",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-04-17T21:57:26",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-04-16T15:46:34",
+      "updated_at": "2020-04-16T15:46:34",
+      "html_url": "https://github.com/pulibrary/figgy/pull/3808",
+      "number": 3808,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/3808",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Allow ingestion of JPEG2000 images",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-16T22:41:50",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-17T23:01:49",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-04-17T23:06:53",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/3808",
+      "action": "pull_request_open"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2020-04-10T05:23:00",
+      "updated_at": "2020-04-10T05:23:00",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2012",
+      "number": 2012,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2012",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Strip non-ascii characters from ids in  linked document function",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-04-17T14:40:46",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2012",
+      "action": "pull_request_closed"
+    }
+  ],
+  "pomegranate": [
+    {
+      "created_at": "2020-04-09T19:06:37",
+      "updated_at": "2020-04-09T19:06:37",
+      "html_url": "https://github.com/pulibrary/pomegranate/issues/768",
+      "number": 768,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pomegranate",
+      "repository_name": "pomegranate",
+      "state": "open",
+      "title": "Curator picture missing",
+      "user_name": "hackmastera",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-04-17T14:36:55",
+          "html_url": "https://github.com/pulibrary/pomegranate/issues/768#issuecomment-615280498",
+          "body": "`image/66/Setsuko.jpg` is also missing. In this case is there a contact email to inform that an image is missing?"
+        },
+        {
+          "user_name": "hackmastera",
+          "updated_at": "2020-04-17T15:53:33",
+          "html_url": "https://github.com/pulibrary/pomegranate/issues/768#issuecomment-615323520",
+          "body": "It would probably be good to figure out how we lost them"
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2020-04-17T18:38:56",
+          "html_url": "https://github.com/pulibrary/pomegranate/issues/768#issuecomment-615402184",
+          "body": "@christinach and @hackmastera : an idea about curator pictures: many folks had pictures retaken by the digital studio. if the pics were changed, then the image link would be broken, yes? "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-17T18:38:56",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-17T18:38:56",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-04-17T18:38:56",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-04-17T18:38:56",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2020-04-14T13:57:02",
+      "updated_at": "2020-04-14T13:57:02",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1434",
+      "number": 1434,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add datadog to lib-confluence-prod",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-17T15:37:13",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-04-17T17:47:59",
+      "updated_at": "2020-04-17T17:47:59",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1444",
+      "number": 1444,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1444",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add a ruby config file to link oracle client",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-17T17:47:59",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-04-17T17:58:25",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-04-17T17:58:25",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-04-17T17:58:26",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1444",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-04-17T16:29:56",
+      "updated_at": "2020-04-17T16:29:56",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1443",
+      "number": 1443,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "libnnz19.so: cannot open shared object file: No such file or directory - /opt/marc_liberation/shared/bundle/ruby/2.6.0/gems/ruby-oci8-2.2.5.1/lib/oci8lib_260.so (LoadError)   /opt/marc_liberation/shared/bundle/ruby/2.6.0/gems/activesupport-5.1.6.2/lib/active_support/dependencies.rb:292:in `require'",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-04-17T17:00:11",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1443#issuecomment-615357637",
+          "body": "https://github.com/kubo/ruby-oci8/issues/193"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-04-17T17:10:58",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1443#issuecomment-615362839",
+          "body": "https://github.com/pulibrary/princeton_ansible/blob/e3023a35ac4ad6a439f3398b80e22fa5d4810772/roles/pulibrary.kakadu/tasks/main.yml#L34"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-17T17:44:43",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-17T17:47:32",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-04-17T17:58:26",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-04-17T14:51:28",
+      "updated_at": "2020-04-17T14:51:28",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1442",
+      "number": 1442,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Add authority_control staging playbook",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-04-17T19:10:32",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1442#issuecomment-615416512",
+          "body": "- [ ] create a new staging/production vm\r\n- [ ] create a ruby_app role\r\n- [ ] create an authority_control role\r\n- [ ] create a playbook for staging\r\n- [ ] create a playbook for production\r\n\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-04-17T18:56:42",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-04-17T19:10:33",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-04-08T21:03:54",
+      "updated_at": "2020-04-08T21:03:54",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1428",
+      "number": 1428,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1428",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "replacement postgresql role",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1428",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-04-03T19:03:21",
+      "updated_at": "2020-04-03T19:03:21",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1418",
+      "number": 1418,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "orangelight staging infra",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-17T20:16:29",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-03-24T14:45:57",
+      "updated_at": "2020-03-24T14:45:57",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1390",
+      "number": 1390,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "update bibdata boxes to bionic",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-04-17T20:16:43",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "pulfalight": [
+    {
+      "created_at": "2020-04-15T06:19:05",
+      "updated_at": "2020-04-15T06:19:05",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/249",
+      "number": 249,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/249",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Ensures that Traject indexes nested component trees for collections with deeply-nested components",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-17T17:03:44",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/249",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-04-17T18:29:09",
+      "updated_at": "2020-04-17T18:29:09",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/251",
+      "number": 251,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Request cart Vue components need to be integrated into the Table of Contents interface",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-17T18:29:09",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-04-17T18:29:09",
+          "type": "milestoned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-04-17T18:40:59",
+      "updated_at": "2020-04-17T18:40:59",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/252",
+      "number": 252,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Staff names should not be included in Names search results facet ",
+      "user_name": "faithc",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-17T18:40:59",
+          "type": "milestoned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-04-06T16:32:58",
+      "updated_at": "2020-04-06T16:32:58",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/223",
+      "number": 223,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Online content should only display in record of component with which that content is associated (components with daos)",
+      "user_name": "faithc",
+      "comments": [
+        {
+          "user_name": "faithc",
+          "updated_at": "2020-04-17T18:32:04",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/223#issuecomment-615399262",
+          "body": "Also, I believe this was documented elsewhere, though I'm having trouble locating it; but the filenames for digital content are still visible. "
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-04-17T18:34:03",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/223#issuecomment-615400064",
+          "body": "@faithc Can you post a link to a record where that's happening?"
+        },
+        {
+          "user_name": "Amanda Ferrara",
+          "updated_at": "2020-04-17T19:42:26",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/223#issuecomment-615431114",
+          "body": "@tpendragon https://pulfalight-staging.princeton.edu/catalog/AC122_c1081"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-17T18:34:03",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-04-17T18:34:03",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-17T19:42:26",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-04-17T19:42:26",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "requests": [
+    {
+      "created_at": "2020-03-30T18:43:50",
+      "updated_at": "2020-03-30T18:43:50",
+      "html_url": "https://github.com/pulibrary/requests/issues/472",
+      "number": 472,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "open",
+      "title": "Metrics/LineLength",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-04-17T12:05:10",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-04-17T13:35:39",
+      "updated_at": "2020-04-17T13:35:39",
+      "html_url": "https://github.com/pulibrary/requests/issues/535",
+      "number": 535,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "open",
+      "title": "Check what is being returned if a request url is generated for thesis with availability embargoed",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 29,
+    "closed_count": 4,
+    "created_count": 9,
+    "pull_request_closed_count": 3,
+    "pull_request_open_count": 6,
+    "updated_count": 7,
+    "today": "2020-04-17T22:00:06",
+    "yesterday": "2020-04-16T22:00:06"
+  }
+}

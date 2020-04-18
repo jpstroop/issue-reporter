@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5fda38894b.js" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" type="text/css" href="../../../../css/main.css" />
+    <title>PUL GitHub Issues for 2020-04-17T22:00:06</title>
+  </head>
+
+<body>
+  <div class="container-fluid">
+    <a id="btt-button"></a>
+    
+<h1 class="bg-dark text-light">PUL GitHub Issues<br />
+  <small class="text-white-70">2020-04-17</small></h1>
+<nav class="navbar sticky-top navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar-toggler">
+    <ul class="navbar-nav mr-auto mt-2 pt-3 mt-lg-0">
+      <li class="nav-item not-mono">
+        <a class="nav-link" href="../../../../index.html"><i class="fas fa-arrow-left"></i> Back to Report List Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#authority_control">pulibrary/authority_control</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#drds-handbook">pulibrary/drds-handbook</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#figgy">pulibrary/figgy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#orangelight">pulibrary/orangelight</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pomegranate">pulibrary/pomegranate</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#princeton_ansible">pulibrary/princeton_ansible</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pulfalight">pulibrary/pulfalight</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#requests">pulibrary/requests</a>
+      </li>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    
+    <section class="repo" id="authority_control">
+      <h2><a href="https://github.com/pulibrary/authority_control">pulibrary/authority_control</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="authority_control-13">
+        <h3><a href="https://github.com/pulibrary/authority_control/issues/13">#13</a> Skip undifferentiated names</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>mzelesky</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-08 19:26:40</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>M Chen at <a href="https://github.com/pulibrary/authority_control/issues/13#issuecomment-615236440">2020-04-17 13:12:36</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>A total of 51,000 undifferentiated names are in this cluster <a href="http://id.loc.gov/search/?q=memberOf:http://id.loc.gov/authorities/names/collection_NamesUndifferentiated">http://id.loc.gov/search/?q=memberOf:http://id.loc.gov/authorities/names/collection_NamesUndifferentiated</a> I can see Mark&#39;s idea that there might be some utility in keeping undifferentiated names and have yet to form a clearer thought on this...</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+      <div class="issue odd" id="authority_control-14">
+        <h3><a href="https://github.com/pulibrary/authority_control/issues/14">#14</a> Geographic headings that appear in other headings need to be updated</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>mzelesky</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-08 19:32:33</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>M Chen at <a href="https://github.com/pulibrary/authority_control/issues/14#issuecomment-615243782">2020-04-17 13:27:44</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>If I understand the issue correctly, there is a way to take care of at least some of the cases. In the MARC record of &quot;Kyïv (Ukraine)&quot; we have these fields:
+151##$a Kyïv (Ukraine)
+451##$w nne $a Kiev (Ukraine)
+781#0 $z Ukraine $z Kyïv</p>
+
+<p>Note that 781 is the correct form to be used in 650 for geographical subdivision. The pathway to convert $z Kiev into $z Kyïv looks like below--</p>
+
+<p>For &quot;650#0…$z Ukraine $z Kiev…&quot; i.e., [&quot;650#0…$z A $z B…&quot;]
+Convert to: Kiev (Ukraine) i.e., [B (A)]
+Compare with 451, if there is a match
+Convert to 781: &quot;650#0…$z Ukraine $z Kyïv…&quot;</p>
+
+              </dd>
+              <dt>M Chen at <a href="https://github.com/pulibrary/authority_control/issues/14#issuecomment-615265691">2020-04-17 14:09:38</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>This solution/pathway is limited to &quot;some of the cases&quot; because if it is a US geographical name, the AB --&gt;B(A) conversion would not be as straightforward. For example,
+151##$a Princeton (N.J.)
+781#0$z New Jersey $z Princeton</p>
+
+<p>See <a href="https://www.loc.gov/marc/authority/ad781.html">https://www.loc.gov/marc/authority/ad781.html</a> as well as
+SHM: H 810 Qualification of Geographic Headings <a href="http://desktop.loc.gov/search?view=document&amp;id=Infobasescmshm0Dash0Dash0Dash294&amp;fq=coreresources%7Ctrue#">http://desktop.loc.gov/search?view=document&amp;id=Infobasescmshm0Dash0Dash0Dash294&amp;fq=coreresources|true#</a></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="drds-handbook">
+      <h2><a href="https://github.com/pulibrary/drds-handbook">pulibrary/drds-handbook</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="drds-handbook-36">
+        <h3><a href="https://github.com/pulibrary/drds-handbook/pull/36">#36</a> Add guidelines for specifying issues</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackmastera</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-17 19:02:35</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/drds-handbook/pull/36">pull request</a>)
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="drds-handbook-37">
+        <h3><a href="https://github.com/pulibrary/drds-handbook/pull/37">#37</a> Add Incident report process</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackmastera</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-17 19:11:59</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/drds-handbook/pull/37">pull request</a>)
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="figgy">
+      <h2><a href="https://github.com/pulibrary/figgy">pulibrary/figgy</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="figgy-3810">
+        <h3><a href="https://github.com/pulibrary/figgy/pull/3810">#3810</a> Fix Order Manager Sidebar display in Firefox.</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-16 21:06:08</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/figgy/pull/3810">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Trey Pendragon at 2020-04-17 00:44:28.</li>
+  <li class="event odd">
+    <code>merged</code> by Trey Pendragon at 2020-04-17 00:44:28.</li>
+  <li class="event even">
+    <code>closed</code> by Trey Pendragon at 2020-04-17 00:44:28.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Trey Pendragon at 2020-04-17 00:44:32.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-3811">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3811">#3811</a> [Figgy/production] RuntimeError: TIFFFetchNormalTag: Warning, Incorrect value for "Photoshop"; tag ignored.
+tiftoimage: Bad color format 0.
+	Only RGB(A) and GRAY(A) has been implemented
+	Aborting.
+Unable to load tiff file</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-17 14:37:50</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="figgy-3754">
+        <h3><a href="https://github.com/pulibrary/figgy/pull/3754">#3754</a> Upgrades to browse-everything 2.x-stable</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-03-09 20:36:03</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/figgy/pull/3754">pull request</a>)
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-3787">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3787">#3787</a> Order Manager Vue Performance Problems</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-07 17:30:41</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Trey Pendragon at <a href="https://github.com/pulibrary/figgy/issues/3787#issuecomment-615370490">2020-04-17 17:27:38</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Closed by #3803 and #3809</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by Trey Pendragon at 2020-04-17 17:27:38.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="figgy-3637">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3637">#3637</a> Saving many files on Order Manager is really slow and provides no feedback.</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2020-02-06 22:09:28</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by Trey Pendragon at 2020-04-17 17:28:14.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-3812">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3812">#3812</a> enable CORS for manifest logo image</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackmastera</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-17 18:04:47</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by None at 2020-04-17 18:04:47.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="figgy-2153">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/2153">#2153</a> [Figgy/production] PDFGenerator::Error: PDFGenerator::Error</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2018-11-13 15:05:33</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Christina Chortaria at <a href="https://github.com/pulibrary/figgy/issues/2153#issuecomment-615422679">2020-04-17 19:22:12</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p><a href="https://figgy.princeton.edu/catalog/ddf9afb7-8de4-4ccf-bfa7-9c3137f52427/">https://figgy.princeton.edu/catalog/ddf9afb7-8de4-4ccf-bfa7-9c3137f52427/</a> this one fails to download as well</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-3813">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3813">#3813</a> In the Ephemera form, I would like to be able to save an item without being required to add dimensions/measurements.</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kim Leaman</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-17 18:14:55</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Esmé Cowles at <a href="https://github.com/pulibrary/figgy/issues/3813#issuecomment-615404198">2020-04-17 18:43:41</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>It looks like boxless ephemera do not require measurements — I think the plan was to have born digital items not be in boxes, and we changed the required fields based on that.</p>
+
+              </dd>
+              <dt>Kim Leaman at <a href="https://github.com/pulibrary/figgy/issues/3813#issuecomment-615409866">2020-04-17 18:56:52</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>@escowles . Thanks for the information!  Ellen (SAE subject Selector) and I talked a lot about boxes versus collections and it was decided the virtual boxes with dummy barcodes would be the best way forward. I share our rationale here, as well as the proposed workflow. If there is any downside and it would, indeed, be preferable to not use boxes, please let me know! :) </p>
+
+<ul>
+<li><p><strong>Decision:</strong> create dummy boxes (use &quot;00000000000000&quot; for the barcodes, since they will be required) — those boxes won&#39;t show up in dpul, but can be used in figgy to segment the items for management</p></li>
+<li><p><strong>Rationale:</strong> Creation of dummy boxes versus adding collections would simplify ingest, and diminish potential for human error when adding to/deciding on collections in the future.</p></li>
+<li><p><strong>Workflow:</strong> <a href="https://docs.google.com/document/d/1-k8jQuP8DbUVFjQZ0srz2PSA2EJ7rI4sqwn52IwpNYs/edit">https://docs.google.com/document/d/1-k8jQuP8DbUVFjQZ0srz2PSA2EJ7rI4sqwn52IwpNYs/edit</a></p></li>
+</ul>
+
+              </dd>
+              <dt>Esmé Cowles at <a href="https://github.com/pulibrary/figgy/issues/3813#issuecomment-615424609">2020-04-17 19:26:19</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>It seems like there are a couple of different options here to resolve these two competing needs:
+1. Have collections that don&#39;t show up in DPUL (maybe draft vs. complete?)
+2. Have boxes that are &quot;virtual&quot; boxes whose members don&#39;t require dimensions
+3. Have some new kind of grouping in ephemera projects for born-digital collections</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Kim Leaman at 2020-04-17 18:14:55.</li>
+  <li class="event odd">
+    <code>mentioned</code> by Esmé Cowles at 2020-04-17 18:56:52.</li>
+  <li class="event even">
+    <code>subscribed</code> by Esmé Cowles at 2020-04-17 18:56:52.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="figgy-3814">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3814">#3814</a> [Figgy/staging] ActionView::Template::Error: undefined method `preserved_resource' for nil:NilClass</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-17 21:57:15</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by Christina Chortaria at 2020-04-17 21:57:26.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-3808">
+        <h3><a href="https://github.com/pulibrary/figgy/pull/3808">#3808</a> Allow ingestion of JPEG2000 images</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Eliot Jordan</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-16 15:46:34</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/figgy/pull/3808">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>deployed</code> by Trey Pendragon at 2020-04-16 22:41:50.</li>
+  <li class="event odd">
+    <code>deployed</code> by Trey Pendragon at 2020-04-17 23:01:49.</li>
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by Eliot Jordan at 2020-04-17 23:06:53.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="orangelight">
+      <h2><a href="https://github.com/pulibrary/orangelight">pulibrary/orangelight</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="orangelight-2012">
+        <h3><a href="https://github.com/pulibrary/orangelight/pull/2012">#2012</a> Strip non-ascii characters from ids in  linked document function</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Eliot Jordan</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-10 05:23:00</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/orangelight/pull/2012">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_deleted</code> by Eliot Jordan at 2020-04-17 14:40:46.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="pomegranate">
+      <h2><a href="https://github.com/pulibrary/pomegranate">pulibrary/pomegranate</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="pomegranate-768">
+        <h3><a href="https://github.com/pulibrary/pomegranate/issues/768">#768</a> Curator picture missing</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackmastera</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-09 19:06:37</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Christina Chortaria at <a href="https://github.com/pulibrary/pomegranate/issues/768#issuecomment-615280498">2020-04-17 14:36:55</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p><code>image/66/Setsuko.jpg</code> is also missing. In this case is there a contact email to inform that an image is missing?</p>
+
+              </dd>
+              <dt>hackmastera at <a href="https://github.com/pulibrary/pomegranate/issues/768#issuecomment-615323520">2020-04-17 15:53:33</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>It would probably be good to figure out how we lost them</p>
+
+              </dd>
+              <dt>Kim Leaman at <a href="https://github.com/pulibrary/pomegranate/issues/768#issuecomment-615402184">2020-04-17 18:38:56</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>@christinach and @hackmastera : an idea about curator pictures: many folks had pictures retaken by the digital studio. if the pics were changed, then the image link would be broken, yes? </p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>mentioned</code> by None at 2020-04-17 18:38:56.</li>
+  <li class="event odd">
+    <code>subscribed</code> by None at 2020-04-17 18:38:56.</li>
+  <li class="event even">
+    <code>mentioned</code> by Christina Chortaria at 2020-04-17 18:38:56.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Christina Chortaria at 2020-04-17 18:38:56.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="princeton_ansible">
+      <h2><a href="https://github.com/pulibrary/princeton_ansible">pulibrary/princeton_ansible</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="princeton_ansible-1434">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/issues/1434">#1434</a> add datadog to lib-confluence-prod</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-14 13:57:02</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by Francis Kayiwa at 2020-04-17 15:37:13.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-1444">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1444">#1444</a> add a ruby config file to link oracle client</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-17 17:47:59</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1444">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>review_requested</code> by Francis Kayiwa at 2020-04-17 17:47:59.</li>
+  <li class="event odd">
+    <code>referenced</code> by Christina Chortaria at 2020-04-17 17:58:25.</li>
+  <li class="event even">
+    <code>merged</code> by Christina Chortaria at 2020-04-17 17:58:25.</li>
+  <li class="event odd">
+    <code>closed</code> by Christina Chortaria at 2020-04-17 17:58:26.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-1443">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/issues/1443">#1443</a> libnnz19.so: cannot open shared object file: No such file or directory - /opt/marc_liberation/shared/bundle/ruby/2.6.0/gems/ruby-oci8-2.2.5.1/lib/oci8lib_260.so (LoadError)   /opt/marc_liberation/shared/bundle/ruby/2.6.0/gems/activesupport-5.1.6.2/lib/active_support/dependencies.rb:292:in `require'</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-17 16:29:56</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Christina Chortaria at <a href="https://github.com/pulibrary/princeton_ansible/issues/1443#issuecomment-615357637">2020-04-17 17:00:11</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p><a href="https://github.com/kubo/ruby-oci8/issues/193">https://github.com/kubo/ruby-oci8/issues/193</a></p>
+
+              </dd>
+              <dt>Christina Chortaria at <a href="https://github.com/pulibrary/princeton_ansible/issues/1443#issuecomment-615362839">2020-04-17 17:10:58</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p><a href="https://github.com/pulibrary/princeton_ansible/blob/e3023a35ac4ad6a439f3398b80e22fa5d4810772/roles/pulibrary.kakadu/tasks/main.yml#L34">https://github.com/pulibrary/princeton_ansible/blob/e3023a35ac4ad6a439f3398b80e22fa5d4810772/roles/pulibrary.kakadu/tasks/main.yml#L34</a></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Francis Kayiwa at 2020-04-17 17:44:43.</li>
+  <li class="event odd">
+    <code>referenced</code> by Francis Kayiwa at 2020-04-17 17:47:32.</li>
+  <li class="event even">
+    <code>closed</code> by Christina Chortaria at 2020-04-17 17:58:26.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-1442">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/issues/1442">#1442</a> Add authority_control staging playbook</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-17 14:51:28</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Christina Chortaria at <a href="https://github.com/pulibrary/princeton_ansible/issues/1442#issuecomment-615416512">2020-04-17 19:10:32</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <ul>
+<li>[ ] create a new staging/production vm</li>
+<li>[ ] create a ruby_app role</li>
+<li>[ ] create an authority_control role</li>
+<li>[ ] create a playbook for staging</li>
+<li>[ ] create a playbook for production</li>
+</ul>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>renamed</code> by Christina Chortaria at 2020-04-17 18:56:42.</li>
+  <li class="event odd">
+    <code>assigned</code> by Christina Chortaria at 2020-04-17 19:10:33.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-1428">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1428">#1428</a> replacement postgresql role</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-08 21:03:54</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1428">pull request</a>)
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-1418">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/issues/1418">#1418</a> orangelight staging infra</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-03 19:03:21</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by Francis Kayiwa at 2020-04-17 20:16:29.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-1390">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/issues/1390">#1390</a> update bibdata boxes to bionic</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2020-03-24 14:45:57</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by Francis Kayiwa at 2020-04-17 20:16:43.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="pulfalight">
+      <h2><a href="https://github.com/pulibrary/pulfalight">pulibrary/pulfalight</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="pulfalight-249">
+        <h3><a href="https://github.com/pulibrary/pulfalight/pull/249">#249</a> Ensures that Traject indexes nested component trees for collections with deeply-nested components</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-15 06:19:05</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/pulfalight/pull/249">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>renamed</code> by James R. Griffin III at 2020-04-17 17:03:44.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pulfalight-251">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/251">#251</a> Request cart Vue components need to be integrated into the Table of Contents interface</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-17 18:29:09</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by James R. Griffin III at 2020-04-17 18:29:09.</li>
+  <li class="event odd">
+    <code>milestoned</code> by James R. Griffin III at 2020-04-17 18:29:09.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="pulfalight-252">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/252">#252</a> Staff names should not be included in Names search results facet </h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>faithc</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-17 18:40:59</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>milestoned</code> by None at 2020-04-17 18:40:59.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pulfalight-223">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/223">#223</a> Online content should only display in record of component with which that content is associated (components with daos)</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>faithc</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-06 16:32:58</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>faithc at <a href="https://github.com/pulibrary/pulfalight/issues/223#issuecomment-615399262">2020-04-17 18:32:04</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Also, I believe this was documented elsewhere, though I&#39;m having trouble locating it; but the filenames for digital content are still visible. </p>
+
+              </dd>
+              <dt>Trey Pendragon at <a href="https://github.com/pulibrary/pulfalight/issues/223#issuecomment-615400064">2020-04-17 18:34:03</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>@faithc Can you post a link to a record where that&#39;s happening?</p>
+
+              </dd>
+              <dt>Amanda Ferrara at <a href="https://github.com/pulibrary/pulfalight/issues/223#issuecomment-615431114">2020-04-17 19:42:26</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>@tpendragon <a href="https://pulfalight-staging.princeton.edu/catalog/AC122_c1081">https://pulfalight-staging.princeton.edu/catalog/AC122_c1081</a></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>mentioned</code> by None at 2020-04-17 18:34:03.</li>
+  <li class="event odd">
+    <code>subscribed</code> by None at 2020-04-17 18:34:03.</li>
+  <li class="event even">
+    <code>mentioned</code> by Trey Pendragon at 2020-04-17 19:42:26.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Trey Pendragon at 2020-04-17 19:42:26.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="requests">
+      <h2><a href="https://github.com/pulibrary/requests">pulibrary/requests</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="requests-472">
+        <h3><a href="https://github.com/pulibrary/requests/issues/472">#472</a> Metrics/LineLength</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2020-03-30 18:43:50</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by None at 2020-04-17 12:05:10.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="requests-535">
+        <h3><a href="https://github.com/pulibrary/requests/issues/535">#535</a> Check what is being returned if a request url is generated for thesis with availability embargoed</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2020-04-17 13:35:39</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../../../../js/report.js"></script>
+  </div>
+</body>
+
+</html>
