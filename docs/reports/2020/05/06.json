@@ -1,0 +1,1006 @@
+{
+  "alma_experimentation": [
+    {
+      "created_at": "2020-05-06T22:13:35",
+      "updated_at": "2020-05-06T22:13:35",
+      "html_url": "https://github.com/pulibrary/alma_experimentation/pull/8",
+      "number": 8,
+      "pull_request_html_url": "https://github.com/pulibrary/alma_experimentation/pull/8",
+      "repository_html_url": "https://github.com/pulibrary/alma_experimentation",
+      "repository_name": "alma_experimentation",
+      "state": "open",
+      "title": "Webhook Lambda for Monitoring",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-05-06T22:20:01",
+          "html_url": "https://github.com/pulibrary/alma_experimentation/pull/8#issuecomment-624921319",
+          "body": "Edited a record in the sandbox and confirmed we received a bib update.\r\n\r\nData in the update looks like this:\r\n```json\r\n{\r\n    \"id\": \"6200103408481028816\",\r\n    \"action\": \"BIB\",\r\n    \"institution\": {\r\n        \"value\": \"01PRI_INST\",\r\n        \"desc\": \"Princeton University\"\r\n    },\r\n    \"time\": \"2020-05-06T22:17:39.391Z\",\r\n    \"event\": {\r\n        \"value\": \"BIB_UPDATED\",\r\n        \"desc\": \"BIB record updated\"\r\n    },\r\n    \"bib\": {\r\n        \"mms_id\": \"991370240000541\",\r\n        \"record_format\": \"marc21\",\r\n        \"linked_record_id\": {\r\n            \"value\": \"\",\r\n            \"type\": null\r\n        },\r\n        \"title\": \"A matter of blue : poems = Une histoire de bleu/\",\r\n        \"author\": \"Maulpoix, Jean-Michel,\",\r\n        \"issn\": null,\r\n        \"isbn\": \"1929918666 (trade cloth : alk. paper)\",\r\n        \"complete_edition\": \"1st ed.\",\r\n        \"network_number\": [\r\n            \"1302636\",\r\n            \"(DLC)  2005000635\"\r\n        ],\r\n        \"place_of_publication\": \"Rochester, NY :\",\r\n        \"date_of_publication\": \"2005.\",\r\n        \"publisher_const\": \"BOA Editions,\",\r\n        \"holdings\": {\r\n            \"value\": \"\",\r\n            \"link\": \"/almaws/v1/bibs/991370240000541/holdings\"\r\n        },\r\n        \"created_by\": \"import\",\r\n        \"created_date\": \"2011-12-17Z\",\r\n        \"last_modified_by\": \"AlmaAdmin\",\r\n        \"last_modified_date\": \"2020-05-06Z\",\r\n        \"suppress_from_publishing\": \"false\",\r\n        \"suppress_from_external_search\": \"false\",\r\n        \"sync_with_oclc\": \"NONE\",\r\n        \"originating_system\": \"ILS\",\r\n        \"originating_system_id\": \"66522-train20072_c2db\",\r\n        \"cataloging_level\": {\r\n            \"value\": \"00\",\r\n            \"desc\": \"Default Level\"\r\n        },\r\n        \"anies\": [\r\n            \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-16\\\"?><record><leader>05053cam a22004454a 4500</leader><controlfield tag=\\\"001\\\">991370240000541</controlfield><controlfield tag=\\\"005\\\">20200506181734.0</controlfield><controlfield tag=\\\"008\\\">050110s2005    nyu           000 0 eng</controlfield><datafield ind1=\\\" \\\" ind2=\\\" \\\" tag=\\\"010\\\"><subfield code=\\\"a\\\">2005000635</subfield></datafield><datafield ind1=\\\" \\\" ind2=\\\" \\\" tag=\\\"020\\\"><subfield code=\\\"a\\\">1929918674 (trader paper : alk. paper)</subfield></datafield><datafield ind1=\\\" \\\" ind2=\\\" \\\" tag=\\\"020\\\"><subfield code=\\\"a\\\">1929918666 (trade cloth : alk. paper)</subfield></datafield><datafield ind1=\\\" \\\" ind2=\\\" \\\" tag=\\\"035\\\"><subfield code=\\\"a\\\">(DLC)  2005000635</subfield></datafield><datafield ind1=\\\" \\\" ind2=\\\" \\\" tag=\\\"035\\\"><subfield code=\\\"a\\\">1302636</subfield></datafield><datafield ind1=\\\" \\\" ind2=\\\" \\\" tag=\\\"040\\\"><subfield code=\\\"a\\\">DLC</subfield><subfield code=\\\"c\\\">DLC</subfield><subfield code=\\\"d\\\">DLC</subfield><subfield code=\\\"d\\\">OrLoB-B</subfield></datafield><datafield ind1=\\\"1\\\" ind2=\\\" \\\" tag=\\\"041\\\"><subfield code=\\\"a\\\">eng</subfield><subfield code=\\\"a\\\">fre</subfield><subfield code=\\\"h\\\">fre</subfield></datafield><datafield ind1=\\\" \\\" ind2=\\\" \\\" tag=\\\"042\\\"><subfield code=\\\"a\\\">pcc</subfield></datafield><datafield ind1=\\\"0\\\" ind2=\\\"0\\\" tag=\\\"050\\\"><subfield code=\\\"a\\\">PQ2673.A8165</subfield><subfield code=\\\"b\\\">H5713 2005</subfield></datafield><datafield ind1=\\\"0\\\" ind2=\\\"0\\\" tag=\\\"082\\\"><subfield code=\\\"a\\\">841/.914</subfield><subfield code=\\\"2\\\">22</subfield></datafield><datafield ind1=\\\"1\\\" ind2=\\\" \\\" tag=\\\"100\\\"><subfield code=\\\"a\\\">Maulpoix, Jean-Michel,</subfield><subfield code=\\\"d\\\">1952-</subfield></datafield><datafield ind1=\\\"1\\\" ind2=\\\"0\\\" tag=\\\"240\\\"><subfield code=\\\"a\\\">Histoire de bleu.</subfield><subfield code=\\\"l\\\">English &amp; French</subfield></datafield><datafield ind1=\\\"1\\\" ind2=\\\"2\\\" tag=\\\"245\\\"><subfield code=\\\"a\\\">A matter of blue :</subfield><subfield code=\\\"b\\\">poems = Une histoire de bleu/</subfield><subfield code=\\\"c\\\">Jean-Michel Maulpoix ; translated from the French with an introduction by  Dawn M. Cornelio.</subfield></datafield><datafield ind1=\\\"3\\\" ind2=\\\"1\\\" tag=\\\"246\\\"><subfield code=\\\"a\\\">Histoire de bleu</subfield></datafield><datafield ind1=\\\" \\\" ind2=\\\" \\\" tag=\\\"250\\\"><subfield code=\\\"a\\\">1st ed.</subfield></datafield><datafield ind1=\\\" \\\" ind2=\\\" \\\" tag=\\\"260\\\"><subfield code=\\\"a\\\">Rochester, NY :</subfield><subfield code=\\\"b\\\">BOA Editions,</subfield><subfield code=\\\"c\\\">2005.</subfield></datafield><datafield ind1=\\\" \\\" ind2=\\\" \\\" tag=\\\"300\\\"><subfield code=\\\"a\\\">199 p. ;</subfield><subfield code=\\\"c\\\">23 cm.</subfield></datafield><datafield ind1=\\\"1\\\" ind2=\\\" \\\" tag=\\\"490\\\"><subfield code=\\\"a\\\">The Lannan translations selection series</subfield></datafield><datafield ind1=\\\"0\\\" ind2=\\\"0\\\" tag=\\\"505\\\"><subfield code=\\\"t\\\">We know love exists through hearsay --</subfield><subfield code=\\\"t\\\">sea within us tries out sentences --</subfield><subfield code=\\\"t\\\">Sometimes one of us stands near the sea --</subfield><subfield code=\\\"t\\\">On nice days, the open sea shimmers --</subfield><subfield code=\\\"t\\\">Blue's recovery after the downpour ... --</subfield><subfield code=\\\"t\\\">\\\"There were some unusual clouds that year\\\" --</subfield><subfield code=\\\"t\\\">\\\"The sky's substance is strangely tender\\\" --</subfield><subfield code=\\\"t\\\">Dark-eyed women have a blue gaze --</subfield><subfield code=\\\"t\\\">Do not think all this blue is without pain --</subfield><subfield code=\\\"t\\\">In summer, in the evening ... --</subfield><subfield code=\\\"t\\\">They move about --</subfield><subfield code=\\\"t\\\">Alive, they proceed hands first --</subfield><subfield code=\\\"t\\\">sea is a picture book --</subfield><subfield code=\\\"t\\\">They look at the blue, but will never know how to say it --</subfield><subfield code=\\\"t\\\">They are sometimes seen beneath lampposts --</subfield><subfield code=\\\"t\\\">He's heading out to sea is what they say of someone embarking on a journey ... --</subfield><subfield code=\\\"t\\\">They leave their islands to go to sea --</subfield><subfield code=\\\"t\\\">He picks up a pen or a paintbrush --</subfield><subfield code=\\\"t\\\">Orthodoxy of blue --</subfield><subfield code=\\\"t\\\">For centuries, she's been beating --</subfield><subfield code=\\\"t\\\">sea is the gods' vacancy --</subfield><subfield code=\\\"t\\\">Sometimes, it's only the light sound of forks against earthenware --</subfield></datafield><datafield ind1=\\\"8\\\" ind2=\\\"0\\\" tag=\\\"505\\\"><subfield code=\\\"t\\\">Soon there was nothing left of belief but the memory of its color --</subfield><subfield code=\\\"t\\\">Nothing remains but an empty gesture resembling prayer --</subfield><subfield code=\\\"t\\\">Sometimes words hurry --</subfield><subfield code=\\\"t\\\">Soul --</subfield><subfield code=\\\"t\\\">There --</subfield><subfield code=\\\"t\\\">Blue makes no noise --</subfield><subfield code=\\\"t\\\">All this blue is not the same ink --</subfield><subfield code=\\\"t\\\">We don't know : we don't understand --</subfield><subfield code=\\\"t\\\">Blue increases and reproduces on the debris of our life --</subfield><subfield code=\\\"t\\\">blue of the sky can do without our help --</subfield><subfield code=\\\"t\\\">Like a cloth, the sky soaks --</subfield><subfield code=\\\"t\\\">blue around here blurs when night falls --</subfield><subfield code=\\\"t\\\">There is nothing that can be locked up in a book --</subfield><subfield code=\\\"t\\\">This blue belongs to no one --</subfield><subfield code=\\\"t\\\">sea's masts are illusory --</subfield><subfield code=\\\"t\\\">Bugles, horses of the deep, mouth of the sea! --</subfield><subfield code=\\\"t\\\">With my dulcimers, my trumpet and my timpani --</subfield><subfield code=\\\"t\\\">Here we strike the iron of the soul --</subfield><subfield code=\\\"t\\\">man swimming there is an iodine and cobalt poem --</subfield><subfield code=\\\"t\\\">Unending narration of the open sea --</subfield><subfield code=\\\"t\\\">So much light in tears --</subfield><subfield code=\\\"t\\\">From all over, she flows --</subfield><subfield code=\\\"t\\\">horizon of slate and slag --</subfield><subfield code=\\\"t\\\">You there, the tiny body of a transfixed man ... --</subfield></datafield><datafield ind1=\\\"8\\\" ind2=\\\"0\\\" tag=\\\"505\\\"><subfield code=\\\"t\\\">You're soaking in dreams, you lose your foothold in yourself --</subfield><subfield code=\\\"t\\\">White swimmer in the sea's arms --</subfield><subfield code=\\\"t\\\">Use this blue to compose --</subfield><subfield code=\\\"t\\\">Don't balk at the expense --</subfield><subfield code=\\\"t\\\">You have blue at your fingertips --</subfield><subfield code=\\\"t\\\">You burn with your sentences --</subfield><subfield code=\\\"t\\\">And you there, smeared with cherries? --</subfield><subfield code=\\\"t\\\">You were the bluest in your dress --</subfield><subfield code=\\\"t\\\">Nine days at sea as in a church --</subfield><subfield code=\\\"t\\\">This blue sticks to my lips --</subfield><subfield code=\\\"t\\\">Start from nothing, emphasize this nothing --</subfield><subfield code=\\\"t\\\">I've been putting words next to words for a long time --</subfield><subfield code=\\\"t\\\">In language, I contemplate the blue of the sky --</subfield><subfield code=\\\"t\\\">For me, writing is about departing --</subfield><subfield code=\\\"t\\\">I cannot survive in the impossible --</subfield><subfield code=\\\"t\\\">Late in the autumn, when the rain falls with a soft noise ... --</subfield><subfield code=\\\"t\\\">Everything I've loved, everything I've lost ... --</subfield><subfield code=\\\"t\\\">Death falls asleep right against the sea --</subfield><subfield code=\\\"t\\\">Aluminum-colored fish wander in the sea's baggage holds --</subfield><subfield code=\\\"t\\\">Along the cliffs and beaches, the sea looks after our remains --</subfield></datafield><datafield ind1=\\\"8\\\" ind2=\\\"0\\\" tag=\\\"505\\\"><subfield code=\\\"t\\\">In the evening when it pulls back to leave all the room to darkness ... --</subfield><subfield code=\\\"t\\\">edge of the world is quite near ... --</subfield><subfield code=\\\"t\\\">Broken old women move about all evening ... --</subfield><subfield code=\\\"t\\\">heart of crushed glass --</subfield><subfield code=\\\"t\\\">What kind of snow continuously falls ... --</subfield><subfield code=\\\"t\\\">Does the sky enjoy hearing this faint sound of a creaking heart? --</subfield><subfield code=\\\"t\\\">Emma liked blue --</subfield><subfield code=\\\"t\\\">Her dresses must be mentioned --</subfield><subfield code=\\\"t\\\">When she loosens her dress, the man is silent --</subfield><subfield code=\\\"t\\\">No one can express her desire --</subfield><subfield code=\\\"t\\\">If you call her, she doesn't come --</subfield><subfield code=\\\"t\\\">She sometimes remembers her childhood --</subfield><subfield code=\\\"t\\\">So many days have passed .. --</subfield><subfield code=\\\"t\\\">Some say she once dreamed of evaporating --</subfield><subfield code=\\\"t\\\">Loves is what she calls these departing sailors and sailboats on the open sea ...</subfield></datafield><datafield ind1=\\\"1\\\" ind2=\\\" \\\" tag=\\\"700\\\"><subfield code=\\\"a\\\">Cornelio, Dawn M.</subfield></datafield><datafield ind1=\\\" \\\" ind2=\\\"0\\\" tag=\\\"830\\\"><subfield code=\\\"a\\\">Lannan translations selection series.</subfield></datafield><datafield ind1=\\\" \\\" ind2=\\\" \\\" tag=\\\"901\\\"><subfield code=\\\"a\\\">R6521343</subfield></datafield><datafield ind1=\\\" \\\" ind2=\\\" \\\" tag=\\\"902\\\"><subfield code=\\\"a\\\">050915AB0701</subfield></datafield><datafield ind1=\\\"1\\\" ind2=\\\"0\\\" tag=\\\"904\\\"><subfield code=\\\"a\\\">United States</subfield><subfield code=\\\"b\\\">B O A Editions Ltd</subfield><subfield code=\\\"b\\\">Consortium Bk Sales Dst</subfield><subfield code=\\\"c\\\">2005</subfield></datafield><datafield ind1=\\\"0\\\" ind2=\\\"0\\\" tag=\\\"905\\\"><subfield code=\\\"a\\\">A Lannan translation selection</subfield></datafield><datafield ind1=\\\" \\\" ind2=\\\" \\\" tag=\\\"906\\\"><subfield code=\\\"a\\\">Cloth ed. avail. USD 22.00 1-929918-66-6  Parallel English/French</subfield></datafield><datafield ind1=\\\"1\\\" ind2=\\\"2\\\" tag=\\\"909\\\"><subfield code=\\\"a\\\">A matter of blue :</subfield><subfield code=\\\"b\\\">poems = Une histoire de bleu /</subfield><subfield code=\\\"c\\\">by Jean-Michel Maulpoix ; translated from the French with an introduction by D.M. Cornelio.</subfield></datafield><datafield ind1=\\\" \\\" ind2=\\\" \\\" tag=\\\"980\\\"><subfield code=\\\"a\\\">20050913</subfield><subfield code=\\\"b\\\">15.95</subfield><subfield code=\\\"e\\\">1297</subfield><subfield code=\\\"f\\\">10354827</subfield><subfield code=\\\"g\\\">1</subfield></datafield><datafield ind1=\\\" \\\" ind2=\\\" \\\" tag=\\\"981\\\"><subfield code=\\\"a\\\">BNA</subfield><subfield code=\\\"b\\\">MODER</subfield><subfield code=\\\"c\\\">N LAN</subfield></datafield></record>\"\r\n        ],\r\n        \"requests\": null,\r\n        \"link\": null\r\n    },\r\n    \"holding\": null,\r\n    \"item\": null,\r\n    \"portfolio\": null,\r\n    \"representation\": null\r\n}\r\n```"
+        }
+      ],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/alma_experimentation/pull/8",
+      "action": "pull_request_open"
+    }
+  ],
+  "discoveryutils": [
+    {
+      "created_at": "2020-05-06T15:27:48",
+      "updated_at": "2020-05-06T15:27:48",
+      "html_url": "https://github.com/pulibrary/discoveryutils/issues/156",
+      "number": 156,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/discoveryutils",
+      "repository_name": "discoveryutils",
+      "state": "open",
+      "title": "Result number value for articles does not match up to results in Articles+",
+      "user_name": "Axa Mei Liauw",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2020-05-05T16:50:48",
+      "updated_at": "2020-05-05T16:50:48",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3874",
+      "number": 3874,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Index more numismatics fields into Orangelight",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-05-06T16:53:01",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-04-28T14:44:35",
+      "updated_at": "2020-04-28T14:44:35",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3848",
+      "number": 3848,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "I would like a csv download of a subset of numismatics with their source metadata identifier and if the images are *not* yet labeled \"obverse\" and \"reverse\".",
+      "user_name": "Kim Leaman",
+      "comments": [
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2020-05-06T20:45:56",
+          "html_url": "https://github.com/pulibrary/figgy/issues/3848#issuecomment-624881833",
+          "body": "Hi, @eliotjordan ! one of the SC folks asked me about this. Is it possible for me to give them an approx timeframe as to when we can get the list to them? Thank you so much! "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-05-06T20:45:56",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-05-06T20:45:56",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-03-09T20:36:03",
+      "updated_at": "2020-03-09T20:36:03",
+      "html_url": "https://github.com/pulibrary/figgy/pull/3754",
+      "number": 3754,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/3754",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Upgrades to browse-everything 2.x-stable",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-05-05T22:48:46",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-05-05T22:48:47",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-05-06T17:43:34",
+          "type": "review_requested"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/3754",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-04-24T20:29:39",
+      "updated_at": "2020-04-24T20:29:39",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3839",
+      "number": 3839,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Some Finding Aids fields are not showing up in Figgy and one field is mapped to the wrong place in Figgy",
+      "user_name": "Kim Leaman",
+      "comments": [
+        {
+          "user_name": "Cliff Wulfman",
+          "updated_at": "2020-05-06T21:19:00",
+          "html_url": "https://github.com/pulibrary/figgy/issues/3839#issuecomment-624896656",
+          "body": "Here's where the creator field is coming from:\r\n\r\n- https://github.com/pulibrary/figgy/blob/master/app/services/pul_metadata_services/client.rb#L42 retrieves a record from the findingaids site. NB: this is not the EAD; it is the enhanced EAD that is produced during ingest into pulfa.\r\n- https://github.com/pulibrary/figgy/blob/master/app/services/pul_metadata_services/pulfa_record.rb#L59 maps `creator` and `publisher` to `collection_creators`, which is an \"enhanced\" (non-EAD) field in the retrieved record https://github.com/pulibrary/figgy/blob/master/app/services/pul_metadata_services/pulfa_record.rb#L121\r\n\r\nThis might be the right value to use for a whole collection (though I would suggest the `origination` element in the EAD's top-level `did` would be the better value to use), but for constituents, `creator` should be mapped to the component-level `ead:c/ead:did/ead:origination` element."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "marc_liberation": [
+    {
+      "created_at": "2020-05-06T15:52:54",
+      "updated_at": "2020-05-06T15:52:54",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/646",
+      "number": 646,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/646",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "[WIP] replace voyagerHelpers with voyager::adapter",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-05-06T15:53:11",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/646",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-04-23T14:07:38",
+      "updated_at": "2020-04-23T14:07:38",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/645",
+      "number": 645,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Set up a webhook listener for Alma bib record updates",
+      "user_name": "Kate Lynch",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-05-06T17:20:41",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/645#issuecomment-624779877",
+          "body": "@mzelesky The documentation says webhooks aren't fired for jobs that affect > 500k records. Do we do these commonly? If so we'll still need periodic full reindexes."
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-05-06T17:34:22",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/645#issuecomment-624787269",
+          "body": "https://developers.exlibrisgroup.com/blog/hosting-a-webhook-listener-in-aws/ is some nice documentation for running this kind of stuff in a lambda."
+        },
+        {
+          "user_name": "mzelesky",
+          "updated_at": "2020-05-06T18:28:15",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/645#issuecomment-624814539",
+          "body": "We occasionally modify more than 500,000 records in a day. What Chris Clement recommended is we use webhooks to attempt to keep up throughout the day with changes, then still use the daily incremental update to catch anything missed."
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-05-06T18:31:24",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/645#issuecomment-624816146",
+          "body": "@mzelesky ah, okay. I didn't see documentation about incremental updates - was under the impression the daily dumps were full dumps."
+        },
+        {
+          "user_name": "mzelesky",
+          "updated_at": "2020-05-06T18:35:39",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/645#issuecomment-624818201",
+          "body": "This might help explain some things: https://knowledge.exlibrisgroup.com/Alma/Product_Documentation/010Alma_Online_Help_(English)/090Integrations_with_External_Systems/030Resource_Management/080Publishing_and_Inventory_Enrichment"
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-05-06T18:44:20",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/645#issuecomment-624822528",
+          "body": "Thank you!"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-05-06T17:19:16",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T17:20:41",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T17:20:41",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T18:31:24",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T18:31:24",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-04-23T14:50:22",
+      "updated_at": "2020-04-23T14:50:22",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/644",
+      "number": 644,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Get location information from Alma",
+      "user_name": "Kate Lynch",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-05-06T19:11:51",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/644#issuecomment-624836356",
+          "body": "This how the Locations Object looks like https://developers.exlibrisgroup.com/alma/apis/docs/xsd/rest_locations.xsd/?tags=GET"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-04-24T15:50:00",
+      "updated_at": "2020-04-24T15:50:00",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/641",
+      "number": 641,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Retrieve full availability using the Alma API",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-05-06T20:04:46",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/641#issuecomment-624861291",
+          "body": "We decided with the Alma group to brake down this issue in different scenarios. This will help to improve the way we retrieve currently the availability. "
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-05-06T20:30:27",
+      "updated_at": "2020-05-06T20:30:27",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/647",
+      "number": 647,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Post a sample of records with location 'f'",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-05-06T20:30:27",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "mudd-dbs": [
+    {
+      "created_at": "2020-05-06T18:21:27",
+      "updated_at": "2020-05-06T18:21:27",
+      "html_url": "https://github.com/pulibrary/mudd-dbs/issues/58",
+      "number": 58,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/mudd-dbs",
+      "repository_name": "mudd-dbs",
+      "state": "open",
+      "title": "Move to Postgres",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "carolyncole",
+          "updated_at": "2020-05-06T18:30:30",
+          "html_url": "https://github.com/pulibrary/mudd-dbs/issues/58#issuecomment-624815683",
+          "body": "to create a local account in postgres run\r\n```\r\npsql postgres\r\npostgres=# create database mudd_staging;\r\npostgres=# create user mudd;\r\npostgres=# grant all privileges on database mudd_staging to mudd;\r\n```"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2020-05-06T18:25:37",
+      "updated_at": "2020-05-06T18:25:37",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2030",
+      "number": 2030,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2030",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Typo in Help Me Get IT block on homepage",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-05-06T18:28:09",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-05-06T18:28:09",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-05-06T18:28:09",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2030",
+      "action": "pull_request_closed"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2020-05-06T12:42:00",
+      "updated_at": "2020-05-06T12:42:00",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1494",
+      "number": 1494,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1494",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[PAS] Changing the slavery-staging health check",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T12:42:05",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T12:42:44",
+          "type": "renamed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T14:13:30",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T14:13:31",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T14:13:32",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T14:14:24",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1494",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-05-06T14:20:04",
+      "updated_at": "2020-05-06T14:20:04",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1495",
+      "number": 1495,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1495",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Add figgy role dependency",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1495",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-05-05T19:39:42",
+      "updated_at": "2020-05-05T19:39:42",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1493",
+      "number": 1493,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "[PAS] Change the health check",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T12:41:45",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T14:48:35",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T14:49:54",
+          "type": "referenced"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-05-06T15:01:24",
+      "updated_at": "2020-05-06T15:01:24",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1496",
+      "number": 1496,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1496",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "[PAS] Updating health check for production to match staging",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T15:01:44",
+          "type": "review_requested"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1496",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-05-06T17:26:54",
+      "updated_at": "2020-05-06T17:26:54",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1497",
+      "number": 1497,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1497",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Changing caching to be redis for the main library site",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T17:28:23",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-05-06T17:59:41",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-05-06T17:59:41",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-05-06T17:59:41",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1497",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-05-06T18:23:26",
+      "updated_at": "2020-05-06T18:23:26",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1498",
+      "number": 1498,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1498",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Switching production library site to use redis caching",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1498",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-05-01T21:17:09",
+      "updated_at": "2020-05-01T21:17:09",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1487",
+      "number": 1487,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1487",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "add the GCE hosts for postgresql",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1487",
+      "action": "pull_request_open"
+    }
+  ],
+  "pul_library_drupal": [
+    {
+      "created_at": "2020-05-06T14:33:24",
+      "updated_at": "2020-05-06T14:33:24",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1623",
+      "number": 1623,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1623",
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "closed",
+      "title": "Adds event tracking to remote support page",
+      "user_name": "Axa Mei Liauw",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2020-05-06T14:33:35",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2020-05-06T15:55:30",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-05-06T16:57:57",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-05-06T16:57:57",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-05-06T16:57:57",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-05-06T16:58:03",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1623",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-05-06T17:42:11",
+      "updated_at": "2020-05-06T17:42:11",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1624",
+      "number": 1624,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1624",
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "closed",
+      "title": "Add database analytics",
+      "user_name": "Axa Mei Liauw",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2020-05-06T17:50:13",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-05-06T18:01:01",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-05-06T18:01:01",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-05-06T18:01:01",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-05-06T18:01:07",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1624",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-05-05T04:20:14",
+      "updated_at": "2020-05-05T04:20:14",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1622",
+      "number": 1622,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1622",
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "closed",
+      "title": "Update redis/predis libraries, provide instructions on how to redis with lando.",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T17:25:26",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T18:05:02",
+          "type": "renamed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T18:05:40",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T18:05:40",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T18:05:40",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-05-06T18:05:46",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1622",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-02-19T15:05:19",
+      "updated_at": "2020-02-19T15:05:19",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1599",
+      "number": 1599,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "closed",
+      "title": "Make main menu behave more like what exists on the University site",
+      "user_name": "Axa Mei Liauw",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2020-05-06T18:10:50",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2018-09-14T21:08:46",
+      "updated_at": "2018-09-14T21:08:46",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1427",
+      "number": 1427,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "closed",
+      "title": "Wire Pulmap to Bento Box",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2020-05-06T18:21:54",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-02-21T15:25:38",
+      "updated_at": "2020-02-21T15:25:38",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1600",
+      "number": 1600,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "closed",
+      "title": "Check events feed handling of deleted events",
+      "user_name": "Axa Mei Liauw",
+      "comments": [
+        {
+          "user_name": "Axa Mei Liauw",
+          "updated_at": "2020-05-06T18:53:42",
+          "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1600#issuecomment-624827528",
+          "body": "set feed to unpublish non-existent nodes"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2020-05-06T18:52:31",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-01-28T14:29:59",
+      "updated_at": "2020-01-28T14:29:59",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1596",
+      "number": 1596,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "closed",
+      "title": "Change the travel site links to the new approvals site",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2020-05-06T18:54:36",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-05-01T13:10:14",
+      "updated_at": "2020-05-01T13:10:14",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1620",
+      "number": 1620,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "open",
+      "title": "Upgrade phpCAS",
+      "user_name": "Axa Mei Liauw",
+      "comments": [
+        {
+          "user_name": "Axa Mei Liauw",
+          "updated_at": "2020-05-06T19:09:01",
+          "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1620#issuecomment-624835067",
+          "body": "Check https://github.com/pulibrary/pul_library_drupal/tree/phpcas on staging"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2019-11-25T14:16:44",
+      "updated_at": "2019-11-25T14:16:44",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1580",
+      "number": 1580,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "closed",
+      "title": "Events setup for Communications",
+      "user_name": "Axa Mei Liauw",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2020-05-06T19:12:18",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2019-12-18T19:53:47",
+      "updated_at": "2019-12-18T19:53:47",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1589",
+      "number": 1589,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "open",
+      "title": "Console error on admin screen",
+      "user_name": "Axa Mei Liauw",
+      "comments": [
+        {
+          "user_name": "Axa Mei Liauw",
+          "updated_at": "2020-05-06T19:17:58",
+          "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1589#issuecomment-624838205",
+          "body": "Looks like this is associated with the Polite Alert module being enabled. Once disabled, the error disappears and the Overlay module works again."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2018-06-28T13:07:06",
+      "updated_at": "2018-06-28T13:07:06",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1409",
+      "number": 1409,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "closed",
+      "title": "Wire bento box to DPUL",
+      "user_name": "Jon Stroop",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2020-05-06T20:15:28",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "pul_solr": [
+    {
+      "created_at": "2020-05-06T13:51:38",
+      "updated_at": "2020-05-06T13:51:38",
+      "html_url": "https://github.com/pulibrary/pul_solr/issues/233",
+      "number": 233,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_solr",
+      "repository_name": "pul_solr",
+      "state": "open",
+      "title": "Move config sets and tests out to application repos",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-03-24T18:58:18",
+      "updated_at": "2020-03-24T18:58:18",
+      "html_url": "https://github.com/pulibrary/pul_solr/pull/230",
+      "number": 230,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_solr/pull/230",
+      "repository_html_url": "https://github.com/pulibrary/pul_solr",
+      "repository_name": "pul_solr",
+      "state": "closed",
+      "title": "remove unneeded tests for component ID",
+      "user_name": "khanhvu98kk",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-05-06T13:54:49",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-05-06T13:57:03",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-05-06T13:57:03",
+          "type": "merged"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-05-06T13:57:03",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-05-06T13:57:10",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul_solr/pull/230",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-05-05T14:23:38",
+      "updated_at": "2020-05-05T14:23:38",
+      "html_url": "https://github.com/pulibrary/pul_solr/pull/232",
+      "number": 232,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_solr/pull/232",
+      "repository_html_url": "https://github.com/pulibrary/pul_solr",
+      "repository_name": "pul_solr",
+      "state": "closed",
+      "title": "Update README",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2020-05-06T14:03:31",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2020-05-06T14:03:32",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2020-05-06T14:03:34",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2020-05-06T14:03:40",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul_solr/pull/232",
+      "action": "pull_request_closed"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 34,
+    "closed_count": 6,
+    "created_count": 4,
+    "pull_request_closed_count": 8,
+    "pull_request_open_count": 7,
+    "updated_count": 9,
+    "today": "2020-05-06T22:00:08",
+    "yesterday": "2020-05-05T22:00:08"
+  }
+}
