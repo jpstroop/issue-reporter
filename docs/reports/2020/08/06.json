@@ -1,0 +1,1169 @@
+{
+  "alma_experimentation": [
+    {
+      "created_at": "2020-07-09T21:43:50",
+      "updated_at": "2020-07-09T21:43:50",
+      "html_url": "https://github.com/pulibrary/alma_experimentation/issues/21",
+      "number": 21,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/alma_experimentation",
+      "repository_name": "alma_experimentation",
+      "state": "open",
+      "title": "Set Up Shibboleth Authentication",
+      "user_name": "Kevin Reiss",
+      "comments": [
+        {
+          "user_name": "Peter Green",
+          "updated_at": "2020-08-06T19:19:16",
+          "html_url": "https://github.com/pulibrary/alma_experimentation/issues/21#issuecomment-670145089",
+          "body": "Submitted a request via SN@P with @kevinreiss "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-08-06T19:19:16",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-08-06T19:19:16",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "archivesspace-development": [
+    {
+      "created_at": "2020-06-18T13:21:59",
+      "updated_at": "2020-06-18T13:21:59",
+      "html_url": "https://github.com/pulibrary/archivesspace-development/issues/24",
+      "number": 24,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/archivesspace-development",
+      "repository_name": "archivesspace-development",
+      "state": "open",
+      "title": "We need a validation tool to check for things the ASpace importer will reject or ignore",
+      "user_name": "regineheberlein",
+      "comments": [
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2020-08-06T14:03:30",
+          "html_url": "https://github.com/pulibrary/archivesspace-development/issues/24#issuecomment-669946651",
+          "body": "Hi Regine,\r\n\r\nTitles are limited to 8704 characters, but you're probably running into this issue, which effectively reduces the maximum length to 255 characters.  https://archivesspace.atlassian.net/browse/ANW-757  To be honest, I thought this was fixed.  I guess it's time for me to submit a PR.\r\n\r\nI'll double-check later today, but I don't think that @unit works in extent statements.\r\n\r\nAlso, item(s) should work in extents. Could you send me a example where they are failing?\r\n\r\nSome other issues:\r\n\r\nFor extents, the importer looks for \"whole\" or \"part\" in @altrender instead of @type.\r\nEmpty note fields (or `<head>` only notes) cause the import to fail.\r\nEmpty subelements in `<controlaccess>` cause the import to fail.\r\nIn addition to end dates before beginnings, other invalid @normal dates.\r\nMissing `<unitdate>` at the resource level\r\nMissing `<unitid>` at the resource level\r\nAlso, I don't know if you've seen Dave Mayo and Kate Bowers' article:  https://journal.code4lib.org/articles/12239  Some of the things that they mention have been fixed. (I've been planning on going through and making a list of the current status of everything, but haven't had time.) Even so, it's still a great guide.\r\n\r\nThanks,\r\n\r\nBrian\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "George Yarish",
+          "created_at": "2020-08-06T14:02:50",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "George Yarish",
+          "created_at": "2020-08-06T14:02:50",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Type",
+          "created_at": "2020-08-06T14:02:50",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Type",
+          "created_at": "2020-08-06T14:02:50",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-08-06T14:02:50",
+          "type": "mentioned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "dspace-development": [
+    {
+      "created_at": "2020-07-29T19:52:04",
+      "updated_at": "2020-07-29T19:52:04",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/126",
+      "number": 126,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "closed",
+      "title": "OAR Item downloads fail with an \"invalid identifier\" page",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-08-05T22:58:07",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/126#issuecomment-669587017",
+          "body": "Attempting to build the DSpace installation on the OAR server is blocked given that there are network connectivity issues:\r\n\r\n```\r\n[ERROR] Failed to execute goal on project dspace-solr: Could not resolve dependencies for project org.dspace:dspace-solr:war:5.5-SNAPSHOT: Failed to collect dependencies at org.restlet.jee:org.restlet:jar:2.1.1: Failed to read artifact descriptor for org.restlet.jee:org.restlet:jar:2.1.1: Could not transfer artifact org.restlet.jee:org.restlet:pom:2.1.1 from/to restlet (http://maven.restlet.org): Transfer failed for http://maven.restlet.org/org/restlet/jee/org.restlet/2.1.1/org.restlet-2.1.1.pom: Connection reset -> [Help 1]\r\n[ERROR]\r\n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\r\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\r\n[ERROR]\r\n[ERROR] For more information about the errors and possible solutions, please read the following articles:\r\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException\r\n[dspace@cisdr204l dspace]$ curl -I http://maven.restlet.org/org/restlet/jee/org.restlet/2.1.1/org.restlet-2.1.1.pom\r\ncurl: (56) Recv failure: Connection reset by peer\r\n[dspace@cisdr204l dspace]$ curl http://google.com\r\n<HTML><HEAD><meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\r\n<TITLE>301 Moved</TITLE></HEAD><BODY>\r\n```\r\n\r\nPlease note that this is not the case from within my local environment:\r\n```\r\n% curl -I http://maven.restlet.org/org/restlet/jee/org.restlet/2.1.1/org.restlet-2.1.1.pom\r\nHTTP/1.1 301 Moved Permanently\r\nContent-Length: 0\r\nConnection: keep-alive\r\n```"
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-08-06T03:03:13",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/126#issuecomment-669655132",
+          "body": "Rebuilding this on the server took a significant amount of time, but this is now fully resolved and the PDFs are downloadable: https://oar.princeton.edu/jspui/handle/88435/pr1x802"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T03:03:14",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-08-06T03:06:06",
+      "updated_at": "2020-08-06T03:06:06",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/142",
+      "number": 142,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Document the rebuild and deployment process for OAR DSpace modules in the (legacy) production environment",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T03:06:06",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T03:06:06",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-08-06T14:14:06",
+      "updated_at": "2020-08-06T14:14:06",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/143",
+      "number": 143,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Migrate DataSpace (dev) Workflow Items for duplicate Shibboleth user accounts",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T14:14:06",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T14:14:06",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T14:14:06",
+          "type": "milestoned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-07-27T20:18:38",
+      "updated_at": "2020-07-27T20:18:38",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/96",
+      "number": 96,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "closed",
+      "title": "Remove the duplicates for the Mechanical and Aerospace 2020 Senior Theses",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-08-06T14:46:32",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/96#issuecomment-669973862",
+          "body": "https://gist.github.com/jrgriffiniii/3ec873e4c24ba77ee2eb3aac5d84a50d is needed in order to work-around the blocking problem of being unable to delete the duplicates either through the web user interface, or the `dspace-jruby`."
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-08-06T16:19:46",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/96#issuecomment-670030294",
+          "body": "https://gist.github.com/jrgriffiniii/3ec873e4c24ba77ee2eb3aac5d84a50d was updated as a Class, and this was run on the server, yielding the following duplicates:\r\n\r\n```\r\n104319\r\n104321\r\n104322\r\n104323\r\n104325\r\n104394\r\n104396\r\n104401\r\n104406\r\n104432\r\n104433\r\n104435\r\n104436\r\n104440\r\n```"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T16:43:09",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-08-05T16:28:18",
+      "updated_at": "2020-08-05T16:28:18",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/140",
+      "number": 140,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "closed",
+      "title": "Create an oartrain user account for Symplectic Elements in the QA environment",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T16:43:41",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-07-31T19:12:30",
+      "updated_at": "2020-07-31T19:12:30",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/136",
+      "number": 136,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "closed",
+      "title": "Ensure that DataSpace 2020 Senior Theses Items are members of Collections for certificate programs",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-08-06T18:14:52",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/136#issuecomment-670093744",
+          "body": "https://gist.github.com/jrgriffiniii/d85479398e13244377f9d05a0b1905e6 was implemented in order to supporting the collection mapping."
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-08-06T18:16:19",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/136#issuecomment-670094405",
+          "body": "The mapping procedure was undertaken for the following collections:\r\n\r\n```\r\nEast Asian Studies Program\r\nAfrican American Studies Program\r\nCreative Writing Program\r\nGlobal Health and Health Policy Program\r\nMedieval Studies Program\r\nNear Eastern Studies Program\r\nNeuroscience Program\r\nTheater Program\r\n```"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T18:16:19",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-08-06T18:48:20",
+      "updated_at": "2020-08-06T18:48:20",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/144",
+      "number": 144,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "closed",
+      "title": "Generate a report of DataSpace WorkflowItems for a specific user",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-08-06T19:06:35",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/144#issuecomment-670139415",
+          "body": "https://gist.github.com/jrgriffiniii/7398286adf20552be66c721134cccce6 implements a Class for generating reports for a given user."
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-08-06T19:31:20",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/144#issuecomment-670150348",
+          "body": "With the updates for https://gist.github.com/jrgriffiniii/7398286adf20552be66c721134cccce6, I can confirm that all Items are all within the same workflow state which have been claimed by `thesiscentral@princeton.edu`."
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-08-06T19:46:09",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/144#issuecomment-670157044",
+          "body": "Ad-hoc querying led me to find that 104405, 104400, 104380, 104384, and 104402 may have been erroneously published."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T18:48:20",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T18:48:20",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T18:48:20",
+          "type": "milestoned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T18:48:20",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T20:09:07",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-08-06T20:10:45",
+      "updated_at": "2020-08-06T20:10:45",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/145",
+      "number": 145,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Identify a means for migrating DataSpace Items back into a workflow",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T20:10:46",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2020-08-06T14:21:27",
+      "updated_at": "2020-08-06T14:21:27",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4163",
+      "number": 4163,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Manifests should load if Voyager is down",
+      "user_name": "Kate Lynch",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2020-08-06T14:21:27",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2020-08-06T14:21:40",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-08-06T14:11:55",
+      "updated_at": "2020-08-06T14:11:55",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4162",
+      "number": 4162,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Large PDFs hitting the ulimit on split",
+      "user_name": "Kate Lynch",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2020-08-06T14:11:55",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2020-08-06T14:11:55",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2020-08-06T14:21:53",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-08-03T22:04:46",
+      "updated_at": "2020-08-03T22:04:46",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4151",
+      "number": 4151,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "All resources should be able to generate an authentication token link for use with courses.",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "hackmastera",
+          "updated_at": "2020-08-06T13:36:42",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4151#issuecomment-669931071",
+          "body": "What do you mean by \"We may want to adjust this so it'll only generate an auth link when we ask it to?\"? Isn't it only generating if the change set has `mint_auth_token == true`? "
+        },
+        {
+          "user_name": "Eliot Jordan",
+          "updated_at": "2020-08-06T14:45:13",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4151#issuecomment-669973075",
+          "body": "@tpendragon Yes, let's add this to maps and geo material. It seems especially likely that scanned maps will be requested for a class at some point."
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-08-06T15:55:39",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4151#issuecomment-670015960",
+          "body": "@hackmastera Right now it generates a token when marked complete. We might want it to have no token until you hit a button. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-08-06T13:25:41",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-08-06T14:45:14",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-08-06T14:45:14",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-08-06T15:55:40",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-08-06T15:55:40",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-08-06T16:28:40",
+          "type": "unassigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-07-31T13:43:03",
+      "updated_at": "2020-07-31T13:43:03",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4137",
+      "number": 4137,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "FA metadata not mapping to figgy for some of WA064 component ids",
+      "user_name": "Kim Leaman",
+      "comments": [
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2020-08-06T17:42:19",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4137#issuecomment-670077916",
+          "body": "@tpendragon, everything looks good except for the fact that the now the FA description field is no longer being mapped for any of the FA materials in WC064,WC055, WC054."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-08-06T17:42:19",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-08-06T17:42:19",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-08-06T23:05:19",
+      "updated_at": "2020-08-06T23:05:19",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4164",
+      "number": 4164,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4164",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Run GC between pages to keep file handle usage low.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4164",
+      "action": "pull_request_open"
+    }
+  ],
+  "marc_liberation": [
+    {
+      "created_at": "2020-08-04T13:16:36",
+      "updated_at": "2020-08-04T13:16:36",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/727",
+      "number": 727,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Add a switch for alma",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-08-06T02:18:12",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-08-06T13:13:10",
+      "updated_at": "2020-08-06T13:13:10",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/731",
+      "number": 731,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Normalization rule",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-08-06T13:13:10",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Peter Green",
+          "created_at": "2020-08-06T13:13:11",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Peter Green",
+          "created_at": "2020-08-06T13:13:11",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-08-06T13:13:11",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-08-06T13:13:11",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-08-06T13:13:11",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-08-06T13:13:11",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-08-06T13:54:42",
+      "updated_at": "2020-08-06T13:54:42",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/732",
+      "number": 732,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Add new form for bibs",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-08-06T13:54:42",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-08-06T13:55:08",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-08-06T13:58:10",
+      "updated_at": "2020-08-06T13:58:10",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/733",
+      "number": 733,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Add new form for holdings",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-08-06T13:58:11",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-08-06T13:58:19",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-08-06T13:58:55",
+      "updated_at": "2020-08-06T13:58:55",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/734",
+      "number": 734,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Add new form for items",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-08-06T13:58:55",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-08-06T13:58:55",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-08-06T17:24:18",
+      "updated_at": "2020-08-06T17:24:18",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/735",
+      "number": 735,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Update Faraday",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-08-06T17:24:18",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-08-06T17:24:18",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-08-06T17:26:34",
+      "updated_at": "2020-08-06T17:26:34",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/736",
+      "number": 736,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Set status \"Reserved for Digital Lending\"",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-08-06T17:26:39",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-07-23T14:05:22",
+      "updated_at": "2020-07-23T14:05:22",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/717",
+      "number": 717,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/717",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "[WIP do not merge] Alma-implementation -starting alma adapter,",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2020-08-06T14:10:22",
+          "html_url": "https://github.com/pulibrary/marc_liberation/pull/717#issuecomment-663043685",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/32583052/badge)](https://coveralls.io/builds/32583052)\n\nCoverage decreased (-0.6%) to 79.261% when pulling **6b6bda42647587d6144a11d770066de5c7c320cf on alma-implementation** into **73a88ecc1c421245a8ca5a7f4a3ee125de65ba91 on master**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-08-06T17:28:51",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-08-06T17:29:08",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/717",
+      "action": "pull_request_open"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2020-08-05T18:14:31",
+      "updated_at": "2020-08-05T18:14:31",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2176",
+      "number": 2176,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "CDL items should have status \"Reserved for Digital Lending\", Online section with \"View digital content\" link, and no request button",
+      "user_name": "hackmastera",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-08-06T21:37:25",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/2176#issuecomment-670204626",
+          "body": "I had a quick call with @mzelesky and opened https://github.com/pulibrary/voyager_helpers/issues/114. I'll open a PR and test it on bibdata-staging. When we first added the patron_group_charged attribute we didn't pull it all the way to the full_mfhd_availability because the need was only to retrieve it in the EligibleItemService using https://bibdata.princeton.edu/bibliographic/7214786/items. Also @mzelesky explained that the https://github.com/pulibrary/voyager_helpers/blob/839acb7db247150fded107989a14680a0cc4d8ce/lib/voyager_helpers/liberator.rb#L214 is used on the search results page not on the record page. Thank you @mzelesky for your valuable input!"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-08-06T16:29:31",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-08-06T21:37:25",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-08-06T21:37:25",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2020-07-07T15:28:53",
+      "updated_at": "2020-07-07T15:28:53",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1621",
+      "number": 1621,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "[Dspace] create dspace staging",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2020-08-05T22:09:00",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1621#issuecomment-654954286",
+          "body": "- [x] - set up postgresql cluster\r\n- [ ] - setup dataspace\r\n- [x] - setup oar"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-08-06T14:19:07",
+      "updated_at": "2020-08-06T14:19:07",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1666",
+      "number": 1666,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "dspace tests",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-07-08T21:41:31",
+      "updated_at": "2020-07-08T21:41:31",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1624",
+      "number": 1624,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1624",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "1621 create oar role",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2020-08-05T22:06:36",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1624#issuecomment-669545453",
+          "body": "this PR has deployed oar-staging and dev multiple times.  (sorry it was this huge 👎 )"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-08-05T22:04:31",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-08-05T22:05:32",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-08-05T22:05:41",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-08-06T14:23:02",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-08-06T14:23:02",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-08-06T14:23:02",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-08-06T14:23:06",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1624",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-08-06T13:57:16",
+      "updated_at": "2020-08-06T13:57:16",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1665",
+      "number": 1665,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1665",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "we have a redirect for the staff page",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T14:25:46",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T14:44:23",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T14:44:23",
+          "type": "merged"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T14:44:23",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-08-06T14:44:29",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1665",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-08-06T19:04:34",
+      "updated_at": "2020-08-06T19:04:34",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1667",
+      "number": 1667,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1667",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Creating a production playbook for the research data machines",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-08-06T20:35:34",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1667",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-08-06T21:33:26",
+      "updated_at": "2020-08-06T21:33:26",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1668",
+      "number": 1668,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1668",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "add the dataspace role",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1668",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-08-07T00:58:24",
+      "updated_at": "2020-08-07T00:58:24",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1669",
+      "number": 1669,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1669",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "1664 researchdata prod",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-08-07T00:58:55",
+          "type": "review_requested"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1669",
+      "action": "pull_request_open"
+    }
+  ],
+  "researchdata": [
+    {
+      "created_at": "2020-08-04T18:32:43",
+      "updated_at": "2020-08-04T18:32:43",
+      "html_url": "https://github.com/pulibrary/researchdata/issues/27",
+      "number": 27,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/researchdata",
+      "repository_name": "researchdata",
+      "state": "closed",
+      "title": "Decide if we should remove the contrib directory under modules",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-08-06T13:02:02",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-08-04T20:05:36",
+      "updated_at": "2020-08-04T20:05:36",
+      "html_url": "https://github.com/pulibrary/researchdata/pull/28",
+      "number": 28,
+      "pull_request_html_url": "https://github.com/pulibrary/researchdata/pull/28",
+      "repository_html_url": "https://github.com/pulibrary/researchdata",
+      "repository_name": "researchdata",
+      "state": "closed",
+      "title": "Adding migration to import events rss",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-08-06T13:02:02",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-08-06T13:02:02",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-08-06T13:02:03",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-08-06T13:02:06",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/researchdata/pull/28",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-08-06T19:08:19",
+      "updated_at": "2020-08-06T19:08:19",
+      "html_url": "https://github.com/pulibrary/researchdata/pull/30",
+      "number": 30,
+      "pull_request_html_url": "https://github.com/pulibrary/researchdata/pull/30",
+      "repository_html_url": "https://github.com/pulibrary/researchdata",
+      "repository_name": "researchdata",
+      "state": "closed",
+      "title": "Updating to allow cache rebuild to run properly",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-08-06T19:30:11",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-08-06T19:30:11",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-08-06T19:30:11",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/researchdata/pull/30",
+      "action": "pull_request_closed"
+    }
+  ],
+  "voyager_helpers": [
+    {
+      "created_at": "2020-08-06T21:29:31",
+      "updated_at": "2020-08-06T21:29:31",
+      "html_url": "https://github.com/pulibrary/voyager_helpers/issues/114",
+      "number": 114,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/voyager_helpers",
+      "repository_name": "voyager_helpers",
+      "state": "open",
+      "title": "Include the patron_group_charged in the get_full_mfhd_availability",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-08-06T21:29:31",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-08-07T00:25:04",
+      "updated_at": "2020-08-07T00:25:04",
+      "html_url": "https://github.com/pulibrary/voyager_helpers/pull/115",
+      "number": 115,
+      "pull_request_html_url": "https://github.com/pulibrary/voyager_helpers/pull/115",
+      "repository_html_url": "https://github.com/pulibrary/voyager_helpers",
+      "repository_name": "voyager_helpers",
+      "state": "open",
+      "title": "Add patron_group_charged in the item hash",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-08-07T00:25:10",
+          "type": "review_requested"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/voyager_helpers/pull/115",
+      "action": "pull_request_open"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 36,
+    "closed_count": 5,
+    "created_count": 14,
+    "pull_request_closed_count": 4,
+    "pull_request_open_count": 6,
+    "updated_count": 7,
+    "today": "2020-08-06T22:00:07",
+    "yesterday": "2020-08-05T22:00:07"
+  }
+}
