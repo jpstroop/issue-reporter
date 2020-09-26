@@ -1,0 +1,1699 @@
+{
+  "alma_experimentation": [
+    {
+      "created_at": "2020-06-15T14:34:20",
+      "updated_at": "2020-06-15T14:34:20",
+      "html_url": "https://github.com/pulibrary/alma_experimentation/issues/10",
+      "number": 10,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/alma_experimentation",
+      "repository_name": "alma_experimentation",
+      "state": "closed",
+      "title": "Set up SFTP server and integration profile for general publishing",
+      "user_name": "Kate Lynch",
+      "comments": [
+        {
+          "user_name": "hackmastera",
+          "updated_at": "2020-09-25T14:19:41",
+          "html_url": "https://github.com/pulibrary/alma_experimentation/issues/10#issuecomment-698957028",
+          "body": "It would be helpful if this issue would point to the documentation of the location of the server, and/or the ansible PRs that created it."
+        },
+        {
+          "user_name": "Kate Lynch",
+          "updated_at": "2020-09-25T16:25:22",
+          "html_url": "https://github.com/pulibrary/alma_experimentation/issues/10#issuecomment-699024991",
+          "body": "The FTP server was provisioned by the Ops team outside of ansible.  Location and connection info are on LastPass."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2020-09-25T18:39:48",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "cicognara-rails": [
+    {
+      "created_at": "2020-08-14T18:56:21",
+      "updated_at": "2020-08-14T18:56:21",
+      "html_url": "https://github.com/pulibrary/cicognara-rails/issues/474",
+      "number": 474,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/cicognara-rails",
+      "repository_name": "cicognara-rails",
+      "state": "open",
+      "title": "Upgrade to Solr 8",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "dspace-development": [
+    {
+      "created_at": "2020-09-02T07:01:36",
+      "updated_at": "2020-09-02T07:01:36",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/171",
+      "number": 171,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Troubleshoot and document the solution for authentication issues on the Symplectic Elements QA and Production environments",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-09-25T20:38:55",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/171#issuecomment-699143983",
+          "body": "While the ports are opened, the `rt4ds` Tomcat app. has not been deployed on the `staging` or `dev` environments."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2020-09-24T16:33:05",
+      "updated_at": "2020-09-24T16:33:05",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4270",
+      "number": 4270,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4270",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "2586 bulk edit",
+      "user_name": "Cliff Wulfman",
+      "comments": [
+        {
+          "user_name": "Cliff Wulfman",
+          "updated_at": "2020-09-25T13:06:42",
+          "html_url": "https://github.com/pulibrary/figgy/pull/4270#issuecomment-698917431",
+          "body": "The result of careless query-replace.  Fixed now\r\n\r\nOn Sep 24, 2020, at 20:12, Trey Pendragon <notifications@github.com<mailto:notifications@github.com>> wrote:\r\n\r\n\r\n\r\n@tpendragon requested changes on this pull request.\r\n\r\n________________________________\r\n\r\nIn lib/tasks/bulk.rake<https://github.com/pulibrary/figgy/pull/4270#discussion_r494677096>:\r\n\r\n> @@ -314,4 +314,15 @@ namespace :bulk do\r\n       @logger.error \"Error: #{e.message}\"\r\n     end\r\n   end\r\n+\r\n+  desc \"Adds all members of a Collection to an additional collection\"\r\n+  task update_attrs: :environment do\r\n+    coll = ENV[\"COLL\"]\r\n+    append_coll = ENV[\"APPEND_COLL\"]\r\n+\r\n+    abort \"usage: rake bulk:update_attrs COLL=[collection id] APPEND_COLL=[new collection id]\" unless coll && append_coll\r\n+    logger = Logger.new(STDOUT)\r\n+    attrs = { member_of_collection_ids: Valkyrie::ID.new(append_coll) }\r\n\r\n\r\nThis should be :append_collection_ids now.\r\n\r\n—\r\nYou are receiving this because you were mentioned.\r\nReply to this email directly, view it on GitHub<https://github.com/pulibrary/figgy/pull/4270#pullrequestreview-496029266>, or unsubscribe<https://github.com/notifications/unsubscribe-auth/AAGZRWLCATVVNNTAFUA775LSHPN55ANCNFSM4RYQS5VA>.\r\n\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T13:06:43",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T13:06:43",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T15:31:40",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T15:31:40",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T15:31:40",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T15:31:41",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4270",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-08-18T13:09:11",
+      "updated_at": "2020-08-18T13:09:11",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4198",
+      "number": 4198,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "delete bin/deploy",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T19:50:06",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T19:51:28",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T21:03:59",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T21:04:00",
+          "type": "moved_columns_in_project"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-09-25T19:51:34",
+      "updated_at": "2020-09-25T19:51:34",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4273",
+      "number": 4273,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4273",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Remove bin/deploy",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T21:03:59",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T21:03:59",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T21:03:59",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T21:04:00",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4273",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-09-25T19:36:54",
+      "updated_at": "2020-09-25T19:36:54",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4271",
+      "number": 4271,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "CDL complete announcements should go to reserve email",
+      "user_name": "Kate Lynch",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2020-09-25T19:36:54",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2020-09-25T19:38:02",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T21:17:59",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-09-25T19:38:20",
+      "updated_at": "2020-09-25T19:38:20",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4272",
+      "number": 4272,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4272",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Fixed reserve email",
+      "user_name": "Kate Lynch",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T21:17:59",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T21:17:59",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T21:17:59",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T21:18:00",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4272",
+      "action": "pull_request_closed"
+    }
+  ],
+  "lae-blacklight": [
+    {
+      "created_at": "2020-08-14T18:57:08",
+      "updated_at": "2020-08-14T18:57:08",
+      "html_url": "https://github.com/pulibrary/lae-blacklight/issues/294",
+      "number": 294,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/lae-blacklight",
+      "repository_name": "lae-blacklight",
+      "state": "open",
+      "title": "Upgrade to Solr 8",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "marc_liberation": [
+    {
+      "created_at": "2020-09-24T04:14:53",
+      "updated_at": "2020-09-24T04:14:53",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/802",
+      "number": 802,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/802",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Adds logic in the get_bib_record method to remove suppressed bibs",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2020-09-25T13:43:06",
+          "html_url": "https://github.com/pulibrary/marc_liberation/pull/802#issuecomment-698311110",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/33722635/badge)](https://coveralls.io/builds/33722635)\n\nCoverage increased (+0.4%) to 81.291% when pulling **477835c604ac922c388ab659a45fdd836553bb56 on 710-suppressed-bib** into **58acfd4e191dbad3d85e8ccd3a50b03d66c7c1ec on master**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-09-25T14:30:40",
+          "type": "review_requested"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/802",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-09-24T18:10:06",
+      "updated_at": "2020-09-24T18:10:06",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/804",
+      "number": 804,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/804",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Adding bibdata-staging2 to the deployment",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T14:37:31",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T14:37:31",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T14:37:31",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T14:37:35",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/804",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-09-25T14:44:58",
+      "updated_at": "2020-09-25T14:44:58",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/806",
+      "number": 806,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Update traject to process Alma records",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T14:44:58",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-09-25T14:55:45",
+      "updated_at": "2020-09-25T14:55:45",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/807",
+      "number": 807,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Full index from Alma",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T14:55:45",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T14:55:45",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-09-25T14:58:33",
+      "updated_at": "2020-09-25T14:58:33",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/808",
+      "number": 808,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/808",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Updating whenever to run on correct boxes",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T15:04:49",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T15:04:50",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T15:04:50",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T15:04:54",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/808",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-04-24T15:50:00",
+      "updated_at": "2020-04-24T15:50:00",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/641",
+      "number": 641,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Retrieve full availability using the Alma API",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-09-25T15:17:29",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/641#issuecomment-625245256",
+          "body": "the structure of the bib object: https://developers.exlibrisgroup.com/alma/apis/docs/xsd/rest_bib.xsd/?tags=GET. \r\n \r\n`GET /almaws/v1/bibs/{mms_id}`\r\nAdding expand=p_avail: will add an **AVA** (availability) tag in the record with the physical availability:\r\n`https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/991129830000541?expand=p_avail`\r\nwill return: \r\n```\r\n<datafield ind1=\" \" ind2=\" \" tag=\"AVA\">\r\n            <subfield code=\"0\">991129830000541</subfield>   mms_id\r\n            <subfield code=\"8\">224687740000541</subfield>   holding_id\r\n            <subfield code=\"a\">01PRI_INST</subfield>  Institution code\r\n            <subfield code=\"b\">MAIN</subfield>  library value\r\n            <subfield code=\"c\">Stacks</subfield>  location desc\r\n            <subfield code=\"d\">292 H31m</subfield>  call_number\r\n            <subfield code=\"e\">available</subfield>  availability\r\n            <subfield code=\"f\">1</subfield>  total items               \r\n            <subfield code=\"g\">0</subfield>  non available items                               \r\n            <subfield code=\"j\">main</subfield>  Location code  \r\n            <subfield code=\"k\">8</subfield>  Call number type\r\n            <subfield code=\"p\">1</subfield>  priority  \r\n            <subfield code=\"q\">Main Library</subfield> library desc\r\n        </datafield>\r\n```\r\n\r\nEdit to add: Note that the availability here will be one of 3 values: \"available\", \"unavailable\", \"check holdings\""
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-09-25T15:18:58",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/641#issuecomment-625317421",
+          "body": "We identified with @mzelesky that the availability of a specific item **misses** `sequence` and `on_reserve`. We use them in: https://github.com/pulibrary/voyager_helpers/blob/26166ac7e68bfce5d5326f11c0a05933f2b07880/lib/voyager_helpers/liberator.rb#L283\r\n\r\nGET `/almaws/v1/bibs/{mms_id}/holdings/{holding_id}/items` This will retrieve the items list.\r\n\r\n> Edit to add: Note that we can get all item information by using a holdings number `ALL`\r\n\r\nIf we want Item and label printing information, use item_pid from the record. \r\nGET `/almaws/v1/bibs/{mms_id}/holdings/{holding_id}/items/{item_pid}`\r\n\r\nThe item_data also includes **barcode** information. https://developers.exlibrisgroup.com/alma/apis/docs/xsd/rest_item.xsd/#item\r\n`barcode: The item's barcode.\r\nIf not sent as part of the PUT or POST actions, Alma will generate a barcode based on the barcode generation rules.`"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-08-07T18:47:25",
+      "updated_at": "2020-08-07T18:47:25",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/742",
+      "number": 742,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Implement the availability functionality for Alma ",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T15:10:48",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T15:13:08",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-08-31T15:06:19",
+      "updated_at": "2020-08-31T15:06:19",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/761",
+      "number": 761,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Load 'allow' items from full hathi report into HathiAccess",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T15:35:11",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-08-13T17:15:24",
+      "updated_at": "2020-08-13T17:15:24",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/751",
+      "number": 751,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Implement alma functionality for `/bibliographic/:bibid/items`",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T15:36:40",
+          "type": "renamed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T15:37:46",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-05-11T20:54:55",
+      "updated_at": "2020-05-11T20:54:55",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/651",
+      "number": 651,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Configure incremental dump to dump files instead of publish to OAI",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Kate Lynch",
+          "updated_at": "2020-09-25T18:38:16",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/651#issuecomment-699089464",
+          "body": "FTP server information is on LastPass."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2020-09-25T18:37:22",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2020-09-25T18:37:33",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-09-25T15:02:21",
+      "updated_at": "2020-09-25T15:02:21",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/809",
+      "number": 809,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Incremental index from Alma",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T15:02:21",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T15:02:21",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-04-23T14:07:38",
+      "updated_at": "2020-04-23T14:07:38",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/645",
+      "number": 645,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Set up a webhook listener for Alma bib record updates",
+      "user_name": "Kate Lynch",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2020-09-25T18:40:40",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-05-18T20:21:04",
+      "updated_at": "2020-05-18T20:21:04",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/661",
+      "number": 661,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Investigate how to get webhook indexing to match general publishing results.",
+      "user_name": "Kate Lynch",
+      "comments": [
+        {
+          "user_name": "Kate Lynch",
+          "updated_at": "2020-09-25T18:42:28",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/661#issuecomment-699091358",
+          "body": "This requires extra API calls to get all of the information.  It requires a bib API call and an item API call using the holdings keyword ALL."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2020-09-25T18:43:25",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-04-23T14:30:52",
+      "updated_at": "2020-04-23T14:30:52",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/632",
+      "number": 632,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Develop a batch indexer for real-time availability in Alma",
+      "user_name": "Kate Lynch",
+      "comments": [
+        {
+          "user_name": "Kate Lynch",
+          "updated_at": "2020-09-25T18:44:30",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/632#issuecomment-699092307",
+          "body": "Per architectural discussion, we are putting this off for now ([notes](https://docs.google.com/document/d/1YgphqGxTzhKNlV_oDUWTfuI66JY6b9LCOF9lnT8vvA4/edit#)).  Reopen if we decide to come back to it."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2020-09-25T18:45:12",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-05-11T20:54:12",
+      "updated_at": "2020-05-11T20:54:12",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/650",
+      "number": 650,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Ask exlibris how often we can have a full dump",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Kate Lynch",
+          "updated_at": "2020-09-25T18:47:08",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/650#issuecomment-699093588",
+          "body": "We can have a full dump of data daily, weekly, monthly.  The team will determine what we need."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2020-09-25T18:47:08",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-04-23T14:12:19",
+      "updated_at": "2020-04-23T14:12:19",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/629",
+      "number": 629,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Investigate real-time availability indexing in Alma",
+      "user_name": "Kate Lynch",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-09-25T18:47:13",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/629#issuecomment-626958292",
+          "body": "- [x] Indexing availability information from the **daily** incremental dumps from Alma. Set up a publishing job. https://github.com/pulibrary/marc_liberation/issues/651\r\n- [x] Real time on search results and the record display and the requests page. https://github.com/pulibrary/marc_liberation/issues/641\r\n- [x] Full reindex. Make sure this ad hoc job of a full dump would include the availability. https://github.com/pulibrary/marc_liberation/issues/649\r\n- [x] Ask exlibris how often we can have a full dump. https://github.com/pulibrary/marc_liberation/issues/650"
+        },
+        {
+          "user_name": "Kate Lynch",
+          "updated_at": "2020-09-25T18:47:26",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/629#issuecomment-699093719",
+          "body": "This has been sufficiently investigated."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2020-09-25T18:48:23",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-09-25T17:47:36",
+      "updated_at": "2020-09-25T17:47:36",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/810",
+      "number": 810,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/810",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Add hr_cron in roles for whenever",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T17:52:31",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T19:04:01",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T19:04:01",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T19:04:01",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T19:04:08",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/810",
+      "action": "pull_request_closed"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2020-09-25T15:51:02",
+      "updated_at": "2020-09-25T15:51:02",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2273",
+      "number": 2273,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Replace umlaut with alma Services OpenURL",
+      "user_name": "hackmastera",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T15:51:02",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T15:51:02",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-09-25T03:57:45",
+      "updated_at": "2020-09-25T03:57:45",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2272",
+      "number": 2272,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2272",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Add campus_authorized check to borrow direct authorization. ",
+      "user_name": "Kevin Reiss",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2020-09-25T16:00:24",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2272#issuecomment-699012263",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/33726338/badge)](https://coveralls.io/builds/33726338)\n\nCoverage remained the same at 96.578% when pulling **65b5bb21fb3630bd97f1edc5a3ef1cd05589b2a0 on bd_auth_change** into **5a1fce7d021f7fb46ab0e23550db9a187d47178e on main**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T03:57:56",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T15:31:43",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T16:50:07",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T17:11:05",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T17:11:05",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T17:11:05",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T17:11:09",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2272",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-09-15T15:30:25",
+      "updated_at": "2020-09-15T15:30:25",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2255",
+      "number": 2255,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2255",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Updating Request to allow for ReCAP In Library Use Requests",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2020-09-25T16:11:01",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2255#issuecomment-692808851",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/33726646/badge)](https://coveralls.io/builds/33726646)\n\nCoverage remained the same at 96.578% when pulling **e0186798bd7fc1951802d58c7f7f1753764ac285 on request-scsb-in-library** into **5a1fce7d021f7fb46ab0e23550db9a187d47178e on main**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T15:35:00",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T17:22:20",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T17:22:20",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T17:22:21",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T17:22:26",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2255",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-08-20T20:26:29",
+      "updated_at": "2020-08-20T20:26:29",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2188",
+      "number": 2188,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Remove mini_racer and libv8 from the orangelight gemfile",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T18:23:03",
+          "type": "moved_columns_in_project"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T18:23:23",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-09-25T18:36:18",
+      "updated_at": "2020-09-25T18:36:18",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2274",
+      "number": 2274,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2274",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Pointing to bibdata prod since staging is broken",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2020-09-25T19:00:56",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2274#issuecomment-699100323",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/33730739/badge)](https://coveralls.io/builds/33730739)\n\nCoverage remained the same at 96.578% when pulling **4213411fce417ec5f456f746d68cc5897b110e09 on bibdata-prod** into **d1cf5dc5a49faa4d3e1c0e0fc4e7b7658cb46bf1 on main**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T18:37:09",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T18:40:27",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T18:40:36",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T19:02:28",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T19:03:26",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T19:03:26",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T19:03:26",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T19:03:30",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2274",
+      "action": "pull_request_closed"
+    }
+  ],
+  "pomegranate": [
+    {
+      "created_at": "2020-09-24T23:59:23",
+      "updated_at": "2020-09-24T23:59:23",
+      "html_url": "https://github.com/pulibrary/pomegranate/pull/842",
+      "number": 842,
+      "pull_request_html_url": "https://github.com/pulibrary/pomegranate/pull/842",
+      "repository_html_url": "https://github.com/pulibrary/pomegranate",
+      "repository_name": "pomegranate",
+      "state": "closed",
+      "title": "Check all slugs for missing keys.",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2020-09-25T00:03:23",
+          "html_url": "https://github.com/pulibrary/pomegranate/pull/842#issuecomment-698647758",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/33709536/badge)](https://coveralls.io/builds/33709536)\n\nCoverage remained the same at 100.0% when pulling **4e984c484b99c3666d39f2eee0b2a9fb341523ca on override_title_fix** into **ac6b8680cdc897cad6c040e53af7243349f15ebc on main**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T13:24:15",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T13:24:15",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T13:24:16",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T13:24:17",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pomegranate/pull/842",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-08-25T12:44:11",
+      "updated_at": "2020-08-25T12:44:11",
+      "html_url": "https://github.com/pulibrary/pomegranate/issues/828",
+      "number": 828,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pomegranate",
+      "repository_name": "pomegranate",
+      "state": "closed",
+      "title": "Duplicate database entries for custom field override-title_ssim",
+      "user_name": "hackmastera",
+      "comments": [
+        {
+          "user_name": "hackmastera",
+          "updated_at": "2020-09-25T13:28:53",
+          "html_url": "https://github.com/pulibrary/pomegranate/issues/828#issuecomment-698928753",
+          "body": "Final thoughts here: \r\n\r\nfrom @tpendragon: \"I think the issue was the custom fields make two override titles when reindexing happens across multiple threads, then if the most recent one that got created has a weird slug that issue we found happens.\"\r\n\r\nRegarding how the slug was created to begin with, this \"slug candidate\" functionality in friendly_id seems relevant. here's some documentation in case we need it down the line:\r\n\r\n- http://norman.github.io/friendly_id/5.0/\r\n- https://github.com/norman/friendly_id/blob/e9a591b09c70e788fb35a7f45c5e146e94355f2c/lib/friendly_id/slugged.rb\r\n\r\nIt's being set up here in spotlight: https://github.com/projectblacklight/spotlight/blob/e7060283bd8b7478bc74f4dcfcf6bed72e6aa3f0/app/models/spotlight/custom_field.rb#L101"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-24T23:59:06",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T13:24:16",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T13:24:17",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T13:28:53",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T13:28:53",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2020-09-24T20:57:30",
+      "updated_at": "2020-09-24T20:57:30",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1743",
+      "number": 1743,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1743",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[Figgy] Bind Figgy's memcached to a public IP.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-09-24T23:53:26",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-09-24T23:53:26",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-09-24T23:53:27",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-09-24T23:53:28",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1743",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-09-24T20:12:50",
+      "updated_at": "2020-09-24T20:12:50",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1741",
+      "number": 1741,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1741",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "move to staging2 ",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-09-25T12:15:11",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-09-25T12:21:51",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-09-25T12:58:11",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-09-25T12:58:11",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-09-25T12:58:12",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-09-25T12:58:13",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1741",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-02-25T22:30:00",
+      "updated_at": "2020-02-25T22:30:00",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1304",
+      "number": 1304,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Redirect requests for & retire libimages1",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-09-25T13:27:45",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-09-25T13:27:45",
+          "type": "moved_columns_in_project"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-09-24T20:36:25",
+      "updated_at": "2020-09-24T20:36:25",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1742",
+      "number": 1742,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1742",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Creating a new role for the HR Share",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T13:02:00",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T13:22:24",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T13:35:41",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T13:43:38",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T14:00:58",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T14:00:58",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T14:00:58",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T14:00:59",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1742",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-09-25T14:32:28",
+      "updated_at": "2020-09-25T14:32:28",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1744",
+      "number": 1744,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1744",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Added new postgres vars to bibdata-prod",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T14:32:35",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-09-25T16:11:36",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-09-25T16:11:36",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-09-25T16:11:36",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-09-25T16:11:37",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1744",
+      "action": "pull_request_closed"
+    }
+  ],
+  "pulfalight": [
+    {
+      "created_at": "2020-09-18T20:52:02",
+      "updated_at": "2020-09-18T20:52:02",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/387",
+      "number": 387,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Home page header should not show on show pages.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T15:19:02",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-09-25T02:19:48",
+      "updated_at": "2020-09-25T02:19:48",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/396",
+      "number": 396,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/396",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Don't show home page header on show pages",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T15:19:02",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T15:19:02",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T15:19:02",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T15:19:06",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/396",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-09-23T21:14:55",
+      "updated_at": "2020-09-23T21:14:55",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/392",
+      "number": 392,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Items in Find Related Materials tab should be in alphabetical order",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-09-25T02:25:07",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T17:36:32",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-09-25T17:13:13",
+      "updated_at": "2020-09-25T17:13:13",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/397",
+      "number": 397,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/397",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Break apart subjects into smaller categories and sort alphabetically",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-09-25T17:36:26",
+          "html_url": "https://github.com/pulibrary/pulfalight/pull/397#issuecomment-699059712",
+          "body": "Confirmed by product owner too."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T17:36:32",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T17:36:32",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T17:36:32",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-09-25T17:36:36",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/397",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-04-06T19:47:12",
+      "updated_at": "2020-04-06T19:47:12",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/226",
+      "number": 226,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Introduce a scrollspy for the Table of Contents interface within collections",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-09-25T19:53:56",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "pulmap": [
+    {
+      "created_at": "2020-04-10T04:26:41",
+      "updated_at": "2020-04-10T04:26:41",
+      "html_url": "https://github.com/pulibrary/pulmap/issues/847",
+      "number": 847,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulmap",
+      "repository_name": "pulmap",
+      "state": "closed",
+      "title": "Run sitemap generator as whenever cron job",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Eliot Jordan",
+          "updated_at": "2020-09-25T18:23:04",
+          "html_url": "https://github.com/pulibrary/pulmap/issues/847#issuecomment-699082439",
+          "body": "Closed by https://github.com/pulibrary/pulmap/pull/896"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-09-25T18:23:04",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-09-25T18:23:05",
+          "type": "moved_columns_in_project"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-08-18T15:57:23",
+      "updated_at": "2020-08-18T15:57:23",
+      "html_url": "https://github.com/pulibrary/pulmap/issues/875",
+      "number": 875,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulmap",
+      "repository_name": "pulmap",
+      "state": "closed",
+      "title": "Schedule sitemap refresh using the whenever scheduler",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Eliot Jordan",
+          "updated_at": "2020-09-25T18:24:58",
+          "html_url": "https://github.com/pulibrary/pulmap/issues/875#issuecomment-699083300",
+          "body": "Closed by https://github.com/pulibrary/pulmap/pull/896"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-09-25T18:24:58",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-09-25T18:24:59",
+          "type": "moved_columns_in_project"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "requests": [
+    {
+      "created_at": "2020-09-23T13:22:47",
+      "updated_at": "2020-09-23T13:22:47",
+      "html_url": "https://github.com/pulibrary/requests/issues/827",
+      "number": 827,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "closed",
+      "title": "On Campus Access Flash Message",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T15:29:14",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-09-23T15:35:23",
+      "updated_at": "2020-09-23T15:35:23",
+      "html_url": "https://github.com/pulibrary/requests/pull/828",
+      "number": 828,
+      "pull_request_html_url": "https://github.com/pulibrary/requests/pull/828",
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "closed",
+      "title": "Disallowing In Library user and SCSB in library use if you are not allowed on campus",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T13:59:43",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T14:06:03",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T15:29:13",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T15:29:13",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T15:29:13",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-09-25T15:29:20",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/requests/pull/828",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-09-25T18:47:50",
+      "updated_at": "2020-09-25T18:47:50",
+      "html_url": "https://github.com/pulibrary/requests/issues/830",
+      "number": 830,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "open",
+      "title": "Restrict scsb in library use for non campus users",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-09-16T02:12:49",
+      "updated_at": "2020-09-16T02:12:49",
+      "html_url": "https://github.com/pulibrary/requests/issues/822",
+      "number": 822,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "closed",
+      "title": "Restrict On Campus Services to Users Authorized to Be On Campus",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-09-25T19:11:44",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-09-25T19:51:26",
+      "updated_at": "2020-09-25T19:51:26",
+      "html_url": "https://github.com/pulibrary/requests/issues/831",
+      "number": 831,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "open",
+      "title": "\"Fill In\" No Item Record Should Recognize Campus_Authorized Flag",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 50,
+    "closed_count": 16,
+    "created_count": 7,
+    "pull_request_closed_count": 17,
+    "pull_request_open_count": 1,
+    "updated_count": 9,
+    "today": "2020-09-25T22:00:06",
+    "yesterday": "2020-09-24T22:00:06"
+  }
+}
