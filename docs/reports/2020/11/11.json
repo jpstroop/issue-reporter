@@ -1,0 +1,1106 @@
+{
+  "archivesspace-development": [
+    {
+      "created_at": "2020-11-10T17:39:33",
+      "updated_at": "2020-11-10T17:39:33",
+      "html_url": "https://github.com/pulibrary/archivesspace-development/issues/71",
+      "number": 71,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/archivesspace-development",
+      "repository_name": "archivesspace-development",
+      "state": "open",
+      "title": "move all physloc/@text to the location record note field",
+      "user_name": "regineheberlein",
+      "comments": [
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2020-11-11T13:04:17",
+          "html_url": "https://github.com/pulibrary/archivesspace-development/issues/71#issuecomment-725411836",
+          "body": "dsc2 elements already have vetted content pertaining to container location; content of dsc1 elements also supports this:\r\n[get-dsc1-physlocs.xlsx](https://github.com/pulibrary/archivesspace-development/files/5524087/get-dsc1-physlocs.xlsx)\r\n"
+        },
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2020-11-11T16:44:37",
+          "html_url": "https://github.com/pulibrary/archivesspace-development/issues/71#issuecomment-725531412",
+          "body": "since container_location note is a property of the link between container and location, this will require assigning a location to non-entified dsc1 containers."
+        },
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2020-11-11T16:50:00",
+          "html_url": "https://github.com/pulibrary/archivesspace-development/issues/71#issuecomment-725534307",
+          "body": "this requires entification of the dsc1 containers, which in turn requires first knowing what the top containers in our classic container data are. \r\n[get-container-scenarios.txt](https://github.com/pulibrary/archivesspace-development/files/5525473/get-container-scenarios.txt)\r\n\r\n"
+        },
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2020-11-11T19:26:25",
+          "html_url": "https://github.com/pulibrary/archivesspace-development/issues/71#issuecomment-725615110",
+          "body": "@Faithc on Slack: \"In terms of the container scenarios you provided, it seems like in all cases the first container listed should be considered the top container; but curious what others think.\""
+        },
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2020-11-11T19:40:12",
+          "html_url": "https://github.com/pulibrary/archivesspace-development/issues/71#issuecomment-725622045",
+          "body": "@faithc so for the two scenarios box/case and case/box, you would say one is a case in a box, and one is a box in a case?"
+        },
+        {
+          "user_name": "faithc",
+          "updated_at": "2020-11-11T19:46:23",
+          "html_url": "https://github.com/pulibrary/archivesspace-development/issues/71#issuecomment-725624802",
+          "body": "Without seeing the containers, that's what I would guess. Might be helpful to have component IDs to refer to?"
+        },
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2020-11-11T20:15:59",
+          "html_url": "https://github.com/pulibrary/archivesspace-development/issues/71#issuecomment-725638774",
+          "body": "@faithc sure thing, here you go:\r\n\r\n[get-container-scenarios-full.txt](https://github.com/pulibrary/archivesspace-development/files/5526520/get-container-scenarios-full.txt)\r\n"
+        },
+        {
+          "user_name": "faithc",
+          "updated_at": "2020-11-11T20:21:28",
+          "html_url": "https://github.com/pulibrary/archivesspace-development/issues/71#issuecomment-725641506",
+          "body": "I don't even know what rcpxg is haha. Think whoever does might want to take a gander. "
+        },
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2020-11-11T20:23:07",
+          "html_url": "https://github.com/pulibrary/archivesspace-development/issues/71#issuecomment-725642329",
+          "body": "It's Graphic Arts. Lmk."
+        },
+        {
+          "user_name": "faithc",
+          "updated_at": "2020-11-11T21:05:44",
+          "html_url": "https://github.com/pulibrary/archivesspace-development/issues/71#issuecomment-725661141",
+          "body": "Ah. Yeah, I'm not sure. I think this is probably a question for Julie."
+        },
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2020-11-11T21:08:58",
+          "html_url": "https://github.com/pulibrary/archivesspace-development/issues/71#issuecomment-725662472",
+          "body": "Ok, can you ask her please? "
+        },
+        {
+          "user_name": "faithc",
+          "updated_at": "2020-11-11T21:17:51",
+          "html_url": "https://github.com/pulibrary/archivesspace-development/issues/71#issuecomment-725666371",
+          "body": "I'll get back to you. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T19:26:25",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T19:26:25",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T19:40:12",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T19:40:12",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T20:15:59",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T20:15:59",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "dspace-development": [
+    {
+      "created_at": "2020-11-11T16:42:21",
+      "updated_at": "2020-11-11T16:42:21",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/208",
+      "number": 208,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Update the X.509 certificates for the Symplectic Elements servers",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-11-11T16:42:21",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-11-11T16:42:21",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-11-11T16:42:21",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "elixir-experiment": [
+    {
+      "created_at": "2020-09-16T19:28:51",
+      "updated_at": "2020-09-16T19:28:51",
+      "html_url": "https://github.com/pulibrary/elixir-experiment/issues/5",
+      "number": 5,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/elixir-experiment",
+      "repository_name": "elixir-experiment",
+      "state": "open",
+      "title": "Add a search results page",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T20:25:02",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-11-06T21:23:13",
+      "updated_at": "2020-11-06T21:23:13",
+      "html_url": "https://github.com/pulibrary/elixir-experiment/issues/17",
+      "number": 17,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/elixir-experiment",
+      "repository_name": "elixir-experiment",
+      "state": "closed",
+      "title": "Create a Record page",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-11T20:26:26",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-11-11T20:23:30",
+      "updated_at": "2020-11-11T20:23:30",
+      "html_url": "https://github.com/pulibrary/elixir-experiment/pull/19",
+      "number": 19,
+      "pull_request_html_url": "https://github.com/pulibrary/elixir-experiment/pull/19",
+      "repository_html_url": "https://github.com/pulibrary/elixir-experiment",
+      "repository_name": "elixir-experiment",
+      "state": "closed",
+      "title": "Use Document for display",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-11T20:26:26",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-11T20:26:26",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-11T20:26:26",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-11T20:26:30",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/elixir-experiment/pull/19",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-11T21:01:19",
+      "updated_at": "2020-11-11T21:01:19",
+      "html_url": "https://github.com/pulibrary/elixir-experiment/issues/20",
+      "number": 20,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/elixir-experiment",
+      "repository_name": "elixir-experiment",
+      "state": "open",
+      "title": "Add multiple records to solr at once",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2020-11-10T15:54:18",
+      "updated_at": "2020-11-10T15:54:18",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4313",
+      "number": 4313,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4313",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Implements ingest of resources from a csv file",
+      "user_name": "Cliff Wulfman",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Cliff Wulfman",
+          "created_at": "2020-11-11T20:06:32",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Cliff Wulfman",
+          "created_at": "2020-11-11T20:26:28",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-11T20:58:12",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Cliff Wulfman",
+          "created_at": "2020-11-12T01:03:12",
+          "type": "review_dismissed"
+        },
+        {
+          "actor_name": "Cliff Wulfman",
+          "created_at": "2020-11-12T01:11:59",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Cliff Wulfman",
+          "created_at": "2020-11-12T01:28:57",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-12T01:33:35",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Cliff Wulfman",
+          "created_at": "2020-11-12T02:11:29",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4313",
+      "action": "pull_request_open"
+    }
+  ],
+  "geniza": [
+    {
+      "created_at": "2020-10-07T15:21:13",
+      "updated_at": "2020-10-07T15:21:13",
+      "html_url": "https://github.com/pulibrary/geniza/issues/1",
+      "number": 1,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/geniza",
+      "repository_name": "geniza",
+      "state": "closed",
+      "title": "research software for converting dng to tiff",
+      "user_name": "Cliff Wulfman",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Cliff Wulfman",
+          "created_at": "2020-11-12T00:13:54",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "lib_jobs": [
+    {
+      "created_at": "2020-11-11T17:12:35",
+      "updated_at": "2020-11-11T17:12:35",
+      "html_url": "https://github.com/pulibrary/lib_jobs/pull/31",
+      "number": 31,
+      "pull_request_html_url": "https://github.com/pulibrary/lib_jobs/pull/31",
+      "repository_html_url": "https://github.com/pulibrary/lib_jobs",
+      "repository_name": "lib_jobs",
+      "state": "open",
+      "title": "Adding code to generate the staff directory",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T20:23:16",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T21:06:54",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/lib_jobs/pull/31",
+      "action": "pull_request_open"
+    }
+  ],
+  "marc_liberation": [
+    {
+      "created_at": "2020-05-29T14:19:44",
+      "updated_at": "2020-05-29T14:19:44",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/684",
+      "number": 684,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "SCSB full dump refactor",
+      "user_name": "mzelesky",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-11T00:42:36",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-11T00:42:45",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-11-11T13:37:43",
+      "updated_at": "2020-11-11T13:37:43",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/891",
+      "number": 891,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/891",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Updated exception list",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-11-11T13:37:43",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T13:42:57",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T13:42:57",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T13:42:57",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T13:42:58",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/891",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-11T13:56:26",
+      "updated_at": "2020-11-11T13:56:26",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/892",
+      "number": 892,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/892",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Adding ^M which is needed for parsing",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-11T13:59:42",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-11-11T14:14:23",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-11-11T14:14:23",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-11-11T14:14:23",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-11-11T14:14:24",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/892",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-11T20:25:39",
+      "updated_at": "2020-11-11T20:25:39",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/893",
+      "number": 893,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Delete suppressed record from the online catalog",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-11T20:26:57",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-11-11T21:05:00",
+      "updated_at": "2020-11-11T21:05:00",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/894",
+      "number": 894,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "traject failed tom index record: 11065180",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-11T21:05:50",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2020-11-11T21:27:49",
+      "updated_at": "2020-11-11T21:27:49",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2321",
+      "number": 2321,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "RIS URL Export Bug",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-11-11T21:27:49",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2020-10-19T15:17:22",
+      "updated_at": "2020-10-19T15:17:22",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1780",
+      "number": 1780,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[libwww] Add hr-share to library servers",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-11T19:27:12",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-11-05T20:19:04",
+      "updated_at": "2020-11-05T20:19:04",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1804",
+      "number": 1804,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1804",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[lib_Jobs] Add hr share to lib_jobs hosts",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-11T19:27:12",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-11T19:27:12",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-11T19:27:12",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-11T19:27:13",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1804",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-11T16:53:39",
+      "updated_at": "2020-11-11T16:53:39",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1810",
+      "number": 1810,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1810",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add lib-jobs ssl certs",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T20:16:08",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T21:15:15",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T21:15:15",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T21:15:15",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T21:15:16",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1810",
+      "action": "pull_request_closed"
+    }
+  ],
+  "pulfalight": [
+    {
+      "created_at": "2020-07-23T19:48:07",
+      "updated_at": "2020-07-23T19:48:07",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/323",
+      "number": 323,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Integrate accessibility testing into the continuous integration workflow",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-09-04T20:34:34",
+      "updated_at": "2020-09-04T20:34:34",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/368",
+      "number": 368,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Integrate a static \"Help\" section into the site",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-11T15:26:53",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-11-10T19:37:10",
+      "updated_at": "2020-11-10T19:37:10",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/475",
+      "number": 475,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/475",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Create research help page",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-11T15:26:53",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-11T15:26:53",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-11T15:26:53",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-11T15:26:54",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/475",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-09T15:02:35",
+      "updated_at": "2020-11-09T15:02:35",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/467",
+      "number": 467,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Store snapshots of EAD from ArchivesSpace for staff",
+      "user_name": "Kate Lynch",
+      "comments": [
+        {
+          "user_name": "Esmé Cowles",
+          "updated_at": "2020-11-11T17:20:11",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/467#issuecomment-725551116",
+          "body": "ASpace has \"revision statements\" that are similar in function to SVN commit messages — used to indicate why a change was made. These would be useful for knowing why changes were made, recording changes made as part of systematic projects to improve descriptions, etc."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-07-23T19:43:05",
+      "updated_at": "2020-07-23T19:43:05",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/322",
+      "number": 322,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Ensure that the Table of Contents component is accessible",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-11T18:13:25",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-11-11T17:04:24",
+      "updated_at": "2020-11-11T17:04:24",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/478",
+      "number": 478,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/478",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Adds accessibility test for table of contents",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-11T18:13:25",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-11T18:13:25",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-11T18:13:25",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-11T18:13:26",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/478",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-11T16:30:33",
+      "updated_at": "2020-11-11T16:30:33",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/477",
+      "number": 477,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Components without requestable material display empty footer bar",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-11-11T16:36:34",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/477#issuecomment-725526941",
+          "body": "@eliotjordan I've seen this since last week when I started on the project. I assumed it is a known issue."
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-11-11T17:23:42",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/477#issuecomment-725552992",
+          "body": "It'll have suggest a correction in it soon. "
+        },
+        {
+          "user_name": "Eliot Jordan",
+          "updated_at": "2020-11-11T18:19:42",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/477#issuecomment-725582815",
+          "body": "I just saw that in https://github.com/pulibrary/pulfalight/pull/476. This is no longer an issue."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-11T16:30:33",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-11T16:30:33",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-11T16:36:34",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-11T16:36:34",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-11T18:14:39",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-11T18:19:42",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-03-02T16:49:59",
+      "updated_at": "2020-03-02T16:49:59",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/133",
+      "number": 133,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Display folder number ranges at the parent level in addition to the extent note that says however many folders or containers are represented by the parent level",
+      "user_name": "Amanda Ferrara",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-11-11T18:42:27",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/133#issuecomment-725593764",
+          "body": "Closing this as it's resolved. We can reopen if we find a specific example."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-11T18:42:28",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-01-30T06:06:38",
+      "updated_at": "2020-01-30T06:06:38",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/105",
+      "number": 105,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Users should be able to submit corrections for content in a collection or component",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T19:16:47",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-11-10T21:06:15",
+      "updated_at": "2020-11-10T21:06:15",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/476",
+      "number": 476,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/476",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Add \"Suggest a Correction\"",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-11-10T23:20:43",
+          "html_url": "https://github.com/pulibrary/pulfalight/pull/476#issuecomment-725026507",
+          "body": "@hackartisan Went ahead with your suggestion:\r\n\r\n![Screen Shot 2020-11-10 at 3 20 20 PM](https://user-images.githubusercontent.com/2806645/98745350-43714600-2368-11eb-807e-6a522beb609d.png)\r\n\r\nIt just hides the form with JS, and displays it again when you hit the button."
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-11-11T00:25:02",
+          "html_url": "https://github.com/pulibrary/pulfalight/pull/476#issuecomment-725049070",
+          "body": "Don't merge this please, I think the location codes being used are wrong but I'm done for the night. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-11-10T23:20:44",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-10T23:20:44",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-11T17:48:10",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-11T18:12:28",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T19:16:47",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T19:16:47",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T19:16:47",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-11T19:16:48",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/476",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-07-13T20:37:22",
+      "updated_at": "2020-07-13T20:37:22",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/304",
+      "number": 304,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Update to latest blacklight and arclight",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-11-11T18:11:10",
+      "updated_at": "2020-11-11T18:11:10",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/479",
+      "number": 479,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/479",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "389 query figgy viewer",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-11-11T23:07:21",
+          "html_url": "https://github.com/pulibrary/pulfalight/pull/479#issuecomment-725711208",
+          "body": "![Screen Shot 2020-11-11 at 6 06 43 PM](https://user-images.githubusercontent.com/9905193/98874671-b2be6700-2448-11eb-957f-808e97df0cb1.png)\r\n"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-11-11T23:14:15",
+          "html_url": "https://github.com/pulibrary/pulfalight/pull/479#issuecomment-725713733",
+          "body": "After login in\r\n\r\n![snapshot_after_login](https://user-images.githubusercontent.com/9905193/98875141-9e2e9e80-2449-11eb-951b-1a6a8eb66ead.png)\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-11T18:13:38",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-11T18:18:22",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-11T23:06:20",
+          "type": "ready_for_review"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/479",
+      "action": "pull_request_open"
+    }
+  ],
+  "requests": [
+    {
+      "created_at": "2020-11-10T22:52:06",
+      "updated_at": "2020-11-10T22:52:06",
+      "html_url": "https://github.com/pulibrary/requests/issues/876",
+      "number": 876,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "open",
+      "title": "Retire Hours Features",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "voyager_helpers": [
+    {
+      "created_at": "2020-11-11T21:05:11",
+      "updated_at": "2020-11-11T21:05:11",
+      "html_url": "https://github.com/pulibrary/voyager_helpers/issues/122",
+      "number": 122,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/voyager_helpers",
+      "repository_name": "voyager_helpers",
+      "state": "open",
+      "title": "Strip out 959 field",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 32,
+    "closed_count": 7,
+    "created_count": 8,
+    "pull_request_closed_count": 8,
+    "pull_request_open_count": 3,
+    "updated_count": 6,
+    "today": "2020-11-11T22:00:06",
+    "yesterday": "2020-11-10T22:00:06"
+  }
+}
