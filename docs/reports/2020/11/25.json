@@ -1,0 +1,2453 @@
+{
+  "dspace-development": [
+    {
+      "created_at": "2020-08-12T13:23:58",
+      "updated_at": "2020-08-12T13:23:58",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/147",
+      "number": 147,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Generate regularly-scheduled DataSet reports for downloading Item Bitstreams from DataSpace",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "Kevin McElwee",
+          "updated_at": "2020-11-25T16:26:35",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/147#issuecomment-733811427",
+          "body": "Filtering by >1GB files required mapping bitstreams to their item_ids. This information is provided through the REST API, but did not have the ability to filter efficiently. However, the API was useful to double check the following query:\n\n```shell\npsql -c \"COPY(SELECT ib.item_id, bb.bitstream_id, size_bytes FROM item2bundle ib INNER JOIN bundle2bitstream bb ON ib.bundle_id = bb.bundle_id INNER JOIN bitstream b ON bb.bitstream_id = b.bitstream_id WHERE size_bytes > 1000000000 AND deleted = 'f') to STDOUT with CSV HEADER;\" > test.csv\n```\n...or more readable:\n```sql\nCOPY(\nSELECT ib.item_id, bb.bitstream_id, size_bytes\nFROM item2bundle ib\nINNER JOIN bundle2bitstream bb\nON ib.bundle_id = bb.bundle_id\nINNER JOIN bitstream b\nON bb.bitstream_id = b.bitstream_id\nWHERE size_bytes > 1000000000 AND deleted = 'f') to STDOUT with CSV HEADER;\n```"
+        },
+        {
+          "user_name": "Kevin McElwee",
+          "updated_at": "2020-11-25T17:41:13",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/147#issuecomment-733853101",
+          "body": "To answer the question: \"How many downloads have there been on items containing bitstreams > 1GB?\" The following script was used:\n\n```bash\npsql -c \"COPY(SELECT DISTINCT ib.item_id FROM item2bundle ib INNER JOIN bundle2bitstream bb ON ib.bundle_id = bb.bundle_id INNER JOIN bitstream b ON bb.bitstream_id = b.bitstream_id WHERE size_bytes > 1000000000 AND deleted = 'f') to STDOUT with CSV;\" > item_ids.csv\ncat item_ids.csv | while read id; do solr-count statistics \"type:0 AND owningItem:$id\"; done > item_stats.csv\npaste -d, item_ids.csv item_stats.csv > item_ids_and_stats.csv\n```\nit returns the following two columns. The first column is item IDs and the second column is total number of downloads:\n```csv\n5215,1\n5835,0\n80957,33\n80986,583\n82991,145\n84124,251\n84125,1341\n84458,91221\n84527,1848\n84571,42\n84988,462\n86127,59\n87139,12\n88126,172\n88163,1142\n89963,0\n89967,435\n90167,223\n90614,0\n90788,11595\n93267,157\n93649,727\n94132,311\n95791,1486\n95911,256\n96312,239\n96991,459\n97505,153\n98115,243\n```"
+        },
+        {
+          "user_name": "Kevin McElwee",
+          "updated_at": "2020-11-25T17:47:53",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/147#issuecomment-733856482",
+          "body": "Better yet, add another inner join and an awk script so that we pull in handles:\n\n```bash\npsql -c \"COPY(\nSELECT DISTINCT h.handle, ib.item_id\nFROM handle h\nINNER JOIN item2bundle ib\nON h.resource_id = ib.item_id\nINNER JOIN bundle2bitstream bb\nON ib.bundle_id = bb.bundle_id\nINNER JOIN bitstream b\nON bb.bitstream_id = b.bitstream_id\nWHERE size_bytes > 1000000000 AND deleted = 'f')\nto STDOUT with CSV;\" > item_ids.csv\n\nawk -F \"\\\"*,\\\"*\" '{print $2}' item_ids.csv | while read id; do solr-count statistics \"type:0 AND owningItem:$id\"; done > item_stats.csv\npaste -d, item_ids.csv item_stats.csv > item_ids_and_stats.csv\n```\n\n\n```csv\n88435/dsp010r967622k,84571,42\n88435/dsp010v8383240,89967,435\n88435/dsp010z708w530,5215,1\n88435/dsp011j92gb30r,98115,243\n88435/dsp011n79h6771,84124,251\n88435/dsp011z40kw63j,95911,256\n88435/dsp013f4628214,93267,157\n88435/dsp0141687k93v,84527,1848\n88435/dsp015138jh55f,90167,223\n88435/dsp015d86p269k,84125,1341\n88435/dsp015d86p271z,86127,59\n88435/dsp017s75df850,84988,462\n88435/dsp019g54xm26f,87139,12\n88435/dsp01bv73c289q,82991,145\n88435/dsp01cf95jd86d,80986,583\n88435/dsp01dn39x4181,88163,1142\n88435/dsp01dz010s83s,93649,727\n88435/dsp01h415pd368,97505,153\n88435/dsp01h415pd457,95791,1486\n88435/dsp01jw827f34g,89963,0\n88435/dsp01ks65hf84n,88126,172\n88435/dsp01nz8062179,84458,91221\n88435/dsp01pz50gz79z,90788,11595\n88435/dsp01q524jr55d,94132,311\n88435/dsp01qf85nf101,96991,459\n88435/dsp01td96k493c,80957,33\n88435/dsp01wp988n60t,96312,239\n88435/dsp01zw12z5428,5835,0\n```"
+        },
+        {
+          "user_name": "Kevin McElwee",
+          "updated_at": "2020-11-25T18:19:53",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/147#issuecomment-733874002",
+          "body": "And a query for all PPPL items:\n\n```bash\npsql -c \"COPY(\nSELECT handle,item_id\nFROM collection2item\nINNER JOIN handle\nON handle.resource_id = collection2item.item_id\nWHERE collection_id in (1422,2266,1308,1282,1304)) to STDOUT with CSV;\" > item_ids.csv\n\n# and then the same awk and paste commands:\nawk -F \"\\\"*,\\\"*\" '{print $2}' item_ids.csv | while read id; do solr-count statistics \"type:0 AND owningItem:$id\"; done > item_stats.csv\npaste -d, item_ids.csv item_stats.csv > item_ids_and_stats.csv\n```\nReturns the following results:\n```csv\n88435/dsp01j3860933c,79752,113\n88435/dsp01zg64tp300,78348,111\n88435/dsp01h415pc93f,79034,54\n88435/dsp01vx021h49j,79932,96\n88435/dsp01zs25xb94r,84767,646\n88435/dsp01tb09j831f,88687,26\n88435/dsp01mk61rk59x,88689,28\n88435/dsp01gx41mm508,88692,46\n88435/dsp01qv33s0499,99153,34\n88435/dsp018049g784n,94237,36\n88435/dsp013t945t20t,81944,35\n88435/dsp01bn999950b,93089,37\n88435/dsp01kd17cw34n,84912,61\n88435/dsp012j62s7356,85787,55\n88435/dsp01x346d687k,90553,48\n88435/dsp01r781wj699,89514,33\n88435/dsp01zg64tp73f,95611,36\n88435/dsp01f1881p40x,85707,60\n88435/dsp01jh343v73t,82492,47\n88435/dsp01td96k522z,90999,986\n88435/dsp01sn00b1428,88912,57\n88435/dsp01d504rn98q,88970,31\n88435/dsp01hx11xh71b,83268,28\n88435/dsp01td96k5188,88967,31\n88435/dsp01b5644v24d,90607,32\n88435/dsp0105741v14g,82678,39\n88435/dsp01z603r1322,101873,33\n88435/dsp0170795b055,80489,51\n88435/dsp0105741v49m,95831,49\n88435/dsp015138jh70d,98978,33\n88435/dsp015h73pz85r,97051,36\n88435/dsp01br86b619v,87751,50\n88435/dsp017h149s49b,87165,25\n88435/dsp014x51hm50z,84492,43\n88435/dsp01gf06g542h,93074,38\n88435/dsp01jm214r94t,95571,38\n88435/dsp01m613n138p,96659,42\n88435/dsp014x51hm47x,82992,42\n88435/dsp018p58pg426,84484,54\n88435/dsp01n870zt23w,81748,41\n88435/dsp01pn89d906g,83205,85\n88435/dsp01hh63sz30p,80787,44\n88435/dsp019z903232z,83507,41\n88435/dsp015d86p263n,81731,37\n88435/dsp0100000264v,87767,63\n88435/dsp01z316q438w,94572,50\n88435/dsp01c534fr60f,89468,68\n88435/dsp01h702q9164,95011,722\n88435/dsp01x920g034q,84607,38\n88435/dsp01wp988n475,89211,34\n88435/dsp01ft848t262,88457,62\n88435/dsp01ng451m42w,103595,32\n88435/dsp01jd4730105,88248,476\n88435/dsp01ns064844m,81049,47\n88435/dsp010v838334m,93648,65\n88435/dsp0137720g13x,80513,55\n88435/dsp01m326m456h,99171,37\n88435/dsp01f4752k44n,91110,19\n88435/dsp01t148fk89s,92747,150\n88435/dsp01np193c61s,82348,52\n88435/dsp01hx11xh689,82367,48\n88435/dsp01g732dc763,93553,56\n88435/dsp01cc08hj11w,83427,166\n88435/dsp011z40kw24q,80651,60\n88435/dsp012r36v143d,102251,30\n88435/dsp016969z323t,82819,34\n88435/dsp01xp68kk12s,102572,29\n88435/dsp01rx913s312,81492,55\n88435/dsp01h128nh17k,83733,58\n88435/dsp01np193c633,83267,26\n88435/dsp016h440w27m,96871,35\n88435/dsp01s1784p39h,89227,26\n88435/dsp01tb09j833r,89900,39\n88435/dsp01j67316255,84483,54\n88435/dsp016h440w39j,103939,4\n88435/dsp012v23vx30c,103331,4\n88435/dsp01z316q451j,103196,6\n88435/dsp019593tx75w,87627,50\n88435/dsp015h73pz67t,87628,25\n88435/dsp014j03d2280,87164,29\n88435/dsp01np193c96x,95311,17\n88435/dsp01f4752k20s,83247,40\n88435/dsp01xg94hs15v,87752,30\n88435/dsp011831cn576,87753,32\n88435/dsp01rv042w69p,87754,40\n88435/dsp016108vd746,85008,31\n88435/dsp01s7526g206,95391,40\n88435/dsp01nk322h13s,95392,46\n88435/dsp01v405sd16b,95492,38\n88435/dsp01ms35tc13d,86078,41\n88435/dsp01765373814,83467,223\n88435/dsp018s45qc26p,85016,41\n88435/dsp016w924f316,85487,68\n88435/dsp01vx021h566,83407,65\n88435/dsp010v838307q,86110,68\n88435/dsp013b591c48v,103271,25\n88435/dsp019s161866v,85007,41\n88435/dsp018910jx38x,97071,40\n88435/dsp01wh246w012,101761,31\n88435/dsp01c247dv80k,91151,33\n88435/dsp016q182p06m,103853,26\n88435/dsp01pk02cd394,89379,27\n88435/dsp019s161896q,96756,48\n88435/dsp011544br79n,90847,75\n88435/dsp01rr1721090,101762,25\n88435/dsp01m900nx11d,90412,170\n88435/dsp01vm40xv421,98996,36\n88435/dsp01cv43p067x,100033,38\n88435/dsp01m326m461v,101740,30\n88435/dsp01gb19f8697,100311,28\n88435/dsp01pc289m744,89667,615\n88435/dsp01f4752k53m,95220,45\n88435/dsp01pc289m87q,95551,37\n88435/dsp01g445cg642,85627,44\n88435/dsp01bz60cz987,91753,125\n88435/dsp015x21th90m,85129,1134\n88435/dsp01bc386m71v,85628,50\n88435/dsp01dj52w7187,85011,39\n88435/dsp01q524jr266,84911,26\n88435/dsp019306t1809,86187,63\n88435/dsp01cz30pw31p,89512,30\n88435/dsp018623j140r,89513,43\n88435/dsp011544br87z,94412,44\n88435/dsp013r074x84p,101931,28\n88435/dsp01hx11xh896,88987,42\n88435/dsp01m039k7543,88129,82\n88435/dsp01b2773z44j,92713,423\n88435/dsp01zc77ss87k,93075,20\n```"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2020-05-05T12:45:33",
+      "updated_at": "2020-05-05T12:45:33",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3872",
+      "number": 3872,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Ingest JTS Geniza images",
+      "user_name": "Esmé Cowles",
+      "comments": [
+        {
+          "user_name": "Cliff Wulfman",
+          "updated_at": "2020-11-25T17:04:03",
+          "html_url": "https://github.com/pulibrary/figgy/issues/3872#issuecomment-733832764",
+          "body": "The files constitute a genizah of their very own.  The directories appear to be hard-drive dumps, with haphazard directory names.  Most filenames adhere to a shelf-mark-based naming convention.  About half are tifs; the other half are .dng.\n\nOne subset of files are different. NEH_Geniza comprises 5 deliveries in six directories; some directories contains items organized by volume; each of these directories is subdivided into images of individual fragments and images of sheets.  Others are tiffs of MSS pages (bound and unbound); one directory contains images of oversized items, sub-divided into various stages of stitching. These must be processed differently from the rest.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Cliff Wulfman",
+          "created_at": "2020-11-25T16:34:37",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-11-24T19:13:44",
+      "updated_at": "2020-11-24T19:13:44",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4322",
+      "number": 4322,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Insert remaining figgy fields into coin view page",
+      "user_name": "Kevin McElwee",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T17:41:00",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T17:41:01",
+          "type": "referenced"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-11-24T21:51:38",
+      "updated_at": "2020-11-24T21:51:38",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4323",
+      "number": 4323,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4323",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Added new fields to the orangelight coin document",
+      "user_name": "Kevin McElwee",
+      "comments": [
+        {
+          "user_name": "Eliot Jordan",
+          "updated_at": "2020-11-25T16:45:36",
+          "html_url": "https://github.com/pulibrary/figgy/pull/4323#issuecomment-733822353",
+          "body": "@hackartisan There is no provenance number. Alan was mistaken about that. Provenances are nested resources unique to each coin."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T16:45:37",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T16:45:37",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T17:09:06",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T17:41:00",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T17:41:00",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T17:41:00",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T17:41:01",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4323",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-25T20:47:20",
+      "updated_at": "2020-11-25T20:47:20",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4324",
+      "number": 4324,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Fix numismatic document builder",
+      "user_name": "Kevin McElwee",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin McElwee",
+          "created_at": "2020-11-25T20:47:20",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T20:47:20",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Kevin McElwee",
+          "created_at": "2020-11-25T20:47:20",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Kevin McElwee",
+          "created_at": "2020-11-25T20:53:18",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin McElwee",
+          "created_at": "2020-11-25T20:53:18",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin McElwee",
+          "created_at": "2020-11-25T21:28:40",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T21:54:54",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-11-25T20:54:23",
+      "updated_at": "2020-11-25T20:54:23",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4325",
+      "number": 4325,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4325",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Numismatic builder fix 4324",
+      "user_name": "Kevin McElwee",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin McElwee",
+          "created_at": "2020-11-25T20:54:23",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T20:59:15",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Kevin McElwee",
+          "created_at": "2020-11-25T21:28:40",
+          "type": "review_dismissed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T21:35:08",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T21:54:54",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T21:54:54",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T21:54:54",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T21:54:55",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4325",
+      "action": "pull_request_closed"
+    }
+  ],
+  "lux": [
+    {
+      "created_at": "2020-11-25T00:15:57",
+      "updated_at": "2020-11-25T00:15:57",
+      "html_url": "https://github.com/pulibrary/lux/pull/351",
+      "number": 351,
+      "pull_request_html_url": "https://github.com/pulibrary/lux/pull/351",
+      "repository_html_url": "https://github.com/pulibrary/lux",
+      "repository_name": "lux",
+      "state": "open",
+      "title": "Bump highlight.js from 9.15.8 to 9.18.5",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T00:15:58",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/lux/pull/351",
+      "action": "pull_request_open"
+    }
+  ],
+  "marc_liberation": [
+    {
+      "created_at": "2020-11-25T18:04:01",
+      "updated_at": "2020-11-25T18:04:01",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/899",
+      "number": 899,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/899",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Add new faculty exception",
+      "user_name": "Axa Mei Liauw",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T18:09:26",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T18:09:26",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T18:09:26",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T18:09:27",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/899",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-25T18:05:09",
+      "updated_at": "2020-11-25T18:05:09",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/900",
+      "number": 900,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/900",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Add exception",
+      "user_name": "Kevin Reiss",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-11-25T18:10:24",
+          "html_url": "https://github.com/pulibrary/marc_liberation/pull/900#issuecomment-733868409",
+          "body": "duplicate of https://github.com/pulibrary/marc_liberation/pull/899"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T18:10:24",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/900",
+      "action": "pull_request_closed"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2020-11-18T15:04:11",
+      "updated_at": "2020-11-18T15:04:11",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2323",
+      "number": 2323,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Reorder results on coin detail page",
+      "user_name": "Kevin McElwee",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin McElwee",
+          "created_at": "2020-11-25T20:35:42",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin McElwee",
+          "created_at": "2020-11-25T20:57:42",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T21:45:31",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-11-18T16:42:11",
+      "updated_at": "2020-11-18T16:42:11",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2324",
+      "number": 2324,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2324",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Reorder coin detail",
+      "user_name": "Kevin McElwee",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2020-11-25T21:19:00",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2324#issuecomment-733942021",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/35249751/badge)](https://coveralls.io/builds/35249751)\n\nCoverage increased (+0.01%) to 96.589% when pulling **d401d87e0d530d25a105f3e8fb38ecc73332d31a on 2323-reorder-coin-detail** into **14547b17f99041eb94736d7797e511fff832dc84 on main**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T20:58:33",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T21:45:31",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T21:45:31",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T21:45:31",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T21:45:32",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2324",
+      "action": "pull_request_closed"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2020-11-25T16:08:27",
+      "updated_at": "2020-11-25T16:08:27",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1832",
+      "number": 1832,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1832",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Update proxy pass to use Drupal site for Pathe Baby",
+      "user_name": "Axa Mei Liauw",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2020-11-25T16:10:12",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T18:09:43",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T18:09:44",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T18:09:44",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T18:09:44",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1832",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-25T19:41:53",
+      "updated_at": "2020-11-25T19:41:53",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1834",
+      "number": 1834,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1834",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "finding aids beta",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T19:55:00",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T19:55:01",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T19:55:01",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T19:55:01",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1834",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-25T18:21:38",
+      "updated_at": "2020-11-25T18:21:38",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1833",
+      "number": 1833,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1833",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[Pulfalight] Add Production configuration.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-11-25T20:25:25",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-11-25T20:25:25",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-11-25T20:25:25",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-11-25T20:25:26",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1833",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-24T01:53:02",
+      "updated_at": "2020-11-24T01:53:02",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1831",
+      "number": 1831,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1831",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "update environment for molecule",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-11-25T01:59:42",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-11-25T15:33:28",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-11-25T19:14:07",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1831",
+      "action": "pull_request_open"
+    }
+  ],
+  "pul_solr": [
+    {
+      "created_at": "2020-11-25T16:15:39",
+      "updated_at": "2020-11-25T16:15:39",
+      "html_url": "https://github.com/pulibrary/pul_solr/pull/242",
+      "number": 242,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_solr/pull/242",
+      "repository_html_url": "https://github.com/pulibrary/pul_solr",
+      "repository_name": "pul_solr",
+      "state": "closed",
+      "title": "Remove pulfalight specs",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T16:22:25",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T16:22:25",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T16:22:26",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T16:22:29",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul_solr/pull/242",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-25T01:23:43",
+      "updated_at": "2020-11-25T01:23:43",
+      "html_url": "https://github.com/pulibrary/pul_solr/pull/241",
+      "number": 241,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_solr/pull/241",
+      "repository_html_url": "https://github.com/pulibrary/pul_solr",
+      "repository_name": "pul_solr",
+      "state": "closed",
+      "title": "Pulfalight Box/Folder Search",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:30:56",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T17:22:18",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T17:22:18",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T17:22:18",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T17:40:04",
+          "type": "referenced"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul_solr/pull/241",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-25T18:00:15",
+      "updated_at": "2020-11-25T18:00:15",
+      "html_url": "https://github.com/pulibrary/pul_solr/pull/243",
+      "number": 243,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_solr/pull/243",
+      "repository_html_url": "https://github.com/pulibrary/pul_solr",
+      "repository_name": "pul_solr",
+      "state": "open",
+      "title": "[Pulfalight] Production Configuration",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/pul_solr/pull/243",
+      "action": "pull_request_open"
+    }
+  ],
+  "pulbot": [
+    {
+      "created_at": "2020-11-25T19:57:03",
+      "updated_at": "2020-11-25T19:57:03",
+      "html_url": "https://github.com/pulibrary/pulbot/pull/49",
+      "number": 49,
+      "pull_request_html_url": "https://github.com/pulibrary/pulbot/pull/49",
+      "repository_html_url": "https://github.com/pulibrary/pulbot",
+      "repository_name": "pulbot",
+      "state": "closed",
+      "title": "Add Pulfalight Production.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T19:57:36",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T19:57:36",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T19:57:36",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulbot/pull/49",
+      "action": "pull_request_closed"
+    }
+  ],
+  "pulfalight": [
+    {
+      "created_at": "2020-01-30T06:29:39",
+      "updated_at": "2020-01-30T06:29:39",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/107",
+      "number": 107,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Ensure that content negotiation exposes XML encoded finding aids",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-24T23:38:47",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T00:11:56",
+          "type": "unassigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-09-04T20:23:47",
+      "updated_at": "2020-09-04T20:23:47",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/366",
+      "number": 366,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Add component-level access icons.",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:28:50",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-07-06T19:38:12",
+      "updated_at": "2020-07-06T19:38:12",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/285",
+      "number": 285,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Implement collection-level badges indicating the access permissions for the resource",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:28:50",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-03-13T18:18:11",
+      "updated_at": "2020-03-13T18:18:11",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/146",
+      "number": 146,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Review the PULFALight Solr configuration for relevancy rankings",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:28:50",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-07-23T20:17:52",
+      "updated_at": "2020-07-23T20:17:52",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/324",
+      "number": 324,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Define a process for managing releases",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:28:51",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-07-16T21:38:15",
+      "updated_at": "2020-07-16T21:38:15",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/309",
+      "number": 309,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "ASpace only exports invalid CPF records with minimal fields",
+      "user_name": "regineheberlein",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:26:11",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:26:44",
+          "type": "unlabeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:28:51",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-07-09T17:55:44",
+      "updated_at": "2020-07-09T17:55:44",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/294",
+      "number": 294,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "keep search functionality for name (EAC-CPF) records",
+      "user_name": "regineheberlein",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:26:19",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:26:44",
+          "type": "unlabeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:28:51",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-07-01T15:04:17",
+      "updated_at": "2020-07-01T15:04:17",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/281",
+      "number": 281,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "In-progress finding aids in ASpace should not be exported to PULFALight ",
+      "user_name": "faithc",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-24T23:13:11",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:33:03",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T09:11:50",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-11-24T23:13:45",
+      "updated_at": "2020-11-24T23:13:45",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/521",
+      "number": 521,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/521",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Don't index unpublished EADs",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T09:11:49",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T09:11:49",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T09:11:50",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T09:11:51",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/521",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-25T15:34:34",
+      "updated_at": "2020-11-25T15:34:34",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/525",
+      "number": 525,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Case-insensitive component id search",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-11-02T18:03:42",
+      "updated_at": "2020-11-02T18:03:42",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/446",
+      "number": 446,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Clear request cart after submitting a request",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T14:27:41",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T14:29:36",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T14:30:44",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T14:31:04",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T15:36:31",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-11-25T14:32:06",
+      "updated_at": "2020-11-25T14:32:06",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/523",
+      "number": 523,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/523",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "446 clear cart",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T15:34:36",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T15:36:31",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T15:36:31",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T15:36:31",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T15:36:32",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/523",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-25T15:36:47",
+      "updated_at": "2020-11-25T15:36:47",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/526",
+      "number": 526,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Search for a full component id should either redirect to the show page or return it as a top result",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-01-30T06:03:06",
+      "updated_at": "2020-01-30T06:03:06",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/104",
+      "number": 104,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Users should be able to submit questions concerning a collection or component",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T16:01:55",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-11-24T19:25:09",
+      "updated_at": "2020-11-24T19:25:09",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/520",
+      "number": 520,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/520",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Ask a Question",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-24T22:59:10",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-24T23:00:48",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T16:01:55",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T16:01:55",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T16:01:55",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T16:01:56",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/520",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-03-27T15:40:57",
+      "updated_at": "2020-03-27T15:40:57",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/196",
+      "number": 196,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Migrate pul_solr specs to this repository",
+      "user_name": "khanhvu98kk",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2020-11-25T16:17:09",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/196#issuecomment-733777599",
+          "body": "Some of the specs there would fail if migrated. I'm going to create issues for those."
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2020-11-25T15:44:51",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/196#issuecomment-733785859",
+          "body": "Created:\r\n- https://github.com/pulibrary/pulfalight/issues/525\r\n- https://github.com/pulibrary/pulfalight/issues/526\r\n\r\nOther tests are covered by:\r\n- https://github.com/pulibrary/pulfalight/pull/419\r\n- https://github.com/pulibrary/pulfalight/pull/460"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T16:15:08",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T16:22:25",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T16:22:27",
+          "type": "referenced"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-07-21T12:52:48",
+      "updated_at": "2020-07-21T12:52:48",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/317",
+      "number": 317,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Redirect old component ID URLs ASpace component ID URLs",
+      "user_name": "Kate Lynch",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T16:26:04",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T16:28:46",
+          "type": "reopened"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T16:29:43",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-02-17T19:29:21",
+      "updated_at": "2020-02-17T19:29:21",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/116",
+      "number": 116,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Ability to search by box number and/or box and folder number",
+      "user_name": "faithc",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T00:12:04",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:30:56",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T17:40:02",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T17:40:04",
+          "type": "referenced"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-11-25T01:31:30",
+      "updated_at": "2020-11-25T01:31:30",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/522",
+      "number": 522,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/522",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Search by EADID & Box/Folder Number",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-11-25T06:39:37",
+          "html_url": "https://github.com/pulibrary/pulfalight/pull/522#issuecomment-733501108",
+          "body": "CI is failing because the docker image doesn't have the new config. I'll fiddle with it in the morning. "
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2020-11-25T14:40:36",
+          "html_url": "https://github.com/pulibrary/pulfalight/pull/522#issuecomment-733747092",
+          "body": "These solr config changes will also need to go into pul_solr"
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-11-25T15:59:44",
+          "html_url": "https://github.com/pulibrary/pulfalight/pull/522#issuecomment-733795766",
+          "body": "@hackartisan I think they already are, in pulibrary/pul_solr#241, unless I missed something. "
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2020-11-25T16:05:23",
+          "html_url": "https://github.com/pulibrary/pulfalight/pull/522#issuecomment-733799239",
+          "body": "@tpendragon oh! Thanks. Not sure why I didn't get a github alert for that one."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T15:59:44",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T15:59:44",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T16:05:24",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T16:05:24",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T17:00:28",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T17:40:02",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T17:40:02",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T17:40:02",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T17:40:03",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/522",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-10-23T03:47:04",
+      "updated_at": "2020-10-23T03:47:04",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/435",
+      "number": 435,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/435",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Implements a new view for an expanded finding aid collection",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T16:35:00",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T17:03:36",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T17:03:56",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T17:04:48",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T18:00:15",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T18:00:15",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T18:00:15",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T18:00:16",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/435",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-07-23T19:41:41",
+      "updated_at": "2020-07-23T19:41:41",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/321",
+      "number": 321,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Ensure that the \"ask a question\" form is fully accessible",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:28:50",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T18:36:57",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-04-17T18:29:09",
+      "updated_at": "2020-04-17T18:29:09",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/251",
+      "number": 251,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Request cart Vue components need to be integrated into the Expanded Collection View",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:28:51",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T18:38:26",
+          "type": "unlabeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-11-18T22:17:33",
+      "updated_at": "2020-11-18T22:17:33",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/500",
+      "number": 500,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Request Cart \"toggle icon\" is offset from \"total items indicator\" in Firefox",
+      "user_name": "Shaun Ellis",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T19:27:22",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T19:28:14",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T19:30:42",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T19:37:20",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-11-25T19:28:38",
+      "updated_at": "2020-11-25T19:28:38",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/530",
+      "number": 530,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/530",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Ensure count badge lines up next to cart",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T19:30:42",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T19:37:20",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T19:37:20",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T19:37:20",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T19:37:22",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/530",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-25T17:47:53",
+      "updated_at": "2020-11-25T17:47:53",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/528",
+      "number": 528,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/528",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Remove child documents from document query",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Eliot Jordan",
+          "updated_at": "2020-11-25T17:59:47",
+          "html_url": "https://github.com/pulibrary/pulfalight/pull/528#issuecomment-733862469",
+          "body": "On second thought, I see there is functionality to render a minimal document for HTML for AJAX requests? Is that more important than intolerable load times? In fact, this seem obsolete as it was primarily intended for a table of contents or expanded collection view, neither of which use this functionality.\r\n\r\nhttps://github.com/pulibrary/pulfalight/blob/main/spec/requests/catalog_request_spec.rb#L37\r\nhttps://github.com/pulibrary/pulfalight/issues/239\r\nhttps://github.com/pulibrary/pulfalight/pull/243\r\n\r\n\r\n"
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-11-25T18:02:22",
+          "html_url": "https://github.com/pulibrary/pulfalight/pull/528#issuecomment-733863889",
+          "body": "@eliotjordan Yeah I think that was for the old \"collection context\", and we have the table of contents now."
+        },
+        {
+          "user_name": "Eliot Jordan",
+          "updated_at": "2020-11-25T19:55:07",
+          "html_url": "https://github.com/pulibrary/pulfalight/pull/528#issuecomment-733917809",
+          "body": "I was able to reduce the expanded view render time from 20 seconds to 5 five seconds by limiting the child fields the solr document tree requests."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T17:49:15",
+          "type": "convert_to_draft"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T18:02:22",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T18:02:22",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T19:38:18",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T19:38:42",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T19:48:37",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T19:50:31",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T19:56:14",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T19:59:37",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T19:59:37",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T19:59:37",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T19:59:38",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/528",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-25T19:27:16",
+      "updated_at": "2020-11-25T19:27:16",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/529",
+      "number": 529,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/529",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Add Production deploy.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T20:04:40",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T20:04:40",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T20:04:41",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T20:04:41",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/529",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-19T15:57:36",
+      "updated_at": "2020-11-19T15:57:36",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/504",
+      "number": 504,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Cart has no 'x' to close when empty",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T20:05:36",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-11-25T15:32:45",
+      "updated_at": "2020-11-25T15:32:45",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/524",
+      "number": 524,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/524",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Improve empty request cart behavior",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T15:39:32",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T16:27:31",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T20:05:35",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T20:05:35",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T20:05:36",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T20:05:37",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/524",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-25T20:20:47",
+      "updated_at": "2020-11-25T20:20:47",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/531",
+      "number": 531,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/531",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Increase max width of header to match search results",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T20:27:34",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T20:27:34",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T20:27:34",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T20:27:35",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/531",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-25T20:25:40",
+      "updated_at": "2020-11-25T20:25:40",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/532",
+      "number": 532,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/532",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Widen home content a bit",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T20:30:14",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T20:30:14",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T20:30:14",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T20:30:15",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/532",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-25T20:26:39",
+      "updated_at": "2020-11-25T20:26:39",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/533",
+      "number": 533,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/533",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Remove recent_repositories in ASpace Client",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T20:32:06",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T20:32:06",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T20:32:06",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T20:32:07",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/533",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-25T21:14:38",
+      "updated_at": "2020-11-25T21:14:38",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/535",
+      "number": 535,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/535",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Prevent tiling of hero background on home page",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T21:53:53",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T21:53:53",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T21:53:53",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T21:53:54",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/535",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-25T20:35:12",
+      "updated_at": "2020-11-25T20:35:12",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/534",
+      "number": 534,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/534",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Lighten box around \"create a research account\" button",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T21:54:51",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T21:54:51",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T21:54:51",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T21:54:53",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/534",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-11-25T21:44:34",
+      "updated_at": "2020-11-25T21:44:34",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/536",
+      "number": 536,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/536",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Ensure search box and submit button are same height as dropdown",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T21:55:16",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T21:55:16",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T21:55:16",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T21:55:17",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/536",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-01-07T17:31:44",
+      "updated_at": "2020-01-07T17:31:44",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/89",
+      "number": 89,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Implement the design for the Expanded Collection View defined by the Summer 2020 wireframes",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-11-25T21:59:41",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/89#issuecomment-733964579",
+          "body": "Closed by #435 "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T21:59:41",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-11-19T23:20:20",
+      "updated_at": "2020-11-19T23:20:20",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/511",
+      "number": 511,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Append style in the readingroom div when there is a successful response from checkFiggy.",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T17:10:18",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T17:13:51",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T17:23:55",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T19:29:47",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T19:45:07",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T20:01:00",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T22:05:17",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-09-22T19:35:21",
+      "updated_at": "2020-09-22T19:35:21",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/389",
+      "number": 389,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Query Figgy for viewer if there's no DAO",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T22:05:17",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-11-11T18:11:10",
+      "updated_at": "2020-11-11T18:11:10",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/479",
+      "number": 479,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/479",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "389 query figgy viewer",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T17:13:51",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T19:29:48",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T19:45:08",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T20:01:00",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-11-25T21:44:45",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T22:05:16",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T22:05:16",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T22:05:17",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T22:05:18",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/479",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-07-23T19:48:07",
+      "updated_at": "2020-07-23T19:48:07",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/323",
+      "number": 323,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Integrate accessibility testing into the continuous integration workflow",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:26:04",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:26:44",
+          "type": "unlabeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:28:51",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-07-07T15:26:18",
+      "updated_at": "2020-07-07T15:26:18",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/289",
+      "number": 289,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Provide an option to print/download the finding aid in its entirety",
+      "user_name": "Shaun Ellis",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:28:50",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T22:10:45",
+          "type": "unlabeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-11-23T14:30:17",
+      "updated_at": "2020-11-23T14:30:17",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/518",
+      "number": 518,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Request to create and provision a PULFALight Beta Server (to be accessible as the production environment)",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "Eliot Jordan",
+          "updated_at": "2020-11-25T22:11:42",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/518#issuecomment-733968491",
+          "body": "Done."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T22:11:42",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-03-18T19:59:59",
+      "updated_at": "2020-03-18T19:59:59",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/181",
+      "number": 181,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Search History via your account",
+      "user_name": "Amanda Ferrara",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T01:28:50",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T22:13:21",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-11-25T16:13:16",
+      "updated_at": "2020-11-25T16:13:16",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/527",
+      "number": 527,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Link is dead on ask a question form",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-11-25T22:14:31",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/527#issuecomment-733969335",
+          "body": "@ccleeton @faithc Is there an alternative FAQ for \"How can I purchase copies from rare books and special collections?\"?"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-11-25T16:13:16",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T18:36:16",
+          "type": "milestoned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T22:14:31",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T22:14:31",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Christa Cleeton",
+          "created_at": "2020-11-25T22:14:31",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Christa Cleeton",
+          "created_at": "2020-11-25T22:14:31",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T22:14:35",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T22:14:42",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-02-26T16:39:44",
+      "updated_at": "2020-02-26T16:39:44",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/125",
+      "number": 125,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Review the prepopulated search results (default search results)",
+      "user_name": "Amanda Ferrara",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-11-25T22:17:08",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/125#issuecomment-733970124",
+          "body": "@faithc @ccleeton Do either of you know what this is in reference to? If not, maybe close this?"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T22:16:25",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T22:17:08",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-11-25T22:17:08",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Christa Cleeton",
+          "created_at": "2020-11-25T22:17:08",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Christa Cleeton",
+          "created_at": "2020-11-25T22:17:08",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T22:17:14",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-11-13T19:00:19",
+      "updated_at": "2020-11-13T19:00:19",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/488",
+      "number": 488,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Header should match newer PUL branding from Library homepage",
+      "user_name": "Kate Lynch",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-11-25T22:33:26",
+          "type": "milestoned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "uptime": [
+    {
+      "created_at": "2020-11-25T03:56:43",
+      "updated_at": "2020-11-25T03:56:43",
+      "html_url": "https://github.com/pulibrary/uptime/issues/11",
+      "number": 11,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/uptime",
+      "repository_name": "uptime",
+      "state": "closed",
+      "title": "🛑 Confluence is down",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2020-11-25T04:03:19",
+          "html_url": "https://github.com/pulibrary/uptime/issues/11#issuecomment-733449208",
+          "body": "**Resolved:** Confluence is back up in [`ca81124`](https://github.com/pulibrary/uptime/commit/ca81124f81fd9e7549e727a658182d15d953db60\n)."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-11-25T03:56:43",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-11-25T03:56:43",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-11-25T03:56:44",
+          "type": "locked"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-11-25T04:03:19",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 65,
+    "closed_count": 15,
+    "created_count": 5,
+    "pull_request_closed_count": 27,
+    "pull_request_open_count": 3,
+    "updated_count": 15,
+    "today": "2020-11-25T22:00:07",
+    "yesterday": "2020-11-24T22:00:07"
+  }
+}
