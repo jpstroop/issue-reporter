@@ -1,0 +1,2473 @@
+{
+  "dspace-development": [
+    {
+      "created_at": "2020-08-12T19:43:03",
+      "updated_at": "2020-08-12T19:43:03",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/149",
+      "number": 149,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "closed",
+      "title": "Request lib-tsserver access for VPN access and mounting the Voyager upload directory",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-12-03T20:28:04",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/149#issuecomment-738288357",
+          "body": "This was granted and tested successfully."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-12-03T20:28:04",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-10-20T15:51:58",
+      "updated_at": "2020-10-20T15:51:58",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/197",
+      "number": 197,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Add DataSpace arks to MARC records for September 2019 ETDs",
+      "user_name": "Kate Lynch",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-12-03T15:08:13",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/197#issuecomment-738062439",
+          "body": "As specified in https://princeton.service-now.com/nav_to.do?uri=%2Fsc_task.do%3Fsys_id%3Dc5f978651b60e410435885d56b4bcb30, I have tested and currently do have the proper permissions for the CIFS share needed to upload the MARC records."
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-12-03T17:44:03",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/197#issuecomment-738171885",
+          "body": "https://github.com/pulibrary/dspace-cli/compare/jrgriffiniii-senior-theses-restructure...pulibrary:jrgriffiniii-cli-java was needed in order to port the Java CLI tasks into the production environment (these are used to process the MARC records). Currently, I am working to resolve the following error:\r\n\r\n```bash\r\nError: A JNI error has occurred, please check your installation and try again\r\nException in thread \"main\" java.lang.NoClassDefFoundError: org/marc4j/marc/VariableField\r\n        at java.lang.Class.getDeclaredMethods0(Native Method)\r\n        at java.lang.Class.privateGetDeclaredMethods(Class.java:2701)\r\n        at java.lang.Class.privateGetMethodRecursive(Class.java:3048)\r\n        at java.lang.Class.getMethod0(Class.java:3018)\r\n        at java.lang.Class.getMethod(Class.java:1784)\r\n        at sun.launcher.LauncherHelper.validateMainClass(LauncherHelper.java:544)\r\n        at sun.launcher.LauncherHelper.checkAndLoadMain(LauncherHelper.java:526)\r\nCaused by: java.lang.ClassNotFoundException: org.marc4j.marc.VariableField\r\n        at java.net.URLClassLoader.findClass(URLClassLoader.java:382)\r\n        at java.lang.ClassLoader.loadClass(ClassLoader.java:418)\r\n        at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:352)\r\n        at java.lang.ClassLoader.loadClass(ClassLoader.java:351)\r\n        ... 7 more\r\n```"
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-12-03T18:16:28",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/197#issuecomment-738190285",
+          "body": "The updated ProQuest metadata has been generated, however there are still cases where the ARKs were not matched. I will need to proceed with this by inserting these manually using the `MARC Tools`."
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-12-03T20:31:07",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/197#issuecomment-738289831",
+          "body": "The updated MARC records were placed into the CIFS share for upload into Voyager. I will update this once I have confirmation that the records have been updated in the ILS (if I recall correctly, this takes place daily at midnight)."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2020-12-02T22:49:47",
+      "updated_at": "2020-12-02T22:49:47",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4334",
+      "number": 4334,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "[Figgy/staging] iiif-staging1 mount broken.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-02T22:50:05",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-02T22:50:31",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-02T22:27:40",
+      "updated_at": "2020-12-02T22:27:40",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4332",
+      "number": 4332,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "[Figgy/production] NoMethodError: undefined method `utc' for nil:NilClass",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-02T22:28:05",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-02T23:20:59",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-02T22:28:15",
+      "updated_at": "2020-12-02T22:28:15",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4333",
+      "number": 4333,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4333",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Don't error if there's no file updated_at.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-02T23:20:59",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-02T23:20:59",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-02T23:20:59",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-02T23:21:00",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4333",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2019-01-17T14:53:04",
+      "updated_at": "2019-01-17T14:53:04",
+      "html_url": "https://github.com/pulibrary/figgy/issues/2438",
+      "number": 2438,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "BrowseEverythingIngestJob and PreserveChildrenJob should rescue ObjectNotFound and not retry",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-02T22:22:37",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T13:49:19",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T13:49:20",
+          "type": "referenced"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-12-02T22:22:47",
+      "updated_at": "2020-12-02T22:22:47",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4331",
+      "number": 4331,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4331",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "PreserveChildrenJob should not error when object not found.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T13:49:19",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T13:49:19",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T13:49:19",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T13:49:20",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4331",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-12-01T23:11:02",
+      "updated_at": "2020-12-01T23:11:02",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4330",
+      "number": 4330,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4330",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Add local VPN IPs to Figgy's campus IPs",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-12-02T23:52:45",
+          "html_url": "https://github.com/pulibrary/figgy/pull/4330#issuecomment-737565793",
+          "body": "@hackartisan I updated the comment. I agree `128.112.0.0/16` covers the last few entries, but I left them in because they're copy/pasted from the KB article. I didn't want someone to not realize the initial range covers some of the later ranges and put them in again later."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-12-02T23:51:58",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-02T23:51:58",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T14:17:08",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T14:17:08",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T14:17:08",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T14:17:09",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4330",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-12-02T22:58:37",
+      "updated_at": "2020-12-02T22:58:37",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4336",
+      "number": 4336,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "[Figgy/production] Net::SMTPFatalError: 553 5.1.3 <kimberlyleaman@gmail.com@princeton.edu, rmunoz@princeton.edu>... Invalid route address",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-12-02T23:03:03",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4336#issuecomment-737548447",
+          "body": "@kelea99 had a GMail user as an owner of a collection and the email was added wrong for that user before we fixed that. I went in and fixed it manually."
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2020-12-03T13:29:28",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4336#issuecomment-737994389",
+          "body": "Do we need to check to make sure there aren't any more waiting to fail?"
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-12-03T16:29:44",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4336#issuecomment-738120217",
+          "body": "No, I already took care of it before I closed this. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-02T23:03:03",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2020-12-02T23:03:03",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2020-12-02T23:03:03",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T13:29:28",
+          "type": "reopened"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-03T16:29:44",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-02T22:56:20",
+      "updated_at": "2020-12-02T22:56:20",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4335",
+      "number": 4335,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4335",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Don't error in CDL if Voyager is down.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4335",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-12-03T18:21:09",
+      "updated_at": "2020-12-03T18:21:09",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4338",
+      "number": 4338,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Google File Picker showing a new login for some users, and eventually errors",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-02T23:21:46",
+      "updated_at": "2020-12-02T23:21:46",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4337",
+      "number": 4337,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4337",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Pass host roles to Whenever.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4337",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-12-04T00:00:02",
+      "updated_at": "2020-12-04T00:00:02",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4339",
+      "number": 4339,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Title-only ingest of a sound file in figgy will not allow a second save without deleting the first title and replacing it. Javascript may be broken.",
+      "user_name": "Kim Leaman",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2020-12-04T00:00:02",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-04T00:00:02",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-04T00:00:02",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "friends_of_pul": [
+    {
+      "created_at": "2020-12-03T16:21:49",
+      "updated_at": "2020-12-03T16:21:49",
+      "html_url": "https://github.com/pulibrary/friends_of_pul/pull/87",
+      "number": 87,
+      "pull_request_html_url": "https://github.com/pulibrary/friends_of_pul/pull/87",
+      "repository_html_url": "https://github.com/pulibrary/friends_of_pul",
+      "repository_name": "friends_of_pul",
+      "state": "closed",
+      "title": "Add link to previous recordings",
+      "user_name": "Axa Mei Liauw",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2020-12-03T16:21:59",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-12-03T16:57:37",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-12-03T16:57:37",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-12-03T16:57:37",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-12-03T16:57:40",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/friends_of_pul/pull/87",
+      "action": "pull_request_closed"
+    }
+  ],
+  "marc_liberation": [
+    {
+      "created_at": "2020-12-02T22:50:03",
+      "updated_at": "2020-12-02T22:50:03",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/913",
+      "number": 913,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/913",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Updates get_bib_record to return nil for invalid record",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-02T22:52:23",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-02T22:52:23",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-02T22:52:23",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-02T22:52:24",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/913",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-12-02T22:44:33",
+      "updated_at": "2020-12-02T22:44:33",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/912",
+      "number": 912,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Update get_bib_record to return nil for an invalid record",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-12-02T23:24:42",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/912#issuecomment-737556454",
+          "body": "closed by https://github.com/pulibrary/marc_liberation/pull/913"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-02T22:44:34",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-02T23:24:42",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-02T23:34:45",
+      "updated_at": "2020-12-02T23:34:45",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/915",
+      "number": 915,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/915",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Remove unused arguments from the methods get_bib_record and get_bib_r…",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2020-12-02T23:47:56",
+          "html_url": "https://github.com/pulibrary/marc_liberation/pull/915#issuecomment-737564393",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/35406290/badge)](https://coveralls.io/builds/35406290)\n\nCoverage remained the same at 76.954% when pulling **13dac99541d4e4ae25e1f4a5fdfad4a40f1c598e on 914-unused-arguments** into **b0d93837ea2eb682b000d4c2ba1551fbe515991e on alma**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-02T23:50:19",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-02T23:50:19",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-02T23:50:19",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-02T23:50:20",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/915",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-12-02T23:32:09",
+      "updated_at": "2020-12-02T23:32:09",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/914",
+      "number": 914,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Remove unused arguments from get_bib_record and get_bib_record",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-12-02T23:51:05",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/914#issuecomment-737565443",
+          "body": "closed by https://github.com/pulibrary/marc_liberation/pull/915/"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-02T23:32:09",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-02T23:51:06",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-04-24T15:50:00",
+      "updated_at": "2020-04-24T15:50:00",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/641",
+      "number": 641,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Retrieve full availability using the Alma API",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T14:26:29",
+          "type": "unassigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-09-28T17:43:26",
+      "updated_at": "2020-09-28T17:43:26",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/815",
+      "number": 815,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/815",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Adds Alma:needs to change notes",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2020-12-03T14:55:07",
+          "html_url": "https://github.com/pulibrary/marc_liberation/pull/815#issuecomment-700185852",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/35423695/badge)](https://coveralls.io/builds/35423695)\n\nCoverage remained the same at 76.954% when pulling **2d643495faecd3040638b0de160869469d86bd70 on 806-alma-traject** into **d81f3b13b1e4edb4c36eed6f7a0085c370cc836f on alma**.\n"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-12-03T14:54:43",
+          "html_url": "https://github.com/pulibrary/marc_liberation/pull/815#issuecomment-738045992",
+          "body": "closing in favor of #916 "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T14:25:20",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T14:48:25",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T14:52:07",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T14:54:44",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/815",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-12-03T14:37:23",
+      "updated_at": "2020-12-03T14:37:23",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/916",
+      "number": 916,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/916",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Updates traject_config with notes for the Alma changes",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2020-12-03T14:41:44",
+          "html_url": "https://github.com/pulibrary/marc_liberation/pull/916#issuecomment-738036864",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/35423294/badge)](https://coveralls.io/builds/35423294)\n\nCoverage remained the same at 76.954% when pulling **cb5a1268cd4b51e7c6a56165f3d9a0607fa5af54 on traject-config-alma-notes** into **d81f3b13b1e4edb4c36eed6f7a0085c370cc836f on alma**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T14:38:50",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T15:04:31",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T15:04:31",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T15:04:31",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T15:04:32",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/916",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-09-25T14:44:58",
+      "updated_at": "2020-09-25T14:44:58",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/806",
+      "number": 806,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Update traject to process Alma records",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T15:42:40",
+          "type": "unassigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T15:42:40",
+          "type": "unassigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-05-13T21:18:50",
+      "updated_at": "2020-05-13T21:18:50",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/654",
+      "number": 654,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Replicate necessary MarcLiberation controller functionality from Voyager to Alma",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-09-29T13:58:36",
+      "updated_at": "2020-09-29T13:58:36",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/822",
+      "number": 822,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Calculate catalog_date from Alma records",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-12-03T18:44:17",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/822#issuecomment-719594167",
+          "body": "- [ ] **Single Records** https://github.com/pulibrary/marc_liberation/issues/748\r\n\r\n1. Get a single alma record with `p_avail` and `e_avail` parameters: https://developers.exlibrisgroup.com/console/?url=/wp-content/uploads/alma/openapi/bibs.json#/Catalog/get%2Falmaws%2Fv1%2Fbibs%2F%7Bmms_id%7D\r\n\r\n2. If it has any `AVA` fields that correspond to `p_avail` (physical availability), get the list of items to get the `<creation_date>` . Get the earliest `creation_date` from the <items> list.\r\n\r\n3. If there are no `AVA` fields that correspond to `p_avail`, look for `AVE` fields that correspond to `e_avail`. Each `AVE` field has a portfolio id included. For each `AVE` field in the API response, you must retrieve the portfolio information. Use the oldest `<portfolio><activation_date>` from the attached portfolios. See https://developers.exlibrisgroup.com/alma/apis/docs/xsd/rest_portfolio.xsd/\r\n\r\n4. If there is no `p_avail` or `e_avail`, use `<bib><created_date>`."
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-12-03T18:44:33",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/822#issuecomment-719602951",
+          "body": "- [ ] **Publishing profiles**\r\n\r\nBibliographic Enrichment -> Create date subfield 950b\r\nPhysical Items Enrichment -> Create date subfield 876d\r\nElectronic Inventory Enrichment -> Activation date subfield 951w\r\n\r\n1. Similar to the Single Record if there is a `876` field don't use the `951` fields. \r\n2. If there are no `876` or `951` then use the bib create date: Bibliographic Enrichment `950b`."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T14:25:19",
+          "type": "referenced"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-12-01T20:18:55",
+      "updated_at": "2020-12-01T20:18:55",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/905",
+      "number": 905,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/905",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "[Do not merge] Alma Migration",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2020-12-03T18:52:27",
+          "html_url": "https://github.com/pulibrary/marc_liberation/pull/905#issuecomment-736802023",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/35430103/badge)](https://coveralls.io/builds/35430103)\n\nCoverage decreased (-5.1%) to 76.954% when pulling **24e9b0f16dd242970c25a7d9417d51ee10a7a28b on alma** into **d2923fd010050b3acf04ce4de47e1727e9442bc4 on main**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-02T23:56:12",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T18:49:44",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/905",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-07-17T19:46:46",
+      "updated_at": "2020-07-17T19:46:46",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/712",
+      "number": 712,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Implement holdings param in bibliographic#bib ",
+      "user_name": "Kate Lynch",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-12-03T19:04:34",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/712#issuecomment-738228222",
+          "body": "I'm not seeing many requests for this in datadog. I think we can lower the priority here. What is this used for @christinach ?\r\n\r\nhttps://app.datadoghq.com/logs/analytics?agg_q=%40params.holdings&cols=host%2Cservice%2C%40http.url_details.queryString.q%2C%40action%2C%40format&from_ts=1604430110042&index=&live=true&messageDisplay=inline&panel=%22%22&query=source%3Aruby+service%3Abibdata+-%40controller%3A%22Locations%3A%3AHoldingLocationsController%22+-%40controller%3A%22Locations%3A%3ADeliveryLocationsController%22+-%40controller%3A%22HighVoltage%3A%3APagesController%22++-%40controller%3A%22Users%3A%3AOmniauthCallbacksController%22+%40action%3A%22bib%22&stream_sort=desc&to_ts=1607022110042&top_n=10&viz=timeseries"
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-12-03T19:16:24",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/712#issuecomment-738236750",
+          "body": "@mzelesky Do you know if we have any services that use `holdings=true/false`?"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T19:03:57",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T19:03:57",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T19:16:24",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T19:16:24",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2019-11-05T20:50:32",
+      "updated_at": "2019-11-05T20:50:32",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/573",
+      "number": 573,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Alma implementation for availability#index",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T14:26:59",
+          "type": "unassigned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-03T19:22:33",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-10-14T13:18:04",
+      "updated_at": "2020-10-14T13:18:04",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/856",
+      "number": 856,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Add notes in the get_items_for_bib method",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-12-03T21:02:12",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-09-29T14:06:59",
+      "updated_at": "2020-09-29T14:06:59",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/823",
+      "number": 823,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Index Alma locations",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-12-03T21:09:13",
+          "type": "unassigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-08-06T13:58:10",
+      "updated_at": "2020-08-06T13:58:10",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/733",
+      "number": 733,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "Add alma implementation for bibliographic#bib_holdings",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-12-03T06:45:34",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/733#issuecomment-737702865",
+          "body": "I've made some progress with the XML-serialization for this, however, I've yet to finish mapping the Alma XML schema to the one expected from bibdata clients: https://github.com/pulibrary/marc_liberation/compare/alma...issues-733-jrgriffiniii-bib_holdings"
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-12-03T21:07:41",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/733#issuecomment-738309183",
+          "body": "As discovered by @hackartisan, the endpoint exposed for this is not often requested: https://app.datadoghq.com/logs/analytics?agg_q=%40controller%2C%40action%2C%40format&cols=host%2Cservice%2C%40http.url_details.queryString.q%2C%40action%2C%40format&from_ts=1604271119706&index=&live=true&messageDisplay=inline&query=source%3Aruby+service%3Abibdata+-%40controller%3A%22Locations%3A%3AHoldingLocationsController%22+-%40controller%3A%22Locations%3A%3ADeliveryLocationsController%22+-%40controller%3A%22HighVoltage%3A%3APagesController%22++-%40controller%3A%22Users%3A%3AOmniauthCallbacksController%22&stream_sort=desc&to_ts=1606863119706&top_n=10&viz=query_table\r\n\r\nAs such, I'm going to proceed by moving to close this. Please freely reopen this if one feels that this was done in error."
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-12-03T21:26:48",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/733#issuecomment-738321402",
+          "body": "@jrgriffiniii I'm sorry I forgot to mention in the today's checkin that https://bibdata.princeton.edu/bibliographic/991227850000541/holdings?adapter=alma was already implemented to return the ~json~ response from the alma API call. The reason was that I also didn't find it to be used across the other apps but still wanted to return the information ~in json~ from the API call . "
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-12-03T21:20:31",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/733#issuecomment-738325917",
+          "body": "https://github.com/pulibrary/marc_liberation/blob/24e9b0f16dd242970c25a7d9417d51ee10a7a28b/app/controllers/bibliographic_controller.rb#L76\r\n\r\nhttps://github.com/pulibrary/marc_liberation/blob/24e9b0f16dd242970c25a7d9417d51ee10a7a28b/app/adapters/alma_adapter/bib.rb#L43"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-12-03T21:07:41",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T21:07:41",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T21:07:41",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-12-03T21:16:55",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-12-03T21:16:55",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-12-03T20:09:52",
+      "updated_at": "2020-12-03T20:09:52",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/917",
+      "number": 917,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/917",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "closed",
+      "title": "12-4 exception request.",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-12-03T20:09:52",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-12-03T22:40:02",
+          "type": "review_request_removed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T22:40:47",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T22:40:47",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T22:40:47",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T22:40:48",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/917",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-12-02T20:52:08",
+      "updated_at": "2020-12-02T20:52:08",
+      "html_url": "https://github.com/pulibrary/marc_liberation/issues/911",
+      "number": 911,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Update test coverage for bibliographic_controller#bib_jsonld",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2020-12-03T22:40:01",
+          "html_url": "https://github.com/pulibrary/marc_liberation/issues/911#issuecomment-738393731",
+          "body": "https://bibdata.princeton.edu/bibliographic/99222517306421/jsonld?adapter=alma \r\nmms_id: 99222517306421\r\n\r\nThis is to advance the jsonld spec https://github.com/pulibrary/marc_liberation/blob/24e9b0f16dd242970c25a7d9417d51ee10a7a28b/spec/controllers/bibliographic_controller_spec.rb#L126"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T22:34:50",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T22:35:19",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T23:14:25",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-12-03T23:15:05",
+      "updated_at": "2020-12-03T23:15:05",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/918",
+      "number": 918,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/918",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Updates test coverage for bibliographic_controller#bib_jsonld",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/918",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-12-03T23:46:09",
+      "updated_at": "2020-12-03T23:46:09",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/919",
+      "number": 919,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/919",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Alma Adapter Refactor",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2020-12-03T23:56:59",
+          "html_url": "https://github.com/pulibrary/marc_liberation/pull/919#issuecomment-738457292",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/35437227/badge)](https://coveralls.io/builds/35437227)\n\nCoverage increased (+0.05%) to 77.001% when pulling **2362831830532178e338705bb4866f73d361a8fe on refactor_alma_adapter** into **24e9b0f16dd242970c25a7d9417d51ee10a7a28b on alma**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-03T23:49:36",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-03T23:52:56",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-03T23:54:18",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/919",
+      "action": "pull_request_open"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2020-12-03T00:02:58",
+      "updated_at": "2020-12-03T00:02:58",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2327",
+      "number": 2327,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2327",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Update alma_qa environment to use bibdata-alma-staging",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T16:31:09",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T16:31:10",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T16:31:10",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-03T16:31:11",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2327",
+      "action": "pull_request_closed"
+    }
+  ],
+  "pomegranate": [
+    {
+      "created_at": "2020-12-03T13:13:28",
+      "updated_at": "2020-12-03T13:13:28",
+      "html_url": "https://github.com/pulibrary/pomegranate/issues/857",
+      "number": 857,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pomegranate",
+      "repository_name": "pomegranate",
+      "state": "open",
+      "title": "Collection gives a 404 when the slug has a capital letter",
+      "user_name": "Kim Leaman",
+      "comments": [
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2020-12-03T13:16:19",
+          "html_url": "https://github.com/pulibrary/pomegranate/issues/857#issuecomment-737983744",
+          "body": "additional note:  both unpublished collections do show up in in my listing, it just takes you to the \"this page doesn't exist\" when you click to enter"
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2020-12-03T13:44:44",
+          "html_url": "https://github.com/pulibrary/pomegranate/issues/857#issuecomment-738002644",
+          "body": "I just tried adding and completing a test item to see if that helped. no. still nothing. "
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2020-12-03T14:33:49",
+          "html_url": "https://github.com/pulibrary/pomegranate/issues/857#issuecomment-738031869",
+          "body": "update: creating collections works fine for @escowles. Perhaps its my account/permissions? can someone check for me?"
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2020-12-03T15:28:56",
+          "html_url": "https://github.com/pulibrary/pomegranate/issues/857#issuecomment-738079379",
+          "body": "Routing gives a 404 when the slug has a capital letter. I deleted these in the db and @kelea99 changed the slugs in figgy and was able to create the collections in dpul. We should decide whether we want to allow capitals and look at the routing here in dpul, or not allow capitals and validate slugs for all-lowercase in figgy. @kelea99 do you have a preference? I'm changing the title of this issue now that we know what's happening."
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2020-12-03T20:30:04",
+          "html_url": "https://github.com/pulibrary/pomegranate/issues/857#issuecomment-738289183",
+          "body": "I dont believe this is a priority @hackartisan  and I dont mind keeping all lowercase for the foreseeable future. I think we do need to document it and inform folks, however. @kelynch , the Mudd and SC colleagues who you spoke with regarding slug creation in figgy--is there documentation or would you like me to make something? Happy to do so! regardless, we should tell them asap. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2020-12-03T13:13:28",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2020-12-03T13:13:28",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2020-12-03T14:33:49",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2020-12-03T14:33:49",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2020-12-03T15:28:56",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2020-12-03T15:28:56",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T15:29:23",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2020-12-03T20:29:49",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2020-12-03T20:29:49",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T20:30:04",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T20:30:04",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2020-10-29T18:40:26",
+      "updated_at": "2020-10-29T18:40:26",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1794",
+      "number": 1794,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Need to use the IP address for the HR share on bibdata instead of the host name",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-02T23:49:19",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-12-02T20:36:06",
+      "updated_at": "2020-12-02T20:36:06",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1870",
+      "number": 1870,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1870",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[Bibdata] Add bibdata-alma-staging",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-02T23:49:19",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-02T23:49:19",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-02T23:49:19",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-02T23:49:20",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1870",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-12-03T13:04:51",
+      "updated_at": "2020-12-03T13:04:51",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1877",
+      "number": 1877,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "php 7.2 EOL'ed",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-02T15:35:04",
+      "updated_at": "2020-12-02T15:35:04",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1850",
+      "number": 1850,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "delete mariadbserver server role",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2020-12-03T02:10:18",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1850#issuecomment-737614135",
+          "body": "we no longer use mariadbserver any place. This could be deleted. "
+        },
+        {
+          "user_name": "carolyncole",
+          "updated_at": "2020-12-03T13:32:54",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1850#issuecomment-737996229",
+          "body": "@kayiwa the only pace I see it is matomo.  Since that server is still running I'll wait to delete it."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T13:32:54",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T13:32:54",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T13:33:11",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-12-03T02:10:46",
+      "updated_at": "2020-12-03T02:10:46",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1873",
+      "number": 1873,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "setup molecule-3 openjdk",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T13:36:26",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-03T13:22:28",
+      "updated_at": "2020-12-03T13:22:28",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1878",
+      "number": 1878,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1878",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add openjdk tests and role to molecule3",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T13:25:45",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T13:36:26",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T13:36:26",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T13:36:27",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T13:36:28",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1878",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-12-03T02:12:59",
+      "updated_at": "2020-12-03T02:12:59",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1876",
+      "number": 1876,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "setup molecule3 imagemagick",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2020-12-03T13:38:34",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1876#issuecomment-737999270",
+          "body": "this is a duplicate of #1875 "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T13:38:34",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-03T13:39:42",
+      "updated_at": "2020-12-03T13:39:42",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1880",
+      "number": 1880,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "setup molecule3 solrcloud",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-03T13:42:16",
+      "updated_at": "2020-12-03T13:42:16",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1883",
+      "number": 1883,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "setup molecule3 bind9",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-03T14:39:04",
+      "updated_at": "2020-12-03T14:39:04",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1884",
+      "number": 1884,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "why do we have percona and perconaxdb",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-03T02:11:47",
+      "updated_at": "2020-12-03T02:11:47",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1874",
+      "number": 1874,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "setup molecule-3 ffmpeg",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T14:44:18",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-03T13:36:03",
+      "updated_at": "2020-12-03T13:36:03",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1879",
+      "number": 1879,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1879",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add ffmpeg tests and role to molecule3",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T14:44:18",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T14:44:18",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T14:44:19",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T14:44:20",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1879",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-12-03T14:47:49",
+      "updated_at": "2020-12-03T14:47:49",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1885",
+      "number": 1885,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "setup molecule3 on capistrano role",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-02T15:36:34",
+      "updated_at": "2020-12-02T15:36:34",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1854",
+      "number": 1854,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "setup molecule-3 drupal",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T14:47:53",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-12-03T15:51:32",
+      "updated_at": "2020-12-03T15:51:32",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1890",
+      "number": 1890,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "set up solr molecule3",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-02T15:34:51",
+      "updated_at": "2020-12-02T15:34:51",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1849",
+      "number": 1849,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": " setup molecule-3 mariadb",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T15:57:14",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-12-02T19:11:01",
+      "updated_at": "2020-12-02T19:11:01",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1865",
+      "number": 1865,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1865",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Moving mariadb to molecule 3",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T01:54:27",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T01:58:27",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T02:05:20",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T02:17:17",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T04:10:07",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T13:10:01",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T13:25:05",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T13:25:44",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T13:40:31",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T13:51:18",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T14:03:31",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T15:29:54",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T15:57:14",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T15:57:14",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T15:57:14",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T15:57:16",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1865",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-12-03T16:20:00",
+      "updated_at": "2020-12-03T16:20:00",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1892",
+      "number": 1892,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "set up vips molecule3",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-03T13:41:11",
+      "updated_at": "2020-12-03T13:41:11",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1882",
+      "number": 1882,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "setup molecule passenger",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T17:31:03",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-03T16:00:36",
+      "updated_at": "2020-12-03T16:00:36",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1891",
+      "number": 1891,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1891",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add passenger and role to molecule3",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T17:31:03",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T17:31:03",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T17:31:03",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T17:31:04",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1891",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-12-03T17:55:30",
+      "updated_at": "2020-12-03T17:55:30",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1894",
+      "number": 1894,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1894",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "add vips tests and role to molecule3",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T18:12:51",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1894",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-12-03T02:12:40",
+      "updated_at": "2020-12-03T02:12:40",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1875",
+      "number": 1875,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "setup molecule-3 imagemagick",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T18:58:45",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-03T15:04:46",
+      "updated_at": "2020-12-03T15:04:46",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1886",
+      "number": 1886,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1886",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add imagemagick tests and role to molecule3",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T17:30:43",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T18:58:45",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T18:58:45",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T18:58:45",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T18:58:46",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1886",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-12-03T18:59:41",
+      "updated_at": "2020-12-03T18:59:41",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1895",
+      "number": 1895,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "setup fits with molecule3",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-03T19:00:03",
+      "updated_at": "2020-12-03T19:00:03",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1896",
+      "number": 1896,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "setup kakadu with molecule3",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-03T17:26:25",
+      "updated_at": "2020-12-03T17:26:25",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1893",
+      "number": 1893,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1893",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "1880 solrcloud molecule3",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T18:57:51",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1893",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-12-03T22:07:19",
+      "updated_at": "2020-12-03T22:07:19",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1897",
+      "number": 1897,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "how do we connect to postgresql",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-03T13:40:33",
+      "updated_at": "2020-12-03T13:40:33",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1881",
+      "number": 1881,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "setup molecule3 freetds",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T23:23:27",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-03T15:45:08",
+      "updated_at": "2020-12-03T15:45:08",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1889",
+      "number": 1889,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1889",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add bind9 freetds and role to molecule3",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T23:23:27",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T23:23:27",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T23:23:27",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T23:23:28",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1889",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-12-03T15:23:08",
+      "updated_at": "2020-12-03T15:23:08",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1887",
+      "number": 1887,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1887",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "add bind9 tests and role to molecule3",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T20:23:17",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1887",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-12-03T15:25:47",
+      "updated_at": "2020-12-03T15:25:47",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1888",
+      "number": 1888,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1888",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Adding file modes to fix molecule 3 linting",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T15:48:19",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T15:54:01",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T16:03:42",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T16:21:21",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T16:31:45",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T16:43:08",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T17:27:35",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T17:49:13",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T18:01:54",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T18:29:52",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T18:59:28",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T19:18:28",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T19:43:36",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-03T23:24:35",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-04T02:03:15",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-04T02:06:53",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-04T02:12:35",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1888",
+      "action": "pull_request_open"
+    }
+  ],
+  "pulfalight": [
+    {
+      "created_at": "2020-03-13T18:18:11",
+      "updated_at": "2020-03-13T18:18:11",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/146",
+      "number": 146,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Review the PULFALight Solr configuration for relevancy rankings",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "Shaun Ellis",
+          "updated_at": "2020-12-03T21:21:34",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/146#issuecomment-738321496",
+          "body": "@tpendragon Any collection title that contains the search terms should have prioritized ranking, and if the collection title _starts_ with the search terms, it should have highest ranking. Furthermore, components higher in the hierarchy should be considered more relevant than components lower in the hierarchy. \r\n\r\nFor example, a search for \"John Foster Dulles\" (with or without quotes) should put the \"John Foster Dulles Collection\" at the top, but [it's pretty far down in the results list](https://findingaids-beta.princeton.edu/?utf8=%E2%9C%93&group=true&search_field=all_fields&q=john+foster+dulles).\r\n\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-03T21:17:00",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-03T21:17:00",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-12-03T21:44:55",
+      "updated_at": "2020-12-03T21:44:55",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/544",
+      "number": 544,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Date range facet limits should honor both start and end dates",
+      "user_name": "Shaun Ellis",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2020-12-03T21:45:21",
+          "type": "milestoned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-03T21:54:24",
+      "updated_at": "2020-12-03T21:54:24",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/545",
+      "number": 545,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Remove random `<span>` tag in facet's \"more\" modal",
+      "user_name": "Shaun Ellis",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-03T22:03:36",
+      "updated_at": "2020-12-03T22:03:36",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/546",
+      "number": 546,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Creator facet is sometimes missing",
+      "user_name": "Shaun Ellis",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-12-03T22:04:20",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/546#issuecomment-738346914",
+          "body": "Creators aren't published in ASpace yet."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2020-12-03T22:04:18",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "pulmap": [
+    {
+      "created_at": "2020-12-02T22:17:30",
+      "updated_at": "2020-12-02T22:17:30",
+      "html_url": "https://github.com/pulibrary/pulmap/issues/903",
+      "number": 903,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulmap",
+      "repository_name": "pulmap",
+      "state": "closed",
+      "title": "[Pulmap/production] ActionView::Template::Error: Could not find blacklight/none.svg",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-02T22:18:13",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-12-03T17:53:52",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-02T22:18:19",
+      "updated_at": "2020-12-02T22:18:19",
+      "html_url": "https://github.com/pulibrary/pulmap/pull/904",
+      "number": 904,
+      "pull_request_html_url": "https://github.com/pulibrary/pulmap/pull/904",
+      "repository_html_url": "https://github.com/pulibrary/pulmap",
+      "repository_name": "pulmap",
+      "state": "closed",
+      "title": "Page shouldn't error when unable to find a thumbnail.",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2020-12-02T22:43:39",
+          "html_url": "https://github.com/pulibrary/pulmap/pull/904#issuecomment-737540760",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/35405156/badge)](https://coveralls.io/builds/35405156)\n\nCoverage remained the same at 100.0% when pulling **c6e8ef3dccc467fe5204c444bbbb1a777597a820 on placeholder_thumbnail_error** into **823b7cb1058ed84876c9143c6933b61dd1ad467e on main**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-12-03T17:53:52",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-12-03T17:53:52",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-12-03T17:53:52",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2020-12-03T17:53:53",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulmap/pull/904",
+      "action": "pull_request_closed"
+    }
+  ],
+  "uptime": [
+    {
+      "created_at": "2020-12-03T03:44:45",
+      "updated_at": "2020-12-03T03:44:45",
+      "html_url": "https://github.com/pulibrary/uptime/issues/22",
+      "number": 22,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/uptime",
+      "repository_name": "uptime",
+      "state": "closed",
+      "title": "🛑 Confluence is down",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2020-12-03T04:09:46",
+          "html_url": "https://github.com/pulibrary/uptime/issues/22#issuecomment-737652888",
+          "body": "**Resolved:** Confluence is back up in [`046272a`](https://github.com/pulibrary/uptime/commit/046272aeed7c338006a8dcae2aba76873891ec00\n)."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T03:44:45",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T03:44:45",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T03:44:46",
+          "type": "locked"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-03T04:09:47",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 74,
+    "closed_count": 5,
+    "created_count": 29,
+    "pull_request_closed_count": 18,
+    "pull_request_open_count": 9,
+    "updated_count": 13,
+    "today": "2020-12-03T22:00:04",
+    "yesterday": "2020-12-02T22:00:04"
+  }
+}
