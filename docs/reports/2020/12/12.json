@@ -1,0 +1,355 @@
+{
+  "figgy": [
+    {
+      "created_at": "2020-12-11T21:57:28",
+      "updated_at": "2020-12-11T21:57:28",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4354",
+      "number": 4354,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "CDL::BulkHoldProcessor.change_set_persister raises RuntimeError: Unable to find unregistered adapter `indexing_persister'",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2020-12-11T22:00:05",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4354#issuecomment-743449218",
+          "body": "I'm not certain how frequently this occurs, but it should be noted that this is a possible bug. The backtrace provided by Honeybadger is:\r\n\r\n```ruby\r\nbulk_hold_processor.rb  13 change_set_persister(...)\r\n[PROJECT_ROOT]/app/resources/cdl/bulk_hold_processor.rb:13:in `change_set_persister'\r\n11     def self.change_set_persister\r\n12       ::ChangeSetPersister.new(\r\n13         metadata_adapter: Valkyrie::MetadataAdapter.find(:indexing_persister),\r\n14         storage_adapter: Valkyrie.config.storage_adapter\r\n15       )\r\n```\r\n\r\n(Please see https://app.honeybadger.io/projects/53391/faults/67640376#notice-trace)"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-12-11T22:00:11",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-12-11T22:00:23",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2019-12-02T18:51:11",
+      "updated_at": "2019-12-02T18:51:11",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3511",
+      "number": 3511,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "[Figgy/production] Notice: Unable to find EAD for collection AC112.01",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-12-11T22:01:52",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2019-11-01T20:21:09",
+      "updated_at": "2019-11-01T20:21:09",
+      "html_url": "https://github.com/pulibrary/figgy/issues/3462",
+      "number": 3462,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "PULFA Export Task should not run in Staging.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2020-12-11T22:02:20",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-12-11T16:25:04",
+      "updated_at": "2020-12-11T16:25:04",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4350",
+      "number": 4350,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4350",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "implements add_ephemera_to_collection service",
+      "user_name": "Cliff Wulfman",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Cliff Wulfman",
+          "created_at": "2020-12-11T22:55:13",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Cliff Wulfman",
+          "created_at": "2020-12-11T23:27:03",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4350",
+      "action": "pull_request_open"
+    }
+  ],
+  "lambda_image_metadata_updater": [
+    {
+      "created_at": "2020-12-12T14:22:51",
+      "updated_at": "2020-12-12T14:22:51",
+      "html_url": "https://github.com/pulibrary/lambda_image_metadata_updater/pull/3",
+      "number": 3,
+      "pull_request_html_url": "https://github.com/pulibrary/lambda_image_metadata_updater/pull/3",
+      "repository_html_url": "https://github.com/pulibrary/lambda_image_metadata_updater",
+      "repository_name": "lambda_image_metadata_updater",
+      "state": "open",
+      "title": "Bump ini from 1.3.5 to 1.3.8",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-12-12T14:22:52",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/lambda_image_metadata_updater/pull/3",
+      "action": "pull_request_open"
+    }
+  ],
+  "marc_liberation": [
+    {
+      "created_at": "2020-12-11T00:42:08",
+      "updated_at": "2020-12-11T00:42:08",
+      "html_url": "https://github.com/pulibrary/marc_liberation/pull/940",
+      "number": 940,
+      "pull_request_html_url": "https://github.com/pulibrary/marc_liberation/pull/940",
+      "repository_html_url": "https://github.com/pulibrary/marc_liberation",
+      "repository_name": "marc_liberation",
+      "state": "open",
+      "title": "Full Reindex for Alma from Dump File",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2020-12-11T22:46:16",
+          "html_url": "https://github.com/pulibrary/marc_liberation/pull/940#issuecomment-743466134",
+          "body": "> Are we using both lando and solr wrapper?\r\n> \r\n> Does this supercede #930 to close #865?\r\n\r\nThis doesn't set up Lando for Postgres.\r\n\r\nIt uses both Lando and Solr Wrapper, yes. Solr wrapper for CI because of the `.jar` files."
+        }
+      ],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/marc_liberation/pull/940",
+      "action": "pull_request_open"
+    }
+  ],
+  "milberg_plates": [
+    {
+      "created_at": "2020-12-11T22:34:03",
+      "updated_at": "2020-12-11T22:34:03",
+      "html_url": "https://github.com/pulibrary/milberg_plates/pull/9",
+      "number": 9,
+      "pull_request_html_url": "https://github.com/pulibrary/milberg_plates/pull/9",
+      "repository_html_url": "https://github.com/pulibrary/milberg_plates",
+      "repository_name": "milberg_plates",
+      "state": "open",
+      "title": "Bump ini from 1.3.5 to 1.3.8 in /themes/default",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-12-11T22:34:04",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/milberg_plates/pull/9",
+      "action": "pull_request_open"
+    }
+  ],
+  "pulfalight": [
+    {
+      "created_at": "2020-12-11T23:13:19",
+      "updated_at": "2020-12-11T23:13:19",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/567",
+      "number": 567,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/567",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Bump ini from 1.3.5 to 1.3.8",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-12-11T23:13:20",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-11T23:13:20",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/567",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-07-17T16:43:23",
+      "updated_at": "2020-07-17T16:43:23",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/311",
+      "number": 311,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Generate AbIDs",
+      "user_name": "Esmé Cowles",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "special_collections": [
+    {
+      "created_at": "2020-12-12T01:22:14",
+      "updated_at": "2020-12-12T01:22:14",
+      "html_url": "https://github.com/pulibrary/special_collections/pull/641",
+      "number": 641,
+      "pull_request_html_url": "https://github.com/pulibrary/special_collections/pull/641",
+      "repository_html_url": "https://github.com/pulibrary/special_collections",
+      "repository_name": "special_collections",
+      "state": "open",
+      "title": "Bump ini from 1.3.5 to 1.3.8 in /sites/all/themes/rbsc",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-12-12T01:22:15",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-12T01:22:15",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/special_collections/pull/641",
+      "action": "pull_request_open"
+    }
+  ],
+  "uptime": [
+    {
+      "created_at": "2020-12-12T03:42:56",
+      "updated_at": "2020-12-12T03:42:56",
+      "html_url": "https://github.com/pulibrary/uptime/issues/31",
+      "number": 31,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/uptime",
+      "repository_name": "uptime",
+      "state": "closed",
+      "title": "🛑 Confluence is down",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2020-12-12T03:52:39",
+          "html_url": "https://github.com/pulibrary/uptime/issues/31#issuecomment-743696487",
+          "body": "**Resolved:** Confluence is back up in [`433cab1`](https://github.com/pulibrary/uptime/commit/433cab1e793317d02d3118d7452b64b24f1b6e7c\n)."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-12T03:42:56",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-12T03:42:56",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-12T03:42:57",
+          "type": "locked"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-12T03:52:39",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-12T20:55:22",
+      "updated_at": "2020-12-12T20:55:22",
+      "html_url": "https://github.com/pulibrary/uptime/issues/32",
+      "number": 32,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/uptime",
+      "repository_name": "uptime",
+      "state": "closed",
+      "title": "🛑 OAR is down",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2020-12-12T21:05:07",
+          "html_url": "https://github.com/pulibrary/uptime/issues/32#issuecomment-743870294",
+          "body": "**Resolved:** OAR is back up in [`44488d6`](https://github.com/pulibrary/uptime/commit/44488d606333c089b74eef4260cf1d7deb579fcf\n)."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-12T20:55:22",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-12T20:55:22",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-12T20:55:23",
+          "type": "locked"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-12T21:05:08",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 12,
+    "closed_count": 1,
+    "created_count": 2,
+    "pull_request_open_count": 6,
+    "updated_count": 3,
+    "today": "2020-12-12T22:00:04",
+    "yesterday": "2020-12-11T22:00:04"
+  }
+}

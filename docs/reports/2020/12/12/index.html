@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5fda38894b.js" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" type="text/css" href="../../../../css/main.css" />
+    <title>PUL GitHub Issues for 2020-12-12T22:00:04</title>
+  </head>
+
+<body>
+  <div class="container-fluid">
+    <a id="btt-button"></a>
+    
+<h1 class="bg-dark text-light">PUL GitHub Issues<br />
+  <small class="text-white-70">2020-12-12</small></h1>
+<nav class="navbar sticky-top navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar-toggler">
+    <ul class="navbar-nav mr-auto mt-2 pt-3 mt-lg-0">
+      <li class="nav-item not-mono">
+        <a class="nav-link" href="../../../../index.html"><i class="fas fa-arrow-left"></i> Back to Report List Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#figgy">pulibrary/figgy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#lambda_image_metadata_updater">pulibrary/lambda_image_metadata_updater</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#marc_liberation">pulibrary/marc_liberation</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#milberg_plates">pulibrary/milberg_plates</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pulfalight">pulibrary/pulfalight</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#special_collections">pulibrary/special_collections</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#uptime">pulibrary/uptime</a>
+      </li>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    
+    <section class="repo" id="figgy">
+      <h2><a href="https://github.com/pulibrary/figgy">pulibrary/figgy</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="figgy-4354">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/4354">#4354</a> CDL::BulkHoldProcessor.change_set_persister raises RuntimeError: Unable to find unregistered adapter `indexing_persister'</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2020-12-11 21:57:28</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/figgy/issues/4354#issuecomment-743449218">2020-12-11 22:00:05</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>I&#39;m not certain how frequently this occurs, but it should be noted that this is a possible bug. The backtrace provided by Honeybadger is:</p>
+
+<pre><code class="language-ruby">bulk_hold_processor.rb  13 change_set_persister(...)
+[PROJECT_ROOT]/app/resources/cdl/bulk_hold_processor.rb:13:in `change_set_persister&#39;
+11     def self.change_set_persister
+12       ::ChangeSetPersister.new(
+13         metadata_adapter: Valkyrie::MetadataAdapter.find(:indexing_persister),
+14         storage_adapter: Valkyrie.config.storage_adapter
+15       )
+</code></pre>
+
+<p>(Please see <a href="https://app.honeybadger.io/projects/53391/faults/67640376#notice-trace">https://app.honeybadger.io/projects/53391/faults/67640376#notice-trace</a>)</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by James R. Griffin III at 2020-12-11 22:00:11.</li>
+  <li class="event odd">
+    <code>labeled</code> by James R. Griffin III at 2020-12-11 22:00:23.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-3511">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3511">#3511</a> [Figgy/production] Notice: Unable to find EAD for collection AC112.01</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2019-12-02 18:51:11</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by James R. Griffin III at 2020-12-11 22:01:52.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="figgy-3462">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/3462">#3462</a> PULFA Export Task should not run in Staging.</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2019-11-01 20:21:09</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by James R. Griffin III at 2020-12-11 22:02:20.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-4350">
+        <h3><a href="https://github.com/pulibrary/figgy/pull/4350">#4350</a> implements add_ephemera_to_collection service</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Cliff Wulfman</dd>
+          <dt>Created:</dt>
+          <dd>2020-12-11 16:25:04</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/figgy/pull/4350">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by Cliff Wulfman at 2020-12-11 22:55:13.</li>
+  <li class="event odd">
+    <code>head_ref_force_pushed</code> by Cliff Wulfman at 2020-12-11 23:27:03.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="lambda_image_metadata_updater">
+      <h2><a href="https://github.com/pulibrary/lambda_image_metadata_updater">pulibrary/lambda_image_metadata_updater</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="lambda_image_metadata_updater-3">
+        <h3><a href="https://github.com/pulibrary/lambda_image_metadata_updater/pull/3">#3</a> Bump ini from 1.3.5 to 1.3.8</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>dependabot[bot]</dd>
+          <dt>Created:</dt>
+          <dd>2020-12-12 14:22:51</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/lambda_image_metadata_updater/pull/3">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by None at 2020-12-12 14:22:52.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="marc_liberation">
+      <h2><a href="https://github.com/pulibrary/marc_liberation">pulibrary/marc_liberation</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="marc_liberation-940">
+        <h3><a href="https://github.com/pulibrary/marc_liberation/pull/940">#940</a> Full Reindex for Alma from Dump File</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2020-12-11 00:42:08</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/marc_liberation/pull/940">pull request</a>)
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Trey Pendragon at <a href="https://github.com/pulibrary/marc_liberation/pull/940#issuecomment-743466134">2020-12-11 22:46:16</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <blockquote>
+<p>Are we using both lando and solr wrapper?</p>
+
+<p>Does this supercede #930 to close #865?</p>
+</blockquote>
+
+<p>This doesn&#39;t set up Lando for Postgres.</p>
+
+<p>It uses both Lando and Solr Wrapper, yes. Solr wrapper for CI because of the <code>.jar</code> files.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="milberg_plates">
+      <h2><a href="https://github.com/pulibrary/milberg_plates">pulibrary/milberg_plates</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="milberg_plates-9">
+        <h3><a href="https://github.com/pulibrary/milberg_plates/pull/9">#9</a> Bump ini from 1.3.5 to 1.3.8 in /themes/default</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>dependabot[bot]</dd>
+          <dt>Created:</dt>
+          <dd>2020-12-11 22:34:03</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/milberg_plates/pull/9">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by None at 2020-12-11 22:34:04.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="pulfalight">
+      <h2><a href="https://github.com/pulibrary/pulfalight">pulibrary/pulfalight</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="pulfalight-567">
+        <h3><a href="https://github.com/pulibrary/pulfalight/pull/567">#567</a> Bump ini from 1.3.5 to 1.3.8</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>dependabot[bot]</dd>
+          <dt>Created:</dt>
+          <dd>2020-12-11 23:13:19</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/pulfalight/pull/567">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by None at 2020-12-11 23:13:20.</li>
+  <li class="event odd">
+    <code>labeled</code> by None at 2020-12-11 23:13:20.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pulfalight-311">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/311">#311</a> Generate AbIDs</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Esmé Cowles</dd>
+          <dt>Created:</dt>
+          <dd>2020-07-17 16:43:23</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="special_collections">
+      <h2><a href="https://github.com/pulibrary/special_collections">pulibrary/special_collections</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="special_collections-641">
+        <h3><a href="https://github.com/pulibrary/special_collections/pull/641">#641</a> Bump ini from 1.3.5 to 1.3.8 in /sites/all/themes/rbsc</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>dependabot[bot]</dd>
+          <dt>Created:</dt>
+          <dd>2020-12-12 01:22:14</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/special_collections/pull/641">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by None at 2020-12-12 01:22:15.</li>
+  <li class="event odd">
+    <code>labeled</code> by None at 2020-12-12 01:22:15.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="uptime">
+      <h2><a href="https://github.com/pulibrary/uptime">pulibrary/uptime</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="uptime-31">
+        <h3><a href="https://github.com/pulibrary/uptime/issues/31">#31</a> 🛑 Confluence is down</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2020-12-12 03:42:56</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Francis Kayiwa at <a href="https://github.com/pulibrary/uptime/issues/31#issuecomment-743696487">2020-12-12 03:52:39</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p><strong>Resolved:</strong> Confluence is back up in <a href="https://github.com/pulibrary/uptime/commit/433cab1e793317d02d3118d7452b64b24f1b6e7c"><code>433cab1</code></a>.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Francis Kayiwa at 2020-12-12 03:42:56.</li>
+  <li class="event odd">
+    <code>labeled</code> by Francis Kayiwa at 2020-12-12 03:42:56.</li>
+  <li class="event even">
+    <code>locked</code> by Francis Kayiwa at 2020-12-12 03:42:57.</li>
+  <li class="event odd">
+    <code>closed</code> by Francis Kayiwa at 2020-12-12 03:52:39.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="uptime-32">
+        <h3><a href="https://github.com/pulibrary/uptime/issues/32">#32</a> 🛑 OAR is down</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2020-12-12 20:55:22</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Francis Kayiwa at <a href="https://github.com/pulibrary/uptime/issues/32#issuecomment-743870294">2020-12-12 21:05:07</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p><strong>Resolved:</strong> OAR is back up in <a href="https://github.com/pulibrary/uptime/commit/44488d606333c089b74eef4260cf1d7deb579fcf"><code>44488d6</code></a>.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Francis Kayiwa at 2020-12-12 20:55:22.</li>
+  <li class="event odd">
+    <code>labeled</code> by Francis Kayiwa at 2020-12-12 20:55:22.</li>
+  <li class="event even">
+    <code>locked</code> by Francis Kayiwa at 2020-12-12 20:55:23.</li>
+  <li class="event odd">
+    <code>closed</code> by Francis Kayiwa at 2020-12-12 21:05:08.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../../../../js/report.js"></script>
+  </div>
+</body>
+
+</html>
