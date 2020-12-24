@@ -1,0 +1,471 @@
+{
+  "figgy": [
+    {
+      "created_at": "2020-12-17T21:00:01",
+      "updated_at": "2020-12-17T21:00:01",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4357",
+      "number": 4357,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "MVW CDL items are not viewable to some who have checked them out in the online catalog",
+      "user_name": "Kim Leaman",
+      "comments": [
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2020-12-23T01:35:15",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4357#issuecomment-749870077",
+          "body": "update:  I got another “This is not working for me ” email regarding the MVW that is the Trentonian. I tried via CDL myself and got a big blank screen where the viewer should be (see screenshot, and also has the time). it took close to 5 minutes to load and become visible to me. I'm not sure if the patrons are waiting that long? This is the first time something like this has happened for me for this item. \r\n![Screen Shot 2020-12-22 at 5 39 04 PM](https://user-images.githubusercontent.com/45043014/102948944-1189ee00-4495-11eb-8204-1931106e835c.png)\r\n"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-09-10T07:31:34",
+      "updated_at": "2020-09-10T07:31:34",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4253",
+      "number": 4253,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "[Figgy/production] MultiJson::ParseError: 783: unexpected token at 'Record 10450683 not found or suppressed'",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2020-12-23T14:53:36",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4253#issuecomment-750335135",
+          "body": "A couple of things to add based on running this week. When resolving an error from a job like this it's helpful to also delete the job in sidekiq to keep the error from occurring again.\r\n\r\nAlso, when renaming the file for CDL, the file needs to be moved up a level, out of the `ingesting` directory. See https://github.com/pulibrary/figgy/blob/88e37c0fcdd42dbf39e65d772338e155f0a63d1d/app/resources/cdl/automatic_ingester.rb#L16-L20"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-12-23T19:34:11",
+      "updated_at": "2020-12-23T19:34:11",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4359",
+      "number": 4359,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Cannot bulk complete if change set is invalid",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-12-23T19:34:36",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-11T20:23:37",
+      "updated_at": "2020-12-11T20:23:37",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4353",
+      "number": 4353,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Increase the error handling for TikaFileCharacterizationService#file_characterization_attributes",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2020-12-23T20:32:03",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4353#issuecomment-750462506",
+          "body": "We get this error when a pdf runs through tika. In one case this was because the mime_type was set wrong (see https://app.honeybadger.io/projects/53391/faults/53418725#notice-comments)"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-12-23T21:46:23",
+      "updated_at": "2020-12-23T21:46:23",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4361",
+      "number": 4361,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Characterization fails on \"Triangle club archives\"",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-23T19:46:45",
+      "updated_at": "2020-12-23T19:46:45",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4360",
+      "number": 4360,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4360",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Allow geo workflow to go from pending to complete",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2020-12-23T21:48:45",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4360",
+      "action": "pull_request_open"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2020-12-23T02:24:18",
+      "updated_at": "2020-12-23T02:24:18",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2341",
+      "number": 2341,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2341",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Temporarily change pickup dates on request notices during holiday break.",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-12-23T02:24:18",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2020-12-23T02:53:12",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-12-23T03:09:51",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-12-23T03:09:51",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-12-23T03:09:51",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-12-23T03:09:52",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2341",
+      "action": "pull_request_closed"
+    }
+  ],
+  "prds-validate-csv": [
+    {
+      "created_at": "2020-12-23T19:01:32",
+      "updated_at": "2020-12-23T19:01:32",
+      "html_url": "https://github.com/pulibrary/prds-validate-csv/issues/3",
+      "number": 3,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/prds-validate-csv",
+      "repository_name": "prds-validate-csv",
+      "state": "open",
+      "title": "Test for blank-row using goodtables",
+      "user_name": "Kevin McElwee",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-23T19:05:06",
+      "updated_at": "2020-12-23T19:05:06",
+      "html_url": "https://github.com/pulibrary/prds-validate-csv/issues/4",
+      "number": 4,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/prds-validate-csv",
+      "repository_name": "prds-validate-csv",
+      "state": "open",
+      "title": "Double check that the row_limit parameter in validate is being used properly",
+      "user_name": "Kevin McElwee",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2020-08-14T18:32:04",
+      "updated_at": "2020-08-14T18:32:04",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1682",
+      "number": 1682,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[orangelight] molecularize orangelight",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-23T18:55:57",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-06-03T18:07:36",
+      "updated_at": "2020-06-03T18:07:36",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1554",
+      "number": 1554,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "we no longer use virtualbox",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-23T18:56:17",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-04-29T18:07:09",
+      "updated_at": "2020-04-29T18:07:09",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1474",
+      "number": 1474,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Archivespace role is pointing at a bad percona cluster name",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-23T18:57:24",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-02-27T20:52:24",
+      "updated_at": "2020-02-27T20:52:24",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1320",
+      "number": 1320,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Create qa server for Orangelight",
+      "user_name": "mzelesky",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-23T18:57:48",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-04-30T02:07:02",
+      "updated_at": "2020-04-30T02:07:02",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1478",
+      "number": 1478,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "bibdata-alma-worker-qa",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-23T18:58:35",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-12-23T19:56:04",
+      "updated_at": "2020-12-23T19:56:04",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2043",
+      "number": 2043,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "bibdata-worker1 to bionic",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "requests": [
+    {
+      "created_at": "2020-12-22T22:13:33",
+      "updated_at": "2020-12-22T22:13:33",
+      "html_url": "https://github.com/pulibrary/requests/pull/880",
+      "number": 880,
+      "pull_request_html_url": "https://github.com/pulibrary/requests/pull/880",
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "closed",
+      "title": "Temporary email header change",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-12-22T23:00:10",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-12-22T23:10:25",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-22T23:59:44",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-22T23:59:44",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2020-12-22T23:59:44",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/requests/pull/880",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-12-23T03:07:36",
+      "updated_at": "2020-12-23T03:07:36",
+      "html_url": "https://github.com/pulibrary/requests/issues/881",
+      "number": 881,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "open",
+      "title": "Restore Auto-Pickup Date Calcuation",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2020-12-23T03:07:41",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2020-12-23T03:07:47",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "uptime": [
+    {
+      "created_at": "2020-12-23T03:42:36",
+      "updated_at": "2020-12-23T03:42:36",
+      "html_url": "https://github.com/pulibrary/uptime/issues/40",
+      "number": 40,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/uptime",
+      "repository_name": "uptime",
+      "state": "closed",
+      "title": "🛑 Confluence is down",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2020-12-23T04:01:41",
+          "html_url": "https://github.com/pulibrary/uptime/issues/40#issuecomment-749916985",
+          "body": "**Resolved:** Confluence is back up in [`cc49e3d`](https://github.com/pulibrary/uptime/commit/cc49e3df65231bcc5894f921621edc210961127d\n)."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-23T03:42:36",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-23T03:42:36",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-23T03:42:37",
+          "type": "locked"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2020-12-23T04:01:41",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 18,
+    "closed_count": 5,
+    "created_count": 7,
+    "pull_request_closed_count": 2,
+    "pull_request_open_count": 1,
+    "updated_count": 3,
+    "today": "2020-12-23T22:00:04",
+    "yesterday": "2020-12-22T22:00:04"
+  }
+}
