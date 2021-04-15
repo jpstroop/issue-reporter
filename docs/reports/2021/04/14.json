@@ -1,0 +1,1665 @@
+{
+  "bibdata": [
+    {
+      "created_at": "2021-04-02T19:11:50",
+      "updated_at": "2021-04-02T19:11:50",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1205",
+      "number": 1205,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Correction on the isbn_display field",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-04-14T12:46:21",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1205#issuecomment-819476184",
+          "body": "@hackartisan I'm sorry I didn't see the question until earlier today. \r\nWe should not index the isbn_display if 020$a is missing. The isbn_display field is what we see in the catalog record page as ISBN.\r\nFor example: https://catalog-alma-qa.princeton.edu/catalog/99121576653506421/ (hardcover) should not display. In the staff_view https://catalog-alma-qa.princeton.edu/catalog/99121576653506421/staff_view the 3rd `020 z| 9781138388888 q| hardcover` has no $a.\r\n\r\nThis is also an issue in production. Would it be better to apply this change in the main branch and we pull it with the rebase?"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-04-14T12:24:23",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1205#issuecomment-819477104",
+          "body": "I updated my previous comment as : ` if 020$a `"
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-04-14T12:55:06",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1205#issuecomment-819495397",
+          "body": "👍🏻 we agreed on slack this will be fine to just go in the alma branch"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-04-14T12:22:53",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T12:46:22",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T12:46:22",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2019-11-05T20:50:32",
+      "updated_at": "2019-11-05T20:50:32",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/573",
+      "number": 573,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Alma implementation for availability#index",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-04-01T13:20:04",
+      "updated_at": "2021-04-01T13:20:04",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1195",
+      "number": 1195,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Redesign location data pipeline",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-04-14T13:18:11",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1195#issuecomment-819511387",
+          "body": "We held some meetings, with notes recorded in the document linked above.\n\nThe decision was to move away from a database and to a json file in the repository that holds all the location data.\n\nAny time a change is needed to the location data (labels, flags, mappings), an issue should be created and a PR issued for the change.\n\nthe locations gem should load the data into memory and deliver API responses from here instead of from a database.\n\nSimilarly, traject should load the data into memory for use in translation maps.\n\nThese migraiton steps will be ticketed separately; closing this issue."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T13:18:11",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-04-14T13:36:45",
+      "updated_at": "2021-04-14T13:36:45",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1242",
+      "number": 1242,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Refactor traject to use location config files instead of Translation Maps",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T13:38:19",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-04-14T02:08:00",
+      "updated_at": "2021-04-14T02:08:00",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1241",
+      "number": 1241,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Add a rake task to create a yaml file for the alma locations",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-04-14T13:11:56",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1241#issuecomment-819506920",
+          "body": "I thought the plan was to move everything into a json file."
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-04-14T13:19:10",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1241#issuecomment-819512030",
+          "body": "It can be either or. The current json files have the voyager values mapped to alma. \r\nThe future json or yaml files will be a dump of the alma location values so that we can update the location tables anytime."
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-04-14T13:24:11",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1241#issuecomment-819515277",
+          "body": "Okay as long as this isn't in addition to the json files we were talking about! 👍🏻 "
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-04-14T13:30:05",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1241#issuecomment-819519416",
+          "body": "> Okay as long as this isn't in addition to the json files we were talking about! 👍🏻\r\n\r\nAre you talking about the json files with the mapped voyager alma values https://github.com/pulibrary/bibdata/pull/1213/files or about the future files we want to use to update the locations?\r\n"
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-04-14T13:34:33",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1241#issuecomment-819522455",
+          "body": "My understanding is that the mapped voyager-alma value files are temporary, and at the end of the day we will have 1 set of config files representing everything that it currently stored in the locations database. Whether it's json or yaml I'm not sure I have an opinion about."
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-04-14T13:34:57",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1241#issuecomment-819522736",
+          "body": "Yes correct."
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-04-14T13:36:03",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1241#issuecomment-819523428",
+          "body": "So it seems like this rake task will also be temporary, right?"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-04-14T13:38:01",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1241#issuecomment-819524896",
+          "body": "Yes the rake task I thought about it to be temporary. My first thought was ok we update the locations with the correct flags now we need to dump them so that we can upload them locally and do our work until we move on to the next location tickets."
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-04-14T13:39:35",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1241#issuecomment-819525939",
+          "body": "This was also the main reason I tried https://github.com/pulibrary/bibdata/pull/1235"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-04-14T02:08:00",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-04-14T02:08:00",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-02-18T16:40:33",
+      "updated_at": "2021-02-18T16:40:33",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1094",
+      "number": 1094,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Add error handling around Alma's concurrent API threshold limit",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2021-04-14T14:54:15",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-04-14T14:44:12",
+      "updated_at": "2021-04-14T14:44:12",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/1243",
+      "number": 1243,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/1243",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Alma HTTP 429 (PER_SECOND_THRESHOLD)",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-04-14T14:44:13",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-04-14T14:44:13",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T15:04:19",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T15:04:19",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T15:04:19",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T15:04:20",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/1243",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-04-13T21:11:50",
+      "updated_at": "2021-04-13T21:11:50",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/1240",
+      "number": 1240,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/1240",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Upload SCSB Records to S3",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T15:10:52",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T15:10:52",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T15:10:53",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T15:10:53",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/1240",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-04-13T19:25:40",
+      "updated_at": "2021-04-13T19:25:40",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1239",
+      "number": 1239,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Return bound-with host items from /bibliographic/:mms_id/holding/:holding_id/availability",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T15:47:04",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-04-12T13:55:47",
+      "updated_at": "2021-04-12T13:55:47",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1231",
+      "number": 1231,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Inventory clients using bibdata endpoints and ensure they handle 429 appropriately",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T15:49:08",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-04-14T15:56:53",
+      "updated_at": "2021-04-14T15:56:53",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/1244",
+      "number": 1244,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/1244",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Replace fixtures in traject config spec",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-04-14T16:05:41",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-04-14T16:05:41",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-04-14T16:05:41",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-04-14T16:05:42",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/1244",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-12-01T20:18:55",
+      "updated_at": "2020-12-01T20:18:55",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/905",
+      "number": 905,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/905",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "[Do not merge] Alma Migration",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/905",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-03-29T21:00:52",
+      "updated_at": "2021-03-29T21:00:52",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/1172",
+      "number": 1172,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/1172",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Prototype for endpoint to provide availability for mfhd",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2021-04-14T17:12:42",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/1172",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-03-25T14:49:15",
+      "updated_at": "2021-03-25T14:49:15",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/1160",
+      "number": 1160,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/1160",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Bib availability end point",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2021-04-14T17:12:47",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/1160",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-04-14T17:27:33",
+      "updated_at": "2021-04-14T17:27:33",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1246",
+      "number": 1246,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Investigate skipped holdings test in traject config spec",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-04-14T17:29:42",
+      "updated_at": "2021-04-14T17:29:42",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1247",
+      "number": 1247,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Investigate  skipped elf-related tests in traject config spec",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-04-14T17:31:01",
+      "updated_at": "2021-04-14T17:31:01",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1248",
+      "number": 1248,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Fix improperly formatted 008 fields in Alma fixtures",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-04-14T17:31:02",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-04-14T17:27:08",
+      "updated_at": "2021-04-14T17:27:08",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1245",
+      "number": 1245,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Don't add elf locations to locations db when populating database",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T17:27:20",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T17:32:13",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-10-13T14:11:04",
+      "updated_at": "2020-10-13T14:11:04",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/855",
+      "number": 855,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Clean up dump files on sftp server",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2021-04-13T22:58:15",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/855#issuecomment-819104709",
+          "body": "Normally the way this would get handled is a cron job on `lib-sftp` that just does `find /alma/* -mtime +30 -exec rm {} \\;`, but it doesn't look like lib-sftp is handled by ansible. @kayiwa should we add an ansible role that only does that somehow? Or maybe we should just add this to that box?"
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-04-14T17:43:08",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/855#issuecomment-819699470",
+          "body": "We should enter the cron manually and document it in pul-the-hard-way. Put the cron job on the user who owns the files."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-13T22:58:15",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-13T22:58:15",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-04-14T17:43:14",
+      "updated_at": "2021-04-14T17:43:14",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1249",
+      "number": 1249,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "008 fields from the bibdata bibliographic endpoint are improperly formatted",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2021-04-14T17:47:18",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1249#issuecomment-819706419",
+          "body": "This is a browser display problem. If you `wget` those URLs the 008 fields are right."
+        },
+        {
+          "user_name": "Hector Correa",
+          "updated_at": "2021-04-14T17:47:34",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1249#issuecomment-819707027",
+          "body": "The issue in staff view seems to be a display issue, the correct value is shown if you view-source \r\n\r\n![Screen Shot 2021-04-14 at 1 42 43 PM](https://user-images.githubusercontent.com/568286/114755704-f4b94500-9d27-11eb-89d8-8caf4f3c19a5.png)\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-04-14T17:51:18",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-04-02T15:56:08",
+      "updated_at": "2021-04-02T15:56:08",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1203",
+      "number": 1203,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Remove elf locations from access.rb",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-04-14T17:52:19",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1203#issuecomment-819688350",
+          "body": "The code that generates the database tables needs to filter these out, since we are not going to have them removed from the Online library in Alma any time soon.  https://github.com/pulibrary/bibdata/issues/1245"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-04-14T18:04:39",
+      "updated_at": "2021-04-14T18:04:39",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1250",
+      "number": 1250,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Don't add zobsolete library and locations when we pull location values from alma",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-04-14T18:04:39",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-04-14T18:09:45",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-01-19T15:29:52",
+      "updated_at": "2021-01-19T15:29:52",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/983",
+      "number": 983,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Build, provision, deploy production alma infrastructure",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-04-08T15:12:26",
+      "updated_at": "2021-04-08T15:12:26",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1220",
+      "number": 1220,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Post incremental ReCAP dump files to S3",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "mzelesky",
+          "updated_at": "2021-04-14T18:50:51",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1220#issuecomment-819752811",
+          "body": "I don't know if the publishing profile can handle SubmitCollection for bound-withs. Also, the entire call number (852 h and i) needs to be in the 852$h. So I think there's going to have to be additional work done on the records before submitting them to SCSB."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T15:11:36",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-04-07T15:23:02",
+      "updated_at": "2021-04-07T15:23:02",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/1213",
+      "number": 1213,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/1213",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Add LocationToFileService to create holding and delivery json files",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-04-14T02:13:14",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-04-14T19:11:03",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/1213",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-03-23T18:46:12",
+      "updated_at": "2021-03-23T18:46:12",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1154",
+      "number": 1154,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Run a full index for initial QA",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-04-14T15:16:59",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1154#issuecomment-819599695",
+          "body": "@christinach every time I deploy I have to copy that one template map before I can run the index. I'm not sure why or what we can do to keep it so we don't need to do this. Do you have a sense of what will take care of that for us, or do we need a new issue here?"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-04-14T15:19:02",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1154#issuecomment-819600791",
+          "body": "we have an issue yes. I was planning to do this after the flags. https://github.com/pulibrary/bibdata/issues/1168 also https://github.com/pulibrary/bibdata/issues/1169"
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-04-14T15:19:47",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1154#issuecomment-819601914",
+          "body": "👍🏻 thanks!"
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-04-14T20:18:11",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1154#issuecomment-819804766",
+          "body": "The full index clocked in at 21:10:06 elapsed."
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-04-14T20:46:59",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1154#issuecomment-819821019",
+          "body": "this is done and swapped in."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-04-14T15:17:00",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-04-14T15:17:00",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T20:46:59",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-03-29T13:39:43",
+      "updated_at": "2021-03-29T13:39:43",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1170",
+      "number": 1170,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Need 876 subfield l to have a value of 'RECAP' for SCSB exports",
+      "user_name": "mzelesky",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-04-14T15:18:46",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1170#issuecomment-819601153",
+          "body": "@mzelesky once we're on Alma, can the publishing job be configured to add this? We've implemented the code that just pushes those dump files straight to s3."
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-04-14T17:12:10",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1170#issuecomment-819680798",
+          "body": "This value may be optional"
+        },
+        {
+          "user_name": "mzelesky",
+          "updated_at": "2021-04-14T18:47:58",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1170#issuecomment-819751121",
+          "body": "There is also the need to retrieve the bib records for any 774 field on the record before sending the file to SCSB."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T15:18:47",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T15:18:47",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T20:57:36",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-04-14T21:31:51",
+      "updated_at": "2021-04-14T21:31:51",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/1252",
+      "number": 1252,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/1252",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Fix 008 field formatting in Alma fixtures",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/1252",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-04-14T18:58:32",
+      "updated_at": "2021-04-14T18:58:32",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1251",
+      "number": 1251,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Barcode endpoint and SubmitCollection job need the same formatting for SCSB records; bound-withs need to be handled in both places",
+      "user_name": "mzelesky",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2021-04-14T21:13:56",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1251#issuecomment-819836908",
+          "body": "How many bound-withs are there? We solve this in the barcode controller with a query, which isn't a big deal because it's one resource, if we have to do this for every resource it gets prohibitively expensive on API calls (if there's a lot.)"
+        },
+        {
+          "user_name": "mzelesky",
+          "updated_at": "2021-04-14T21:15:32",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1251#issuecomment-819837829",
+          "body": "There are roughly 15,000. So it won't be too frequent that any are included at all."
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2021-04-14T21:17:12",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1251#issuecomment-819838689",
+          "body": "Will we have to worry about the first submitCollection needing to do 15k of them?"
+        },
+        {
+          "user_name": "mzelesky",
+          "updated_at": "2021-04-14T21:18:02",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1251#issuecomment-819839081",
+          "body": "Yes, we will."
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2021-04-14T21:54:49",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1251#issuecomment-819873371",
+          "body": "I'm going to start work on this, but I don't expect I'll finish it. Hopefully I'll be able to provide all the necessary research."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-04-14T18:59:14",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-04-14T21:54:30",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "cicognara-catalogo": [
+    {
+      "created_at": "2021-04-14T20:44:13",
+      "updated_at": "2021-04-14T20:44:13",
+      "html_url": "https://github.com/pulibrary/cicognara-catalogo/issues/152",
+      "number": 152,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/cicognara-catalogo",
+      "repository_name": "cicognara-catalogo",
+      "state": "open",
+      "title": "Metadata for Volumes Within Multi-Volume Works?",
+      "user_name": "David Platt",
+      "comments": [
+        {
+          "user_name": "Esmé Cowles",
+          "updated_at": "2021-04-14T21:35:36",
+          "html_url": "https://github.com/pulibrary/cicognara-catalogo/issues/152#issuecomment-819864352",
+          "body": "@smallfind Yes, I think that looks great. I think when we bulk-ingested many of these items, we put the Bib ID in the parent and each child, and that's really not the best way to do it. So I think updating them as you describe makes them much more readable."
+        },
+        {
+          "user_name": "David Platt",
+          "updated_at": "2021-04-14T22:18:11",
+          "html_url": "https://github.com/pulibrary/cicognara-catalogo/issues/152#issuecomment-819884471",
+          "body": "My big concern was if the child got detached without any obvious link to the parent in its own record. I'm a little worried that I'll need to go back and check old work, as I tried to hash this one out. "
+        },
+        {
+          "user_name": "David Platt",
+          "updated_at": "2021-04-14T22:18:28",
+          "html_url": "https://github.com/pulibrary/cicognara-catalogo/issues/152#issuecomment-819884575",
+          "body": "(Oh, and THANKS!)"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2021-04-14T20:45:48",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-04-14T20:45:48",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "David Platt",
+          "created_at": "2021-04-14T20:45:56",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "David Platt",
+          "created_at": "2021-04-14T21:35:36",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "David Platt",
+          "created_at": "2021-04-14T21:35:36",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "dpul": [
+    {
+      "created_at": "2021-04-14T14:02:03",
+      "updated_at": "2021-04-14T14:02:03",
+      "html_url": "https://github.com/pulibrary/dpul/issues/891",
+      "number": 891,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "open",
+      "title": "Delete DPUL staging data and link dpul staging to figgy prod",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T14:02:11",
+          "type": "added_to_project"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-03-31T16:29:30",
+      "updated_at": "2021-03-31T16:29:30",
+      "html_url": "https://github.com/pulibrary/dpul/issues/887",
+      "number": 887,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "closed",
+      "title": "Eliminate case sensitivity in hyper-linked search functionality (Keywords, for example)",
+      "user_name": "Kim Leaman",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-04-14T15:32:56",
+          "html_url": "https://github.com/pulibrary/dpul/issues/887#issuecomment-819611685",
+          "body": "@kelea99 the keywords are now being forced to lowercase on import. I reindexed the collection in question. Could you let me know if this resolves the issue?"
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2021-04-14T15:50:28",
+          "html_url": "https://github.com/pulibrary/dpul/issues/887#issuecomment-819624312",
+          "body": "Testing now.  tested capitalized terms in search bar and it works, but throws back different results. I would assume this is due to other case sensitive metadata bits we haven't addressed. What I will say is the standardization of the keywords by forcing all lowercase works, and works well. So the request for Keywords has been fulfilled. I have sent to Ellen to test and will confirm with her today as well, @hackartisan , and update here if we can close the ticket."
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2021-04-14T18:39:52",
+          "html_url": "https://github.com/pulibrary/dpul/issues/887#issuecomment-819746236",
+          "body": "Looks great, @hackartisan! Approved by Stakeholder, too. Closing ticket"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2021-04-14T15:32:56",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2021-04-14T15:32:56",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T15:50:28",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T15:50:28",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2021-04-14T18:39:52",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T18:39:52",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T18:39:52",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2021-04-14T18:39:53",
+          "type": "moved_columns_in_project"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-03-15T15:26:36",
+      "updated_at": "2021-03-15T15:26:36",
+      "html_url": "https://github.com/pulibrary/dpul/issues/884",
+      "number": 884,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "open",
+      "title": "Diacritics display issues reported  for SAE items in transliterated SInhala",
+      "user_name": "Kim Leaman",
+      "comments": [
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2021-04-14T18:46:13",
+          "html_url": "https://github.com/pulibrary/dpul/issues/884#issuecomment-819750107",
+          "body": "@hackartisan this ticket should be addressed only after upgrade to Spotlight 3.0, along with all the other languages we support to make sure we don't break anything we've fixed before. see @tpendragon above"
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2021-04-14T18:48:46",
+          "html_url": "https://github.com/pulibrary/dpul/issues/884#issuecomment-819751582",
+          "body": "updated Ellen, to ensure she knows as well"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T18:46:13",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T18:46:13",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-04-14T18:46:13",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-04-14T18:46:13",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "dspace-development": [
+    {
+      "created_at": "2021-03-31T14:36:34",
+      "updated_at": "2021-03-31T14:36:34",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/305",
+      "number": 305,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Symplectic Element deposits are failing for the production environment",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2021-04-14T19:39:10",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/305#issuecomment-819782378",
+          "body": "The production environment for the OAR appears to no longer be resolving the `rt4ds` DSpace module, as the following error is logged for deposits:\r\n\r\n```\r\nException type: System.Web.Http.HttpResponseException\r\nMessage: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details.\r\nStack trace:\r\nat Symplectic.Foundation.Http.SympHttpClient+<SendAsync>d__16.MoveNext() in libraries\\Symplectic.Foundation\\Http\\SympHttpClient.cs:line 364, char 6\r\nat System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task)\r\nat System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task)\r\nat Symplectic.Foundation.Http.SympHttpClient+<GetBufferedResponseAsync>d__13.MoveNext() in libraries\\Symplectic.Foundation\\Http\\SympHttpClient.cs:line 266, char 10\r\nat Symplectic.Foundation.Concurrency.AggregateExceptionHandling.RethrowFirstInnerNonAggregateExeption(AggregateException) in libraries\\Symplectic.Foundation\\Concurrency\\AggregateExceptionHandling.cs:line 25, char 4\r\nat Symplectic.Foundation.Concurrency.AggregateExceptionHandling.UnwrapResultingAggregateExceptions<TResult>(Func<TResult>) in libraries\\Symplectic.Foundation\\Concurrency\\AggregateExceptionHandling.cs:line 40, char 5\r\nat Symplectic.Foundation.Http.SympHttpClient.GetBufferedResponse(HttpRequestMessage, Nullable<TimeSpan>) in libraries\\Symplectic.Foundation\\Http\\SympHttpClient.cs:line 244, char 4\r\nat Symplectic.Elements.Repository.Client.Rt1RepositoryClient.UploadFile(ApiRepositoryPublication, Rt1RepositoryFileType, MonitoringStreamCopier, String, String, String, Int64) in elements\\Repository.Client\\Rt1RepositoryClient.cs:line 519, char 5\r\n\r\nHttpResponseException-specific information:\r\n\tRequest Method: POST\r\n\tRequest URL: https://oar.princeton.edu/rt4ds/repository\r\n\tResponse Status Code: 404\r\n\tResponse Reason Phrase: Not Found\r\n```"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-04-14T19:39:30",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2021-04-14T14:34:26",
+      "updated_at": "2021-04-14T14:34:26",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4470",
+      "number": 4470,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Error when searching long title",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "Esmé Cowles",
+          "updated_at": "2021-04-14T14:55:19",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4470#issuecomment-819583176",
+          "body": "Searching for a substantial chunk of the title (e.g., `स्वदेशी : बहुराष्ट्रीय कंपनियों के विकल्प के रूप में स्वदेशी उपभोक्ता वस्तुओं`) works, so it may be that the URL or headers being generated are too long when URL-escaping happens."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-04-14T16:34:27",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-04-14T16:35:25",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-04-14T16:35:54",
+          "type": "reopened"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T18:25:39",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "locations": [
+    {
+      "created_at": "2021-01-21T19:49:54",
+      "updated_at": "2021-01-21T19:49:54",
+      "html_url": "https://github.com/pulibrary/locations/issues/86",
+      "number": 86,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/locations",
+      "repository_name": "locations",
+      "state": "open",
+      "title": "Roll this gem back into bibdata",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T13:57:29",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "openpublishing": [
+    {
+      "created_at": "2021-04-13T14:05:09",
+      "updated_at": "2021-04-13T14:05:09",
+      "html_url": "https://github.com/pulibrary/openpublishing/issues/13",
+      "number": 13,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/openpublishing",
+      "repository_name": "openpublishing",
+      "state": "open",
+      "title": "Question: How big will the uploads to the service be?",
+      "user_name": "Bess Sadler",
+      "comments": [
+        {
+          "user_name": "Kate Lynch",
+          "updated_at": "2021-04-14T15:16:43",
+          "html_url": "https://github.com/pulibrary/openpublishing/issues/13#issuecomment-819599496",
+          "body": "After checking with the stakeholder, generally individual uploads will be small (individual PDFS), usually lower than 1GB.  Over time, there may be a need for embedded associated media files, but these could and probably should be uploaded to a media streaming platform such as Media Central, and not OJS."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-04-13T14:04:05",
+      "updated_at": "2021-04-13T14:04:05",
+      "html_url": "https://github.com/pulibrary/openpublishing/issues/12",
+      "number": 12,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/openpublishing",
+      "repository_name": "openpublishing",
+      "state": "open",
+      "title": "Question: Do we want to enable restful URLS?",
+      "user_name": "Bess Sadler",
+      "comments": [
+        {
+          "user_name": "Kate Lynch",
+          "updated_at": "2021-04-14T15:18:04",
+          "html_url": "https://github.com/pulibrary/openpublishing/issues/12#issuecomment-819600598",
+          "body": "I don't believe this is a need for our end users."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-04-06T19:37:13",
+      "updated_at": "2021-04-06T19:37:13",
+      "html_url": "https://github.com/pulibrary/openpublishing/issues/10",
+      "number": 10,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/openpublishing",
+      "repository_name": "openpublishing",
+      "state": "open",
+      "title": "Move OJS back in-house",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-14T19:46:23",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2021-04-02T13:06:07",
+      "updated_at": "2021-04-02T13:06:07",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2389",
+      "number": 2389,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Copies in the library section should not display in the record page for online resources",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2021-04-14T17:27:38",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/2389#issuecomment-819690125",
+          "body": "These won't index now that elfs are not in the locations table."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-04-14T17:27:38",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2021-04-14T11:52:34",
+      "updated_at": "2021-04-14T11:52:34",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2204",
+      "number": 2204,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "[catalog-staging] Update SSL cert for catalog-staging",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-04-13T21:09:05",
+      "updated_at": "2021-04-13T21:09:05",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2203",
+      "number": 2203,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2203",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[Bibdata] Use SCSB Staging Bucket for Alma QA",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T15:05:45",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T15:05:45",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T15:05:45",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T15:05:46",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2203",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-04-14T16:35:50",
+      "updated_at": "2021-04-14T16:35:50",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2205",
+      "number": 2205,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2205",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[Figgy] Increase proxy buffer size.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T18:25:38",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T18:25:38",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T18:25:39",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T18:25:39",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2205",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-04-14T19:57:26",
+      "updated_at": "2021-04-14T19:57:26",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2207",
+      "number": 2207,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2207",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Can not get mysql to allow me to login",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-14T19:57:26",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-14T19:57:26",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-04-14T19:57:33",
+          "type": "convert_to_draft"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2207",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-04-14T17:37:21",
+      "updated_at": "2021-04-14T17:37:21",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2206",
+      "number": 2206,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2206",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "move ojs on prm",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-14T19:38:11",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-15T00:01:33",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-15T00:13:06",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-15T00:49:03",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-15T00:49:04",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-15T00:49:04",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-15T00:49:04",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2206",
+      "action": "pull_request_closed"
+    }
+  ],
+  "special_collections": [
+    {
+      "created_at": "2021-04-14T19:35:50",
+      "updated_at": "2021-04-14T19:35:50",
+      "html_url": "https://github.com/pulibrary/special_collections/pull/649",
+      "number": 649,
+      "pull_request_html_url": "https://github.com/pulibrary/special_collections/pull/649",
+      "repository_html_url": "https://github.com/pulibrary/special_collections",
+      "repository_name": "special_collections",
+      "state": "open",
+      "title": "adds pulfalight to sc bento box",
+      "user_name": "Shaun Ellis",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/special_collections/pull/649",
+      "action": "pull_request_open"
+    }
+  ],
+  "uptime": [
+    {
+      "created_at": "2021-04-14T02:05:16",
+      "updated_at": "2021-04-14T02:05:16",
+      "html_url": "https://github.com/pulibrary/uptime/issues/84",
+      "number": 84,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/uptime",
+      "repository_name": "uptime",
+      "state": "closed",
+      "title": "🛑 Confluence is down",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2021-04-14T02:25:18",
+          "html_url": "https://github.com/pulibrary/uptime/issues/84#issuecomment-819174710",
+          "body": "**Resolved:** Confluence is back up in [`f4eb13d`](https://github.com/pulibrary/uptime/commit/f4eb13d04df16cde06c130d1af7874bcbbd9dd23\n)."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-14T02:05:16",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-14T02:05:16",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-14T02:05:17",
+          "type": "locked"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-14T02:25:19",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-04-14T19:46:08",
+      "updated_at": "2021-04-14T19:46:08",
+      "html_url": "https://github.com/pulibrary/uptime/issues/85",
+      "number": 85,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/uptime",
+      "repository_name": "uptime",
+      "state": "closed",
+      "title": "🛑 OAR is down",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2021-04-14T19:52:09",
+          "html_url": "https://github.com/pulibrary/uptime/issues/85#issuecomment-819789742",
+          "body": "**Resolved:** OAR is back up in [`367c57b`](https://github.com/pulibrary/uptime/commit/367c57bdff2f1b3a5159204d9f2b6b2309d82f87\n)."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-14T19:46:08",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-14T19:46:08",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-14T19:46:09",
+          "type": "locked"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-04-14T19:52:09",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "vireo_transformation": [
+    {
+      "created_at": "2021-04-14T15:45:42",
+      "updated_at": "2021-04-14T15:45:42",
+      "html_url": "https://github.com/pulibrary/vireo_transformation/pull/27",
+      "number": 27,
+      "pull_request_html_url": "https://github.com/pulibrary/vireo_transformation/pull/27",
+      "repository_html_url": "https://github.com/pulibrary/vireo_transformation",
+      "repository_name": "vireo_transformation",
+      "state": "closed",
+      "title": "Add skeleton of thor task for command line processing",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-04-14T15:46:22",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-04-14T15:46:22",
+          "type": "merged"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-04-14T15:46:22",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-04-14T15:46:23",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/vireo_transformation/pull/27",
+      "action": "pull_request_closed"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 49,
+    "closed_count": 5,
+    "created_count": 15,
+    "pull_request_closed_count": 9,
+    "pull_request_open_count": 5,
+    "updated_count": 15,
+    "today": "2021-04-14T22:00:04",
+    "yesterday": "2021-04-13T22:00:04"
+  }
+}
