@@ -1,0 +1,1864 @@
+{
+  "bibdata": [
+    {
+      "created_at": "2021-05-19T15:55:22",
+      "updated_at": "2021-05-19T15:55:22",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1336",
+      "number": 1336,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Incremental recap dump files are not uploaded to S3 ",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Eliot Jordan",
+          "updated_at": "2021-05-20T23:06:47",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1336#issuecomment-845539057",
+          "body": "This looks to be a performance & memory issue. On the alma staging machine (5 sidekiq threads), this is the data from `top`:\r\n\r\n25 minutes:   99.3% cpu  73.7% memory\r\n40 minutes:   99.3% cpu  90.0% memory\r\n\r\nBest guess, the sidekiq jobs saturate the available memory. It's strange and annoying that the jobs are considered \"complete\" when the threads terminate.\r\n\r\n`perf` wasn't that helpful\r\n\r\n```\r\n   5.60%  util.rb:23     libruby-2.6.so.2.6.6  [.] 0x00000000000ae361\r\n   5.11%  util.rb:23     libruby-2.6.so.2.6.6  [.] 0x00000000000ae358\r\n   3.52%  util.rb:23     libruby-2.6.so.2.6.6  [.] 0x00000000000ae33f\r\n   2.85%  util.rb:23     libc-2.27.so          [.] 0x00000000000bb4ea\r\n   2.77%  util.rb:23     libc-2.27.so          [.] 0x00000000000bb4e6\r\n   2.77%  util.rb:23     libc-2.27.so          [.] 0x00000000000bb4f2\r\n   2.70%  util.rb:23     libruby-2.6.so.2.6.6  [.] 0x00000000000b124d\r\n   2.62%  util.rb:23     libc-2.27.so          [.] 0x00000000000bb4ee\r\n   2.27%  util.rb:23     libruby-2.6.so.2.6.6  [.] rb_wb_protected_newobj_of\r\n   2.08%  util.rb:23     libc-2.27.so          [.] cfree\r\n   1.55%  util.rb:23     libruby-2.6.so.2.6.6  [.] 0x00000000000b1154\r\n   1.52%  util.rb:23     libruby-2.6.so.2.6.6  [.] 0x00000000000b2488\r\n   1.47%  util.rb:23     libruby-2.6.so.2.6.6  [.] 0x00000000000b1e14\r\n   1.45%  util.rb:23     libruby-2.6.so.2.6.6  [.] 0x00000000000af172\r\n   1.25%  util.rb:23     libc-2.27.so          [.] malloc\r\n```"
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2021-05-20T23:08:57",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1336#issuecomment-845539959",
+          "body": "It's not that they're considered complete, it's that the OS terminates the thread to free memory and the job doesn't make it back. Sidekiq-pro fixes that."
+        },
+        {
+          "user_name": "Eliot Jordan",
+          "updated_at": "2021-05-20T23:42:21",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1336#issuecomment-845552469",
+          "body": "\"If a Sidekiq process crashes while processing a job, that job is lost.\" Yep. That's what's going on. Not sure if it's worth $950 / year."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-04-21T16:51:43",
+      "updated_at": "2021-04-21T16:51:43",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1276",
+      "number": 1276,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Index dspace theses in alma-qa",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-05-21T10:11:32",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1276#issuecomment-845843424",
+          "body": "This is done https://catalog-alma-qa.princeton.edu/catalog?utf8=%E2%9C%93&search_field=all_fields&q=id%3Adsp*."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-05-21T10:11:32",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-05-11T15:25:39",
+      "updated_at": "2021-05-11T15:25:39",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1310",
+      "number": 1310,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Full index for QA",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-05-14T18:38:10",
+      "updated_at": "2021-05-14T18:38:10",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1326",
+      "number": 1326,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Update process_recap_records method to look for harvard partner",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-05-21T11:00:26",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1326#issuecomment-845869750",
+          "body": "closed by #1337 "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-05-21T11:00:26",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-01-13T20:19:16",
+      "updated_at": "2021-01-13T20:19:16",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/968",
+      "number": 968,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Ensure jobs from alma sandbox don't trigger events on our production stack",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T13:39:34",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T13:39:45",
+          "type": "unassigned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-05-21T13:39:53",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-05-21T13:49:08",
+      "updated_at": "2021-05-21T13:49:08",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1348",
+      "number": 1348,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Ensure only one incremental indexing job can run at a time",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T13:49:08",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-05-21T13:25:20",
+      "updated_at": "2021-05-21T13:25:20",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/1347",
+      "number": 1347,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/1347",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Update deploy with bibdata-worker1",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-05-21T13:25:53",
+          "html_url": "https://github.com/pulibrary/bibdata/pull/1347#issuecomment-845948794",
+          "body": "Waiting for playbook to run."
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-05-21T14:17:37",
+          "html_url": "https://github.com/pulibrary/bibdata/pull/1347#issuecomment-845982147",
+          "body": "blocked by https://github.com/pulibrary/princeton_ansible/pull/2273/files. \r\n@kayiwa and I will work on this on 05/24/2021"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-05-21T14:17:37",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-05-21T14:17:37",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-05-21T14:17:51",
+          "type": "convert_to_draft"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/1347",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-05-12T14:42:12",
+      "updated_at": "2021-05-12T14:42:12",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1314",
+      "number": 1314,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Items in locations where flag \"aeon_location\" is true should have availability \"Onsite access only\"",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-05-21T11:27:38",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1314#issuecomment-845884141",
+          "body": "Do we want `Onsite access only` or `Onsite access`"
+        },
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2021-05-21T14:47:14",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1314#issuecomment-846004335",
+          "body": "We have \"On-site access\" in prod now. Let's go with that.\r\n\r\n\r\n"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-05-21T14:52:12",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1314#issuecomment-846007774",
+          "body": "Thank you @kevinreiss "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-05-21T14:52:12",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-05-21T14:52:12",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-05-21T15:03:53",
+      "updated_at": "2021-05-21T15:03:53",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1349",
+      "number": 1349,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "[Bibdata/production] Errno::EACCES: Permission denied @ rb_sysopen - /data/marc_liberation_files/scsb_update_files/fixes_2021_05_21.json",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-05-21T15:04:59",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1349#issuecomment-846017551",
+          "body": "This is a permission error. We should handle this in ansible. "
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-05-21T15:11:54",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1349#issuecomment-846022577",
+          "body": "Issue moved to [pulibrary/princeton_ansible #2274](https://github.com/pulibrary/princeton_ansible/issues/2274) via [**ZenHub**](https://www.zenhub.com/)\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-05-21T15:05:07",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-05-21T15:11:53",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-05-21T16:17:06",
+      "updated_at": "2021-05-21T16:17:06",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/1350",
+      "number": 1350,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/1350",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Run RecapDumpFileProcessingJobs in serial",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T16:42:18",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T16:42:18",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T16:42:18",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T16:42:18",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/1350",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-05-20T19:27:38",
+      "updated_at": "2021-05-20T19:27:38",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/1344",
+      "number": 1344,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/1344",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Add staging/production deploy setup for webhook monitor.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-05-21T17:49:01",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-05-21T17:49:01",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-05-21T17:49:01",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-05-21T17:49:02",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/1344",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-01-16T20:25:47",
+      "updated_at": "2020-01-16T20:25:47",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/583",
+      "number": 583,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "[Bibdata/production] ActionView::Template::Error: undefined method `constant' for nil:NilClass",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-05-21T18:31:50",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/583#issuecomment-846155308",
+          "body": "This was also triggered in alma-staging because dump type constant is missing. https://app.honeybadger.io/projects/54497/faults/37312155"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-05-21T18:32:11",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/583#issuecomment-846155462",
+          "body": "We need to remember to set them in the database."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-05-21T18:27:18",
+      "updated_at": "2021-05-21T18:27:18",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1351",
+      "number": 1351,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "scsb partner full dump events need start / end times",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T18:27:45",
+          "type": "renamed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T19:05:40",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-05-21T13:19:40",
+      "updated_at": "2021-05-21T13:19:40",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1346",
+      "number": 1346,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Update deploy to bibdata-worker1",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-05-21T13:19:40",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-05-21T14:22:16",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T20:27:25",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T20:27:30",
+          "type": "reopened"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-05-20T15:51:07",
+      "updated_at": "2021-05-20T15:51:07",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/1341",
+      "number": 1341,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/1341",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Improve ReCAP guard in AlmaItem methods",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-05-21T16:21:30",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-05-21T16:21:50",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-05-21T16:22:11",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T20:30:04",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T20:30:04",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T20:30:04",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T20:30:05",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/1341",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-12-01T20:18:55",
+      "updated_at": "2020-12-01T20:18:55",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/905",
+      "number": 905,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/905",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "[Do not merge] Alma Migration",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-05-20T22:20:14",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-05-21T15:07:25",
+          "type": "deployed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/905",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-05-19T14:36:42",
+      "updated_at": "2021-05-19T14:36:42",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1335",
+      "number": 1335,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Issue a notification to Honeybadger when all full index files have been transferred",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-05-21T20:37:54",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1335#issuecomment-846245733",
+          "body": "We don't need this anymore since the first job will be an incremental job; it will start indexing automatically."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T20:38:03",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-05-21T20:41:05",
+      "updated_at": "2021-05-21T20:41:05",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1352",
+      "number": 1352,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "load dump types on deploy",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T20:41:05",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-05-21T20:48:59",
+      "updated_at": "2021-05-21T20:48:59",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1353",
+      "number": 1353,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Use the isilon instead of a samba share from the worker box",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "dspace-development": [
+    {
+      "created_at": "2021-05-07T15:04:42",
+      "updated_at": "2021-05-07T15:04:42",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/339",
+      "number": 339,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Shift latest PRDS metadata to dataspace",
+      "user_name": "Kevin McElwee",
+      "comments": [
+        {
+          "user_name": "Bess Sadler",
+          "updated_at": "2021-05-21T14:35:35",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/339#issuecomment-845994849",
+          "body": "As of 21 May, PRDS's latest changes are deployed to dataspace-dev. PRDS is reviewing these and I'll check in with Matt Chandler on Tuesday May 25 to see if these changes can go to production."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2021-05-21T14:34:26",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-05-21T14:40:13",
+      "updated_at": "2021-05-21T14:40:13",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/345",
+      "number": 345,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Link to PRDS DataSpace help page from submission forms",
+      "user_name": "Matthew J. Chandler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2021-05-21T14:40:13",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2021-05-21T14:40:13",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-05-21T14:07:07",
+      "updated_at": "2021-05-21T14:07:07",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/344",
+      "number": 344,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Provide access to the HTTP REST API for Symplectic Elements",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2021-05-21T14:12:42",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/344#issuecomment-845979067",
+          "body": "In order to advance this, a number of steps were required:\r\n\r\n- Ensuring that the bindings for port 8091 were enabled for the TLS on the Microsoft Server environment from within the IIS configuration\r\n- Ensuring that the user under which the application is running has the proper access control list privileges to bind to this port\r\n- Ensuring that Elements provides access (at the application level) to the API endpoint for clients authenticated over the VPN\r\n\r\nThe second step for this is achieved with the following Powershell command (invoked with administrative privileges):\r\n\r\n```psh\r\nPS C:\\windows\\system32> netsh http add urlacl url=https://+:8091/elements-api/v4.9/ user=%USERDOMAIN%\\%USERNAME%\r\n```"
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2021-05-21T14:16:59",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/344#issuecomment-845981781",
+          "body": "HTTP `Basic` authentication is then offered in the response from the server for the API endpoint:\r\n\r\n```bash\r\ncurl -v https://oaworkflow.princeton.edu:8091/elements-api/v4.9/\r\n[...]\r\n>\r\n< HTTP/1.1 401 Unauthorized\r\n< Content-Length: 0\r\n< Server: Microsoft-HTTPAPI/2.0\r\n< WWW-Authenticate: Basic realm=\"Symplectic Elements at Organisation (API)\"\r\n< Date: Fri, 21 May 2021 14:14:52 GMT\r\n<\r\n* Connection #0 to host oaworkflow.princeton.edu left intact\r\n* Closing connection 0\r\n```\r\n\r\nPlease be aware that this does not integrate with Single Sign-On for the application."
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2021-05-21T15:16:25",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/344#issuecomment-846025968",
+          "body": "Modifying the `API accounts` yields that users *can* successfully authenticate using `https://oaworkflow.princeton.edu:8091/elements-api/v4.9`. However, a 401 response is provided for requesting `https://oaworkflow.princeton.edu:8091/elements-api/v4.9/`. I have been trying to diagnose this using the IIS documentation, and I am proceeding now with the Symplectic Support platform."
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2021-05-21T17:34:31",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/344#issuecomment-846124502",
+          "body": "Access to the API is now available for clients on the VPN with authorized users:\r\n\r\n```bash\r\nexport ELEMENTS_SECRET=$(echo -n 'rest:$SECRET' | base64)\r\ncurl -H \"Authorization: Basic $ELEMENTS_SECRET\" https://oaworkflow.princeton.edu:8091/elements-api/v4.9/users\r\n```"
+        },
+        {
+          "user_name": "Mark Diggory",
+          "updated_at": "2021-05-21T18:14:08",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/344#issuecomment-846145831",
+          "body": "Thank you James, noticing the $SECRET and $ELEMENTS_SECRET there, Are these\r\ncredentials that you can make available to us, or should we configure them\r\nin the admin ui?"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-05-21T14:07:07",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-05-21T14:07:07",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-05-21T14:07:07",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2021-05-21T20:53:55",
+      "updated_at": "2021-05-21T20:53:55",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4530",
+      "number": 4530,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Review Comment and additional settings in \"edit scanned resource\" did not hold save/submit when page was refreshed.",
+      "user_name": "Kim Leaman",
+      "comments": [
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2021-05-21T21:05:30",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4530#issuecomment-846259421",
+          "body": "are we not able to update/edit and save item records while image ingests are processing?"
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2021-05-21T21:11:06",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4530#issuecomment-846261981",
+          "body": "USUALLY it's fine, it looks like you just happened to hit a bad window. :("
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2021-05-21T21:26:56",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4530#issuecomment-846271849",
+          "body": "That's good, though! Id rather it be a rare occurrence and just my bad timing. Ok. I will close the ticket and will reopen if it happens again (how many bad windows can i find, i wonder?!) Thanks. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2021-05-21T20:53:55",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2021-05-21T21:05:36",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2021-05-21T21:26:56",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-05-21T17:44:29",
+      "updated_at": "2021-05-21T17:44:29",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4529",
+      "number": 4529,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Workers stop picking up jobs",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2021-05-21T21:29:21",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4529#issuecomment-846264548",
+          "body": "TL;DR: We need to wait for one of these to break to get a thread backtrace to figure out if we have a thread leak.\r\n\r\nhttps://app.honeybadger.io/projects/53391/faults/35108866/01F65P9QDDF1EEW4EEEB18WG9B is the error that's killing these. As soon as this happens that worker's dead and can no longer pick up jobs.\r\n\r\nAccording to https://github.com/mperham/sidekiq/issues/2862 this is likely because there's a thread leak in our code somewhere - something's spawning a thread and not getting rid of itself, we'll have to make sure that thread-spawner's not run in the Sidekiq process. Maybe Bunny? That'd be my guess.\r\n\r\nWe can find out by waiting until a worker dies, leaving it, and doing the following:\r\n\r\nIn one pane:\r\n\r\n`sudo tail -f /var/log/syslog | grep sidekiq`\r\n\r\nIn another:\r\n\r\n`ps aux | grep sidekiq` (get sidekiq Process ID)\r\nCheck the thread count:\r\n`sudo ps HuH p sidekiq_pid | wc -l` <-- This should be pretty high if it's our problem.\r\n`sudo kill -TTIN sidekiq_pid`\r\n\r\nThen copy the backtrace of all the threads (dumped into syslog) into this issue so we can diagnose them. The TTIN signal will dump the backtrace, as per https://github.com/mperham/sidekiq/wiki/Signals#ttin\r\n\r\nThe OTHER possibility is https://github.com/rails/rails/issues/33600."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2021-05-17T22:02:53",
+      "updated_at": "2021-05-17T22:02:53",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2456",
+      "number": 2456,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2456",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Update location display in alma search results #2418 to include the library name.",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-05-21T11:33:08",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2456#issuecomment-845886996",
+          "body": "closing in favor of https://github.com/pulibrary/orangelight/pull/2466"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-05-21T11:33:09",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2456",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-05-21T11:32:39",
+      "updated_at": "2021-05-21T11:32:39",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2466",
+      "number": 2466,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2466",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Updates the search results location display ",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-05-21T11:47:52",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-05-21T11:56:59",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T13:27:17",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T13:27:17",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T13:27:18",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T13:27:18",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2466",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-04-30T15:37:33",
+      "updated_at": "2021-04-30T15:37:33",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2440",
+      "number": 2440,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Implement a read-only switch - Alma side",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-05-21T13:35:36",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/2440#issuecomment-845954900",
+          "body": "It looks like we only need #2439"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T13:35:36",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-05-21T14:14:18",
+      "updated_at": "2021-05-21T14:14:18",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2468",
+      "number": 2468,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2468",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Indicates babel-jest as a dependency",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T14:14:18",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T14:14:18",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T14:34:49",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T14:34:49",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T14:34:49",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T14:34:50",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2468",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-05-21T11:35:26",
+      "updated_at": "2021-05-21T11:35:26",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2467",
+      "number": 2467,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Update record page location display",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-05-21T11:35:26",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-05-21T11:42:27",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-05-21T19:22:29",
+      "updated_at": "2021-05-21T19:22:29",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2470",
+      "number": 2470,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2470",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Remove the flood message for lewis.  Engineering should still have it",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2470",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-05-20T18:58:34",
+      "updated_at": "2021-05-20T18:58:34",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2465",
+      "number": 2465,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2465",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Availability for bib records with temporary locations",
+      "user_name": "Hector Correa",
+      "comments": [
+        {
+          "user_name": "Hector Correa",
+          "updated_at": "2021-05-21T19:47:59",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2465#issuecomment-846211920",
+          "body": "Added unit test."
+        },
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2021-05-21T20:22:13",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2465#issuecomment-846232025",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/39904324/badge)](https://coveralls.io/builds/39904324)\n\nCoverage remained the same at 96.753% when pulling **ca9bf47f1869bd987ef52c6d46dc1c9752f3ab41 on temp_locations_v2** into **a1aa8cab6891a13dd1d9b7de12a7c91791c85eec on main**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2021-05-21T19:47:37",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T20:29:19",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T20:29:19",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T20:29:19",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T20:29:19",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2465",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-05-21T19:10:43",
+      "updated_at": "2021-05-21T19:10:43",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2469",
+      "number": 2469,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2469",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Updating requests to the alma branch so we can deploy the latest version to a server",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2021-05-21T19:54:27",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2469#issuecomment-846219200",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/39903294/badge)](https://coveralls.io/builds/39903294)\n\nCoverage remained the same at 96.753% when pulling **e0952c1e72d63c52618ff544e0de8ad7435456a5 on alma** into **a1aa8cab6891a13dd1d9b7de12a7c91791c85eec on main**.\n"
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-05-21T20:32:43",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2469#issuecomment-846239647",
+          "body": "👍🏻 @carolyncole The plan we thought we would try was to have this alma branch here on orangelight to use for deploy to the alma / orangelight servers. In general we plan to continue submitting alma PRs to `main`. The catch is that to deploy we'll have to rebase this branch on main and then deploy this branch. If that becomes too onerous we can just switch to using the branch on orangelight, as well."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T19:16:57",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T20:32:43",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T20:32:43",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2469",
+      "action": "pull_request_open"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2021-05-21T13:04:05",
+      "updated_at": "2021-05-21T13:04:05",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2272",
+      "number": 2272,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2272",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add catalog-alma tls and configuration the commit does not allow non-VPN access",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-05-21T13:37:33",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-05-21T13:37:33",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-05-21T13:37:33",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-05-21T13:37:34",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2272",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-05-21T13:32:57",
+      "updated_at": "2021-05-21T13:32:57",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2273",
+      "number": 2273,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2273",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "add new host and variables",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-05-21T13:42:36",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-05-21T14:11:39",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-05-21T14:18:02",
+          "type": "convert_to_draft"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2273",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-10-22T00:51:10",
+      "updated_at": "2020-10-22T00:51:10",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1788",
+      "number": 1788,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Introduce the ASPACE_USER and ASPACE_PASSWORD for the pulibrary.pulfalight Role",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-05-21T19:34:32",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2020-05-11T15:40:37",
+      "updated_at": "2020-05-11T15:40:37",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1508",
+      "number": 1508,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Move Google Cloud Maria DBs to A local Maria non clustered datbase",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-05-21T19:35:23",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-05-21T15:11:53",
+      "updated_at": "2021-05-21T15:11:53",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2274",
+      "number": 2274,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Fix bibdata machine permissions so deploy can read/write in /data/marc_liberation_files/",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-05-21T15:28:19",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2274#issuecomment-846034479",
+          "body": "@christinach @kayiwa should this have been fixed in https://github.com/pulibrary/princeton_ansible/pull/2256/files and https://github.com/pulibrary/princeton_ansible/pull/2264/files? I just provisioned the bibdata-alma-staging box so maybe it will be resolved?"
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-05-21T15:29:53",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2274#issuecomment-846035657",
+          "body": "oh this was on bibdata-alma-worker... not sure when it was provisioned."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-05-21T15:11:53",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-05-21T15:11:53",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-05-21T15:28:19",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-05-21T15:28:19",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-05-21T15:28:19",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-05-21T15:28:19",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T20:25:01",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T20:26:03",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-05-11T19:18:19",
+      "updated_at": "2021-05-11T19:18:19",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2258",
+      "number": 2258,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "create a bibdata-worker1",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-05-21T20:39:51",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-05-21T20:39:51",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-05-21T20:45:37",
+      "updated_at": "2021-05-21T20:45:37",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2275",
+      "number": 2275,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Bibdata machines: don't mount subdirectories of a directory we're already mounting",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "pul_library_drupal": [
+    {
+      "created_at": "2021-05-21T18:29:48",
+      "updated_at": "2021-05-21T18:29:48",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1739",
+      "number": 1739,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "open",
+      "title": "Retire acquisition highlights content type, features, and views",
+      "user_name": "Axa Mei Liauw",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2021-05-21T18:46:16",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2021-05-21T18:46:57",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-05-19T15:13:13",
+      "updated_at": "2021-05-19T15:13:13",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1737",
+      "number": 1737,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "open",
+      "title": "Retire Library Newsletter content type, features, and views",
+      "user_name": "Axa Mei Liauw",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2021-05-21T18:47:24",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-05-21T19:00:51",
+      "updated_at": "2021-05-21T19:00:51",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1741",
+      "number": 1741,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "open",
+      "title": "Remove unused content types",
+      "user_name": "Axa Mei Liauw",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2021-05-21T19:00:51",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-05-21T18:46:41",
+      "updated_at": "2021-05-21T18:46:41",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1740",
+      "number": 1740,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "open",
+      "title": "Retire staff announcement content types, features, and views",
+      "user_name": "Axa Mei Liauw",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2021-05-21T18:47:09",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Axa Mei Liauw",
+          "created_at": "2021-05-21T19:09:02",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "pulbot": [
+    {
+      "created_at": "2020-08-18T13:00:03",
+      "updated_at": "2020-08-18T13:00:03",
+      "html_url": "https://github.com/pulibrary/pulbot/issues/43",
+      "number": 43,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulbot",
+      "repository_name": "pulbot",
+      "state": "open",
+      "title": "heaven and hubot-deploy are no longer maintained",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-05-21T19:26:58",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-05-21T19:31:22",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "requests": [
+    {
+      "created_at": "2021-05-10T20:26:08",
+      "updated_at": "2021-05-10T20:26:08",
+      "html_url": "https://github.com/pulibrary/requests/issues/927",
+      "number": 927,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "open",
+      "title": "Test Thesis Requesting",
+      "user_name": "Shaun Ellis",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-05-21T10:12:28",
+          "html_url": "https://github.com/pulibrary/requests/issues/927#issuecomment-845843904",
+          "body": "@kevinreiss thesis collection is indexed in alma-qa https://github.com/pulibrary/bibdata/issues/1276"
+        },
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2021-05-21T12:59:50",
+          "html_url": "https://github.com/pulibrary/requests/issues/927#issuecomment-845933007",
+          "body": "Thanks, we can give this a shot now. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-05-21T10:12:28",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-05-21T10:12:28",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-05-21T15:45:22",
+      "updated_at": "2021-05-21T15:45:22",
+      "html_url": "https://github.com/pulibrary/requests/issues/947",
+      "number": 947,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "open",
+      "title": "Remove flood message for Lewis Library",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-05-21T15:47:48",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-05-21T16:09:24",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T19:20:50",
+          "type": "referenced"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-05-21T18:03:20",
+      "updated_at": "2021-05-21T18:03:20",
+      "html_url": "https://github.com/pulibrary/requests/pull/949",
+      "number": 949,
+      "pull_request_html_url": "https://github.com/pulibrary/requests/pull/949",
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "open",
+      "title": "Updating feature tests to reflect alma ids and locations",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/requests/pull/949",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-05-21T15:48:05",
+      "updated_at": "2021-05-21T15:48:05",
+      "html_url": "https://github.com/pulibrary/requests/pull/948",
+      "number": 948,
+      "pull_request_html_url": "https://github.com/pulibrary/requests/pull/948",
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "closed",
+      "title": "For #947",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-05-21T15:48:17",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-05-21T16:09:25",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T19:20:49",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T19:20:49",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T19:20:49",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/requests/pull/948",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-05-21T14:05:55",
+      "updated_at": "2021-05-21T14:05:55",
+      "html_url": "https://github.com/pulibrary/requests/issues/946",
+      "number": 946,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "open",
+      "title": "Status lozenge on the UI should show either Available or Unavailable not the real status",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2021-05-21T16:30:26",
+          "html_url": "https://github.com/pulibrary/requests/issues/946#issuecomment-846086272",
+          "body": "Yes, let's use the value in the \"status\" attribute from the current availability response. Align that with column \"C\" in this spreadsheet: https://docs.google.com/spreadsheets/d/1-su5GdlrIaLfiePSzwDmG6YinHBf2k5bJEodpzz8waM/edit#gid=0"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T20:26:48",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "serverless-iiif": [
+    {
+      "created_at": "2021-05-20T22:23:03",
+      "updated_at": "2021-05-20T22:23:03",
+      "html_url": "https://github.com/pulibrary/serverless-iiif/pull/9",
+      "number": 9,
+      "pull_request_html_url": "https://github.com/pulibrary/serverless-iiif/pull/9",
+      "repository_html_url": "https://github.com/pulibrary/serverless-iiif",
+      "repository_name": "serverless-iiif",
+      "state": "closed",
+      "title": "Update dependencies",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-05-20T22:26:46",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-05-20T22:26:46",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-05-20T22:26:46",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-05-20T22:26:48",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/serverless-iiif/pull/9",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-05-20T23:05:43",
+      "updated_at": "2021-05-20T23:05:43",
+      "html_url": "https://github.com/pulibrary/serverless-iiif/pull/10",
+      "number": 10,
+      "pull_request_html_url": "https://github.com/pulibrary/serverless-iiif/pull/10",
+      "repository_html_url": "https://github.com/pulibrary/serverless-iiif",
+      "repository_name": "serverless-iiif",
+      "state": "closed",
+      "title": "Never include stage",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-05-20T23:05:48",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-05-20T23:05:48",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-05-20T23:05:49",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-05-20T23:05:51",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/serverless-iiif/pull/10",
+      "action": "pull_request_closed"
+    }
+  ],
+  "vireo_transformation": [
+    {
+      "created_at": "2021-05-21T00:41:26",
+      "updated_at": "2021-05-21T00:41:26",
+      "html_url": "https://github.com/pulibrary/vireo_transformation/pull/54",
+      "number": 54,
+      "pull_request_html_url": "https://github.com/pulibrary/vireo_transformation/pull/54",
+      "repository_html_url": "https://github.com/pulibrary/vireo_transformation",
+      "repository_name": "vireo_transformation",
+      "state": "closed",
+      "title": "Bump nokogiri from 1.11.2 to 1.11.5",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-05-21T00:41:27",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2021-05-21T18:33:05",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2021-05-21T18:33:05",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2021-05-21T18:33:06",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2021-05-21T18:33:06",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/vireo_transformation/pull/54",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-05-21T18:28:50",
+      "updated_at": "2021-05-21T18:28:50",
+      "html_url": "https://github.com/pulibrary/vireo_transformation/pull/55",
+      "number": 55,
+      "pull_request_html_url": "https://github.com/pulibrary/vireo_transformation/pull/55",
+      "repository_html_url": "https://github.com/pulibrary/vireo_transformation",
+      "repository_name": "vireo_transformation",
+      "state": "closed",
+      "title": "Check spreadsheet for required columns",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-05-21T18:36:14",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-05-21T18:36:14",
+          "type": "merged"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-05-21T18:36:14",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-05-21T18:36:14",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/vireo_transformation/pull/55",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-05-21T19:57:22",
+      "updated_at": "2021-05-21T19:57:22",
+      "html_url": "https://github.com/pulibrary/vireo_transformation/pull/56",
+      "number": 56,
+      "pull_request_html_url": "https://github.com/pulibrary/vireo_transformation/pull/56",
+      "repository_html_url": "https://github.com/pulibrary/vireo_transformation",
+      "repository_name": "vireo_transformation",
+      "state": "closed",
+      "title": "Normalize ID from spreadsheet",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-05-21T19:58:22",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-05-21T19:58:22",
+          "type": "merged"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-05-21T19:58:22",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-05-21T19:58:23",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/vireo_transformation/pull/56",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-05-21T20:40:08",
+      "updated_at": "2021-05-21T20:40:08",
+      "html_url": "https://github.com/pulibrary/vireo_transformation/pull/57",
+      "number": 57,
+      "pull_request_html_url": "https://github.com/pulibrary/vireo_transformation/pull/57",
+      "repository_html_url": "https://github.com/pulibrary/vireo_transformation",
+      "repository_name": "vireo_transformation",
+      "state": "closed",
+      "title": "Copy contents file",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-05-21T20:41:56",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-05-21T20:41:56",
+          "type": "merged"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-05-21T20:41:56",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-05-21T20:41:57",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/vireo_transformation/pull/57",
+      "action": "pull_request_closed"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 55,
+    "closed_count": 6,
+    "created_count": 18,
+    "pull_request_closed_count": 15,
+    "pull_request_open_count": 6,
+    "updated_count": 10,
+    "today": "2021-05-21T22:00:07",
+    "yesterday": "2021-05-20T22:00:07"
+  }
+}
