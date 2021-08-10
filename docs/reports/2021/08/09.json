@@ -1,0 +1,2493 @@
+{
+  "bibdata": [
+    {
+      "created_at": "2021-01-28T15:41:38",
+      "updated_at": "2021-01-28T15:41:38",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1015",
+      "number": 1015,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Schedule publishing jobs",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-08-09T13:05:27",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1015#issuecomment-895205855",
+          "body": "General is scheduled for Friday at 1am."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T13:05:27",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-08-09T16:32:39",
+      "updated_at": "2021-08-09T16:32:39",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1586",
+      "number": 1586,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "[Bibdata] NameError: uninitialized constant AlmaDumpFactory::Dump",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-08-09T16:37:29",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1586#issuecomment-895370887",
+          "body": "It doesn't have an environment. it's invoked like `rake marc_liberation:indexing:poll_sqs RAILS_ENV=production` --  I wonder if we need to move that ENV var to before the `rake`."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T16:33:26",
+          "type": "renamed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T16:36:14",
+          "type": "renamed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T16:41:44",
+          "type": "referenced"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T17:00:43",
+      "updated_at": "2021-08-09T17:00:43",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1587",
+      "number": 1587,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Remove Hathi ETAS code",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T17:00:59",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T17:00:59",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-06T21:30:13",
+      "updated_at": "2021-08-06T21:30:13",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/1585",
+      "number": 1585,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/1585",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "remove get_catalog_date_from_record method",
+      "user_name": "Zaynab Masood",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/1585",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-08-05T21:52:20",
+      "updated_at": "2021-08-05T21:52:20",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/1579",
+      "number": 1579,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/1579",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Exclude inactive electronic portfolios",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-08-09T18:54:58",
+          "html_url": "https://github.com/pulibrary/bibdata/pull/1579#issuecomment-895460505",
+          "body": "@mzelesky if you could review this pr with me tomorrow. I updated and refactored the code. I'm including also a fixture that has active portfolios and a custom inactive one. "
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-08-10T01:14:43",
+          "html_url": "https://github.com/pulibrary/bibdata/pull/1579#issuecomment-895655636",
+          "body": "In this example: https://catalog.princeton.edu/catalog/9996338243506421 the available online section appears empty because the electronic_portfolio url of the sibling record https://catalog.princeton.edu/catalog/9995002873506421/raw does not include a title. It is empty. What are we doing when the title is empty? Do we display the url or a part of it?\r\nThe 951 $8 indicates that the sibling_record is an alma record. \r\nI will review with @mzelesky the 856 of the sibling record to make sure it is indexed as expected.\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T18:50:43",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T18:53:06",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T18:54:58",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T18:54:58",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T19:00:04",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T19:01:47",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-10T01:06:24",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-10T01:06:24",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-10T01:14:43",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-10T01:14:43",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/1579",
+      "action": "pull_request_open"
+    }
+  ],
+  "drds-rails-template": [
+    {
+      "created_at": "2021-07-22T18:05:40",
+      "updated_at": "2021-07-22T18:05:40",
+      "html_url": "https://github.com/pulibrary/drds-rails-template/issues/3",
+      "number": 3,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/drds-rails-template",
+      "repository_name": "drds-rails-template",
+      "state": "closed",
+      "title": "Add pry / byebug",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-08-09T19:32:59",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-08-02T19:54:53",
+      "updated_at": "2021-08-02T19:54:53",
+      "html_url": "https://github.com/pulibrary/drds-rails-template/pull/9",
+      "number": 9,
+      "pull_request_html_url": "https://github.com/pulibrary/drds-rails-template/pull/9",
+      "repository_html_url": "https://github.com/pulibrary/drds-rails-template",
+      "repository_name": "drds-rails-template",
+      "state": "closed",
+      "title": "Add pry",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-08-09T19:32:58",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-08-09T19:32:58",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-08-09T19:32:59",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-08-09T19:33:02",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/drds-rails-template/pull/9",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-08-09T20:12:48",
+      "updated_at": "2021-08-09T20:12:48",
+      "html_url": "https://github.com/pulibrary/drds-rails-template/pull/13",
+      "number": 13,
+      "pull_request_html_url": "https://github.com/pulibrary/drds-rails-template/pull/13",
+      "repository_html_url": "https://github.com/pulibrary/drds-rails-template",
+      "repository_name": "drds-rails-template",
+      "state": "open",
+      "title": "11 rspec",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/drds-rails-template/pull/13",
+      "action": "pull_request_open"
+    }
+  ],
+  "dspace-osti": [
+    {
+      "created_at": "2021-08-09T15:31:48",
+      "updated_at": "2021-08-09T15:31:48",
+      "html_url": "https://github.com/pulibrary/dspace-osti/issues/40",
+      "number": 40,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-osti",
+      "repository_name": "dspace-osti",
+      "state": "open",
+      "title": "Use argparse library to allow for CLI options, such as --no-scrape",
+      "user_name": "Chun Ly",
+      "comments": [
+        {
+          "user_name": "Chun Ly",
+          "updated_at": "2021-08-09T15:32:43",
+          "html_url": "https://github.com/pulibrary/dspace-osti/issues/40#issuecomment-895323351",
+          "body": "Feel free to assign this to me."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T17:34:23",
+      "updated_at": "2021-08-09T17:34:23",
+      "html_url": "https://github.com/pulibrary/dspace-osti/issues/41",
+      "number": 41,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-osti",
+      "repository_name": "dspace-osti",
+      "state": "open",
+      "title": "Add max_page_count is an input variable in Scraper",
+      "user_name": "Chun Ly",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T15:28:08",
+      "updated_at": "2021-08-09T15:28:08",
+      "html_url": "https://github.com/pulibrary/dspace-osti/issues/39",
+      "number": 39,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-osti",
+      "repository_name": "dspace-osti",
+      "state": "open",
+      "title": "Simplify Scraper.py",
+      "user_name": "Chun Ly",
+      "comments": [
+        {
+          "user_name": "Chun Ly",
+          "updated_at": "2021-08-09T15:32:17",
+          "html_url": "https://github.com/pulibrary/dspace-osti/issues/39#issuecomment-895323011",
+          "body": "I can take the lead on this if someone can assign it to me. Thanks!"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T18:20:43",
+      "updated_at": "2021-08-09T18:20:43",
+      "html_url": "https://github.com/pulibrary/dspace-osti/pull/42",
+      "number": 42,
+      "pull_request_html_url": "https://github.com/pulibrary/dspace-osti/pull/42",
+      "repository_html_url": "https://github.com/pulibrary/dspace-osti",
+      "repository_name": "dspace-osti",
+      "state": "open",
+      "title": "Simplify Scraper.py",
+      "user_name": "Chun Ly",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/dspace-osti/pull/42",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-08-09T19:56:27",
+      "updated_at": "2021-08-09T19:56:27",
+      "html_url": "https://github.com/pulibrary/dspace-osti/issues/43",
+      "number": 43,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-osti",
+      "repository_name": "dspace-osti",
+      "state": "open",
+      "title": "Improve Poster module for more CLI options",
+      "user_name": "Chun Ly",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T22:15:34",
+      "updated_at": "2021-08-09T22:15:34",
+      "html_url": "https://github.com/pulibrary/dspace-osti/issues/44",
+      "number": 44,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-osti",
+      "repository_name": "dspace-osti",
+      "state": "open",
+      "title": "Bug: Collection list update needed?",
+      "user_name": "Chun Ly",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2021-08-05T19:24:39",
+      "updated_at": "2021-08-05T19:24:39",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4608",
+      "number": 4608,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Reduce API calls to BibID Migration",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T13:01:27",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-08-06T22:44:43",
+      "updated_at": "2021-08-06T22:44:43",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4609",
+      "number": 4609,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4609",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Reduce calls to bibdata API",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T13:01:27",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T13:01:27",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T13:01:27",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T13:01:28",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4609",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-08-06T23:18:39",
+      "updated_at": "2021-08-06T23:18:39",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4610",
+      "number": 4610,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4610",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Reindexer progress bar should have an accurate count.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T13:28:08",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T13:28:08",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T13:28:08",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T13:28:09",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4610",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-08-09T14:05:43",
+      "updated_at": "2021-08-09T14:05:43",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4613",
+      "number": 4613,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Move rake task figgy:server:start to servers:start",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T13:55:46",
+      "updated_at": "2021-08-09T13:55:46",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4612",
+      "number": 4612,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4612",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Added note about language versions to README",
+      "user_name": "XanderGardner",
+      "comments": [
+        {
+          "user_name": "XanderGardner",
+          "updated_at": "2021-08-09T14:44:49",
+          "html_url": "https://github.com/pulibrary/figgy/pull/4612#issuecomment-895284582",
+          "body": "See #4614"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T14:30:15",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4612",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-08-03T16:08:46",
+      "updated_at": "2020-08-03T16:08:46",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4147",
+      "number": 4147,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Bad tiff vol04 108 needs to be reingested",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2021-08-09T14:50:18",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4147#issuecomment-895289046",
+          "body": "Wrote to David P. in Marquand about this one.  "
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-07-28T19:13:09",
+      "updated_at": "2021-07-28T19:13:09",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4589",
+      "number": 4589,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Save and Ingest is finding partial matches for BibID",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T14:53:36",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-08-06T23:25:17",
+      "updated_at": "2021-08-06T23:25:17",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4611",
+      "number": 4611,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4611",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Fix IngestFolderLocator finding partial matches.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T14:53:36",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T14:53:36",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T14:53:37",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T14:53:37",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4611",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-08-09T14:43:59",
+      "updated_at": "2021-08-09T14:43:59",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4614",
+      "number": 4614,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4614",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Added versions and lastpass set up to README",
+      "user_name": "XanderGardner",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T14:45:11",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-08-09T18:17:35",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-08-09T18:17:35",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-08-09T18:17:36",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-08-09T18:17:36",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4614",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-08-09T19:05:53",
+      "updated_at": "2021-08-09T19:05:53",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4617",
+      "number": 4617,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "failing spec -- mediainfo version?",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T18:31:52",
+      "updated_at": "2021-08-09T18:31:52",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4616",
+      "number": 4616,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4616",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Add instructions for java setup via asdf",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T18:32:42",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-08-09T22:01:53",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-08-09T22:01:53",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-08-09T22:01:53",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-08-09T22:01:53",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4616",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-08-09T16:56:31",
+      "updated_at": "2021-08-09T16:56:31",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4615",
+      "number": 4615,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Add java set up to README",
+      "user_name": "XanderGardner",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T18:30:01",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T18:31:22",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T18:32:41",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-08-09T22:01:53",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "lib_jobs": [
+    {
+      "created_at": "2021-08-09T14:13:53",
+      "updated_at": "2021-08-09T14:13:53",
+      "html_url": "https://github.com/pulibrary/lib_jobs/pull/222",
+      "number": 222,
+      "pull_request_html_url": "https://github.com/pulibrary/lib_jobs/pull/222",
+      "repository_html_url": "https://github.com/pulibrary/lib_jobs",
+      "repository_name": "lib_jobs",
+      "state": "closed",
+      "title": "Adding requirement for csv each place it is utilized",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T14:16:40",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T14:26:50",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T14:26:50",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T14:26:50",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T14:26:51",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/lib_jobs/pull/222",
+      "action": "pull_request_closed"
+    }
+  ],
+  "oawaiver": [
+    {
+      "created_at": "2021-07-29T17:32:04",
+      "updated_at": "2021-07-29T17:32:04",
+      "html_url": "https://github.com/pulibrary/oawaiver/pull/23",
+      "number": 23,
+      "pull_request_html_url": "https://github.com/pulibrary/oawaiver/pull/23",
+      "repository_html_url": "https://github.com/pulibrary/oawaiver",
+      "repository_name": "oawaiver",
+      "state": "open",
+      "title": "Integrates support for CAS using OmniAuth",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-08-09T14:00:30",
+          "type": "ready_for_review"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/oawaiver/pull/23",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-08-09T18:38:10",
+      "updated_at": "2021-08-09T18:38:10",
+      "html_url": "https://github.com/pulibrary/oawaiver/issues/34",
+      "number": 34,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/oawaiver",
+      "repository_name": "oawaiver",
+      "state": "closed",
+      "title": "mysql2 fails to connect to the server host within the Ubuntu server environments",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2021-08-09T19:33:10",
+          "html_url": "https://github.com/pulibrary/oawaiver/issues/34#issuecomment-895485411",
+          "body": "After conferring with Operations, it was determined that this is simply going to be less efficient than advancing #19 "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-08-09T18:38:17",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-08-09T18:38:22",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-08-09T19:33:10",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T14:05:27",
+      "updated_at": "2021-08-09T14:05:27",
+      "html_url": "https://github.com/pulibrary/oawaiver/issues/33",
+      "number": 33,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/oawaiver",
+      "repository_name": "oawaiver",
+      "state": "open",
+      "title": "Address deployment bugs for static asset resolution",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2021-08-09T19:34:15",
+          "html_url": "https://github.com/pulibrary/oawaiver/issues/33#issuecomment-895486032",
+          "body": "https://github.com/pulibrary/oawaiver/tree/jrgriffiniii-fix-deployments resolves this, but the final deployment tasks are still really blocked by #19 "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-08-09T14:05:27",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-08-09T14:05:27",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2021-08-04T17:18:37",
+      "updated_at": "2021-08-04T17:18:37",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2619",
+      "number": 2619,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2619",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Updating requests to reopen ReCAP",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-08-08T23:44:44",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-08-08T23:44:44",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-08-08T23:44:45",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-08-08T23:44:45",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2619",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-07-30T19:22:07",
+      "updated_at": "2021-07-30T19:22:07",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2600",
+      "number": 2600,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Migrate database to new postgres server",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T12:51:10",
+          "type": "unassigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-09-30T21:02:49",
+      "updated_at": "2020-09-30T21:02:49",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2285",
+      "number": 2285,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Add Google Analytics events for proxied online resource links",
+      "user_name": "Kate Lynch",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T13:38:17",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-03-12T14:40:55",
+      "updated_at": "2020-03-12T14:40:55",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/1949",
+      "number": 1949,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Create an orangelight-staging queue for the rabbitmq",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-08-09T14:50:42",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/1949#issuecomment-895289325",
+          "body": "resolved by https://github.com/pulibrary/orangelight/pull/2544"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T14:50:42",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T14:50:43",
+          "type": "moved_columns_in_project"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-08-03T18:59:29",
+      "updated_at": "2021-08-03T18:59:29",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2612",
+      "number": 2612,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2612",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Updating requests to fix the library name on the request form",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-08-09T15:03:54",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2612#issuecomment-895300603",
+          "body": "@kevinreiss @carolyncole is this ok to merge?"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-08-09T15:05:57",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2612#issuecomment-895302598",
+          "body": "hm this pr doesn't include a requests version. maybe it was already added in another pr? "
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-08-09T15:08:47",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2612#issuecomment-895305143",
+          "body": "and this is in main now https://github.com/pulibrary/orangelight/blob/1d3839cd35765b481b26aae4da0b119ce0a240d7/config/requests.yml#L33\r\n\r\nI will close it. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-08-09T15:03:54",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-08-09T15:03:54",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T15:03:54",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T15:03:54",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T15:08:47",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2612",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-08-09T14:24:29",
+      "updated_at": "2021-08-09T14:24:29",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2639",
+      "number": 2639,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Error in rake browse:call_numbers",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Hector Correa",
+          "updated_at": "2021-08-09T14:29:28",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/2639#issuecomment-895272590",
+          "body": "The stack trace points to the `Rails.logger.error` call in https://github.com/pulibrary/orangelight/blob/main/lib/orangelight/browse_lists/call_number_csv.rb#L72-L86 \r\n\r\nI am pretty sure this is because the Rake task is running without loading Rails. We could either log the error to the console (e.g. with good old `puts`) or perhaps update the rake task to load Rails by adding `:environment` to the definition https://github.com/pulibrary/orangelight/blob/main/lib/tasks/browse.rake#L28-L32 to read\r\n\r\n```\r\ndesc 'Pull data for call numbers browse'\r\n  task :call_numbers :environment do\r\n    _sql_command, facet_request, conn = BrowseLists.connection\r\n    BrowseLists::CallNumberCSV.new(facet_request, conn).write\r\n  end\r\n```\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2021-08-09T14:25:32",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T15:10:00",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T14:55:03",
+      "updated_at": "2021-08-09T14:55:03",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2641",
+      "number": 2641,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2641",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Loads Rails environment so that Rails.logger.error() is available",
+      "user_name": "Hector Correa",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-08-09T14:59:33",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2641#issuecomment-895296796",
+          "body": "And yes we normally don't test rake tasks themselves. If there's enough logic in them we would pull out the logic into a function somewhere and test that function."
+        },
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2021-08-09T15:08:44",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2641#issuecomment-895305104",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/42004288/badge)](https://coveralls.io/builds/42004288)\n\nCoverage remained the same at 96.954% when pulling **d47e55a9be30d02e6483128f9cccb68cee023589 on issue_2639_rake_browse** into **1d3839cd35765b481b26aae4da0b119ce0a240d7 on main**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T15:10:00",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T15:10:00",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T15:10:01",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T15:10:01",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2641",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-04-05T18:52:40",
+      "updated_at": "2021-04-05T18:52:40",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2395",
+      "number": 2395,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "NoMethodError: undefined method `each' for nil:NilClass",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Hector Correa",
+          "updated_at": "2021-08-09T15:18:52",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/2395#issuecomment-895313116",
+          "body": "Please be aware that this error has morphed, perhaps because we are now live with Alma? \r\n\r\nThe most [recent instances reported in Honeybadger](https://app.honeybadger.io/projects/54399/faults/39793242) show:\r\n\r\n```\r\nNoMethodError: undefined method `errors' for #<Array:0x00007ff4e8af5098>\r\n```\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2021-08-09T15:16:27",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-08-06T19:32:55",
+      "updated_at": "2021-08-06T19:32:55",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2635",
+      "number": 2635,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Error with nil UID",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T15:21:04",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-08-06T19:39:59",
+      "updated_at": "2021-08-06T19:39:59",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2636",
+      "number": 2636,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2636",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Handles bad session",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T14:42:02",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T15:21:04",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T15:21:04",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T15:21:04",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T15:21:05",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2636",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-08-09T14:53:15",
+      "updated_at": "2021-08-09T14:53:15",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2640",
+      "number": 2640,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2640",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Remove system upgrade message.",
+      "user_name": "Kevin Reiss",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-08-09T14:57:17",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2640#issuecomment-895294811",
+          "body": "![Screen Shot 2021-08-09 at 10 57 03 AM](https://user-images.githubusercontent.com/9905193/128727466-353ea956-ff98-476d-8862-647487a2e072.png)\r\n"
+        },
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2021-08-09T15:27:09",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2640#issuecomment-895306101",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/42004874/badge)](https://coveralls.io/builds/42004874)\n\nCoverage remained the same at 96.954% when pulling **ab3f314f20f541385addb602ea77bba5cc7936f1 on remove_ribbon_message** into **d8e3796728a5b61019068d680453b132a64a4551 on main**.\n"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-08-09T15:10:45",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2640#issuecomment-895306629",
+          "body": "@kevinreiss can you update the spec?"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-08-09T14:53:27",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-08-09T14:53:27",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T14:55:32",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-08-09T15:10:45",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-08-09T15:10:45",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-08-09T15:15:58",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T15:41:25",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T15:41:25",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T15:41:25",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T15:41:26",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2640",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2019-05-31T15:37:24",
+      "updated_at": "2019-05-31T15:37:24",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/1656",
+      "number": 1656,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "[Orangelight/production] NoMethodError: undefined method `collect' for \"()\"@5:Parslet::Slice",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Hector Correa",
+          "updated_at": "2021-08-09T15:52:38",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/1656#issuecomment-895337699",
+          "body": "The culprit is that the query submitted on the request ends with \"()\" and Blacklight is throwing an exception when trying to parse this query.\r\n\r\nThe URL in the Honeybadger report is \r\n\r\n```\r\nhttps://catalog.princeton.edu/catalog?utf8=%E2%9C%93&search_field=all_fields&q=Philipps+Payson+O%E2%80%99Brien%2C+How+the+War+Was+Won%3A+Air-Sea+Power+and+Allied+Victory+in+World+War+II+%28%29\r\n```\r\n\r\nWhen we decode the `q` parameter we get:\r\n\r\n```\r\nPhilipps Payson O’Brien, How the War Was Won: Air-Sea Power and Allied Victory in World War II ()\r\n```\r\n\r\nBlacklight has some built-in error handling to deal with `Parslet` exceptions but it seems that this exception is not a `Parslet` exception per-se (although it happens in `Parslet`) and Blacklight is just letting the exception bubble all the way to the top.\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2021-08-09T15:32:48",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-08-09T17:35:03",
+      "updated_at": "2021-08-09T17:35:03",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2643",
+      "number": 2643,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Reduce test suite run time",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T17:35:03",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T17:35:27",
+          "type": "added_to_project"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T18:20:02",
+      "updated_at": "2021-08-09T18:20:02",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2644",
+      "number": 2644,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Remove umlaut specs",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-06T00:28:48",
+      "updated_at": "2021-08-06T00:28:48",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2632",
+      "number": 2632,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Table of contents appear in the online label in the search results",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-08-09T18:21:27",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/2632#issuecomment-895438236",
+          "body": "I'm looking into this. \r\nTable of contents should not appear in the search results page.\r\n"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-08-09T16:47:16",
+      "updated_at": "2021-08-09T16:47:16",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2642",
+      "number": 2642,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2642",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Prevents error when search query ends with empty parenthesis",
+      "user_name": "Hector Correa",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2021-08-09T18:29:43",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2642#issuecomment-895385891",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/42010118/badge)](https://coveralls.io/builds/42010118)\n\nCoverage increased (+0.004%) to 96.959% when pulling **a29bb43b7ac2f148d4a307c26b5fab76928f9e6f on issue_1656_parslet** into **bb1f26c947c78e96dbacf4d699ccb3b710055d14 on main**.\n"
+        }
+      ],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2642",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-03-16T17:23:09",
+      "updated_at": "2021-03-16T17:23:09",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2371",
+      "number": 2371,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Downcase what we get from cas",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-08-09T18:37:53",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/2371#issuecomment-895448878",
+          "body": "We should also check and see how many accounts exist with capitalized characters."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Zaynab Masood",
+          "created_at": "2021-08-09T14:07:56",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Zaynab Masood",
+          "created_at": "2021-08-09T14:08:49",
+          "type": "moved_columns_in_project"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "pdc_discovery": [
+    {
+      "created_at": "2021-06-30T21:22:18",
+      "updated_at": "2021-06-30T21:22:18",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/14",
+      "number": 14,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "closed",
+      "title": "Rake task to index a single community",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2021-08-09T19:35:05",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-07-01T13:05:41",
+      "updated_at": "2021-07-01T13:05:41",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/15",
+      "number": 15,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Rake task to re-index all research data",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-08-09T19:38:18",
+      "updated_at": "2021-08-09T19:38:18",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/27",
+      "number": 27,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Create \"Recently Published\" feed for homepage",
+      "user_name": "Kate Lynch",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T19:41:00",
+      "updated_at": "2021-08-09T19:41:00",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/28",
+      "number": 28,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Create consistent footer",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T15:13:28",
+      "updated_at": "2021-08-09T15:13:28",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/25",
+      "number": 25,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Homepage design from wireframes",
+      "user_name": "Kate Lynch",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2021-08-09T19:41:29",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T19:45:27",
+      "updated_at": "2021-08-09T19:45:27",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/29",
+      "number": 29,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Add a timestamp and deploy metadata to the footer",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T19:47:27",
+      "updated_at": "2021-08-09T19:47:27",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/30",
+      "number": 30,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Header for the application",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T15:14:24",
+      "updated_at": "2021-08-09T15:14:24",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/26",
+      "number": 26,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Single object page design from wireframes",
+      "user_name": "Kate Lynch",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2021-08-09T19:48:40",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T19:50:23",
+      "updated_at": "2021-08-09T19:50:23",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/31",
+      "number": 31,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Link to Orcid ID",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T19:52:33",
+      "updated_at": "2021-08-09T19:52:33",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/33",
+      "number": 33,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Implement a Bitstream Management Component using VueJS",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2021-08-09T19:55:51",
+          "html_url": "https://github.com/pulibrary/pdc_discovery/issues/33#issuecomment-895498192",
+          "body": "It should also be noted that, as observed within the wireframe, pagination features will be considered to be acceptance criteria for this feature set."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-08-09T19:56:15",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T19:56:19",
+      "updated_at": "2021-08-09T19:56:19",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/34",
+      "number": 34,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "\"More about this record\" full metadata",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T20:05:01",
+      "updated_at": "2021-08-09T20:05:01",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/36",
+      "number": 36,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "DOI is easily copied",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T20:07:24",
+      "updated_at": "2021-08-09T20:07:24",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/37",
+      "number": 37,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Display file types and counts",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T20:11:02",
+      "updated_at": "2021-08-09T20:11:02",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/38",
+      "number": 38,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "SPIKE: If we have a DOI, can we get a list of citations? ",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T20:14:50",
+      "updated_at": "2021-08-09T20:14:50",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/40",
+      "number": 40,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Style keywords",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T20:16:52",
+      "updated_at": "2021-08-09T20:16:52",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/42",
+      "number": 42,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Format license",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T20:18:59",
+      "updated_at": "2021-08-09T20:18:59",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/43",
+      "number": 43,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Search box in header",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T20:14:30",
+      "updated_at": "2021-08-09T20:14:30",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/39",
+      "number": 39,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Ensure that the WCAG 2.0 AA accessibility (a11y) standards are met for the initial release",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-08-09T20:16:48",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-08-09T20:17:32",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-08-09T20:18:08",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-08-09T20:20:16",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T20:21:30",
+      "updated_at": "2021-08-09T20:21:30",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/45",
+      "number": 45,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "CAS Authentication",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T20:20:02",
+      "updated_at": "2021-08-09T20:20:02",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/44",
+      "number": 44,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Ensure that the application supports internationalization (i18n) for global users",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2021-08-09T20:22:26",
+          "html_url": "https://github.com/pulibrary/pdc_discovery/issues/44#issuecomment-895515806",
+          "body": "It might also be worth noting here that vue-i18n supports the Rails i18n API string formatting: https://kazupon.github.io/vue-i18n/guide/formatting.html#support-ruby-on-rails-i18n-format"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-08-09T20:23:11",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-06-29T20:21:06",
+      "updated_at": "2021-06-29T20:21:06",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/9",
+      "number": 9,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Fetch data sets",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-06-29T20:22:13",
+      "updated_at": "2021-06-29T20:22:13",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/10",
+      "number": 10,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Index data sets into Blacklight",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-08-09T20:01:08",
+      "updated_at": "2021-08-09T20:01:08",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/35",
+      "number": 35,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "closed",
+      "title": "List all attached files",
+      "user_name": "Bess Sadler",
+      "comments": [
+        {
+          "user_name": "Bess Sadler",
+          "updated_at": "2021-08-09T20:32:23",
+          "html_url": "https://github.com/pulibrary/pdc_discovery/issues/35#issuecomment-895521743",
+          "body": "Closing as duplicate"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2021-08-09T20:32:23",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T20:15:08",
+      "updated_at": "2021-08-09T20:15:08",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/41",
+      "number": 41,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Integrate Lighthouse a11y audits into the CircleCI builds",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2021-08-09T20:36:20",
+          "html_url": "https://github.com/pulibrary/pdc_discovery/issues/41#issuecomment-895524043",
+          "body": "https://circleci.com/developer/orbs/orb/foo-software/lighthouse-check provides an example Orb that may serve as inspiration for a solution to this."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-09T19:52:28",
+      "updated_at": "2021-08-09T19:52:28",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/32",
+      "number": 32,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Single page layout",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2021-08-06T20:10:43",
+      "updated_at": "2021-08-06T20:10:43",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2422",
+      "number": 2422,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2422",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Updating production lib-jobs to contact production onbase",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-08-09T13:40:13",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-08-09T13:40:14",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-08-09T13:40:14",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-08-09T13:40:14",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2422",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-12-07T16:58:46",
+      "updated_at": "2020-12-07T16:58:46",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/1931",
+      "number": 1931,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Move RePEc to ansible managed server",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T13:43:28",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-08-09T14:02:35",
+      "updated_at": "2021-08-09T14:02:35",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2423",
+      "number": 2423,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "new machines for RePEC",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-08-06T19:37:24",
+      "updated_at": "2021-08-06T19:37:24",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2421",
+      "number": 2421,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "change libjobs to point at Onbase production",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "carolyncole",
+          "updated_at": "2021-08-09T14:44:44",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2421#issuecomment-895284491",
+          "body": "fixed by https://github.com/pulibrary/princeton_ansible/pull/2422"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T14:44:44",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-08-03T15:21:04",
+      "updated_at": "2021-08-03T15:21:04",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2412",
+      "number": 2412,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2412",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Adding configuration and keys for getit.princeton.edu",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-08-09T15:50:06",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-08-09T15:50:06",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-08-09T15:50:06",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-08-09T15:50:07",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2412",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-08-06T17:26:10",
+      "updated_at": "2021-08-06T17:26:10",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2420",
+      "number": 2420,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2420",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Fix check used for solr uptime monitor",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T16:46:49",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T16:46:49",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T16:46:49",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-08-09T16:46:49",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2420",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-08-09T16:42:08",
+      "updated_at": "2021-08-09T16:42:08",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2424",
+      "number": 2424,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2424",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "[Bibdata] Move RAILS_ENV to start of poller execution",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2424",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-08-09T19:26:59",
+      "updated_at": "2021-08-09T19:26:59",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2425",
+      "number": 2425,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2425",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[nginxplus] renew locator-staging tls",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-08-09T19:48:08",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-08-09T19:48:08",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-08-09T19:48:09",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-08-09T19:48:09",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2425",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-08-09T19:47:27",
+      "updated_at": "2021-08-09T19:47:27",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2426",
+      "number": 2426,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2426",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "[nginxplus] add repec-staging and prod tls files and config",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-08-09T19:48:37",
+          "type": "review_requested"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2426",
+      "action": "pull_request_open"
+    }
+  ],
+  "pul-the-hard-way": [
+    {
+      "created_at": "2021-08-09T18:06:38",
+      "updated_at": "2021-08-09T18:06:38",
+      "html_url": "https://github.com/pulibrary/pul-the-hard-way/pull/81",
+      "number": 81,
+      "pull_request_html_url": "https://github.com/pulibrary/pul-the-hard-way/pull/81",
+      "repository_html_url": "https://github.com/pulibrary/pul-the-hard-way",
+      "repository_name": "pul-the-hard-way",
+      "state": "closed",
+      "title": "Add Xander",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "carolyncole",
+          "updated_at": "2021-08-09T18:07:12",
+          "html_url": "https://github.com/pulibrary/pul-the-hard-way/pull/81#issuecomment-895429014",
+          "body": "@hackartisan and @XanderGardner Added Xander to the template"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T18:07:13",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T18:07:13",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T18:07:13",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T18:07:13",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T20:14:06",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T20:14:06",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T20:14:06",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul-the-hard-way/pull/81",
+      "action": "pull_request_closed"
+    }
+  ],
+  "pulfalight": [
+    {
+      "created_at": "2020-07-06T19:38:12",
+      "updated_at": "2020-07-06T19:38:12",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/285",
+      "number": 285,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Implement collection-level badges indicating the access permissions for the resource",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2021-08-10T00:52:37",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/285#issuecomment-895647833",
+          "body": "@faith @ccleeton Do we have an example of a collection or series which is marked \"restricted\", and should propagate that to its child components? I'm having a hard time finding an example where it's not already manually propagated."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christa Cleeton",
+          "created_at": "2021-08-10T00:52:38",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Christa Cleeton",
+          "created_at": "2021-08-10T00:52:38",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "faith",
+          "created_at": "2021-08-10T00:52:38",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "faith",
+          "created_at": "2021-08-10T00:52:38",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "requests": [
+    {
+      "created_at": "2021-08-03T13:54:07",
+      "updated_at": "2021-08-03T13:54:07",
+      "html_url": "https://github.com/pulibrary/requests/issues/1054",
+      "number": 1054,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "closed",
+      "title": "Re-Record VCR Cassettes with new Bibdata Production instead of Bibdata-Alma",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T12:47:39",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-03-19T12:49:05",
+      "updated_at": "2021-03-19T12:49:05",
+      "html_url": "https://github.com/pulibrary/requests/issues/903",
+      "number": 903,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "closed",
+      "title": "Marquand in process materials have slightly off pickup location",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T12:53:18",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-07-20T12:24:03",
+      "updated_at": "2021-07-20T12:24:03",
+      "html_url": "https://github.com/pulibrary/requests/issues/1042",
+      "number": 1042,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "open",
+      "title": "scsb? means two different things",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "carolyncole",
+          "updated_at": "2021-08-09T17:24:33",
+          "html_url": "https://github.com/pulibrary/requests/issues/1042#issuecomment-895402403",
+          "body": "The code is actually using scsb? in the same way in each location, just slightly different logic?"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T17:05:03",
+          "type": "added_to_project"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-08-09T18:02:08",
+      "updated_at": "2021-08-09T18:02:08",
+      "html_url": "https://github.com/pulibrary/requests/pull/1060",
+      "number": 1060,
+      "pull_request_html_url": "https://github.com/pulibrary/requests/pull/1060",
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "open",
+      "title": "Updating partner locations to be configured",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-08-09T18:04:56",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/requests/pull/1060",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-08-09T18:48:32",
+      "updated_at": "2021-08-09T18:48:32",
+      "html_url": "https://github.com/pulibrary/requests/pull/1061",
+      "number": 1061,
+      "pull_request_html_url": "https://github.com/pulibrary/requests/pull/1061",
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "open",
+      "title": "remove scsb_status",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/requests/pull/1061",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-06-25T14:47:11",
+      "updated_at": "2021-06-25T14:47:11",
+      "html_url": "https://github.com/pulibrary/requests/issues/1004",
+      "number": 1004,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "open",
+      "title": "Invalid patron email fails when user_attributes is nil",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "Hector Correa",
+          "updated_at": "2021-08-09T20:57:05",
+          "html_url": "https://github.com/pulibrary/requests/issues/1004#issuecomment-895540251",
+          "body": "Notice that the error is triggered when rendering  an email for an invalid ILLiad request (`request_mailer_invalid_illiad_patron_email_html_erb`) so this might be a rather infrequent issue."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "to-be-done": [
+    {
+      "created_at": "2021-08-06T16:06:06",
+      "updated_at": "2021-08-06T16:06:06",
+      "html_url": "https://github.com/pulibrary/to-be-done/pull/8",
+      "number": 8,
+      "pull_request_html_url": "https://github.com/pulibrary/to-be-done/pull/8",
+      "repository_html_url": "https://github.com/pulibrary/to-be-done",
+      "repository_name": "to-be-done",
+      "state": "open",
+      "title": "Setup Item manager and views",
+      "user_name": "Thanya Begum",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/to-be-done/pull/8",
+      "action": "pull_request_open"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 90,
+    "closed_count": 10,
+    "created_count": 37,
+    "pull_request_closed_count": 18,
+    "pull_request_open_count": 11,
+    "updated_count": 14,
+    "today": "2021-08-09T22:00:05",
+    "yesterday": "2021-08-08T22:00:05"
+  }
+}
