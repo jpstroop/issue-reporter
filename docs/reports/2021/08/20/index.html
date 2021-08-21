@@ -1,0 +1,1709 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5fda38894b.js" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" type="text/css" href="../../../../css/main.css" />
+    <title>PUL GitHub Issues for 2021-08-20T22:00:04</title>
+  </head>
+
+<body>
+  <div class="container-fluid">
+    <a id="btt-button"></a>
+    
+<h1 class="bg-dark text-light">PUL GitHub Issues<br />
+  <small class="text-white-70">2021-08-20</small></h1>
+<nav class="navbar sticky-top navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar-toggler">
+    <ul class="navbar-nav mr-auto mt-2 pt-3 mt-lg-0">
+      <li class="nav-item not-mono">
+        <a class="nav-link" href="../../../../index.html"><i class="fas fa-arrow-left"></i> Back to Report List Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#abid">pulibrary/abid</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#alma-notices">pulibrary/alma-notices</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#bibdata">pulibrary/bibdata</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#dspace-development">pulibrary/dspace-development</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#dspace-osti">pulibrary/dspace-osti</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#oawaiver">pulibrary/oawaiver</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#orangelight">pulibrary/orangelight</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pdc_discovery">pulibrary/pdc_discovery</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pulbot">pulibrary/pulbot</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pulfalight">pulibrary/pulfalight</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#requests">pulibrary/requests</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#to-be-done">pulibrary/to-be-done</a>
+      </li>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    
+    <section class="repo" id="abid">
+      <h2><a href="https://github.com/pulibrary/abid">pulibrary/abid</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="abid-42">
+        <h3><a href="https://github.com/pulibrary/abid/issues/42">#42</a> AbID for MARC with Alma</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kate Lynch</dd>
+          <dt>Created:</dt>
+          <dd>2021-06-08 13:40:56</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Trey Pendragon at <a href="https://github.com/pulibrary/abid/issues/42#issuecomment-902299064">2021-08-19 22:49:49</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>@doncat If given two items with two barcodes that are under the same holding and the same size category, should only one AbID be added as an 852, or should a second 852 be generated? If only one, then which one? The first one or the second one?</p>
+
+<p>Edit: Or is it, like the last two examples in the document, that only one AbID should be generated? What happens if there&#39;s already an AbID in Alma? Don&#39;t generate anything?</p>
+
+              </dd>
+              <dt>Don Thornbury at <a href="https://github.com/pulibrary/abid/issues/42#issuecomment-902666639">2021-08-20 12:47:49</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>Only one AbID, per MARC structure.  You&#39;re looking for distinct values of holdings records, as in the last two examples.
+Already an AbID:  Hmm.  That might represent a workflow detour!  Uh, hmm.  Uh.  I don&#39;t think it&#39;s supposed to happen because the cataloger knows the item is an added volume.  But nonetheless, if you detect an existing AbID, don&#39;t generate a new one but do include the barcode in the file you return to us.  We need it for label printing (if we can get SpineOMatic configured).
+Does &quot;detect&quot; an existing AbID make sense?  I&#39;m now asking you to check for a pattern in 852h, instead of just identifying the holdings record.  </p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>mentioned</code> by Don Thornbury at 2021-08-19 22:42:30.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Don Thornbury at 2021-08-19 22:42:30.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="alma-notices">
+      <h2><a href="https://github.com/pulibrary/alma-notices">pulibrary/alma-notices</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="alma-notices-169">
+        <h3><a href="https://github.com/pulibrary/alma-notices/pull/169">#169</a> align layout with other letters</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>regineheberlein</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-20 19:18:51</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/alma-notices/pull/169">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>review_requested</code> by None at 2021-08-20 19:18:51.</li>
+  <li class="event odd">
+    <code>referenced</code> by Peter Green at 2021-08-20 19:26:20.</li>
+  <li class="event even">
+    <code>merged</code> by Peter Green at 2021-08-20 19:26:20.</li>
+  <li class="event odd">
+    <code>closed</code> by Peter Green at 2021-08-20 19:26:20.</li>
+  <li class="event even">
+    <code>head_ref_deleted</code> by Peter Green at 2021-08-20 19:26:29.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="bibdata">
+      <h2><a href="https://github.com/pulibrary/bibdata">pulibrary/bibdata</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="bibdata-1623">
+        <h3><a href="https://github.com/pulibrary/bibdata/issues/1623">#1623</a> Recap materials from partners institutions should include "Remote Storage" in the location label.</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-19 18:55:55</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by Trey Pendragon at 2021-08-20 18:11:08.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="bibdata-1627">
+        <h3><a href="https://github.com/pulibrary/bibdata/pull/1627">#1627</a> 1623 partner location label</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-20 16:07:40</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/bibdata/pull/1627">pull request</a>)
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Christina Chortaria at <a href="https://github.com/pulibrary/bibdata/pull/1627#issuecomment-902803641">2021-08-20 16:14:10</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Tested on bibdata<em>staging and catalog-qa. 
+The scsb location is being retrieved from bibdata directly.
+If bibdata has no entries then it falls back to the solr</em>document, holdings_1display field (same as the rest of the pul records.)</p>
+
+<p>The difference between SCSB location display and pul location display is that for the second we use javascript to get the availability through the availability.json and if JS is not working then it falls back to bibdata; if bibdata is nil then it falls back to the indexed solr_document.</p>
+
+<p><img src="https://user-images.githubusercontent.com/9905193/130262077-ff7af37a-4b53-401e-ae4e-e41033748ca6.png" alt="Screen Shot 2021-08-20 at 12 05 42 PM"></p>
+
+<p><img src="https://user-images.githubusercontent.com/9905193/130262088-24e71077-02ce-4088-8a57-9e0d48acc2b2.png" alt="Screen Shot 2021-08-20 at 12 05 25 PM"></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Trey Pendragon at 2021-08-20 18:11:08.</li>
+  <li class="event odd">
+    <code>merged</code> by Trey Pendragon at 2021-08-20 18:11:08.</li>
+  <li class="event even">
+    <code>closed</code> by Trey Pendragon at 2021-08-20 18:11:08.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Trey Pendragon at 2021-08-20 18:11:09.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="bibdata-1620">
+        <h3><a href="https://github.com/pulibrary/bibdata/issues/1620">#1620</a> Test failure with random seed 47055</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>XanderGardner</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-19 13:57:40</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by Trey Pendragon at 2021-08-20 18:11:35.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="bibdata-1622">
+        <h3><a href="https://github.com/pulibrary/bibdata/pull/1622">#1622</a> Reset environment variable in dump spec</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>XanderGardner</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-19 18:14:39</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/bibdata/pull/1622">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Trey Pendragon at 2021-08-20 18:11:35.</li>
+  <li class="event odd">
+    <code>merged</code> by Trey Pendragon at 2021-08-20 18:11:35.</li>
+  <li class="event even">
+    <code>closed</code> by Trey Pendragon at 2021-08-20 18:11:35.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Trey Pendragon at 2021-08-20 18:11:36.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="bibdata-1628">
+        <h3><a href="https://github.com/pulibrary/bibdata/issues/1628">#1628</a> 852 subfield k included classification portion of the call number.</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-20 20:01:07</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Christina Chortaria at <a href="https://github.com/pulibrary/bibdata/issues/1628#issuecomment-902939892">2021-08-20 20:28:36</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Sarah H. updated/fixed the record. </p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Christina Chortaria at 2021-08-20 20:01:16.</li>
+  <li class="event odd">
+    <code>renamed</code> by Christina Chortaria at 2021-08-20 20:03:28.</li>
+  <li class="event even">
+    <code>closed</code> by Christina Chortaria at 2021-08-20 20:28:36.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="dspace-development">
+      <h2><a href="https://github.com/pulibrary/dspace-development">pulibrary/dspace-development</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="dspace-development-462">
+        <h3><a href="https://github.com/pulibrary/dspace-development/issues/462">#462</a> Augment 2021 theses with additional certificate programs</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Bess Sadler</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-20 17:10:03</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Bess Sadler at 2021-08-20 17:10:03.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="dspace-osti">
+      <h2><a href="https://github.com/pulibrary/dspace-osti">pulibrary/dspace-osti</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="dspace-osti-50">
+        <h3><a href="https://github.com/pulibrary/dspace-osti/issues/50">#50</a> Populate entry_form.tsv with known DOE funding metadata</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Chun Ly</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-17 17:51:40</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Chun Ly at 2021-08-20 15:34:26.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="dspace-osti-45">
+        <h3><a href="https://github.com/pulibrary/dspace-osti/issues/45">#45</a> Include Google Sheet API library?</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Chun Ly</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-10 15:07:51</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Chun Ly at <a href="https://github.com/pulibrary/dspace-osti/issues/45#issuecomment-902802103">2021-08-20 16:11:31</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>While this will be nice, note that since this script is executed typically once a year, it does not provide great improvement considering the time investment. As such, this issue will be closed for now.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Chun Ly at 2021-08-20 16:11:01.</li>
+  <li class="event odd">
+    <code>closed</code> by Chun Ly at 2021-08-20 16:11:31.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="dspace-osti-49">
+        <h3><a href="https://github.com/pulibrary/dspace-osti/issues/49">#49</a> Failure of `Poster` in dry run - withdrawn records</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Chun Ly</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-16 19:45:23</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by Kate Lynch at 2021-08-20 18:59:29.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="dspace-osti-51">
+        <h3><a href="https://github.com/pulibrary/dspace-osti/pull/51">#51</a> Fix Poster failure with withdrawn records</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Chun Ly</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-17 18:15:44</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/dspace-osti/pull/51">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by Chun Ly at 2021-08-20 15:34:26.</li>
+  <li class="event odd">
+    <code>ready_for_review</code> by Chun Ly at 2021-08-20 16:19:05.</li>
+  <li class="event even">
+    <code>review_requested</code> by Chun Ly at 2021-08-20 18:46:00.</li>
+  <li class="event odd">
+    <code>referenced</code> by Kate Lynch at 2021-08-20 18:59:29.</li>
+  <li class="event even">
+    <code>merged</code> by Kate Lynch at 2021-08-20 18:59:29.</li>
+  <li class="event odd">
+    <code>closed</code> by Kate Lynch at 2021-08-20 18:59:29.</li>
+  <li class="event even">
+    <code>head_ref_deleted</code> by Kate Lynch at 2021-08-20 19:00:09.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="dspace-osti-53">
+        <h3><a href="https://github.com/pulibrary/dspace-osti/issues/53">#53</a> User prompt before running test or production post to OSTI</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kate Lynch</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-20 18:59:10</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Chun Ly at <a href="https://github.com/pulibrary/dspace-osti/issues/53#issuecomment-902947848">2021-08-20 20:46:00</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Very much like this idea. I can create a PR. This is a fairly straightforward of no more than a few lines of code.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by Chun Ly at 2021-08-20 20:46:01.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="dspace-osti-52">
+        <h3><a href="https://github.com/pulibrary/dspace-osti/issues/52">#52</a> Only require credentials needed for mode running in Poster.py</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kate Lynch</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-20 18:55:53</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Chun Ly at <a href="https://github.com/pulibrary/dspace-osti/issues/52#issuecomment-902948250">2021-08-20 20:46:53</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>This should be straightforward with some basic <code>if/else</code> logic. I can lead this as well.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by Chun Ly at 2021-08-20 20:46:55.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="oawaiver">
+      <h2><a href="https://github.com/pulibrary/oawaiver">pulibrary/oawaiver</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="oawaiver-36">
+        <h3><a href="https://github.com/pulibrary/oawaiver/pull/36">#36</a> Addresses a number of urgent bugs discovered for the initial staging deployment environment</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-20 20:48:05</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/oawaiver/pull/36">pull request</a>)
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="orangelight">
+      <h2><a href="https://github.com/pulibrary/orangelight">pulibrary/orangelight</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="orangelight-2677">
+        <h3><a href="https://github.com/pulibrary/orangelight/pull/2677">#2677</a> Removed umlaut</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>XanderGardner</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-20 20:34:54</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/orangelight/pull/2677">pull request</a>)
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Coveralls at <a href="https://github.com/pulibrary/orangelight/pull/2677#issuecomment-902948127">2021-08-20 20:46:36</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p><a href="https://coveralls.io/builds/42308648"><img src="https://coveralls.io/builds/42308648/badge" alt="Coverage Status"></a></p>
+
+<p>Coverage remained the same at 97.06% when pulling <strong>bbb31934f75da4c85de23097d70552fd7156ceeb on 2644-umlaut</strong> into <strong>22c2ddc33d51dbb8aa1ec16392feefbaa95f6d98 on main</strong>.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>convert_to_draft</code> by None at 2021-08-20 20:35:04.</li>
+  <li class="event odd">
+    <code>head_ref_force_pushed</code> by None at 2021-08-20 20:36:35.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="orangelight-2587">
+        <h3><a href="https://github.com/pulibrary/orangelight/issues/2587">#2587</a> Remove Campus Restrictions from Borrow Direct Login</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kevin Reiss</dd>
+          <dt>Created:</dt>
+          <dd>2021-07-23 01:44:07</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>unassigned</code> by Christina Chortaria at 2021-08-20 20:52:03.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="orangelight-2676">
+        <h3><a href="https://github.com/pulibrary/orangelight/pull/2676">#2676</a> Updating orangelight to allow undergraduates access to pickup books</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-20 19:48:27</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/orangelight/pull/2676">pull request</a>)
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Coveralls at <a href="https://github.com/pulibrary/orangelight/pull/2676#issuecomment-902924313">2021-08-20 20:00:12</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p><a href="https://coveralls.io/builds/42307603"><img src="https://coveralls.io/builds/42307603/badge" alt="Coverage Status"></a></p>
+
+<p>Coverage remained the same at 97.06% when pulling <strong>9540875b23c6691209a6da9385a95e8dfb91c0df on requests-allow-undergraduate</strong> into <strong>22c2ddc33d51dbb8aa1ec16392feefbaa95f6d98 on main</strong>.</p>
+
+              </dd>
+              <dt>Christina Chortaria at <a href="https://github.com/pulibrary/orangelight/pull/2676#issuecomment-902954925">2021-08-20 21:01:22</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>@carolyncole I compared the two examples you provided in slack. The one in catalog-qa after deploying this PR. <a href="https://catalog-qa.princeton.edu/requests/99124624583506421?mfhd=22707996030006421&amp;source=pulsearch">https://catalog-qa.princeton.edu/requests/99124624583506421?mfhd=22707996030006421&amp;source=pulsearch</a></p>
+
+<p><img src="https://user-images.githubusercontent.com/9905193/130292733-3e9546c9-20d0-4051-8a07-cce0324de7c2.png" alt="Screen Shot 2021-08-20 at 4 58 56 PM"></p>
+
+<p>vs the one in production <a href="https://catalog.princeton.edu/requests/99124624583506421?mfhd=22707996030006421&amp;source=pulsearch">https://catalog.princeton.edu/requests/99124624583506421?mfhd=22707996030006421&amp;source=pulsearch</a></p>
+
+<p><img src="https://user-images.githubusercontent.com/9905193/130292791-2cdf50ab-3dc9-4a79-ad26-9c6727eba58d.png" alt="Screen Shot 2021-08-20 at 4 59 26 PM"></p>
+
+<p>You mentioned in slack that the one in production should only allow EDD.
+They both seem to allow physical item pickup. I dont see a difference. </p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>deployed</code> by None at 2021-08-20 19:49:17.</li>
+  <li class="event odd">
+    <code>deployed</code> by None at 2021-08-20 20:42:14.</li>
+  <li class="event even">
+    <code>mentioned</code> by None at 2021-08-20 21:01:22.</li>
+  <li class="event odd">
+    <code>subscribed</code> by None at 2021-08-20 21:01:22.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="pdc_discovery">
+      <h2><a href="https://github.com/pulibrary/pdc_discovery">pulibrary/pdc_discovery</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="pdc_discovery-61">
+        <h3><a href="https://github.com/pulibrary/pdc_discovery/pull/61">#61</a> Index contributor, coverage, and identifier fields</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Bess Sadler</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-19 19:20:09</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/pdc_discovery/pull/61">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Trey Pendragon at 2021-08-20 14:24:04.</li>
+  <li class="event odd">
+    <code>merged</code> by Trey Pendragon at 2021-08-20 14:24:04.</li>
+  <li class="event even">
+    <code>closed</code> by Trey Pendragon at 2021-08-20 14:24:04.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Trey Pendragon at 2021-08-20 14:24:05.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pdc_discovery-62">
+        <h3><a href="https://github.com/pulibrary/pdc_discovery/pull/62">#62</a> Index description fields</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Bess Sadler</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-20 14:31:12</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/pdc_discovery/pull/62">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Christina Chortaria at 2021-08-20 15:53:22.</li>
+  <li class="event odd">
+    <code>merged</code> by Christina Chortaria at 2021-08-20 15:53:22.</li>
+  <li class="event even">
+    <code>closed</code> by Christina Chortaria at 2021-08-20 15:53:22.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Christina Chortaria at 2021-08-20 15:53:23.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="pdc_discovery-52">
+        <h3><a href="https://github.com/pulibrary/pdc_discovery/pull/52">#52</a> Integrating LUX for supporting the components into the view templates</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-12 15:27:54</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/pdc_discovery/pull/52">pull request</a>)
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>James R. Griffin III at <a href="https://github.com/pulibrary/pdc_discovery/pull/52#issuecomment-902842192">2021-08-20 17:21:55</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p><a href="https://github.com/pulibrary/pdc_discovery/pull/63">https://github.com/pulibrary/pdc_discovery/pull/63</a> deprecates this</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by James R. Griffin III at 2021-08-20 17:21:55.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Bess Sadler at 2021-08-20 17:32:32.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pdc_discovery-63">
+        <h3><a href="https://github.com/pulibrary/pdc_discovery/pull/63">#63</a> Integrates LUX and prototypes the single Item View</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-20 17:21:41</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/pdc_discovery/pull/63">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>deployed</code> by None at 2021-08-20 18:31:11.</li>
+  <li class="event odd">
+    <code>referenced</code> by Bess Sadler at 2021-08-20 18:37:03.</li>
+  <li class="event even">
+    <code>merged</code> by Bess Sadler at 2021-08-20 18:37:03.</li>
+  <li class="event odd">
+    <code>closed</code> by Bess Sadler at 2021-08-20 18:37:03.</li>
+  <li class="event even">
+    <code>head_ref_deleted</code> by Bess Sadler at 2021-08-20 18:37:04.</li>
+  <li class="event odd">
+    <code>labeled</code> by Bess Sadler at 2021-08-20 18:37:12.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="pdc_discovery-64">
+        <h3><a href="https://github.com/pulibrary/pdc_discovery/pull/64">#64</a> Remove unused marc indexer</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Bess Sadler</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-20 18:55:33</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/pdc_discovery/pull/64">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by James R. Griffin III at 2021-08-20 19:18:41.</li>
+  <li class="event odd">
+    <code>merged</code> by James R. Griffin III at 2021-08-20 19:18:41.</li>
+  <li class="event even">
+    <code>closed</code> by James R. Griffin III at 2021-08-20 19:18:41.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by James R. Griffin III at 2021-08-20 19:18:42.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pdc_discovery-65">
+        <h3><a href="https://github.com/pulibrary/pdc_discovery/pull/65">#65</a> Bug fix: some metadata fields do not display</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Bess Sadler</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-20 19:14:53</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/pdc_discovery/pull/65">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Bess Sadler at 2021-08-20 19:18:08.</li>
+  <li class="event odd">
+    <code>renamed</code> by Bess Sadler at 2021-08-20 19:18:54.</li>
+  <li class="event even">
+    <code>referenced</code> by James R. Griffin III at 2021-08-20 19:19:55.</li>
+  <li class="event odd">
+    <code>merged</code> by James R. Griffin III at 2021-08-20 19:19:55.</li>
+  <li class="event even">
+    <code>closed</code> by James R. Griffin III at 2021-08-20 19:19:56.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by James R. Griffin III at 2021-08-20 19:19:56.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="pdc_discovery-49">
+        <h3><a href="https://github.com/pulibrary/pdc_discovery/issues/49">#49</a> -staging and -prod should index different dataspace instances</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Bess Sadler</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-11 20:05:49</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by Bess Sadler at 2021-08-20 19:58:39.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="pulbot">
+      <h2><a href="https://github.com/pulibrary/pulbot">pulibrary/pulbot</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="pulbot-77">
+        <h3><a href="https://github.com/pulibrary/pulbot/issues/77">#77</a> Add Xander's key</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-20 20:12:48</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by Christina Chortaria at 2021-08-20 20:12:48.</li>
+  <li class="event odd">
+    <code>closed</code> by James R. Griffin III at 2021-08-20 20:21:55.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pulbot-78">
+        <h3><a href="https://github.com/pulibrary/pulbot/pull/78">#78</a> Add Xander</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-20 20:14:34</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/pulbot/pull/78">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by Christina Chortaria at 2021-08-20 20:17:48.</li>
+  <li class="event odd">
+    <code>referenced</code> by James R. Griffin III at 2021-08-20 20:21:54.</li>
+  <li class="event even">
+    <code>merged</code> by James R. Griffin III at 2021-08-20 20:21:54.</li>
+  <li class="event odd">
+    <code>closed</code> by James R. Griffin III at 2021-08-20 20:21:55.</li>
+  <li class="event even">
+    <code>head_ref_deleted</code> by James R. Griffin III at 2021-08-20 20:21:57.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="pulfalight">
+      <h2><a href="https://github.com/pulibrary/pulfalight">pulibrary/pulfalight</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="pulfalight-761">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/761">#761</a> Display full location information for oversize items on record page (cabinet, drawer, folder)</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christa Cleeton</dd>
+          <dt>Created:</dt>
+          <dd>2021-03-15 17:54:03</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Trey Pendragon at 2021-08-20 15:19:30.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pulfalight-807">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/807">#807</a> display physical location of Top Containers in finding aid</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>phoebeno</dd>
+          <dt>Created:</dt>
+          <dd>2021-04-30 16:42:35</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Trey Pendragon at 2021-08-20 15:19:37.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="pulfalight-776">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/776">#776</a> Physical Description not appearing</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christa Cleeton</dd>
+          <dt>Created:</dt>
+          <dd>2021-03-25 18:55:18</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Trey Pendragon at 2021-08-20 15:20:04.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pulfalight-285">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/285">#285</a> Implement collection-level badges indicating the access permissions for the resource</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-07-06 19:38:12</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Trey Pendragon at 2021-08-20 15:20:18.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="pulfalight-718">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/718">#718</a> Clear division is needed when there are bioghist notes for multiple creators </h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>faithc</dd>
+          <dt>Created:</dt>
+          <dd>2021-03-03 22:32:11</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Trey Pendragon at 2021-08-20 15:19:23.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pulfalight-868">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/868">#868</a> Remove Mudd Renovation Banner</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-20 15:25:15</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Trey Pendragon at 2021-08-20 15:25:15.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="pulfalight-866">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/866">#866</a> Adjust storage notes for Mudd reopening.</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-18 16:23:48</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pulfalight-806">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/806">#806</a> Ampersands in scopecontent are escaped out of ASpace, but not unescaped at index time.</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2021-04-27 20:42:39</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Trey Pendragon at 2021-08-20 15:19:45.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="pulfalight-571">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/571">#571</a> Collection-level title display is showing dates incorrectly.</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>faithc</dd>
+          <dt>Created:</dt>
+          <dd>2020-12-14 21:45:22</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Trey Pendragon at 2021-08-20 15:19:55.</li>
+  <li class="event odd">
+    <code>renamed</code> by Trey Pendragon at 2021-08-20 15:27:18.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pulfalight-865">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/865">#865</a> Location code data source for Aeon/call slips </h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>faithc</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-16 16:39:26</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Trey Pendragon at <a href="https://github.com/pulibrary/pulfalight/issues/865#issuecomment-902775189">2021-08-20 16:20:58</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>@faithc Can you provide an example of a record that&#39;s putting the wrong location in, and what it should be? This should be a component that when requested has a location that&#39;s different from what you expect.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>mentioned</code> by None at 2021-08-20 15:28:44.</li>
+  <li class="event odd">
+    <code>subscribed</code> by None at 2021-08-20 15:28:44.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="pulfalight-817">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/817">#817</a> Headings applied to Label field in ASpace not displaying </h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>faithc</dd>
+          <dt>Created:</dt>
+          <dd>2021-05-10 16:51:40</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pulfalight-812">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/812">#812</a> Collections with "Item Numbers" are not displaying</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christa Cleeton</dd>
+          <dt>Created:</dt>
+          <dd>2021-05-05 18:05:56</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="pulfalight-804">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/804">#804</a> Access Restriction href links not working</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christa Cleeton</dd>
+          <dt>Created:</dt>
+          <dd>2021-04-22 18:58:51</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pulfalight-782">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/782">#782</a> Access notes are showing up twice on Aeon call slip</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Shaun Ellis</dd>
+          <dt>Created:</dt>
+          <dd>2021-03-26 19:14:00</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Trey Pendragon at <a href="https://github.com/pulibrary/pulfalight/issues/782#issuecomment-902814784">2021-08-20 16:32:39</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>@ccleeton Can we get an example of a record that builds these duplicate access notes?</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>mentioned</code> by Christa Cleeton at 2021-08-20 16:32:40.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Christa Cleeton at 2021-08-20 16:32:40.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="pulfalight-867">
+        <h3><a href="https://github.com/pulibrary/pulfalight/pull/867">#867</a> Bump url-parse from 1.5.1 to 1.5.3</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>dependabot[bot]</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-19 00:38:53</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/pulfalight/pull/867">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>deployed</code> by None at 2021-08-20 20:35:34.</li>
+  <li class="event odd">
+    <code>referenced</code> by Bess Sadler at 2021-08-20 20:40:14.</li>
+  <li class="event even">
+    <code>merged</code> by Bess Sadler at 2021-08-20 20:40:14.</li>
+  <li class="event odd">
+    <code>closed</code> by Bess Sadler at 2021-08-20 20:40:14.</li>
+  <li class="event even">
+    <code>head_ref_deleted</code> by Bess Sadler at 2021-08-20 20:40:14.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="requests">
+      <h2><a href="https://github.com/pulibrary/requests">pulibrary/requests</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="requests-1047">
+        <h3><a href="https://github.com/pulibrary/requests/issues/1047">#1047</a> [after Alma go-live] Rename cgc to cgd 'collection group designation'</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2021-07-20 19:12:00</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by None at 2021-08-20 13:45:32.</li>
+  <li class="event odd">
+    <code>unlabeled</code> by None at 2021-08-20 13:45:36.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="requests-1064">
+        <h3><a href="https://github.com/pulibrary/requests/issues/1064">#1064</a> Update Error Messaging and add email notification for login error</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kevin Reiss</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-14 19:48:10</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by None at 2021-08-20 13:49:15.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="requests-1040">
+        <h3><a href="https://github.com/pulibrary/requests/issues/1040">#1040</a> Hold Requests don't change Alma Base Status So we should give the user some feedback when they request an item twice</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kevin Reiss</dd>
+          <dt>Created:</dt>
+          <dd>2021-07-16 21:24:49</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by None at 2021-08-20 14:25:23.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="requests-881">
+        <h3><a href="https://github.com/pulibrary/requests/issues/881">#881</a> Restore Auto-Pickup Date Calcuation</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kevin Reiss</dd>
+          <dt>Created:</dt>
+          <dd>2020-12-23 03:07:36</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>carolyncole at <a href="https://github.com/pulibrary/requests/issues/881#issuecomment-902770029">2021-08-20 15:20:43</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>fixed by <a href="https://github.com/pulibrary/requests/pull/882">https://github.com/pulibrary/requests/pull/882</a></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by None at 2021-08-20 15:20:43.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="requests-1049">
+        <h3><a href="https://github.com/pulibrary/requests/issues/1049">#1049</a> Submission Does not have access to rmt_storage flag</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2021-07-21 12:03:32</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>carolyncole at <a href="https://github.com/pulibrary/requests/issues/1049#issuecomment-902784494">2021-08-20 15:43:44</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>verified this does not cause an issue: http://lcatalog-qa/requests/9947595913506421?mfhd=22489764810006421</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by None at 2021-08-20 15:43:44.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="requests-1045">
+        <h3><a href="https://github.com/pulibrary/requests/issues/1045">#1045</a> Can we simplify the router and remove the distinction between borrow direct and inter library loan</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2021-07-20 13:06:36</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>carolyncole at <a href="https://github.com/pulibrary/requests/issues/1045#issuecomment-902854155">2021-08-20 17:44:01</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>It seems that this causes some errors and that the routing changes things further down the road.  We should just leave it.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by None at 2021-08-20 17:44:01.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="requests-1050">
+        <h3><a href="https://github.com/pulibrary/requests/issues/1050">#1050</a> Remove Covid Restrictions on Pick-up Requests for Undergraduates</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kevin Reiss</dd>
+          <dt>Created:</dt>
+          <dd>2021-07-21 17:28:17</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by Shaun Ellis at 2021-08-20 19:46:57.</li>
+  <li class="event odd">
+    <code>referenced</code> by Shaun Ellis at 2021-08-20 19:46:58.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="requests-1065">
+        <h3><a href="https://github.com/pulibrary/requests/pull/1065">#1065</a> Removing restrictions for undergraduates on campus</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-18 14:57:39</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/requests/pull/1065">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>ready_for_review</code> by None at 2021-08-20 16:36:36.</li>
+  <li class="event odd">
+    <code>referenced</code> by Shaun Ellis at 2021-08-20 19:46:57.</li>
+  <li class="event even">
+    <code>merged</code> by Shaun Ellis at 2021-08-20 19:46:57.</li>
+  <li class="event odd">
+    <code>closed</code> by Shaun Ellis at 2021-08-20 19:46:57.</li>
+  <li class="event even">
+    <code>head_ref_deleted</code> by Shaun Ellis at 2021-08-20 19:46:58.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="requests-1071">
+        <h3><a href="https://github.com/pulibrary/requests/pull/1071">#1071</a> Adding tests for Columbia Art and Music items</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-20 16:35:57</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/requests/pull/1071">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Bess Sadler at 2021-08-20 20:29:44.</li>
+  <li class="event odd">
+    <code>merged</code> by Bess Sadler at 2021-08-20 20:29:44.</li>
+  <li class="event even">
+    <code>closed</code> by Bess Sadler at 2021-08-20 20:29:45.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Bess Sadler at 2021-08-20 20:29:45.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="requests-904">
+        <h3><a href="https://github.com/pulibrary/requests/issues/904">#904</a> Add Feature Test(s) to Confirm SCSB CUL AR and MR items go to the right pick-up </h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kevin Reiss</dd>
+          <dt>Created:</dt>
+          <dd>2021-03-24 19:47:53</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by None at 2021-08-20 16:35:32.</li>
+  <li class="event odd">
+    <code>closed</code> by Bess Sadler at 2021-08-20 20:29:45.</li>
+  <li class="event even">
+    <code>referenced</code> by Bess Sadler at 2021-08-20 20:29:45.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="requests-1069">
+        <h3><a href="https://github.com/pulibrary/requests/pull/1069">#1069</a> Deleting annexb from the codebase</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-20 14:24:49</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/requests/pull/1069">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Bess Sadler at 2021-08-20 20:30:22.</li>
+  <li class="event odd">
+    <code>merged</code> by Bess Sadler at 2021-08-20 20:30:22.</li>
+  <li class="event even">
+    <code>closed</code> by Bess Sadler at 2021-08-20 20:30:22.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Bess Sadler at 2021-08-20 20:30:22.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="requests-1043">
+        <h3><a href="https://github.com/pulibrary/requests/issues/1043">#1043</a> remove annexb from codebase</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2021-07-20 12:55:57</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by None at 2021-08-20 13:55:07.</li>
+  <li class="event odd">
+    <code>referenced</code> by None at 2021-08-20 14:22:46.</li>
+  <li class="event even">
+    <code>closed</code> by Bess Sadler at 2021-08-20 20:30:22.</li>
+  <li class="event odd">
+    <code>referenced</code> by Bess Sadler at 2021-08-20 20:30:23.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="requests-1004">
+        <h3><a href="https://github.com/pulibrary/requests/issues/1004">#1004</a> Invalid patron email fails when user_attributes is nil</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackartisan</dd>
+          <dt>Created:</dt>
+          <dd>2021-06-25 14:47:11</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by None at 2021-08-20 15:14:42.</li>
+  <li class="event odd">
+    <code>referenced</code> by None at 2021-08-20 15:16:00.</li>
+  <li class="event even">
+    <code>referenced</code> by None at 2021-08-20 15:16:48.</li>
+  <li class="event odd">
+    <code>closed</code> by Bess Sadler at 2021-08-20 20:31:01.</li>
+  <li class="event even">
+    <code>referenced</code> by Bess Sadler at 2021-08-20 20:31:02.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="requests-1070">
+        <h3><a href="https://github.com/pulibrary/requests/pull/1070">#1070</a> Changing bad user response to be empty hash</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-20 15:17:14</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/requests/pull/1070">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Bess Sadler at 2021-08-20 20:31:01.</li>
+  <li class="event odd">
+    <code>merged</code> by Bess Sadler at 2021-08-20 20:31:01.</li>
+  <li class="event even">
+    <code>closed</code> by Bess Sadler at 2021-08-20 20:31:01.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Bess Sadler at 2021-08-20 20:31:02.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="to-be-done">
+      <h2><a href="https://github.com/pulibrary/to-be-done">pulibrary/to-be-done</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="to-be-done-10">
+        <h3><a href="https://github.com/pulibrary/to-be-done/pull/10">#10</a> Style and test views</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Thanya Begum</dd>
+          <dt>Created:</dt>
+          <dd>2021-08-13 19:21:13</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/to-be-done/pull/10">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>ready_for_review</code> by Thanya Begum at 2021-08-20 16:50:28.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../../../../js/report.js"></script>
+  </div>
+</body>
+
+</html>
