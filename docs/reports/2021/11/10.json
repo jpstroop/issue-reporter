@@ -1,0 +1,1449 @@
+{
+  "bibdata": [
+    {
+      "created_at": "2021-04-01T20:46:39",
+      "updated_at": "2021-04-01T20:46:39",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1198",
+      "number": 1198,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Index temp locations",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "mzelesky",
+          "updated_at": "2021-11-10T22:01:10",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1198#issuecomment-965787571",
+          "body": "Observations on related holding fields (866, 867, 868) of holdings where temp locations are in play.\r\n\r\n1) All items on a holding are in a temp location.\r\n    No holdings statement is included in the AVA field.\r\n\r\n2) Some items on a holding are in a temp location, others are in the permanent location.\r\n    A holdings statement is included in the AVA field for the permanent location, even though some items in the range (ex. vol. 1-v. 8) are not at that location. This is somewhat misleading for the user.\r\n    No holdings statement is included in the AVA field for the temp location.\r\n\r\nUnless a different approach is taken about displaying item-level information in the record show page, there doesn't seem to be much choice in following the above pattern. This would mean the following can be implemented for the show page:\r\n\r\nA. \"Location has\" will be displayed for holdings where items don't exist at all.\r\nB. \"Location has\" will be displayed for holdings where there are all items in the permanent location.\r\nC. \"Location has\" will be displayed for holdings where there are some items in the permanent location [this will be inaccurate since the temp location items will be shelved separately, but it's how Alma returns it in the AVA field].\r\nD. \"Location has\" will not be displayed for holdings with items with locations that differ from the permanent location.\r\n\r\nThe \"location has\" statement is returned in the AVA fields (AVA $t), but it could also be indexed from the publishing jobs (the 866, 867, 868 fields)."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-07-27T16:51:45",
+      "updated_at": "2020-07-27T16:51:45",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/724",
+      "number": 724,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "bib_items method returns nonsensical data when there are no Firestone items",
+      "user_name": "mzelesky",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-11-10T22:07:03",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "dpul": [
+    {
+      "created_at": "2021-11-09T20:52:50",
+      "updated_at": "2021-11-09T20:52:50",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1231",
+      "number": 1231,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "closed",
+      "title": "[DPUL/production] ActionView::Template::Error: key not found \"tile_source_ssim\"",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Eliot Jordan",
+          "updated_at": "2021-11-09T22:28:03",
+          "html_url": "https://github.com/pulibrary/dpul/issues/1231#issuecomment-964603259",
+          "body": "Closed in preference to #769 "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-11-09T22:28:03",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-10-12T18:17:10",
+      "updated_at": "2021-10-12T18:17:10",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1094",
+      "number": 1094,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "open",
+      "title": "Reindexing progress bar and widget broken",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T13:59:06",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-11-09T19:34:22",
+      "updated_at": "2021-11-09T19:34:22",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1230",
+      "number": 1230,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "closed",
+      "title": "Reindexing status error occurred when manually reindexing Shakespeare and Co. exhibit.",
+      "user_name": "Kim Leaman",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-11-10T14:00:01",
+          "html_url": "https://github.com/pulibrary/dpul/issues/1230#issuecomment-965209100",
+          "body": "@kelea99 the reindexing widget is pretty much completely broken. I added a little bit more to  https://github.com/pulibrary/dpul/issues/1094 and will close this one as a duplicate.\r\n\r\n"
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2021-11-10T14:08:56",
+          "html_url": "https://github.com/pulibrary/dpul/issues/1230#issuecomment-965227951",
+          "body": "doh! forgot about that ticket! sounds great. fwiw, it did end up getting all the right items into the collection, even though the error popped up and the numbers in the pop up are totes wrong."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T14:00:02",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2021-11-10T14:00:02",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2021-11-10T14:00:02",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-11-10T14:00:40",
+      "updated_at": "2021-11-10T14:00:40",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1232",
+      "number": 1232,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "open",
+      "title": "Image upload for thumbnail in browse category is broken",
+      "user_name": "Kim Leaman",
+      "comments": [
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2021-11-10T14:19:03",
+          "html_url": "https://github.com/pulibrary/dpul/issues/1232#issuecomment-965249461",
+          "body": "Image selection from the source is functional.  I can select a title from the pulldown, which does come up.  It saves. It displays in the dashboard as well as the browse page. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2021-11-10T14:01:27",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-10-21T10:22:04",
+      "updated_at": "2021-10-21T10:22:04",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1173",
+      "number": 1173,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "closed",
+      "title": "QA test spotlight features new in 3.0",
+      "user_name": "Kim Leaman",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-11-10T14:22:07",
+          "html_url": "https://github.com/pulibrary/dpul/issues/1173#issuecomment-965255928",
+          "body": "@kelea99 okay I think the features have all been QA tested so I will close this issue. It would be helpful to have separate issues for any problems you're still seeing with language functionality. If you could give example pages with \"I expected to see X but I saw Y\" type descriptions that would be helpful."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T14:22:07",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2021-11-10T14:22:07",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2021-11-10T14:22:08",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-11-03T17:17:15",
+      "updated_at": "2021-11-03T17:17:15",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1208",
+      "number": 1208,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "closed",
+      "title": "StartCanvas in SimpleResource JSON-LD causing Solr errors.",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-11-10T15:03:21",
+          "html_url": "https://github.com/pulibrary/dpul/issues/1208#issuecomment-965343871",
+          "body": "I deployed the figgy fix and started another reindex of this collection."
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-11-10T16:31:40",
+          "html_url": "https://github.com/pulibrary/dpul/issues/1208#issuecomment-965518498",
+          "body": "it's in! https://dpul.princeton.edu/pudl0036/catalog/bv73c422q"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T16:31:40",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-11-03T14:02:58",
+      "updated_at": "2021-11-03T14:02:58",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1200",
+      "number": 1200,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "open",
+      "title": "Return a 404 when a resource is requested on a nonexistent exhibit",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Xander Gardner",
+          "created_at": "2021-11-10T16:45:39",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-10-15T17:51:45",
+      "updated_at": "2021-10-15T17:51:45",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1138",
+      "number": 1138,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "closed",
+      "title": "Clean up stylesheets file structure",
+      "user_name": "Thanya Begum",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T16:32:18",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T16:46:50",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-11-10T17:51:47",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-11-10T16:47:08",
+      "updated_at": "2021-11-10T16:47:08",
+      "html_url": "https://github.com/pulibrary/dpul/pull/1234",
+      "number": 1234,
+      "pull_request_html_url": "https://github.com/pulibrary/dpul/pull/1234",
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "closed",
+      "title": "Remove unreferenced scss files",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-11-10T17:51:46",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-11-10T17:51:47",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-11-10T17:51:47",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-11-10T17:51:48",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/dpul/pull/1234",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-11-03T16:58:04",
+      "updated_at": "2021-11-03T16:58:04",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1207",
+      "number": 1207,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "closed",
+      "title": "List widget is no longer showing bullets on front end view. ",
+      "user_name": "Kim Leaman",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T16:28:09",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T16:28:56",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-11-10T17:52:08",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-11-10T16:29:44",
+      "updated_at": "2021-11-10T16:29:44",
+      "html_url": "https://github.com/pulibrary/dpul/pull/1233",
+      "number": 1233,
+      "pull_request_html_url": "https://github.com/pulibrary/dpul/pull/1233",
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "closed",
+      "title": "Scope list style overrides to .document",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-11-10T17:52:08",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-11-10T17:52:08",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-11-10T17:52:08",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-11-10T17:52:09",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/dpul/pull/1233",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-11-05T18:21:09",
+      "updated_at": "2021-11-05T18:21:09",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1215",
+      "number": 1215,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "closed",
+      "title": "Back to top link needs discernible name",
+      "user_name": "Thanya Begum",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2021-11-10T17:30:22",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T18:33:52",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-11-10T17:56:36",
+      "updated_at": "2021-11-10T17:56:36",
+      "html_url": "https://github.com/pulibrary/dpul/pull/1235",
+      "number": 1235,
+      "pull_request_html_url": "https://github.com/pulibrary/dpul/pull/1235",
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "closed",
+      "title": "Adds text content to back to top anchor tag to make it accessible",
+      "user_name": "Shaun Ellis",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T18:33:52",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T18:33:52",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T18:33:53",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T18:33:53",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/dpul/pull/1235",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-11-02T20:17:44",
+      "updated_at": "2021-11-02T20:17:44",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1196",
+      "number": 1196,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "open",
+      "title": "alignment  for metadata in list view is not displaying consistently in all browsers.",
+      "user_name": "Kim Leaman",
+      "comments": [
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2021-11-10T18:02:55",
+          "html_url": "https://github.com/pulibrary/dpul/issues/1196#issuecomment-965601494",
+          "body": "Reasoning for high priority to be done this work cycle: It should be consistent across platforms and as a list view it should be visually intuitive.  Especially considering the Milberg exhibitions and other exhibits also built in DPUL utiize the list view for items and an overview of the most important metadata/links to searches/etc..."
+        },
+        {
+          "user_name": "Shaun Ellis",
+          "updated_at": "2021-11-10T18:13:29",
+          "html_url": "https://github.com/pulibrary/dpul/issues/1196#issuecomment-965610525",
+          "body": "The simplest solution to this misalignment would be to move the thumbnail inside of the column to the right of the title, below the bookmark checkbox. However, the use of ViewComponents seems to create some obstacles since the element classes are defined in ruby classes. Due to the actions loop and coupled wrapper defined in the method, it's not as simple as placing the \"thumbnails\" component into a layout.  \n\nHowever, OrangeLight developers seem to have been able to position the thumbnail without overriding any ViewComponents (I would expect a \"components\" folder here): https://github.com/pulibrary/orangelight/tree/main/app \n\nNot quite sure how to move the thumbnail into the bookmark `<div>`. "
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-11-10T19:00:57",
+          "html_url": "https://github.com/pulibrary/dpul/issues/1196#issuecomment-965646983",
+          "body": "Orangelight does it here in a view override for the index item partial https://github.com/pulibrary/orangelight/blob/ace3e1ba6188b85a091eac310adb82b18ac1cfe2/app/views/catalog/_index_default.html.erb\r\n\r\nDoing this with an override that doesn't use viewcomponents would be an option. Note this was Chris Beer's suggested upgrade path."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2021-11-10T17:28:02",
+          "type": "unassigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T18:41:08",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-11-10T20:51:04",
+      "updated_at": "2021-11-10T20:51:04",
+      "html_url": "https://github.com/pulibrary/dpul/pull/1237",
+      "number": 1237,
+      "pull_request_html_url": "https://github.com/pulibrary/dpul/pull/1237",
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "open",
+      "title": "add automated accessibility testing to all pages",
+      "user_name": "Zaynab Masood",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/dpul/pull/1237",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-11-05T19:07:01",
+      "updated_at": "2021-11-05T19:07:01",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1219",
+      "number": 1219,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "open",
+      "title": "Exhibit item iframe doesn't have title attribute",
+      "user_name": "Thanya Begum",
+      "comments": [
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2021-11-10T18:06:39",
+          "html_url": "https://github.com/pulibrary/dpul/issues/1219#issuecomment-965604624",
+          "body": "This seems important to fix, especially if screen readers rely on it for contents of the frame. @sdellis I defer to you, and others. What are your thoughts? "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2021-11-10T18:06:40",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2021-11-10T18:06:40",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-11-10T21:29:45",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-11-10T21:38:42",
+      "updated_at": "2021-11-10T21:38:42",
+      "html_url": "https://github.com/pulibrary/dpul/pull/1238",
+      "number": 1238,
+      "pull_request_html_url": "https://github.com/pulibrary/dpul/pull/1238",
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "open",
+      "title": "Add title to UniversalViewer iframe",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T21:39:17",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-11-10T21:45:39",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-11-10T22:39:17",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/dpul/pull/1238",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-11-10T19:50:21",
+      "updated_at": "2021-11-10T19:50:21",
+      "html_url": "https://github.com/pulibrary/dpul/pull/1236",
+      "number": 1236,
+      "pull_request_html_url": "https://github.com/pulibrary/dpul/pull/1236",
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "closed",
+      "title": "Enable embed widget for multi-volume work manifests",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Eliot Jordan",
+          "updated_at": "2021-11-10T20:39:33",
+          "html_url": "https://github.com/pulibrary/dpul/pull/1236#issuecomment-965725255",
+          "body": "Tried this on staging and this fixes things on the indexing side. The embed widget itself could use some work for a MVW with many pages.\r\n\r\n![Screen Shot 2021-11-10 at 2 33 40 PM](https://user-images.githubusercontent.com/784196/141189313-124149e4-baa5-4e4f-8207-35544a815061.png)\r\n\r\n\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T19:50:55",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-11-10T19:52:28",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-11-10T22:42:26",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-11-10T22:42:26",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-11-10T22:42:26",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-11-10T22:42:26",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/dpul/pull/1236",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-04-15T19:20:49",
+      "updated_at": "2020-04-15T19:20:49",
+      "html_url": "https://github.com/pulibrary/dpul/issues/769",
+      "number": 769,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "closed",
+      "title": "Embed widget broken for multi volume works",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "Eliot Jordan",
+          "updated_at": "2021-11-09T22:27:33",
+          "html_url": "https://github.com/pulibrary/dpul/issues/769#issuecomment-964602945",
+          "body": "Not fine. The \"item embed\" widget does not work for MVW items. Example:\r\n\r\nhttps://figgy.princeton.edu/catalog/317ae996-c459-4482-9d33-6571313a26d7\r\n\r\n![Screen Shot 2021-11-09 at 4 21 45 PM](https://user-images.githubusercontent.com/784196/141015434-331c2129-2c7f-4968-b516-276ee9bd8d14.png)\r\n![Screen Shot 2021-11-09 at 4 21 57 PM](https://user-images.githubusercontent.com/784196/141015439-75c84d93-5247-49f4-901a-3d29bd9101f3.png)\r\n\r\n\r\n"
+        },
+        {
+          "user_name": "Eliot Jordan",
+          "updated_at": "2021-11-09T22:28:56",
+          "html_url": "https://github.com/pulibrary/dpul/issues/769#issuecomment-964603846",
+          "body": "Guessing it has something to do with indexed MVW records:\r\nhttps://github.com/projectblacklight/spotlight/blob/f1169e19631e2c79c88648ca310375634739e405/app/models/spotlight/resources/iiif_manifest.rb#L123"
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2021-11-10T13:34:28",
+          "html_url": "https://github.com/pulibrary/dpul/issues/769#issuecomment-965152104",
+          "body": "@eliotjordan, if it helps, MVW thumbnail selection did not work in the old DPUL either. I remember running into it when I first started learning about DPUL and selecting images for banners/etc..."
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2021-11-10T18:07:48",
+          "html_url": "https://github.com/pulibrary/dpul/issues/769#issuecomment-965605645",
+          "body": "Would be really great to get this to work, if we can. It opens up options for the growing number of MVWs in the collection."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-11-09T22:27:34",
+          "type": "reopened"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-11-09T22:29:07",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-11-09T22:29:19",
+          "type": "unlabeled"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-11-09T22:29:53",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-11-10T13:34:28",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-11-10T13:34:28",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-11-10T18:21:22",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-11-10T22:42:26",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "dspace-development": [
+    {
+      "created_at": "2021-11-10T15:04:41",
+      "updated_at": "2021-11-10T15:04:41",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/536",
+      "number": 536,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Delete DataSpace Collection 3370",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T15:04:41",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-11-10T16:13:34",
+      "updated_at": "2021-11-10T16:13:34",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/537",
+      "number": 537,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Update the DataSpace documentation to indicate that WORKFLOW_STEP_2 Groups should include the Group `Lib_DigPubs_Reviewers`",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T16:13:34",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T16:13:34",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-11-10T16:15:22",
+      "updated_at": "2021-11-10T16:15:22",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/538",
+      "number": 538,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Update the DataSpace documentation to indicate that WORKFLOW_STEP_3 Groups should include the Group `Lib_DigPubs_Approvers`",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T16:15:22",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T16:15:22",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-11-10T16:18:28",
+      "updated_at": "2021-11-10T16:18:28",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/539",
+      "number": 539,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Reconcile COLLECTION_[...]_ADMIN Groups with COLLECTION_[...]_WORKFLOW_STEP_3 Groups",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T16:18:28",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T16:18:28",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-11-10T16:26:53",
+      "updated_at": "2021-11-10T16:26:53",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/540",
+      "number": 540,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Reconcile (or remove) the Group `serials_public_review`",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T16:26:53",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T16:26:53",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-11-10T14:42:53",
+      "updated_at": "2021-11-10T14:42:53",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/535",
+      "number": 535,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "closed",
+      "title": "Audit the Group membership for DataSpace user account mccolgan",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2021-11-10T16:41:36",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/535#issuecomment-965529973",
+          "body": "It was necessary to clarify exactly why mccolgan was receiving e-mail messages, and ensure that the account only belong to Groups with the privileges for submitting Items to the necessary Collections."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T14:42:53",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T14:42:53",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T14:42:53",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T16:41:36",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-11-10T17:33:42",
+      "updated_at": "2021-11-10T17:33:42",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/541",
+      "number": 541,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Request an OIT upgrade for the SQL Server version for cisdr300w to SQL Server 2017",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2021-11-10T17:47:02",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/541#issuecomment-965587345",
+          "body": "This is currently in progress as a request using https://princeton.service-now.com/service?id=ticket&table=incident&sys_id=02a484bc87fb74d09cd197183cbb35f0&view=sp"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T17:33:42",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T17:33:42",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T17:33:42",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T17:33:42",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T17:34:53",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T17:49:46",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-11-10T17:35:38",
+      "updated_at": "2021-11-10T17:35:38",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/542",
+      "number": 542,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Request an OIT upgrade for the SQL Server version for cisdr200w to SQL Server 2017",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2021-11-10T17:47:28",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/542#issuecomment-965587756",
+          "body": "This is currently in progress as a request using https://princeton.service-now.com/service?id=ticket&table=incident&sys_id=02a484bc87fb74d09cd197183cbb35f0&view=sp"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T17:35:38",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T17:35:38",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T17:35:38",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T17:35:38",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T17:50:02",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-11-05T15:15:42",
+      "updated_at": "2021-11-05T15:15:42",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/526",
+      "number": 526,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Ensure that DataSpace user account chunly@ has the review permissions for the appropriate DataSpace Collections",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T17:51:44",
+          "type": "demilestoned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-11-05T20:10:38",
+      "updated_at": "2021-11-05T20:10:38",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/528",
+      "number": 528,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "closed",
+      "title": "Ensure that the DataSpace user account steve.knowlton@ has the proper permissions for \"Monographs, publicly accessible\"",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2021-11-10T17:58:38",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/528#issuecomment-965597552",
+          "body": "Following a message sent on 11/05/2021, I am going to close this with the assumption that this was closed:\n\n> Thank you for your patience, I see nothing outstanding from other Collections for which you should have the proper permissions. I am currently prioritizing troubleshooting tickets to audit Collection permissions for other DataSpace users and user groups in order to ensure that similar issues do not afflict others.\n\nShould you encounter any further errors, please do not hesitate to contact me. I am sorry again for all of this."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-11-10T17:58:38",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2021-11-10T05:13:36",
+      "updated_at": "2021-11-10T05:13:36",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4780",
+      "number": 4780,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4780",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Build elixir releases with podman and proxy Collection manifests to Figx.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-11-10T05:13:57",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4780",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-11-08T19:01:35",
+      "updated_at": "2021-11-08T19:01:35",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4777",
+      "number": 4777,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "SimpleResources should not have start canvas in their JSON-LD.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T14:09:50",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-11-09T00:24:43",
+      "updated_at": "2021-11-09T00:24:43",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4778",
+      "number": 4778,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4778",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Don't add start_canvas to SimpleResource JSON-LD.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T14:09:50",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T14:09:50",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T14:09:50",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-11-10T14:09:51",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4778",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-11-10T16:11:53",
+      "updated_at": "2021-11-10T16:11:53",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4781",
+      "number": 4781,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Faulty digital objects in ArchivesSpace need to be removed and figgy re-synced",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-11-10T16:12:27",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4781#issuecomment-965498147",
+          "body": "Note that researchers are asking for these materials"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-11-10T16:40:09",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-11-10T16:40:13",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-11-05T14:42:04",
+      "updated_at": "2021-11-05T14:42:04",
+      "html_url": "https://github.com/pulibrary/figgy/pull/4773",
+      "number": 4773,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/4773",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "4521 orphan fileset",
+      "user_name": "Xander Gardner",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Xander Gardner",
+          "created_at": "2021-11-10T14:24:33",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Xander Gardner",
+          "created_at": "2021-11-10T16:19:03",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Xander Gardner",
+          "created_at": "2021-11-10T16:46:24",
+          "type": "ready_for_review"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/4773",
+      "action": "pull_request_open"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2021-11-10T12:54:02",
+      "updated_at": "2021-11-10T12:54:02",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2806",
+      "number": 2806,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Heading order invalid",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-11-10T12:54:02",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2021-11-10T03:50:31",
+      "updated_at": "2021-11-10T03:50:31",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2565",
+      "number": 2565,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2565",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Add podman role.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-11-10T04:26:18",
+          "type": "convert_to_draft"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2565",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-11-09T21:07:34",
+      "updated_at": "2021-11-09T21:07:34",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2564",
+      "number": 2564,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2564",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add new hardware for bluemountain",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-11-10T12:29:43",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-11-10T12:29:43",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-11-10T12:29:43",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-11-10T12:29:44",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2564",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-11-08T21:03:15",
+      "updated_at": "2021-11-08T21:03:15",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2562",
+      "number": 2562,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2562",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "remove digitalocean repo",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-11-10T13:36:37",
+          "type": "convert_to_draft"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2562",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-11-01T21:48:19",
+      "updated_at": "2021-11-01T21:48:19",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2551",
+      "number": 2551,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Allow CORS for Figgy v3 manifests",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-11-10T17:09:04",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "pulbot": [
+    {
+      "created_at": "2021-11-10T17:44:49",
+      "updated_at": "2021-11-10T17:44:49",
+      "html_url": "https://github.com/pulibrary/pulbot/issues/91",
+      "number": 91,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulbot",
+      "repository_name": "pulbot",
+      "state": "open",
+      "title": "Slack is removing `rtm.start`",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "pulmap": [
+    {
+      "created_at": "2021-08-11T15:47:41",
+      "updated_at": "2021-08-11T15:47:41",
+      "html_url": "https://github.com/pulibrary/pulmap/issues/975",
+      "number": 975,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulmap",
+      "repository_name": "pulmap",
+      "state": "open",
+      "title": "[Pulmap/production] RGeo::Error::InvalidGeometry: LinearRing failed ring test",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-11-10T17:03:01",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "uptime": [
+    {
+      "created_at": "2021-11-10T02:17:28",
+      "updated_at": "2021-11-10T02:17:28",
+      "html_url": "https://github.com/pulibrary/uptime/issues/247",
+      "number": 247,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/uptime",
+      "repository_name": "uptime",
+      "state": "closed",
+      "title": "🛑 Dataspace is down",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2021-11-10T02:43:24",
+          "html_url": "https://github.com/pulibrary/uptime/issues/247#issuecomment-964734587",
+          "body": "**Resolved:** Dataspace is back up in [`0e755ba`](https://github.com/pulibrary/uptime/commit/0e755ba720329e24bf3fa43f5116c7e8f04589c4\n)."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-11-10T02:17:28",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-11-10T02:17:28",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-11-10T02:17:29",
+          "type": "locked"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-11-10T02:43:24",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 44,
+    "closed_count": 12,
+    "created_count": 13,
+    "pull_request_closed_count": 6,
+    "pull_request_open_count": 6,
+    "updated_count": 7,
+    "today": "2021-11-10T22:00:08",
+    "yesterday": "2021-11-09T22:00:08"
+  }
+}
