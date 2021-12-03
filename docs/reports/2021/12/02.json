@@ -1,0 +1,1554 @@
+{
+  "DSS": [
+    {
+      "created_at": "2021-12-03T00:21:32",
+      "updated_at": "2021-12-03T00:21:32",
+      "html_url": "https://github.com/pulibrary/DSS/pull/212",
+      "number": 212,
+      "pull_request_html_url": "https://github.com/pulibrary/DSS/pull/212",
+      "repository_html_url": "https://github.com/pulibrary/DSS",
+      "repository_name": "DSS",
+      "state": "open",
+      "title": "Remove entry for departing staff member",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-12-03T00:21:32",
+          "type": "review_requested"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/DSS/pull/212",
+      "action": "pull_request_open"
+    }
+  ],
+  "alma-notices": [
+    {
+      "created_at": "2021-12-02T01:38:23",
+      "updated_at": "2021-12-02T01:38:23",
+      "html_url": "https://github.com/pulibrary/alma-notices/issues/192",
+      "number": 192,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/alma-notices",
+      "repository_name": "alma-notices",
+      "state": "open",
+      "title": "Update Patron Letters for Guest Account Management",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "aspace_helpers": [
+    {
+      "created_at": "2021-12-01T17:22:04",
+      "updated_at": "2021-12-01T17:22:04",
+      "html_url": "https://github.com/pulibrary/aspace_helpers/pull/96",
+      "number": 96,
+      "pull_request_html_url": "https://github.com/pulibrary/aspace_helpers/pull/96",
+      "repository_html_url": "https://github.com/pulibrary/aspace_helpers",
+      "repository_name": "aspace_helpers",
+      "state": "closed",
+      "title": "Update README.md",
+      "user_name": "regineheberlein",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T13:11:48",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T13:11:48",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T13:11:48",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T13:11:51",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/aspace_helpers/pull/96",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-12-02T13:11:16",
+      "updated_at": "2021-12-02T13:11:16",
+      "html_url": "https://github.com/pulibrary/aspace_helpers/pull/98",
+      "number": 98,
+      "pull_request_html_url": "https://github.com/pulibrary/aspace_helpers/pull/98",
+      "repository_html_url": "https://github.com/pulibrary/aspace_helpers",
+      "repository_name": "aspace_helpers",
+      "state": "closed",
+      "title": "Making a shared space for data",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T14:18:47",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T14:18:47",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T14:18:47",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/aspace_helpers/pull/98",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-12-01T23:24:47",
+      "updated_at": "2021-12-01T23:24:47",
+      "html_url": "https://github.com/pulibrary/aspace_helpers/issues/97",
+      "number": 97,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/aspace_helpers",
+      "repository_name": "aspace_helpers",
+      "state": "closed",
+      "title": "we need to import a straggler EAD (C1609)",
+      "user_name": "regineheberlein",
+      "comments": [
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2021-12-02T00:21:18",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/97#issuecomment-984177441",
+          "body": "This is the transformation workflow from the days of the migration (SVN readme):\r\n\r\n1. Create container entities from dsc2 and classic containers: \r\nsvn://lib-svn.princeton.edu/libsvn/trunk/rbscXSL/ASpace tools/get-containers.xquery\r\nsvn://lib-svn.princeton.edu/libsvn/trunk/rbscXSL/ASpace tools/classic_2_dsc2_containers.xq\r\n\r\n2. Transform EADs: \r\nsvn://lib-svn.princeton.edu/libsvn/trunk/rbscXSL/ASpace tools/ASpace_do_containers.xq\r\nsvn://lib-svn.princeton.edu/libsvn/trunk/rbscXSL/ASpace tools/ASpace_do_cleanup.xq\r\n\r\n3. MUST run after EAD transformation: Extract Agents names_A-F and names_G-Z with get-agent-info-and-delete.xq and delete names, bioghists from EAD;\r\nRemove empty elements with remove-empty-agent-wrappers.xq\r\n\r\n4. Create CSV from names_A-F, names_G-Z using names2csv.xq \r\n\r\n5. Validate: svn://lib-svn.princeton.edu/libsvn/trunk/rbscXSL/ASpace tools/validate.xquery (5 min), \r\nsvn://lib-svn.princeton.edu/libsvn/trunk/rbscXSL/ASpace tools/validate-containers.xquery"
+        },
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2021-12-02T00:27:48",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/97#issuecomment-984180503",
+          "body": "This is urgent: per Kelly, Dan and Alexis are hoping this can be done this week."
+        },
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2021-12-02T16:22:30",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/97#issuecomment-984783714",
+          "body": "Transformed and imported; Kelly will do some manual cleanup. Closing."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-01T23:24:47",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T00:23:32",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T14:20:55",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T16:22:30",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-11-19T21:02:59",
+      "updated_at": "2021-11-19T21:02:59",
+      "html_url": "https://github.com/pulibrary/aspace_helpers/issues/85",
+      "number": 85,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/aspace_helpers",
+      "repository_name": "aspace_helpers",
+      "state": "open",
+      "title": "need a report on AC187",
+      "user_name": "regineheberlein",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T17:16:38",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T17:16:58",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-12-02T17:22:24",
+      "updated_at": "2021-12-02T17:22:24",
+      "html_url": "https://github.com/pulibrary/aspace_helpers/pull/99",
+      "number": 99,
+      "pull_request_html_url": "https://github.com/pulibrary/aspace_helpers/pull/99",
+      "repository_html_url": "https://github.com/pulibrary/aspace_helpers",
+      "repository_name": "aspace_helpers",
+      "state": "closed",
+      "title": "log for repo 5",
+      "user_name": "regineheberlein",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T17:22:24",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T19:36:57",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T19:36:57",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T19:36:57",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T19:36:59",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/aspace_helpers/pull/99",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-12-02T22:16:26",
+      "updated_at": "2021-12-02T22:16:26",
+      "html_url": "https://github.com/pulibrary/aspace_helpers/pull/100",
+      "number": 100,
+      "pull_request_html_url": "https://github.com/pulibrary/aspace_helpers/pull/100",
+      "repository_html_url": "https://github.com/pulibrary/aspace_helpers",
+      "repository_name": "aspace_helpers",
+      "state": "closed",
+      "title": "output files for import after applying XQuery routines from migration",
+      "user_name": "regineheberlein",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T22:16:26",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Peter Green",
+          "created_at": "2021-12-02T22:21:21",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Peter Green",
+          "created_at": "2021-12-02T22:21:21",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Peter Green",
+          "created_at": "2021-12-02T22:21:21",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/aspace_helpers/pull/100",
+      "action": "pull_request_closed"
+    }
+  ],
+  "bibdata": [
+    {
+      "created_at": "2021-12-02T20:06:13",
+      "updated_at": "2021-12-02T20:06:13",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1740",
+      "number": 1740,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Switch from Username/Password to SSH Key for lib-sftp connections",
+      "user_name": "Kevin Reiss",
+      "comments": [
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2021-12-02T20:07:04",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1740#issuecomment-984961865",
+          "body": "Related to https://github.com/pulibrary/princeton_ansible/issues/2138"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "dataspace_embargo_lifter": [
+    {
+      "created_at": "2021-12-02T16:32:04",
+      "updated_at": "2021-12-02T16:32:04",
+      "html_url": "https://github.com/pulibrary/dataspace_embargo_lifter/issues/3",
+      "number": 3,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dataspace_embargo_lifter",
+      "repository_name": "dataspace_embargo_lifter",
+      "state": "closed",
+      "title": "Install on production",
+      "user_name": "Kate Lynch",
+      "comments": [
+        {
+          "user_name": "Kate Lynch",
+          "updated_at": "2021-12-02T16:32:39",
+          "html_url": "https://github.com/pulibrary/dataspace_embargo_lifter/issues/3#issuecomment-984792915",
+          "body": "Installed, closing"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2021-12-02T16:32:36",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2021-12-02T16:32:39",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-11-04T20:01:57",
+      "updated_at": "2021-11-04T20:01:57",
+      "html_url": "https://github.com/pulibrary/dataspace_embargo_lifter/issues/2",
+      "number": 2,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dataspace_embargo_lifter",
+      "repository_name": "dataspace_embargo_lifter",
+      "state": "closed",
+      "title": "Schedule service to run daily",
+      "user_name": "Kate Lynch",
+      "comments": [
+        {
+          "user_name": "Kate Lynch",
+          "updated_at": "2021-12-02T16:34:10",
+          "html_url": "https://github.com/pulibrary/dataspace_embargo_lifter/issues/2#issuecomment-984793969",
+          "body": "Installed on production and run manually the first time in coordination with the primary stakeholder, see output captured here - https://docs.google.com/document/d/1hbzNLTwxKvxSUcBbaPM26xszJ78Y1aI_TupQf5txrM4/edit\r\n\r\nCrontab scheduled to run each morning at 8am EST; emails will go out to the team and primary stakeholder when this happens."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2021-12-02T16:33:45",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2021-12-02T16:33:50",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "dls-handbook": [
+    {
+      "created_at": "2021-12-02T14:33:38",
+      "updated_at": "2021-12-02T14:33:38",
+      "html_url": "https://github.com/pulibrary/dls-handbook/pull/32",
+      "number": 32,
+      "pull_request_html_url": "https://github.com/pulibrary/dls-handbook/pull/32",
+      "repository_html_url": "https://github.com/pulibrary/dls-handbook",
+      "repository_name": "dls-handbook",
+      "state": "open",
+      "title": "Add info about part time developer schedule calendar",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/dls-handbook/pull/32",
+      "action": "pull_request_open"
+    }
+  ],
+  "dspace-development": [
+    {
+      "created_at": "2021-12-01T15:16:37",
+      "updated_at": "2021-12-01T15:16:37",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/556",
+      "number": 556,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Troubleshoot and reattempt to apply the 5.21 patch upgrade for Elements on cidsr201w",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2021-12-02T15:28:50",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/556#issuecomment-984733996",
+          "body": "https://princeton.service-now.com/service?id=tickets&table=incident&sys_id=8136b4f7874485d09cd197183cbb35fa&view=sp is now required given that I am encountering the following errors:\n\n![image.png](https://images.zenhubusercontent.com/5b5b6aed981c3204c9ed06c8/f91b3bdd-86cd-4df2-8f50-34e7315a18fe)"
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2021-12-02T19:55:40",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/556#issuecomment-984953944",
+          "body": "https://princeton.service-now.com/service?id=ticket&sys_id=8136b4f7874485d09cd197183cbb35fa&table=incident is not showing any response from the OIT, I am going to need to advance this with one of the DBAs from the OIT."
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2021-12-02T21:35:42",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/556#issuecomment-985019633",
+          "body": "This is still being blocked by https://princeton.service-now.com/service?id=ticket&sys_id=8136b4f7874485d09cd197183cbb35fa&table=incident, and several e-mail messages were exchanged (with the DBA with whom I have been in contact specified by CC). I can look to try and further escalate the severity of this from within SN@P."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2021-12-02T14:50:26",
+      "updated_at": "2021-12-02T14:50:26",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4818",
+      "number": 4818,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Failed ingest of 9963573713506421",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-12-02T14:59:38",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4818#issuecomment-984706504",
+          "body": "I reached out to Richel on slack."
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2021-12-02T15:10:09",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4818#issuecomment-984716602",
+          "body": "Info from Richel. In this case there had been a typo on the id at ingest. The file was renamed to the correct ID and successfully ingested as the correct item. So all is well."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T14:54:39",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T14:54:39",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T15:10:09",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "lib_jobs": [
+    {
+      "created_at": "2021-12-02T20:05:51",
+      "updated_at": "2021-12-02T20:05:51",
+      "html_url": "https://github.com/pulibrary/lib_jobs/issues/259",
+      "number": 259,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/lib_jobs",
+      "repository_name": "lib_jobs",
+      "state": "open",
+      "title": "Switch from Username/Password to SSH Key for lib-sftp connections",
+      "user_name": "Kevin Reiss",
+      "comments": [
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2021-12-02T20:07:18",
+          "html_url": "https://github.com/pulibrary/lib_jobs/issues/259#issuecomment-984962021",
+          "body": "Related to https://github.com/pulibrary/princeton_ansible/issues/2138"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "lockers_and_study_spaces": [
+    {
+      "created_at": "2021-10-25T13:48:18",
+      "updated_at": "2021-10-25T13:48:18",
+      "html_url": "https://github.com/pulibrary/lockers_and_study_spaces/issues/6",
+      "number": 6,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/lockers_and_study_spaces",
+      "repository_name": "lockers_and_study_spaces",
+      "state": "open",
+      "title": "Assign a study space",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T14:34:48",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-12-02T15:03:56",
+      "updated_at": "2021-12-02T15:03:56",
+      "html_url": "https://github.com/pulibrary/lockers_and_study_spaces/issues/36",
+      "number": 36,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/lockers_and_study_spaces",
+      "repository_name": "lockers_and_study_spaces",
+      "state": "open",
+      "title": "filter by staff for imported records fails",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-12-02T15:06:54",
+      "updated_at": "2021-12-02T15:06:54",
+      "html_url": "https://github.com/pulibrary/lockers_and_study_spaces/issues/37",
+      "number": 37,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/lockers_and_study_spaces",
+      "repository_name": "lockers_and_study_spaces",
+      "state": "open",
+      "title": "Staus at Application in form",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-10-25T13:56:33",
+      "updated_at": "2021-10-25T13:56:33",
+      "html_url": "https://github.com/pulibrary/lockers_and_study_spaces/issues/8",
+      "number": 8,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/lockers_and_study_spaces",
+      "repository_name": "lockers_and_study_spaces",
+      "state": "closed",
+      "title": "Email the patron when a locker is assigned",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-12-02T15:17:34",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-12-01T19:07:46",
+      "updated_at": "2021-12-01T19:07:46",
+      "html_url": "https://github.com/pulibrary/lockers_and_study_spaces/pull/34",
+      "number": 34,
+      "pull_request_html_url": "https://github.com/pulibrary/lockers_and_study_spaces/pull/34",
+      "repository_html_url": "https://github.com/pulibrary/lockers_and_study_spaces",
+      "repository_name": "lockers_and_study_spaces",
+      "state": "closed",
+      "title": "Adding in locker information to assignment email",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "carolyncole",
+          "updated_at": "2021-12-02T15:10:59",
+          "html_url": "https://github.com/pulibrary/lockers_and_study_spaces/pull/34#issuecomment-984717403",
+          "body": "@christinach Thanks!  I also found cobination in the text and updated that."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T14:23:11",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-12-02T15:11:00",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-12-02T15:11:00",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T15:11:48",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-12-02T15:17:33",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-12-02T15:17:33",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-12-02T15:17:34",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-12-02T15:17:34",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/lockers_and_study_spaces/pull/34",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-10-25T13:50:25",
+      "updated_at": "2021-10-25T13:50:25",
+      "html_url": "https://github.com/pulibrary/lockers_and_study_spaces/issues/7",
+      "number": 7,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/lockers_and_study_spaces",
+      "repository_name": "lockers_and_study_spaces",
+      "state": "closed",
+      "title": "Look up an assigned space",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-12-02T16:07:46",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-12-02T14:21:36",
+      "updated_at": "2021-12-02T14:21:36",
+      "html_url": "https://github.com/pulibrary/lockers_and_study_spaces/pull/35",
+      "number": 35,
+      "pull_request_html_url": "https://github.com/pulibrary/lockers_and_study_spaces/pull/35",
+      "repository_html_url": "https://github.com/pulibrary/lockers_and_study_spaces",
+      "repository_name": "lockers_and_study_spaces",
+      "state": "closed",
+      "title": "Allowing LockerAssignment filtering by department and active",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "carolyncole",
+          "updated_at": "2021-12-02T15:44:21",
+          "html_url": "https://github.com/pulibrary/lockers_and_study_spaces/pull/35#issuecomment-984748505",
+          "body": "@christinach fixed the bug with the department ui.  It's been deployed to staging if you want to play with it some more..."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T14:42:21",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T14:42:21",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T15:13:22",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T15:16:34",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T15:16:34",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-12-02T15:44:21",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-12-02T15:44:22",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-12-02T16:07:46",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-12-02T16:07:46",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-12-02T16:07:46",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-12-02T16:07:47",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/lockers_and_study_spaces/pull/35",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-12-02T21:03:23",
+      "updated_at": "2021-12-02T21:03:23",
+      "html_url": "https://github.com/pulibrary/lockers_and_study_spaces/pull/38",
+      "number": 38,
+      "pull_request_html_url": "https://github.com/pulibrary/lockers_and_study_spaces/pull/38",
+      "repository_html_url": "https://github.com/pulibrary/lockers_and_study_spaces",
+      "repository_name": "lockers_and_study_spaces",
+      "state": "open",
+      "title": "Adding mass assignment of study spaces",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T21:03:42",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T21:05:45",
+          "type": "deployed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/lockers_and_study_spaces/pull/38",
+      "action": "pull_request_open"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2021-11-23T17:03:41",
+      "updated_at": "2021-11-23T17:03:41",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2811",
+      "number": 2811,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Not all related holdings are showing in Blacklight",
+      "user_name": "mzelesky",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T19:07:23",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-08-17T17:53:33",
+      "updated_at": "2021-08-17T17:53:33",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2661",
+      "number": 2661,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Host and contained_in holdings_display logic",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T19:07:23",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-11-24T20:48:22",
+      "updated_at": "2021-11-24T20:48:22",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2812",
+      "number": 2812,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2812",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Include holdings from host records in the constituent record display",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-12-02T15:14:52",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2812#issuecomment-984721193",
+          "body": "@kevinreiss @carolyncole , @mzelesky is looking for examples but we have found examples that you can't see the difference in the display between production and staging. \r\nThe example records that will show a difference in the display are constituent records with more than one 773s ; the 773s should have holdings and not suppressed (holdings). \r\nSo far the most representative example is the one in the PR https://catalog-staging.princeton.edu/catalog/9923427953506421."
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-12-02T15:28:25",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2812#issuecomment-984733638",
+          "body": "Better to test the display in qa https://catalog-qa.princeton.edu/catalog/9923427953506421\r\nin case you'd like to test the 'Reading room request' button which doesn't work for host records in production as well."
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-12-02T15:39:53",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2812#issuecomment-984744025",
+          "body": "one more example https://catalog.princeton.edu/catalog/9926003593506421\r\nvs https://catalog-qa.princeton.edu/catalog/9926003593506421\r\nthank you @mzelesky !!"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2021-12-02T17:18:17",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2812#issuecomment-984833085",
+          "body": "@carolyncole thank you. I updated the PR"
+        },
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2021-12-02T17:29:03",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2812#issuecomment-984841645",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/44716151/badge)](https://coveralls.io/builds/44716151)\n\nCoverage increased (+0.001%) to 96.758% when pulling **05aea432eba0cd276ab6d463c5ca1762bb952ccb on 2811-related-holdings** into **2b7f62c034b65a15157013e284f4e968dfb654f4 on main**.\n"
+        },
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2021-12-02T17:43:55",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/2812#issuecomment-984853178",
+          "body": "👍 to merging/deploying. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2021-12-02T14:22:15",
+          "type": "review_request_removed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-12-02T15:14:52",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-12-02T15:14:53",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T15:14:53",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T15:14:53",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T15:14:53",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T15:14:53",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T15:25:02",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T15:25:02",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T15:39:53",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T15:39:53",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T17:17:52",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T17:18:18",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T17:18:18",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T19:07:23",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T19:07:23",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T19:07:23",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T19:07:24",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2812",
+      "action": "pull_request_closed"
+    }
+  ],
+  "pdc_discovery": [
+    {
+      "created_at": "2021-11-02T21:07:07",
+      "updated_at": "2021-11-02T21:07:07",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/73",
+      "number": 73,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "closed",
+      "title": "Facet on expected fields",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2021-12-01T22:00:21",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-12-01T20:51:11",
+      "updated_at": "2021-12-01T20:51:11",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/pull/103",
+      "number": 103,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_discovery/pull/103",
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "closed",
+      "title": "MOAR FACETS!",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2021-12-01T22:00:21",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2021-12-01T22:00:21",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2021-12-01T22:00:21",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2021-12-01T22:00:22",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_discovery/pull/103",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-12-01T21:29:32",
+      "updated_at": "2021-12-01T21:29:32",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/pull/104",
+      "number": 104,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_discovery/pull/104",
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "closed",
+      "title": "Remove vue",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-12-02T14:12:11",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-12-02T14:12:11",
+          "type": "merged"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-12-02T14:12:11",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-12-02T14:12:12",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_discovery/pull/104",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-12-01T22:06:45",
+      "updated_at": "2021-12-01T22:06:45",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/pull/105",
+      "number": 105,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_discovery/pull/105",
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "closed",
+      "title": "Makes Bootstrap icons available",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T14:13:50",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T14:13:50",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-12-02T14:19:21",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-12-02T14:19:22",
+          "type": "merged"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-12-02T14:19:22",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-12-02T14:19:22",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_discovery/pull/105",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-12-01T22:30:12",
+      "updated_at": "2021-12-01T22:30:12",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/pull/106",
+      "number": 106,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_discovery/pull/106",
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "closed",
+      "title": "Index and display the file (bitstream) description.",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2021-12-02T14:19:47",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2021-12-02T14:19:47",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2021-12-02T14:19:47",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2021-12-02T14:19:48",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_discovery/pull/106",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-08-09T19:52:33",
+      "updated_at": "2021-08-09T19:52:33",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/33",
+      "number": 33,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "closed",
+      "title": "Display and enable download of attached files",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2021-12-01T22:32:51",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-12-02T20:29:21",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-12-02T19:32:40",
+      "updated_at": "2021-12-02T19:32:40",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/pull/107",
+      "number": 107,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_discovery/pull/107",
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "closed",
+      "title": "Added support to download files",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-12-02T19:32:40",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-12-02T19:32:41",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T20:12:23",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-12-02T20:29:21",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-12-02T20:29:21",
+          "type": "merged"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-12-02T20:29:21",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2021-12-02T20:29:22",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_discovery/pull/107",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-12-02T21:18:09",
+      "updated_at": "2021-12-02T21:18:09",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/pull/108",
+      "number": 108,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_discovery/pull/108",
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "closed",
+      "title": "Subject facet",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T21:21:26",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T21:21:48",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2021-12-02T21:24:55",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2021-12-02T21:24:55",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2021-12-02T21:24:55",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2021-12-02T21:24:56",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_discovery/pull/108",
+      "action": "pull_request_closed"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2021-12-01T21:08:04",
+      "updated_at": "2021-12-01T21:08:04",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2589",
+      "number": 2589,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2589",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Repmgr failover",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-12-02T19:35:07",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2589",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-12-02T20:34:51",
+      "updated_at": "2021-12-02T20:34:51",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2590",
+      "number": 2590,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "migrate additional shakespeare and company project aliases to library",
+      "user_name": "Rebecca Sutton Koeser",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-12-02T20:34:52",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "pul_library_drupal": [
+    {
+      "created_at": "2021-12-03T01:10:56",
+      "updated_at": "2021-12-03T01:10:56",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1807",
+      "number": 1807,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "open",
+      "title": "Create Form for Makerspace",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "pulmap": [
+    {
+      "created_at": "2021-12-02T14:00:10",
+      "updated_at": "2021-12-02T14:00:10",
+      "html_url": "https://github.com/pulibrary/pulmap/issues/1009",
+      "number": 1009,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulmap",
+      "repository_name": "pulmap",
+      "state": "open",
+      "title": "Remove pulmap:geoblacklight_harvester:index[BIG10] cron job until our schema is updated",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Eliot Jordan",
+          "updated_at": "2021-12-02T17:00:26",
+          "html_url": "https://github.com/pulibrary/pulmap/issues/1009#issuecomment-984817591",
+          "body": "Big10 changed their solr schema. We should stop this rake task until we update our schema in the future or figure out a crosswalk."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T14:06:03",
+          "type": "renamed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T14:07:38",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T14:07:38",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-02T14:07:38",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-12-02T17:00:22",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "titiler-aws": [
+    {
+      "created_at": "2021-11-30T20:29:06",
+      "updated_at": "2021-11-30T20:29:06",
+      "html_url": "https://github.com/pulibrary/titiler-aws/issues/13",
+      "number": 13,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/titiler-aws",
+      "repository_name": "titiler-aws",
+      "state": "closed",
+      "title": "WMTS Capabilities Document returns incorrect urls ",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-12-02T00:35:10",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-12-02T00:02:17",
+      "updated_at": "2021-12-02T00:02:17",
+      "html_url": "https://github.com/pulibrary/titiler-aws/pull/16",
+      "number": 16,
+      "pull_request_html_url": "https://github.com/pulibrary/titiler-aws/pull/16",
+      "repository_html_url": "https://github.com/pulibrary/titiler-aws",
+      "repository_name": "titiler-aws",
+      "state": "closed",
+      "title": "Add middleware to correctly set the host header in the lambda function",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-12-02T00:02:26",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-12-02T00:35:10",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-12-02T00:35:10",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-12-02T00:35:10",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2021-12-02T00:35:11",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/titiler-aws/pull/16",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-11-30T20:40:45",
+      "updated_at": "2021-11-30T20:40:45",
+      "html_url": "https://github.com/pulibrary/titiler-aws/issues/15",
+      "number": 15,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/titiler-aws",
+      "repository_name": "titiler-aws",
+      "state": "open",
+      "title": "Add map-tiles and map-tiles-staging domains",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-12-02T19:20:19",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-12-02T19:02:49",
+      "updated_at": "2021-12-02T19:02:49",
+      "html_url": "https://github.com/pulibrary/titiler-aws/pull/17",
+      "number": 17,
+      "pull_request_html_url": "https://github.com/pulibrary/titiler-aws/pull/17",
+      "repository_html_url": "https://github.com/pulibrary/titiler-aws",
+      "repository_name": "titiler-aws",
+      "state": "closed",
+      "title": "Add staging and production environments",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-12-02T19:12:33",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-12-02T19:19:45",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-12-02T21:33:06",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-12-02T22:39:51",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-12-02T22:39:51",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-12-02T22:39:51",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-12-02T22:39:51",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/titiler-aws/pull/17",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-11-30T20:47:06",
+      "updated_at": "2021-11-30T20:47:06",
+      "html_url": "https://github.com/pulibrary/titiler-aws/issues/14",
+      "number": 14,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/titiler-aws",
+      "repository_name": "titiler-aws",
+      "state": "closed",
+      "title": "Add staging and production deployments",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2021-12-02T22:39:51",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 43,
+    "closed_count": 9,
+    "created_count": 11,
+    "pull_request_closed_count": 15,
+    "pull_request_open_count": 4,
+    "updated_count": 4,
+    "today": "2021-12-02T22:00:04",
+    "yesterday": "2021-12-01T22:00:04"
+  }
+}
