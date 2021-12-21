@@ -1,0 +1,898 @@
+{
+  "cicognara-rails": [
+    {
+      "created_at": "2021-12-16T14:22:01",
+      "updated_at": "2021-12-16T14:22:01",
+      "html_url": "https://github.com/pulibrary/cicognara-rails/issues/495",
+      "number": 495,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/cicognara-rails",
+      "repository_name": "cicognara-rails",
+      "state": "closed",
+      "title": "Debug Getty harvesting",
+      "user_name": "Kate Lynch",
+      "comments": [
+        {
+          "user_name": "Kate Lynch",
+          "updated_at": "2021-12-20T15:54:20",
+          "html_url": "https://github.com/pulibrary/cicognara-rails/issues/495#issuecomment-998049690",
+          "body": "This appears to be a data issue.  The harvester checks first for association with the Cicognara digital collection, then for the presence of a DCL identifier, and then checks for the presence of a IIIF manifest URL.  Only if all three of these checks pass, is the record then ingested.  \r\n\r\nI determined the following by debugging the harvester, for items with the value \"Getty Research Institute\" in the Contributing Library field:\r\n* Passed Cicognara check: 1298 records\r\n* Passed DCL number check: 1272 records\r\n* Passed manifest URL check: 5\r\n\r\nSo it looks like there is a problem getting manifests into the correct place in the records.  It looks like it's completely missing from the Getty records rather than just in the wrong place.\r\n\r\n* [Example with Cicognara collection association, DCL number, and manifest URL](https://portal.getty.edu/books/princeton_8494591)  - this one indexes correctly\r\n* [Example with Cicognara collection association and DCL number but no manifest URL](http://portal.getty.edu/books/gri_9921545320001551) - this one is skipped but looks like it should be included.\r\n\r\nWe need to get the missing manifest URL values into the records from the Getty, or adjust the check.  The items without manifest URLs are using the Archive.org BookReader.\r\n\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2021-12-20T17:32:05",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "discoveryutils": [
+    {
+      "created_at": "2021-10-14T20:22:02",
+      "updated_at": "2021-10-14T20:22:02",
+      "html_url": "https://github.com/pulibrary/discoveryutils/issues/198",
+      "number": 198,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/discoveryutils",
+      "repository_name": "discoveryutils",
+      "state": "open",
+      "title": "Art Library Bento Search Fails when zero hits",
+      "user_name": "Kevin Reiss",
+      "comments": [
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2021-12-20T18:49:03",
+          "html_url": "https://github.com/pulibrary/discoveryutils/issues/198#issuecomment-998183165",
+          "body": "Actually any search fails DPUL has changed it's underly json structure. "
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-12-20T19:00:15",
+      "updated_at": "2021-12-20T19:00:15",
+      "html_url": "https://github.com/pulibrary/discoveryutils/issues/199",
+      "number": 199,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/discoveryutils",
+      "repository_name": "discoveryutils",
+      "state": "open",
+      "title": "Thesis records with Portfolios in Alma Fail. ",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-12-20T19:00:21",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2021-12-20T20:20:53",
+      "updated_at": "2021-12-20T20:20:53",
+      "html_url": "https://github.com/pulibrary/discoveryutils/pull/200",
+      "number": 200,
+      "pull_request_html_url": "https://github.com/pulibrary/discoveryutils/pull/200",
+      "repository_html_url": "https://github.com/pulibrary/discoveryutils",
+      "repository_name": "discoveryutils",
+      "state": "closed",
+      "title": "Fix thesis URL parsing issue.",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-12-20T20:21:01",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-12-20T20:21:12",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-20T20:23:17",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-20T20:23:17",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-20T20:23:17",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-20T20:23:18",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/discoveryutils/pull/200",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-12-20T21:18:45",
+      "updated_at": "2021-12-20T21:18:45",
+      "html_url": "https://github.com/pulibrary/discoveryutils/pull/201",
+      "number": 201,
+      "pull_request_html_url": "https://github.com/pulibrary/discoveryutils/pull/201",
+      "repository_html_url": "https://github.com/pulibrary/discoveryutils",
+      "repository_name": "discoveryutils",
+      "state": "open",
+      "title": "First pass to at parsing the basics of hte new DPUL respnose.",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/discoveryutils/pull/201",
+      "action": "pull_request_open"
+    }
+  ],
+  "dspace-development": [
+    {
+      "created_at": "2021-12-20T14:50:28",
+      "updated_at": "2021-12-20T14:50:28",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/562",
+      "number": 562,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "OAR: Missing Button for Metadata Review",
+      "user_name": "Hannah H",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "lockers_and_study_spaces": [
+    {
+      "created_at": "2021-12-20T14:23:26",
+      "updated_at": "2021-12-20T14:23:26",
+      "html_url": "https://github.com/pulibrary/lockers_and_study_spaces/pull/55",
+      "number": 55,
+      "pull_request_html_url": "https://github.com/pulibrary/lockers_and_study_spaces/pull/55",
+      "repository_html_url": "https://github.com/pulibrary/lockers_and_study_spaces",
+      "repository_name": "lockers_and_study_spaces",
+      "state": "closed",
+      "title": "Adding agreement as attachment to locker violation",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-12-20T14:50:11",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-12-20T14:50:11",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-12-20T14:50:11",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-12-20T14:50:12",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/lockers_and_study_spaces/pull/55",
+      "action": "pull_request_closed"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2021-12-17T13:54:33",
+      "updated_at": "2021-12-17T13:54:33",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2625",
+      "number": 2625,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2625",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[NGINX] Changing to the new server for production Assigned Spaces",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-20T13:28:40",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-20T13:28:40",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-20T13:28:40",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-20T13:28:41",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2625",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-11-19T18:39:17",
+      "updated_at": "2021-11-19T18:39:17",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2576",
+      "number": 2576,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Increase Confluence memory to 4GB",
+      "user_name": "Esmé Cowles",
+      "comments": [
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2021-12-20T15:40:13",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2576#issuecomment-998037435",
+          "body": "Related to https://github.com/pulibrary/pul-the-hard-way/pull/92. Leaving this open on the assumption that we do want to automate Confluence installation at some point. "
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2021-12-14T13:42:44",
+      "updated_at": "2021-12-14T13:42:44",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2621",
+      "number": 2621,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2621",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add maria root credentials",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2021-12-20T16:55:25",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2621#issuecomment-998103314",
+          "body": "Looks good, thanks @kayiwa. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-12-20T16:55:25",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2021-12-20T16:55:26",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T16:55:39",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T16:55:39",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T16:55:39",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T16:55:40",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2621",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-12-20T13:30:48",
+      "updated_at": "2021-12-20T13:30:48",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2630",
+      "number": 2630,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2630",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "update TLS for fpul sites",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T16:56:27",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T16:56:27",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T16:56:27",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T16:56:27",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2630",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-12-20T15:22:56",
+      "updated_at": "2021-12-20T15:22:56",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2631",
+      "number": 2631,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2631",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "update TLS for pulibrary sites",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T16:57:48",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T16:57:48",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T16:57:48",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T16:57:49",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2631",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-12-20T18:38:15",
+      "updated_at": "2021-12-20T18:38:15",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2632",
+      "number": 2632,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2632",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add test-web cdh TLS certs",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T23:02:46",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T23:02:47",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T23:02:47",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T23:02:47",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2632",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2019-10-18T16:16:09",
+      "updated_at": "2019-10-18T16:16:09",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/946",
+      "number": 946,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/946",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Adding support for Node.js LTS installations for pulibrary.nodejs",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T23:19:02",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/946",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2019-10-16T15:44:02",
+      "updated_at": "2019-10-16T15:44:02",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/933",
+      "number": 933,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/933",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Implements a pulibrary.subversion-pulfa Role for plantain_staging",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T23:19:11",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/933",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2019-12-12T13:29:11",
+      "updated_at": "2019-12-12T13:29:11",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1112",
+      "number": 1112,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1112",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Making a PR to test actions",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T23:19:13",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1112",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2019-12-20T15:29:22",
+      "updated_at": "2019-12-20T15:29:22",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1145",
+      "number": 1145,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1145",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "depend on the nodejs role",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T23:19:14",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1145",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-01-03T20:22:48",
+      "updated_at": "2020-01-03T20:22:48",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1156",
+      "number": 1156,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1156",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[WIP] Updating the NodeJS release to 12.x versions",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T23:19:15",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1156",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-01-22T02:53:10",
+      "updated_at": "2020-01-22T02:53:10",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1223",
+      "number": 1223,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1223",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add tls checks",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T23:19:17",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1223",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-01-24T21:39:41",
+      "updated_at": "2020-01-24T21:39:41",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1242",
+      "number": 1242,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1242",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "make changes to pulmap group vars location",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T23:19:18",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1242",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-01-25T00:22:08",
+      "updated_at": "2020-01-25T00:22:08",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1245",
+      "number": 1245,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1245",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "I 1241 orangelight group vars",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T23:19:19",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1245",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-02-13T16:54:59",
+      "updated_at": "2020-02-13T16:54:59",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1291",
+      "number": 1291,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1291",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Orangelight: add env var for RESERVES_SOLR_URL",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T23:19:20",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1291",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-03-27T17:46:08",
+      "updated_at": "2020-03-27T17:46:08",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1402",
+      "number": 1402,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1402",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Upgrading Ruby to 2.6",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T23:19:28",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1402",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-05-13T11:17:52",
+      "updated_at": "2020-05-13T11:17:52",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1516",
+      "number": 1516,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1516",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Reboot ojs service",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T23:19:29",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1516",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-05-29T01:32:19",
+      "updated_at": "2020-05-29T01:32:19",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1546",
+      "number": 1546,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1546",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[Orangelight] Adding PILOT_USERS environment variable",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T23:19:30",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1546",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-08-17T17:42:25",
+      "updated_at": "2020-08-17T17:42:25",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1686",
+      "number": 1686,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1686",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Updating the Node.js releases used for the following apps: bibdata, cicognara, dpul, lae, orangelight, pulfalight, and pulmap",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T23:19:31",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1686",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-10-21T20:00:17",
+      "updated_at": "2020-10-21T20:00:17",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/1786",
+      "number": 1786,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1786",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[libwww] Adding hr-share role to libwww",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T23:19:32",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/1786",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2021-07-30T20:29:17",
+      "updated_at": "2021-07-30T20:29:17",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2398",
+      "number": 2398,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2398",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Elixir Role",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2021-12-20T23:19:44",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2398",
+      "action": "pull_request_closed"
+    }
+  ],
+  "pul-the-hard-way": [
+    {
+      "created_at": "2021-12-19T16:14:25",
+      "updated_at": "2021-12-19T16:14:25",
+      "html_url": "https://github.com/pulibrary/pul-the-hard-way/pull/92",
+      "number": 92,
+      "pull_request_html_url": "https://github.com/pulibrary/pul-the-hard-way/pull/92",
+      "repository_html_url": "https://github.com/pulibrary/pul-the-hard-way",
+      "repository_name": "pul-the-hard-way",
+      "state": "closed",
+      "title": "notes for confluence",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-20T13:12:58",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-20T13:12:58",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-20T13:12:58",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2021-12-20T13:12:59",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul-the-hard-way/pull/92",
+      "action": "pull_request_closed"
+    }
+  ],
+  "pul_library_drupal": [
+    {
+      "created_at": "2021-12-15T04:23:37",
+      "updated_at": "2021-12-15T04:23:37",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1825",
+      "number": 1825,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "closed",
+      "title": "Create Two Homepage Hours Entries for Combined Lewis Calendar",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-20T15:32:46",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-12-07T16:07:33",
+      "updated_at": "2021-12-07T16:07:33",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1808",
+      "number": 1808,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "closed",
+      "title": "Libcal ids will be changing",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2021-12-20T15:33:26",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-12-07T16:27:53",
+      "updated_at": "2021-12-07T16:27:53",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1811",
+      "number": 1811,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "open",
+      "title": "Categorize The pages",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2021-12-20T15:33:49",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "pulfalight": [
+    {
+      "created_at": "2021-12-20T13:45:37",
+      "updated_at": "2021-12-20T13:45:37",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/953",
+      "number": 953,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Access Denied/broken links in Ask A Question ",
+      "user_name": "Christa Cleeton",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christa Cleeton",
+          "created_at": "2021-12-20T13:45:37",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 33,
+    "closed_count": 3,
+    "created_count": 3,
+    "pull_request_closed_count": 23,
+    "pull_request_open_count": 1,
+    "updated_count": 3,
+    "today": "2021-12-20T22:00:05",
+    "yesterday": "2021-12-19T22:00:05"
+  }
+}

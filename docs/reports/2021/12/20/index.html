@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5fda38894b.js" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" type="text/css" href="../../../../css/main.css" />
+    <title>PUL GitHub Issues for 2021-12-20T22:00:05</title>
+  </head>
+
+<body>
+  <div class="container-fluid">
+    <a id="btt-button"></a>
+    
+<h1 class="bg-dark text-light">PUL GitHub Issues<br />
+  <small class="text-white-70">2021-12-20</small></h1>
+<nav class="navbar sticky-top navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar-toggler">
+    <ul class="navbar-nav mr-auto mt-2 pt-3 mt-lg-0">
+      <li class="nav-item not-mono">
+        <a class="nav-link" href="../../../../index.html"><i class="fas fa-arrow-left"></i> Back to Report List Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#cicognara-rails">pulibrary/cicognara-rails</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#discoveryutils">pulibrary/discoveryutils</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#dspace-development">pulibrary/dspace-development</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#lockers_and_study_spaces">pulibrary/lockers_and_study_spaces</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#princeton_ansible">pulibrary/princeton_ansible</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pul-the-hard-way">pulibrary/pul-the-hard-way</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pul_library_drupal">pulibrary/pul_library_drupal</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pulfalight">pulibrary/pulfalight</a>
+      </li>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    
+    <section class="repo" id="cicognara-rails">
+      <h2><a href="https://github.com/pulibrary/cicognara-rails">pulibrary/cicognara-rails</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="cicognara-rails-495">
+        <h3><a href="https://github.com/pulibrary/cicognara-rails/issues/495">#495</a> Debug Getty harvesting</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kate Lynch</dd>
+          <dt>Created:</dt>
+          <dd>2021-12-16 14:22:01</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Kate Lynch at <a href="https://github.com/pulibrary/cicognara-rails/issues/495#issuecomment-998049690">2021-12-20 15:54:20</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>This appears to be a data issue.  The harvester checks first for association with the Cicognara digital collection, then for the presence of a DCL identifier, and then checks for the presence of a IIIF manifest URL.  Only if all three of these checks pass, is the record then ingested.  </p>
+
+<p>I determined the following by debugging the harvester, for items with the value &quot;Getty Research Institute&quot; in the Contributing Library field:
+* Passed Cicognara check: 1298 records
+* Passed DCL number check: 1272 records
+* Passed manifest URL check: 5</p>
+
+<p>So it looks like there is a problem getting manifests into the correct place in the records.  It looks like it&#39;s completely missing from the Getty records rather than just in the wrong place.</p>
+
+<ul>
+<li><a href="https://portal.getty.edu/books/princeton_8494591">Example with Cicognara collection association, DCL number, and manifest URL</a>  - this one indexes correctly</li>
+<li><a href="http://portal.getty.edu/books/gri_9921545320001551">Example with Cicognara collection association and DCL number but no manifest URL</a> - this one is skipped but looks like it should be included.</li>
+</ul>
+
+<p>We need to get the missing manifest URL values into the records from the Getty, or adjust the check.  The items without manifest URLs are using the Archive.org BookReader.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by Kate Lynch at 2021-12-20 17:32:05.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="discoveryutils">
+      <h2><a href="https://github.com/pulibrary/discoveryutils">pulibrary/discoveryutils</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="discoveryutils-198">
+        <h3><a href="https://github.com/pulibrary/discoveryutils/issues/198">#198</a> Art Library Bento Search Fails when zero hits</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kevin Reiss</dd>
+          <dt>Created:</dt>
+          <dd>2021-10-14 20:22:02</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Kevin Reiss at <a href="https://github.com/pulibrary/discoveryutils/issues/198#issuecomment-998183165">2021-12-20 18:49:03</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Actually any search fails DPUL has changed it&#39;s underly json structure. </p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+      <div class="issue odd" id="discoveryutils-199">
+        <h3><a href="https://github.com/pulibrary/discoveryutils/issues/199">#199</a> Thesis records with Portfolios in Alma Fail. </h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kevin Reiss</dd>
+          <dt>Created:</dt>
+          <dd>2021-12-20 19:00:15</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Kevin Reiss at 2021-12-20 19:00:21.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="discoveryutils-200">
+        <h3><a href="https://github.com/pulibrary/discoveryutils/pull/200">#200</a> Fix thesis URL parsing issue.</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kevin Reiss</dd>
+          <dt>Created:</dt>
+          <dd>2021-12-20 20:20:53</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/discoveryutils/pull/200">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>renamed</code> by Kevin Reiss at 2021-12-20 20:21:01.</li>
+  <li class="event odd">
+    <code>review_requested</code> by Kevin Reiss at 2021-12-20 20:21:12.</li>
+  <li class="event even">
+    <code>referenced</code> by None at 2021-12-20 20:23:17.</li>
+  <li class="event odd">
+    <code>merged</code> by None at 2021-12-20 20:23:17.</li>
+  <li class="event even">
+    <code>closed</code> by None at 2021-12-20 20:23:17.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by None at 2021-12-20 20:23:18.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="discoveryutils-201">
+        <h3><a href="https://github.com/pulibrary/discoveryutils/pull/201">#201</a> First pass to at parsing the basics of hte new DPUL respnose.</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kevin Reiss</dd>
+          <dt>Created:</dt>
+          <dd>2021-12-20 21:18:45</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/discoveryutils/pull/201">pull request</a>)
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="dspace-development">
+      <h2><a href="https://github.com/pulibrary/dspace-development">pulibrary/dspace-development</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="dspace-development-562">
+        <h3><a href="https://github.com/pulibrary/dspace-development/issues/562">#562</a> OAR: Missing Button for Metadata Review</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Hannah H</dd>
+          <dt>Created:</dt>
+          <dd>2021-12-20 14:50:28</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="lockers_and_study_spaces">
+      <h2><a href="https://github.com/pulibrary/lockers_and_study_spaces">pulibrary/lockers_and_study_spaces</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="lockers_and_study_spaces-55">
+        <h3><a href="https://github.com/pulibrary/lockers_and_study_spaces/pull/55">#55</a> Adding agreement as attachment to locker violation</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2021-12-20 14:23:26</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/lockers_and_study_spaces/pull/55">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Kevin Reiss at 2021-12-20 14:50:11.</li>
+  <li class="event odd">
+    <code>merged</code> by Kevin Reiss at 2021-12-20 14:50:11.</li>
+  <li class="event even">
+    <code>closed</code> by Kevin Reiss at 2021-12-20 14:50:11.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Kevin Reiss at 2021-12-20 14:50:12.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="princeton_ansible">
+      <h2><a href="https://github.com/pulibrary/princeton_ansible">pulibrary/princeton_ansible</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="princeton_ansible-2625">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/2625">#2625</a> [NGINX] Changing to the new server for production Assigned Spaces</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2021-12-17 13:54:33</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/2625">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by None at 2021-12-20 13:28:40.</li>
+  <li class="event odd">
+    <code>merged</code> by None at 2021-12-20 13:28:40.</li>
+  <li class="event even">
+    <code>closed</code> by None at 2021-12-20 13:28:40.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by None at 2021-12-20 13:28:41.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-2576">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/issues/2576">#2576</a> Increase Confluence memory to 4GB</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Esmé Cowles</dd>
+          <dt>Created:</dt>
+          <dd>2021-11-19 18:39:17</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Alicia Cozine at <a href="https://github.com/pulibrary/princeton_ansible/issues/2576#issuecomment-998037435">2021-12-20 15:40:13</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Related to <a href="https://github.com/pulibrary/pul-the-hard-way/pull/92">https://github.com/pulibrary/pul-the-hard-way/pull/92</a>. Leaving this open on the assumption that we do want to automate Confluence installation at some point. </p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-2621">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/2621">#2621</a> add maria root credentials</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2021-12-14 13:42:44</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/2621">pull request</a>)
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Alicia Cozine at <a href="https://github.com/pulibrary/princeton_ansible/pull/2621#issuecomment-998103314">2021-12-20 16:55:25</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Looks good, thanks @kayiwa. </p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>mentioned</code> by Francis Kayiwa at 2021-12-20 16:55:25.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Francis Kayiwa at 2021-12-20 16:55:26.</li>
+  <li class="event even">
+    <code>referenced</code> by Alicia Cozine at 2021-12-20 16:55:39.</li>
+  <li class="event odd">
+    <code>merged</code> by Alicia Cozine at 2021-12-20 16:55:39.</li>
+  <li class="event even">
+    <code>closed</code> by Alicia Cozine at 2021-12-20 16:55:39.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Alicia Cozine at 2021-12-20 16:55:40.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-2630">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/2630">#2630</a> update TLS for fpul sites</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2021-12-20 13:30:48</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/2630">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Alicia Cozine at 2021-12-20 16:56:27.</li>
+  <li class="event odd">
+    <code>merged</code> by Alicia Cozine at 2021-12-20 16:56:27.</li>
+  <li class="event even">
+    <code>closed</code> by Alicia Cozine at 2021-12-20 16:56:27.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Alicia Cozine at 2021-12-20 16:56:27.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-2631">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/2631">#2631</a> update TLS for pulibrary sites</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2021-12-20 15:22:56</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/2631">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Alicia Cozine at 2021-12-20 16:57:48.</li>
+  <li class="event odd">
+    <code>merged</code> by Alicia Cozine at 2021-12-20 16:57:48.</li>
+  <li class="event even">
+    <code>closed</code> by Alicia Cozine at 2021-12-20 16:57:48.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Alicia Cozine at 2021-12-20 16:57:49.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-2632">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/2632">#2632</a> add test-web cdh TLS certs</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2021-12-20 18:38:15</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/2632">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Alicia Cozine at 2021-12-20 23:02:46.</li>
+  <li class="event odd">
+    <code>merged</code> by Alicia Cozine at 2021-12-20 23:02:47.</li>
+  <li class="event even">
+    <code>closed</code> by Alicia Cozine at 2021-12-20 23:02:47.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Alicia Cozine at 2021-12-20 23:02:47.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-946">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/946">#946</a> Adding support for Node.js LTS installations for pulibrary.nodejs</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-18 16:16:09</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/946">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_deleted</code> by Alicia Cozine at 2021-12-20 23:19:02.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-933">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/933">#933</a> Implements a pulibrary.subversion-pulfa Role for plantain_staging</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2019-10-16 15:44:02</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/933">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_deleted</code> by Alicia Cozine at 2021-12-20 23:19:11.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-1112">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1112">#1112</a> Making a PR to test actions</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2019-12-12 13:29:11</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1112">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_deleted</code> by Alicia Cozine at 2021-12-20 23:19:13.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-1145">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1145">#1145</a> depend on the nodejs role</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2019-12-20 15:29:22</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1145">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_deleted</code> by Alicia Cozine at 2021-12-20 23:19:14.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-1156">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1156">#1156</a> [WIP] Updating the NodeJS release to 12.x versions</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-01-03 20:22:48</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1156">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_deleted</code> by Alicia Cozine at 2021-12-20 23:19:15.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-1223">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1223">#1223</a> add tls checks</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2020-01-22 02:53:10</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1223">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_deleted</code> by Alicia Cozine at 2021-12-20 23:19:17.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-1242">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1242">#1242</a> make changes to pulmap group vars location</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2020-01-24 21:39:41</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1242">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_deleted</code> by Alicia Cozine at 2021-12-20 23:19:18.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-1245">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1245">#1245</a> I 1241 orangelight group vars</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2020-01-25 00:22:08</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1245">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_deleted</code> by Alicia Cozine at 2021-12-20 23:19:19.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-1291">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1291">#1291</a> Orangelight: add env var for RESERVES_SOLR_URL</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackartisan</dd>
+          <dt>Created:</dt>
+          <dd>2020-02-13 16:54:59</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1291">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_deleted</code> by Alicia Cozine at 2021-12-20 23:19:20.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-1402">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1402">#1402</a> Upgrading Ruby to 2.6</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2020-03-27 17:46:08</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1402">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_deleted</code> by Alicia Cozine at 2021-12-20 23:19:28.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-1516">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1516">#1516</a> Reboot ojs service</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2020-05-13 11:17:52</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1516">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_deleted</code> by Alicia Cozine at 2021-12-20 23:19:29.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-1546">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1546">#1546</a> [Orangelight] Adding PILOT_USERS environment variable</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2020-05-29 01:32:19</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1546">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_deleted</code> by Alicia Cozine at 2021-12-20 23:19:30.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-1686">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1686">#1686</a> Updating the Node.js releases used for the following apps: bibdata, cicognara, dpul, lae, orangelight, pulfalight, and pulmap</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>James R. Griffin III</dd>
+          <dt>Created:</dt>
+          <dd>2020-08-17 17:42:25</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1686">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_deleted</code> by Alicia Cozine at 2021-12-20 23:19:31.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-1786">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/1786">#1786</a> [libwww] Adding hr-share role to libwww</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2020-10-21 20:00:17</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/1786">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_deleted</code> by Alicia Cozine at 2021-12-20 23:19:32.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-2398">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/2398">#2398</a> Elixir Role</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2021-07-30 20:29:17</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/2398">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_deleted</code> by Alicia Cozine at 2021-12-20 23:19:44.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="pul-the-hard-way">
+      <h2><a href="https://github.com/pulibrary/pul-the-hard-way">pulibrary/pul-the-hard-way</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="pul-the-hard-way-92">
+        <h3><a href="https://github.com/pulibrary/pul-the-hard-way/pull/92">#92</a> notes for confluence</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2021-12-19 16:14:25</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/pul-the-hard-way/pull/92">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by None at 2021-12-20 13:12:58.</li>
+  <li class="event odd">
+    <code>merged</code> by None at 2021-12-20 13:12:58.</li>
+  <li class="event even">
+    <code>closed</code> by None at 2021-12-20 13:12:58.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by None at 2021-12-20 13:12:59.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="pul_library_drupal">
+      <h2><a href="https://github.com/pulibrary/pul_library_drupal">pulibrary/pul_library_drupal</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="pul_library_drupal-1825">
+        <h3><a href="https://github.com/pulibrary/pul_library_drupal/issues/1825">#1825</a> Create Two Homepage Hours Entries for Combined Lewis Calendar</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kevin Reiss</dd>
+          <dt>Created:</dt>
+          <dd>2021-12-15 04:23:37</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by None at 2021-12-20 15:32:46.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="pul_library_drupal-1808">
+        <h3><a href="https://github.com/pulibrary/pul_library_drupal/issues/1808">#1808</a> Libcal ids will be changing</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2021-12-07 16:07:33</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by None at 2021-12-20 15:33:26.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="pul_library_drupal-1811">
+        <h3><a href="https://github.com/pulibrary/pul_library_drupal/issues/1811">#1811</a> Categorize The pages</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2021-12-07 16:27:53</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by Kevin Reiss at 2021-12-20 15:33:49.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="pulfalight">
+      <h2><a href="https://github.com/pulibrary/pulfalight">pulibrary/pulfalight</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="pulfalight-953">
+        <h3><a href="https://github.com/pulibrary/pulfalight/issues/953">#953</a> Access Denied/broken links in Ask A Question </h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christa Cleeton</dd>
+          <dt>Created:</dt>
+          <dd>2021-12-20 13:45:37</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by Christa Cleeton at 2021-12-20 13:45:37.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../../../../js/report.js"></script>
+  </div>
+</body>
+
+</html>
