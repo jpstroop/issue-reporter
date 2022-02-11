@@ -1,0 +1,1888 @@
+{
+  "aspace_helpers": [
+    {
+      "created_at": "2022-02-10T17:41:06",
+      "updated_at": "2022-02-10T17:41:06",
+      "html_url": "https://github.com/pulibrary/aspace_helpers/issues/123",
+      "number": 123,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/aspace_helpers",
+      "repository_name": "aspace_helpers",
+      "state": "open",
+      "title": "modify Princeton_EAD_Exporter plugin to export component uri's",
+      "user_name": "regineheberlein",
+      "comments": [
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2022-02-10T20:43:12",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/123#issuecomment-1035437146",
+          "body": "Atlassian wiki on modifying the exporter:\r\nhttps://archivesspace.atlassian.net/wiki/spaces/ADC/blog/2015/03/15/18088140/Customizing+your+ArchivesSpace+EAD+importers+and+exporters.\r\n\r\nNice concise example for a container plugin (Yale):\r\nhttps://github.com/archivesspace-labs/yale-ead-exporter/blob/master/backend/model/yale_ead_exporter.rb"
+        },
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2022-02-10T20:42:23",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/123#issuecomment-1035462823",
+          "body": "This bit in serialize-child seems like a candidate for modification:\r\nhttps://github.com/archivesspace/archivesspace/blob/master/backend/app/exporters/serializers/ead.rb#L310-312\r\n\r\nAnd this bit in stream?\r\nhttps://github.com/archivesspace/archivesspace/blob/master/backend/app/exporters/serializers/ead.rb#L186-192\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T17:41:09",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "dpul": [
+    {
+      "created_at": "2022-02-04T19:20:49",
+      "updated_at": "2022-02-04T19:20:49",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1297",
+      "number": 1297,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "open",
+      "title": "\"Title Override\" Field is broken",
+      "user_name": "Kim Leaman",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2022-02-09T22:01:31",
+          "html_url": "https://github.com/pulibrary/dpul/issues/1297#issuecomment-1034233217",
+          "body": "We found that when going to a show page for a record which is in two different exhibits, the solr record that's being rendered might not be the correct one.\n\nFor example, https://dpul.princeton.edu/happy_gall-entines_day/catalog/nz8060449 should come from the happy_gall-entines_day exhibit, but it's the one from PUDL0017 (you can tell by going to `/raw` and looking at the exhibit prefix.."
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2022-02-09T22:05:15",
+          "html_url": "https://github.com/pulibrary/dpul/issues/1297#issuecomment-1034236028",
+          "body": "Is the solr record that is rendered dictated by what DPUL collection was created first with that item (like your example link)? or is it random? we have items with multiple collection tags in figgy. I wonder what the consequences are?"
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2022-02-09T22:11:55",
+          "html_url": "https://github.com/pulibrary/dpul/issues/1297#issuecomment-1034241620",
+          "body": "A solr record is generated for each unique collection / resource pair. We need to fix the code to pull the right record."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-01-26T16:04:06",
+      "updated_at": "2022-01-26T16:04:06",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1290",
+      "number": 1290,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "closed",
+      "title": "Return 404 for Riiif::ImageNotFoundError",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-02-09T22:13:29",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-02-09T16:44:35",
+      "updated_at": "2022-02-09T16:44:35",
+      "html_url": "https://github.com/pulibrary/dpul/pull/1302",
+      "number": 1302,
+      "pull_request_html_url": "https://github.com/pulibrary/dpul/pull/1302",
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "closed",
+      "title": "return 404 for Riiif::ImageNotFoundError",
+      "user_name": "Xander Gardner",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-02-09T22:13:29",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-09T22:13:29",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-09T22:13:30",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-09T22:13:30",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/dpul/pull/1302",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-02-10T17:13:57",
+      "updated_at": "2022-02-10T17:13:57",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1303",
+      "number": 1303,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "open",
+      "title": "Unpublished Lapidus_pamphlets exhibit is raising a server error",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-02-10T17:15:07",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-02-10T17:15:48",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-02-03T16:03:19",
+      "updated_at": "2022-02-03T16:03:19",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1296",
+      "number": 1296,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "closed",
+      "title": "Provision dpul-staging2",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T14:00:09",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T16:03:54",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T16:15:45",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T16:16:24",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T16:52:09",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-02-10T17:26:19",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-02-10T17:25:03",
+      "updated_at": "2022-02-10T17:25:03",
+      "html_url": "https://github.com/pulibrary/dpul/pull/1304",
+      "number": 1304,
+      "pull_request_html_url": "https://github.com/pulibrary/dpul/pull/1304",
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "closed",
+      "title": "Deploy staging to new machine",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-02-10T17:26:19",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-02-10T17:26:19",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-02-10T17:26:20",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-02-10T17:26:20",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/dpul/pull/1304",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-02-10T17:26:26",
+      "updated_at": "2022-02-10T17:26:26",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1305",
+      "number": 1305,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "open",
+      "title": "provision new dpul-staging1",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T17:26:41",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-02-10T20:30:14",
+      "updated_at": "2022-02-10T20:30:14",
+      "html_url": "https://github.com/pulibrary/dpul/pull/1306",
+      "number": 1306,
+      "pull_request_html_url": "https://github.com/pulibrary/dpul/pull/1306",
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "open",
+      "title": "Fix title override",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/dpul/pull/1306",
+      "action": "pull_request_open"
+    }
+  ],
+  "dspace-development": [
+    {
+      "created_at": "2022-02-07T19:16:11",
+      "updated_at": "2022-02-07T19:16:11",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/598",
+      "number": 598,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "closed",
+      "title": "Update the InCommon SSL certificate for oawaiver.princeton.edu and oawaiverdev.princeton.edu",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2022-02-10T15:26:19",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/598#issuecomment-1035051940",
+          "body": "```\r\nhost oawaiverdev.princeton.edu\r\nHost oawaiverdev.princeton.edu not found: 3(NXDOMAIN)\r\n```\r\nthis name was deprecated\r\n\r\n```\r\n❯ certinfo oawaiver.princeton.edu:443\r\n--- [oawaiver.princeton.edu:443 TLS 1.2] ---\r\nVersion: 3\r\nSerial Number: 314940101299277418371504940553884153383\r\nSignature Algorithm: SHA256-RSA\r\nType: end-entity\r\nIssuer: CN=InCommon RSA Server CA,OU=InCommon,O=Internet2,L=Ann Arbor,ST=MI,C=US\r\nValidity\r\n    Not Before: Aug 24 00:00:00 2021 UTC\r\n    Not After : Sep 24 23:59:59 2022 UTC\r\nSubject: CN=oawaiver.princeton.edu,OU=OIT,O=The Trustees of Princeton University,L=Princeton,ST=New Jersey,C=US\r\nDNS Names: oawaiver.princeton.edu\r\nIP Addresses:\r\nKey Usage: Digital Signature, Key Encipherment\r\nExt Key Usage: Server Auth, Client Auth\r\nCA: false\r\n```\r\n\r\na new SAN cert was reissued. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T15:10:20",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-02-10T15:10:23",
+          "type": "unassigned"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T15:26:19",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-02-09T19:05:57",
+      "updated_at": "2022-02-09T19:05:57",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/600",
+      "number": 600,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Ensure that the Elements citation API endpoints have OIT firewall rules created to permit outbound requests",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2022-02-10T14:46:51",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/600#issuecomment-1034123174",
+          "body": "I have attempted several of the solutions within the  https://docs.microsoft.com/en-us/mem/configmgr/core/plan-design/security/enable-tls-1-2-troubleshoot. I am afraid that I shall need to advance this with OIT. Please find the SN@P ticket at the following: https://princeton.service-now.com/service?id=ticket&sys_id=894d4d8287ed09149cd197183cbb35e2&table=incident"
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2022-02-10T14:41:04",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/600#issuecomment-1035000309",
+          "body": "The OIT systems infrastructure manager has just clarified that the URL endpoints for *all* of the citation data endpoints which are queried must have firewall exceptions created. Currently, the TLS 1.2 is properly enabled for these servers."
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2022-02-10T14:56:53",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/600#issuecomment-1035018006",
+          "body": "Immediately, I can identify that the server must be permitted to request the following URLs:\n\n- [ ] https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi\n- [ ] https://www.ebi.ac.uk/europepmc/webservices/rest/search/query"
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2022-02-10T15:56:49",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/600#issuecomment-1035088997",
+          "body": "This is now in progress with https://princeton.service-now.com/service?id=ticket&table=sc_req_item&sys_id=d16edd9e87a54d149cd197183cbb3546&view=sp"
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2022-02-10T16:32:40",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/600#issuecomment-1035132853",
+          "body": "The firewall rules are reported to be in place, hence, this may *not* be related to the firewall, or some other cause might be triggering this error."
+        },
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2022-02-10T16:57:50",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/600#issuecomment-1035164613",
+          "body": "Attempting to modify some of the configuration locally within the PowerShell does seem to be somewhat effective:\n\n```pwsh\n\nPS C:\\windows\\system32> [Net.ServicePointManager]::SecurityProtocol = [Enum]::ToObject([Net.SecurityProtocolType], 3072)\n\nPS C:\\windows\\system32> $Response = Invoke-WebRequest -Uri \"https://google.com\"\n\nPS C:\\windows\\system32> $Response \n\n\nStatusCode        : 200\n```\n\nYet, this still does not prove to be a solution for the necessary URLs:\n\n```posh\n\nPS C:\\windows\\system32> [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls, [Net.SecurityProtocolType]::Tls11, [Net.SecurityProtocolType]::Tls12, [Net.SecurityProtocolType]::Ssl3\n\nPS C:\\windows\\system32> [Net.ServicePointManager]::SecurityProtocol = \"Tls, Tls11, Tls12, Ssl3\"\n\nPS C:\\windows\\system32> $uri\nhttps://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi\n\nPS C:\\windows\\system32>  $Response = Invoke-WebRequest -Uri $uri\nInvoke-WebRequest : The request was aborted: Could not create SSL/TLS secure channel.\nAt line:1 char:14 \n\n```"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-02-10T14:41:58",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2022-02-10T15:54:17",
+      "updated_at": "2022-02-10T15:54:17",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4982",
+      "number": 4982,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "DaoUpdater failed to update resource fc8014ef-1d09-4152-b247-c1b6f337bc00 with source metadata identifier AC112.02_c323",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-02-10T15:54:39",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-02-10T15:55:43",
+          "type": "reopened"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-02-10T15:55:54",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "finding_aid_enrichment": [
+    {
+      "created_at": "2022-01-25T18:01:32",
+      "updated_at": "2022-01-25T18:01:32",
+      "html_url": "https://github.com/pulibrary/finding_aid_enrichment/issues/3",
+      "number": 3,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/finding_aid_enrichment",
+      "repository_name": "finding_aid_enrichment",
+      "state": "closed",
+      "title": "Develop module to run OCR and process with SpaCy.",
+      "user_name": "Cliff Wulfman",
+      "comments": [
+        {
+          "user_name": "Cliff Wulfman",
+          "updated_at": "2022-02-10T20:53:24",
+          "html_url": "https://github.com/pulibrary/finding_aid_enrichment/issues/3#issuecomment-1035299461",
+          "body": "First working version is in the code branch.  Some documentation: https://github.com/pulibrary/finding_aid_enrichment/wiki/Implementation-Notes"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Cliff Wulfman",
+          "created_at": "2022-02-10T18:31:09",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Cliff Wulfman",
+          "created_at": "2022-02-10T18:31:10",
+          "type": "moved_columns_in_project"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "lux": [
+    {
+      "created_at": "2022-02-10T18:03:05",
+      "updated_at": "2022-02-10T18:03:05",
+      "html_url": "https://github.com/pulibrary/lux/pull/384",
+      "number": 384,
+      "pull_request_html_url": "https://github.com/pulibrary/lux/pull/384",
+      "repository_html_url": "https://github.com/pulibrary/lux",
+      "repository_name": "lux",
+      "state": "open",
+      "title": "Bump node-sass from 4.12.0 to 7.0.0",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T18:03:06",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/lux/pull/384",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2020-09-04T13:22:23",
+      "updated_at": "2020-09-04T13:22:23",
+      "html_url": "https://github.com/pulibrary/lux/pull/333",
+      "number": 333,
+      "pull_request_html_url": "https://github.com/pulibrary/lux/pull/333",
+      "repository_html_url": "https://github.com/pulibrary/lux",
+      "repository_name": "lux",
+      "state": "closed",
+      "title": "Bump node-sass from 4.12.0 to 4.13.1",
+      "user_name": "dependabot[bot]",
+      "comments": [
+        {
+          "user_name": "dependabot[bot]",
+          "updated_at": "2022-02-10T18:03:07",
+          "html_url": "https://github.com/pulibrary/lux/pull/333#issuecomment-1035251383",
+          "body": "Superseded by #384."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T18:03:08",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T18:03:09",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/lux/pull/333",
+      "action": "pull_request_closed"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2021-11-08T19:04:22",
+      "updated_at": "2021-11-08T19:04:22",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2796",
+      "number": 2796,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Ensures every id attribute value of active elements is unique",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-02-09T23:02:18",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-02-10T00:32:59",
+          "type": "referenced"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-02-10T00:33:38",
+      "updated_at": "2022-02-10T00:33:38",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2853",
+      "number": 2853,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2853",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Every id in the DOM should be unique, closes #2796",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2853",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-02-10T18:47:38",
+      "updated_at": "2022-02-10T18:47:38",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2854",
+      "number": 2854,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "[Orangelight/production] NoMethodError: undefined method `[]=' for #<SolrDocument:0x000055cb776fb010>\nDid you mean?  []",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "pdc_discovery": [
+    {
+      "created_at": "2022-02-10T21:53:54",
+      "updated_at": "2022-02-10T21:53:54",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/153",
+      "number": 153,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Solr error in CircleCI",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-02-10T20:07:05",
+      "updated_at": "2022-02-10T20:07:05",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/pull/152",
+      "number": 152,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_discovery/pull/152",
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Fielded search",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2022-02-10T20:18:54",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_discovery/pull/152",
+      "action": "pull_request_open"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2022-02-09T19:40:26",
+      "updated_at": "2022-02-09T19:40:26",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2744",
+      "number": 2744,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add cifs-utils",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T13:52:05",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-02-10T12:36:09",
+      "updated_at": "2022-02-10T12:36:09",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2745",
+      "number": 2745,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2745",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "samba role needs cifs-utils to fully function",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T13:52:05",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T13:52:05",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T13:52:06",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T13:52:06",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2745",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-02-09T18:05:06",
+      "updated_at": "2022-02-09T18:05:06",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2743",
+      "number": 2743,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2743",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "i2720 migrate maria db servers",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T14:14:58",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2743",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-02-10T15:18:00",
+      "updated_at": "2022-02-10T15:18:00",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2747",
+      "number": 2747,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2747",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Remove IP access restrictions from CDH production geniza site",
+      "user_name": "Rebecca Sutton Koeser",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Rebecca Sutton Koeser",
+          "created_at": "2022-02-10T15:18:00",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T16:28:54",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T16:28:54",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T16:28:54",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T16:28:54",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2747",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-02-10T16:16:03",
+      "updated_at": "2022-02-10T16:16:03",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2748",
+      "number": 2748,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2748",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[DPUL] Fix uploads directory ownership and use new dpul-staging2",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T16:16:24",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T16:46:48",
+          "type": "renamed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T16:52:07",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T16:52:07",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T16:52:08",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T16:52:08",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2748",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-02-10T17:08:35",
+      "updated_at": "2022-02-10T17:08:35",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2750",
+      "number": 2750,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "nginxplus: only the configs in our config directory should exist on the server",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-02-10T17:06:15",
+      "updated_at": "2022-02-10T17:06:15",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2749",
+      "number": 2749,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Load balancer should not restart if nginx -t does not pass",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2022-02-10T17:18:18",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2749#issuecomment-1035191765",
+          "body": "There is such a task but we need to mark it as always run so that it runs under the `update_conf` tag."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-02-10T17:21:29",
+      "updated_at": "2022-02-10T17:21:29",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2751",
+      "number": 2751,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Add to readme about nginxplus options",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-02-02T16:11:34",
+      "updated_at": "2022-02-02T16:11:34",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2715",
+      "number": 2715,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "explain the ansible lint exceptions in example",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T14:02:59",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T17:26:26",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-02-10T14:03:12",
+      "updated_at": "2022-02-10T14:03:12",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2746",
+      "number": 2746,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2746",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add ansible-lint comments",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T14:06:06",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T17:26:26",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T17:26:26",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T17:26:26",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T17:26:27",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2746",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-02-10T18:30:36",
+      "updated_at": "2022-02-10T18:30:36",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2753",
+      "number": 2753,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Build bibdata-qa playbook ",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-01-20T18:53:27",
+      "updated_at": "2022-01-20T18:53:27",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2670",
+      "number": 2670,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2670",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Adds a role for studio processing",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T12:30:20",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T19:21:37",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T19:56:56",
+          "type": "review_requested"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2670",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-01-29T17:03:36",
+      "updated_at": "2022-01-29T17:03:36",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2698",
+      "number": 2698,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2698",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "add mysql role",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2022-02-10T21:20:01",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2698#issuecomment-1035529875",
+          "body": "this role is definitely installing mariadb or whatever is in `vars/main.yml` I'm happy making sure this is ALWAYS the case @acozine "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2022-02-10T21:20:01",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2022-02-10T21:20:01",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T21:21:34",
+          "type": "review_requested"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2698",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-02-10T22:13:34",
+      "updated_at": "2022-02-10T22:13:34",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2754",
+      "number": 2754,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2754",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Adds guidance to nginxplus role README and playbooks",
+      "user_name": "Alicia Cozine",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2754",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-02-10T17:24:11",
+      "updated_at": "2022-02-10T17:24:11",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2752",
+      "number": 2752,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Create new dpul-staging1",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2022-02-11T00:19:38",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2752#issuecomment-1035670936",
+          "body": "VM built and request to switch the IP over to the new MAC address sent to OIT. Once that's done we'll need to update the firewall rules, decommission the old VM, rename the new VM, and run provisioning. "
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "princeton_ead_exporter": [
+    {
+      "created_at": "2022-02-10T19:54:54",
+      "updated_at": "2022-02-10T19:54:54",
+      "html_url": "https://github.com/pulibrary/princeton_ead_exporter/pull/10",
+      "number": 10,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ead_exporter/pull/10",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ead_exporter",
+      "repository_name": "princeton_ead_exporter",
+      "state": "open",
+      "title": "add install instructions",
+      "user_name": "regineheberlein",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ead_exporter/pull/10",
+      "action": "pull_request_open"
+    }
+  ],
+  "pul-the-hard-way": [
+    {
+      "created_at": "2022-02-10T16:18:45",
+      "updated_at": "2022-02-10T16:18:45",
+      "html_url": "https://github.com/pulibrary/pul-the-hard-way/pull/104",
+      "number": 104,
+      "pull_request_html_url": "https://github.com/pulibrary/pul-the-hard-way/pull/104",
+      "repository_html_url": "https://github.com/pulibrary/pul-the-hard-way",
+      "repository_name": "pul-the-hard-way",
+      "state": "closed",
+      "title": "Update gitmessage.md",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T16:42:20",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T16:42:20",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T16:42:20",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T16:42:21",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul-the-hard-way/pull/104",
+      "action": "pull_request_closed"
+    }
+  ],
+  "pul_solr": [
+    {
+      "created_at": "2022-02-10T17:40:18",
+      "updated_at": "2022-02-10T17:40:18",
+      "html_url": "https://github.com/pulibrary/pul_solr/pull/320",
+      "number": 320,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_solr/pull/320",
+      "repository_html_url": "https://github.com/pulibrary/pul_solr",
+      "repository_name": "pul_solr",
+      "state": "open",
+      "title": "Add .tool-versions file to allow asdf install",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/pul_solr/pull/320",
+      "action": "pull_request_open"
+    }
+  ],
+  "pulfalight": [
+    {
+      "created_at": "2021-04-12T17:59:00",
+      "updated_at": "2021-04-12T17:59:00",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/799",
+      "number": 799,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "XML Display for Components are broken",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-02-10T18:09:25",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-02-10T17:55:27",
+      "updated_at": "2022-02-10T17:55:27",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/979",
+      "number": 979,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Code to fetch parent repository fails when parent repository value is nil ",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2022-02-10T18:04:12",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/979#issuecomment-1035252703",
+          "body": "Root repository should never be nil, so we'll have to figure out why it is.\r\n\r\nThis resource is EA01: https://aspace.princeton.edu/staff/resources/1467#tree::resource_1467 (ea repository)"
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2022-02-10T18:11:44",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/979#issuecomment-1035263615",
+          "body": "@eliotjordan If you're marking it high priority, can you add a sudden priority label and justification to the description? Probably something like \"bug introduced by sudden priority ticket #, is preventing indexing from completing\""
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-02-10T17:58:09",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-02-10T17:58:44",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-02-10T18:11:44",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-02-10T18:11:45",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-02-10T18:14:54",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-02-10T17:32:13",
+      "updated_at": "2022-02-10T17:32:13",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/978",
+      "number": 978,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Indexing error when missing a parent id",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2022-02-10T17:41:34",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/978#issuecomment-1035221253",
+          "body": "@hackartisan and @thanyabegum were looking at this yesterday for a production error and couldn't reproduce. Maybe we just need to deploy to staging?"
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2022-02-10T18:44:26",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/978#issuecomment-1035323410",
+          "body": "Staging and prod were deployed at the same time, just before 4pm on Tuesday 2/8"
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2022-02-10T18:53:56",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/978#issuecomment-1035337679",
+          "body": "Maybe the EAD was fixed and staging needs a not-soft reindex?"
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2022-02-10T18:58:27",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/978#issuecomment-1035344231",
+          "body": "It only failed once. Does this job not retry?"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-02-10T17:33:49",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-02-10T17:35:09",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T17:41:34",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T17:41:34",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Thanya Begum",
+          "created_at": "2022-02-10T17:41:34",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Thanya Begum",
+          "created_at": "2022-02-10T17:41:34",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-02-07T17:41:30",
+      "updated_at": "2022-02-07T17:41:30",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/976",
+      "number": 976,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Test ASpace EAD Plugin with ASpace 3.2",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T19:54:42",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2022-02-10T20:10:12",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "rdss-catchall": [
+    {
+      "created_at": "2022-02-09T18:46:47",
+      "updated_at": "2022-02-09T18:46:47",
+      "html_url": "https://github.com/pulibrary/rdss-catchall/issues/40",
+      "number": 40,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/rdss-catchall",
+      "repository_name": "rdss-catchall",
+      "state": "open",
+      "title": "Structure and prepare resources for the ArchivesSpace API Workshop",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2022-02-10T20:30:20",
+          "html_url": "https://github.com/pulibrary/rdss-catchall/issues/40#issuecomment-1035473915",
+          "body": "https://github.com/jrgriffiniii/ruby-for-archivesspace provides an outline of the workshop practicum."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "requests": [
+    {
+      "created_at": "2022-02-09T21:17:47",
+      "updated_at": "2022-02-09T21:17:47",
+      "html_url": "https://github.com/pulibrary/requests/pull/1110",
+      "number": 1110,
+      "pull_request_html_url": "https://github.com/pulibrary/requests/pull/1110",
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "closed",
+      "title": "Removing Recall code ",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T14:34:10",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T14:43:39",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T20:08:57",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T20:27:57",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T20:30:34",
+          "type": "renamed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T20:30:48",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-02-10T21:07:53",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-02-10T21:07:53",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-02-10T21:07:53",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-02-10T21:07:55",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/requests/pull/1110",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-02-09T21:18:29",
+      "updated_at": "2022-02-09T21:18:29",
+      "html_url": "https://github.com/pulibrary/requests/pull/1111",
+      "number": 1111,
+      "pull_request_html_url": "https://github.com/pulibrary/requests/pull/1111",
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "open",
+      "title": "Updating the illiad metdata mapping to pass enum for ItemInfo3",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "mzelesky",
+          "updated_at": "2022-02-10T17:39:38",
+          "html_url": "https://github.com/pulibrary/requests/pull/1111#issuecomment-1035218908",
+          "body": "The field name to use from the Alma Item API response is 'description'. I don't know if that's part of the work of this ticket or not, but just wanted to make sure that's covered."
+        },
+        {
+          "user_name": "carolyncole",
+          "updated_at": "2022-02-10T21:52:57",
+          "html_url": "https://github.com/pulibrary/requests/pull/1111#issuecomment-1035560493",
+          "body": "@mzelesky no we are only dealing with the bug created by the alma migration in this PR. #1108 "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T21:50:35",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T21:52:58",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-02-10T21:52:58",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/requests/pull/1111",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-02-10T21:42:30",
+      "updated_at": "2022-02-10T21:42:30",
+      "html_url": "https://github.com/pulibrary/requests/pull/1112",
+      "number": 1112,
+      "pull_request_html_url": "https://github.com/pulibrary/requests/pull/1112",
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "closed",
+      "title": "Remove references to voyager",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-02-10T22:18:29",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-02-10T22:18:29",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-02-10T22:18:29",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-02-10T22:18:29",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/requests/pull/1112",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-02-11T02:13:51",
+      "updated_at": "2022-02-11T02:13:51",
+      "html_url": "https://github.com/pulibrary/requests/pull/1113",
+      "number": 1113,
+      "pull_request_html_url": "https://github.com/pulibrary/requests/pull/1113",
+      "repository_html_url": "https://github.com/pulibrary/requests",
+      "repository_name": "requests",
+      "state": "open",
+      "title": "Remove all recall references",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/requests/pull/1113",
+      "action": "pull_request_open"
+    }
+  ],
+  "uptime": [
+    {
+      "created_at": "2022-02-10T16:57:28",
+      "updated_at": "2022-02-10T16:57:28",
+      "html_url": "https://github.com/pulibrary/uptime/issues/319",
+      "number": 319,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/uptime",
+      "repository_name": "uptime",
+      "state": "closed",
+      "title": "🛑 Library Website is down",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2022-02-10T17:13:33",
+          "html_url": "https://github.com/pulibrary/uptime/issues/319#issuecomment-1035185763",
+          "body": "**Resolved:** Library Website is back up in [`7e20949`](https://github.com/pulibrary/uptime/commit/7e20949163c5648a5bf970fb04447814cc7e79a2\n)."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:28",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:28",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:29",
+          "type": "locked"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T17:13:33",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-02-10T16:57:31",
+      "updated_at": "2022-02-10T16:57:31",
+      "html_url": "https://github.com/pulibrary/uptime/issues/320",
+      "number": 320,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/uptime",
+      "repository_name": "uptime",
+      "state": "closed",
+      "title": "🛑 Library Catalog is down",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2022-02-10T17:13:35",
+          "html_url": "https://github.com/pulibrary/uptime/issues/320#issuecomment-1035185802",
+          "body": "**Resolved:** Library Catalog is back up in [`a2585cc`](https://github.com/pulibrary/uptime/commit/a2585cc13fb5626cdab214c1e26e9cfdef38e9b4\n)."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:31",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:31",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:32",
+          "type": "locked"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T17:13:36",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-02-10T16:57:33",
+      "updated_at": "2022-02-10T16:57:33",
+      "html_url": "https://github.com/pulibrary/uptime/issues/321",
+      "number": 321,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/uptime",
+      "repository_name": "uptime",
+      "state": "closed",
+      "title": "🛑 Maps Website is down",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2022-02-10T17:13:38",
+          "html_url": "https://github.com/pulibrary/uptime/issues/321#issuecomment-1035185851",
+          "body": "**Resolved:** Maps Website is back up in [`1c5598d`](https://github.com/pulibrary/uptime/commit/1c5598db6ed91345f5239a9ad3aec53e7b6de162\n)."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:33",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:33",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:34",
+          "type": "locked"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T17:13:38",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-02-10T16:57:35",
+      "updated_at": "2022-02-10T16:57:35",
+      "html_url": "https://github.com/pulibrary/uptime/issues/322",
+      "number": 322,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/uptime",
+      "repository_name": "uptime",
+      "state": "closed",
+      "title": "🛑 Figgy is down",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2022-02-10T17:13:40",
+          "html_url": "https://github.com/pulibrary/uptime/issues/322#issuecomment-1035185926",
+          "body": "**Resolved:** Figgy is back up in [`42107d2`](https://github.com/pulibrary/uptime/commit/42107d294605156ffa3cf0689c79f73ff64ce066\n)."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:35",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:35",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:36",
+          "type": "locked"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T17:13:41",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-02-10T16:57:37",
+      "updated_at": "2022-02-10T16:57:37",
+      "html_url": "https://github.com/pulibrary/uptime/issues/323",
+      "number": 323,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/uptime",
+      "repository_name": "uptime",
+      "state": "closed",
+      "title": "🛑 Research Data is down",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2022-02-10T17:13:43",
+          "html_url": "https://github.com/pulibrary/uptime/issues/323#issuecomment-1035185966",
+          "body": "**Resolved:** Research Data is back up in [`a1db44b`](https://github.com/pulibrary/uptime/commit/a1db44bcb2e2fac64f88453dfa195646a13bfc57\n)."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:37",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:37",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:39",
+          "type": "locked"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T17:13:43",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-02-10T16:57:40",
+      "updated_at": "2022-02-10T16:57:40",
+      "html_url": "https://github.com/pulibrary/uptime/issues/324",
+      "number": 324,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/uptime",
+      "repository_name": "uptime",
+      "state": "closed",
+      "title": "🛑 Cicognara is down",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2022-02-10T17:13:45",
+          "html_url": "https://github.com/pulibrary/uptime/issues/324#issuecomment-1035185999",
+          "body": "**Resolved:** Cicognara is back up in [`7bb1f0b`](https://github.com/pulibrary/uptime/commit/7bb1f0b68e4bb6c56a4e6d250f12d85071e1bb3f\n)."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:40",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:40",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:41",
+          "type": "locked"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T17:13:45",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-02-10T16:57:42",
+      "updated_at": "2022-02-10T16:57:42",
+      "html_url": "https://github.com/pulibrary/uptime/issues/325",
+      "number": 325,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/uptime",
+      "repository_name": "uptime",
+      "state": "closed",
+      "title": "🛑 DPUL is down",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2022-02-10T17:13:47",
+          "html_url": "https://github.com/pulibrary/uptime/issues/325#issuecomment-1035186049",
+          "body": "**Resolved:** DPUL is back up in [`7999252`](https://github.com/pulibrary/uptime/commit/7999252fa32f8a889522958e4d7a7c0c21067e9b\n)."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:42",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:42",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:43",
+          "type": "locked"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T17:13:48",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-02-10T16:57:45",
+      "updated_at": "2022-02-10T16:57:45",
+      "html_url": "https://github.com/pulibrary/uptime/issues/326",
+      "number": 326,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/uptime",
+      "repository_name": "uptime",
+      "state": "closed",
+      "title": "🛑 Bibdata is down",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2022-02-10T17:13:50",
+          "html_url": "https://github.com/pulibrary/uptime/issues/326#issuecomment-1035186105",
+          "body": "**Resolved:** Bibdata is back up in [`393441b`](https://github.com/pulibrary/uptime/commit/393441b54e313fa30ff861ddf4dcff4861f7924c\n)."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:45",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:45",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:47",
+          "type": "locked"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T17:13:50",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-02-10T16:57:48",
+      "updated_at": "2022-02-10T16:57:48",
+      "html_url": "https://github.com/pulibrary/uptime/issues/327",
+      "number": 327,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/uptime",
+      "repository_name": "uptime",
+      "state": "closed",
+      "title": "🛑 Confluence is down",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2022-02-10T17:13:53",
+          "html_url": "https://github.com/pulibrary/uptime/issues/327#issuecomment-1035186146",
+          "body": "**Resolved:** Confluence is back up in [`1e8eb41`](https://github.com/pulibrary/uptime/commit/1e8eb411c771a31421e977d281c4d864a3105734\n)."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:48",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:48",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T16:57:49",
+          "type": "locked"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-02-10T17:13:53",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 56,
+    "closed_count": 6,
+    "created_count": 22,
+    "pull_request_closed_count": 10,
+    "pull_request_open_count": 12,
+    "updated_count": 6,
+    "today": "2022-02-10T22:00:02",
+    "yesterday": "2022-02-09T22:00:02"
+  }
+}
