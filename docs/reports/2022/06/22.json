@@ -1,0 +1,1111 @@
+{
+  "aspace_helpers": [
+    {
+      "created_at": "2022-02-10T17:41:06",
+      "updated_at": "2022-02-10T17:41:06",
+      "html_url": "https://github.com/pulibrary/aspace_helpers/issues/123",
+      "number": 123,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/aspace_helpers",
+      "repository_name": "aspace_helpers",
+      "state": "closed",
+      "title": "modify Princeton_EAD_Exporter plugin to export component uri's",
+      "user_name": "regineheberlein",
+      "comments": [
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2022-06-22T12:16:05",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/123#issuecomment-1163024719",
+          "body": "this is being addressed by the Hudson Molonglo work pepared for SC (plugin with intent to merge into core code down the road)"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T12:16:10",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-03-24T14:44:34",
+      "updated_at": "2022-03-24T14:44:34",
+      "html_url": "https://github.com/pulibrary/aspace_helpers/issues/170",
+      "number": 170,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/aspace_helpers",
+      "repository_name": "aspace_helpers",
+      "state": "open",
+      "title": "aspace2alma: import item records to Alma",
+      "user_name": "regineheberlein",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T12:24:06",
+          "type": "unlabeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2020-12-01T21:05:37",
+      "updated_at": "2020-12-01T21:05:37",
+      "html_url": "https://github.com/pulibrary/aspace_helpers/issues/181",
+      "number": 181,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/aspace_helpers",
+      "repository_name": "aspace_helpers",
+      "state": "open",
+      "title": "Generating MARC records from EAD component records/archival objects in Resource records ",
+      "user_name": "faithc",
+      "comments": [
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2022-06-22T12:22:19",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/181#issuecomment-1163030427",
+          "body": "@faithc \r\n\r\n> This generation currently happens now with EADs in SVN \r\n\r\nCan you point me to the file(s) in SVN that used to generate MARC item records from EAD? Is it some kind of XSLT? Was it run manually?"
+        },
+        {
+          "user_name": "faithc",
+          "updated_at": "2022-06-22T13:15:15",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/181#issuecomment-1163083478",
+          "body": "Hi Regine- I wasn't involved in developing that workflow so I have no idea. Sorry! @escowles or @doncat may know?"
+        },
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2022-06-22T13:20:09",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/181#issuecomment-1163089004",
+          "body": "@faithc The quote is from a comment you left on https://github.com/pulibrary/pulfalight/issues/540, which you referenced above, so it seems like you're saying there is an existing SVN workflow that we should emulate. Could you review your comment in case it sparks any memory? I know this was a long time ago."
+        },
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2022-06-22T13:41:10",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/181#issuecomment-1163113180",
+          "body": "@faithc \r\nAlso, can you provide a mapping or sample MARC record to show what fields you want included / what you want the final output to look like?"
+        },
+        {
+          "user_name": "faithc",
+          "updated_at": "2022-06-22T14:27:13",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/181#issuecomment-1163173942",
+          "body": "I think I was just providing a general explanation that the workflow for creating collection-level MARC records pre-ASpace involved manipulating EADs in SVN somehow, and that it would no longer be feasible to do so with the migration to ASpace. I thought perhaps knowing how the old workflow was implemented might influence the new workflow. I see that Esme had noted that Mark was most involved in the former process. \r\n\r\nThe output should be the same as the collection-level records that are being generated: each component includes a creator and subject headings; many also have scopecontent, and the collection-level access note should display unless there's a component-level note that supersedes it (though, I don't think there are any component-level access notes). I can work with ADAPT folks to create a mapping though if that would be helpful. "
+        },
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2022-06-22T16:46:37",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/181#issuecomment-1163193019",
+          "body": "@faithc \r\nI just need a little more information please. \r\n\r\n> each component includes a creator and subject headings; \r\n\r\nMost component records don't have creators, just titles, so who should the creator be? Which fields specifically do you want included? I don't think the collection-level routine carries over; we went through quite a lot of back and forth to map and filter the fields. Again, an example or field-by-field mapping would be helpful."
+        },
+        {
+          "user_name": "faithc",
+          "updated_at": "2022-06-22T14:49:22",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/181#issuecomment-1163204848",
+          "body": "Ok, will do. "
+        },
+        {
+          "user_name": "faithc",
+          "updated_at": "2022-06-22T14:51:45",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/181#issuecomment-1163208352",
+          "body": "Might you be able to share the documentation/mapping that was created for collection-level MARC records? Might be easiest for us to work from that as a baseline.  "
+        },
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2022-06-22T15:01:54",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/181#issuecomment-1163224050",
+          "body": "Sure! If you want to know more about the collection-level process, you may also want to check in with Lynn.\r\n\r\nUmbrella issue: https://github.com/pulibrary/aspace_helpers/issues/2\r\n\r\nCode: https://github.com/pulibrary/aspace_helpers/blob/main/reports/aspace2alma/get_MARCxml.rb"
+        },
+        {
+          "user_name": "faithc",
+          "updated_at": "2022-06-22T15:08:57",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/181#issuecomment-1163233331",
+          "body": "Thanks! And will do."
+        },
+        {
+          "user_name": "faithc",
+          "updated_at": "2022-06-22T16:34:50",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/181#issuecomment-1163349420",
+          "body": "Hey Regine- I checked in with Lynn. She said that as far as she's aware, IT folks have been using the standard MARC XML export with its built-in mapping. Is that sufficient for this use case as well? Perhaps if there are differences between the two record types/workflows, we can hash those out? For example, I would think that similar to collection-level records, if there's no creator associated with an archival object, then that MARC field doesn't get populated."
+        },
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2022-06-22T16:39:03",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/181#issuecomment-1163354017",
+          "body": "Hi Faith. \"IT folks\" in this case is myself, so I can say with certainty that no, we didn't just import the ASpace export into Alma. Rather, we exported MARC-XML and then quite significantly tweaked the fields based on Lynn's (and other folks' she was working with) requests.\r\n\r\nFor this project, none of that applies, as MARC-XML exports in ASpace are only available on the collection level. For the component level, we'll be working off of the JSON export."
+        },
+        {
+          "user_name": "faithc",
+          "updated_at": "2022-06-22T16:49:06",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/181#issuecomment-1163373422",
+          "body": "Ok, sorry. I wasn't sure who all was involved in that project. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T12:22:19",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T12:22:19",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T12:22:34",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2022-06-22T13:15:15",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2022-06-22T13:15:15",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Don Thornbury",
+          "created_at": "2022-06-22T13:15:15",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Don Thornbury",
+          "created_at": "2022-06-22T13:15:15",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T13:20:10",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T13:20:10",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T13:41:10",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T13:41:10",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T14:41:00",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T14:41:00",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "bibdata": [
+    {
+      "created_at": "2022-06-13T21:03:00",
+      "updated_at": "2022-06-13T21:03:00",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1893",
+      "number": 1893,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "New ChangeTheSubject headings related to indigenous people",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-22T12:52:31",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-06-21T16:12:06",
+      "updated_at": "2022-06-21T16:12:06",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1902",
+      "number": 1902,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "ActiveRecord::InvalidForeignKey in DeleteEventsJob ",
+      "user_name": "Jane Sandberg",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2022-06-22T12:55:33",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1902#issuecomment-1163062994",
+          "body": "duplicate of https://github.com/pulibrary/bibdata/issues/1749"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-22T12:55:33",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-06-15T13:38:26",
+      "updated_at": "2022-06-15T13:38:26",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/1900",
+      "number": 1900,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/1900",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Traject error handling",
+      "user_name": "Max Kadel",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/1900",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-06-14T16:25:55",
+      "updated_at": "2022-06-14T16:25:55",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/1897",
+      "number": 1897,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/1897",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Rescue and log regex errors",
+      "user_name": "Max Kadel",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-06-22T13:35:09",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/1897",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-06-22T15:11:08",
+      "updated_at": "2022-06-22T15:11:08",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1904",
+      "number": 1904,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Upgrade honeybadger gem",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-06-22T15:11:08",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "dacs_handbook": [
+    {
+      "created_at": "2022-06-22T13:47:05",
+      "updated_at": "2022-06-22T13:47:05",
+      "html_url": "https://github.com/pulibrary/dacs_handbook/issues/29",
+      "number": 29,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dacs_handbook",
+      "repository_name": "dacs_handbook",
+      "state": "open",
+      "title": "Best practices for accessible presentations ",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-22T13:49:01",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-06-22T13:46:03",
+      "updated_at": "2022-06-22T13:46:03",
+      "html_url": "https://github.com/pulibrary/dacs_handbook/issues/28",
+      "number": 28,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dacs_handbook",
+      "repository_name": "dacs_handbook",
+      "state": "open",
+      "title": "Best practices for accessible posters",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-22T14:15:24",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-06-22T15:07:38",
+      "updated_at": "2022-06-22T15:07:38",
+      "html_url": "https://github.com/pulibrary/dacs_handbook/pull/30",
+      "number": 30,
+      "pull_request_html_url": "https://github.com/pulibrary/dacs_handbook/pull/30",
+      "repository_html_url": "https://github.com/pulibrary/dacs_handbook",
+      "repository_name": "dacs_handbook",
+      "state": "open",
+      "title": "Add tip about turning off honeybadger digests for non-DACS projects",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/dacs_handbook/pull/30",
+      "action": "pull_request_open"
+    }
+  ],
+  "dspace-development": [
+    {
+      "created_at": "2022-06-15T14:13:03",
+      "updated_at": "2022-06-15T14:13:03",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/643",
+      "number": 643,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "closed",
+      "title": "Transfer configuration files from the Symplectic Elements `DEV` environment (`oaworkflow-dev`) for the Digital Science migration",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-06-22T13:08:52",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-05-17T19:13:34",
+      "updated_at": "2022-05-17T19:13:34",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/634",
+      "number": 634,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "closed",
+      "title": "Enhance dissertation MARC data with arks",
+      "user_name": "Kate Lynch",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2022-06-22T13:16:07",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/634#issuecomment-1163084439",
+          "body": "These have been imported and indexed into Alma and Orangelight:\n\n![image.png](https://images.zenhubusercontent.com/5b5b6aed981c3204c9ed06c8/97854659-42df-4710-9ebe-af60db2165fd)"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-06-22T13:16:07",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-03-31T20:01:42",
+      "updated_at": "2022-03-31T20:01:42",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/627",
+      "number": 627,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Symplectic Elements: \"Claimed\" Items Missing in Queue",
+      "user_name": "Hannah H",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2022-06-22T13:22:35",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/627#issuecomment-1163091774",
+          "body": "Reindexing seems to be functioning as expected on a daily basis within the production environment:\n\n![image.png](https://images.zenhubusercontent.com/5b5b6aed981c3204c9ed06c8/6297ea09-58d0-49c9-84ee-892523e5f420)"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "etd_transformer": [
+    {
+      "created_at": "2022-06-13T15:16:53",
+      "updated_at": "2022-06-13T15:16:53",
+      "html_url": "https://github.com/pulibrary/etd_transformer/issues/124",
+      "number": 124,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/etd_transformer",
+      "repository_name": "etd_transformer",
+      "state": "open",
+      "title": "Import politics, art, and music theses to QA",
+      "user_name": "Bess Sadler",
+      "comments": [
+        {
+          "user_name": "Bess Sadler",
+          "updated_at": "2022-06-22T14:41:37",
+          "html_url": "https://github.com/pulibrary/etd_transformer/issues/124#issuecomment-1163193940",
+          "body": "![Screen Shot 2022-06-22 at 10.41.00 AM.png](https://images.zenhubusercontent.com/5ca3a84155cfe32f2f66b74c/a88ddfed-2391-4dd5-ac7a-21ace2c06b62)"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2022-06-22T14:21:12",
+      "updated_at": "2022-06-22T14:21:12",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5208",
+      "number": 5208,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "broken link",
+      "user_name": "Cliff Wulfman",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Cliff Wulfman",
+          "created_at": "2022-06-22T14:21:12",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-06-22T19:05:01",
+      "updated_at": "2022-06-22T19:05:01",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5209",
+      "number": 5209,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Update GeoWorks::Derivatives gem  and remove simple tiles",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-06-22T19:05:01",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-06-22T19:05:02",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-06-22T19:11:47",
+      "updated_at": "2022-06-22T19:11:47",
+      "html_url": "https://github.com/pulibrary/figgy/pull/5210",
+      "number": 5210,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/5210",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Update geo_works-derivatives and remove simple tiles",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T19:22:29",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-06-22T22:36:56",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T22:37:51",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T23:05:33",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-06-23T01:38:41",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-06-23T01:38:51",
+          "type": "deployed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/5210",
+      "action": "pull_request_open"
+    }
+  ],
+  "geo_works-derivatives": [
+    {
+      "created_at": "2022-06-22T17:58:28",
+      "updated_at": "2022-06-22T17:58:28",
+      "html_url": "https://github.com/pulibrary/geo_works-derivatives/pull/26",
+      "number": 26,
+      "pull_request_html_url": "https://github.com/pulibrary/geo_works-derivatives/pull/26",
+      "repository_html_url": "https://github.com/pulibrary/geo_works-derivatives",
+      "repository_name": "geo_works-derivatives",
+      "state": "open",
+      "title": "Use node-mapnik to generate shapefile thumbnail",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-06-22T18:35:10",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-06-22T18:38:16",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-06-22T18:41:24",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-06-22T18:45:04",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-06-22T18:49:07",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-06-22T18:52:40",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/geo_works-derivatives/pull/26",
+      "action": "pull_request_open"
+    }
+  ],
+  "lib_jobs": [
+    {
+      "created_at": "2022-05-18T16:30:08",
+      "updated_at": "2022-05-18T16:30:08",
+      "html_url": "https://github.com/pulibrary/lib_jobs/issues/320",
+      "number": 320,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/lib_jobs",
+      "repository_name": "lib_jobs",
+      "state": "closed",
+      "title": "Can we confirm notification emails have gone out?",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-06-22T01:25:49",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-06-21T20:42:24",
+      "updated_at": "2022-06-21T20:42:24",
+      "html_url": "https://github.com/pulibrary/lib_jobs/pull/372",
+      "number": 372,
+      "pull_request_html_url": "https://github.com/pulibrary/lib_jobs/pull/372",
+      "repository_html_url": "https://github.com/pulibrary/lib_jobs",
+      "repository_name": "lib_jobs",
+      "state": "closed",
+      "title": "i320: Turn on ActionMailer delivery errors",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-06-22T01:25:48",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-06-22T01:25:48",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-06-22T01:25:49",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-06-22T01:25:50",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/lib_jobs/pull/372",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-06-13T13:54:35",
+      "updated_at": "2022-06-13T13:54:35",
+      "html_url": "https://github.com/pulibrary/lib_jobs/pull/366",
+      "number": 366,
+      "pull_request_html_url": "https://github.com/pulibrary/lib_jobs/pull/366",
+      "repository_html_url": "https://github.com/pulibrary/lib_jobs",
+      "repository_name": "lib_jobs",
+      "state": "open",
+      "title": "Ncip renewal oo",
+      "user_name": "Max Kadel",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/lib_jobs/pull/366",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-06-22T18:32:21",
+      "updated_at": "2022-06-22T18:32:21",
+      "html_url": "https://github.com/pulibrary/lib_jobs/issues/373",
+      "number": 373,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/lib_jobs",
+      "repository_name": "lib_jobs",
+      "state": "open",
+      "title": "Empty Expiration Text Email has Filler Text",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-06-22T18:33:28",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "lockers_and_study_spaces": [
+    {
+      "created_at": "2022-05-27T19:53:31",
+      "updated_at": "2022-05-27T19:53:31",
+      "html_url": "https://github.com/pulibrary/lockers_and_study_spaces/pull/87",
+      "number": 87,
+      "pull_request_html_url": "https://github.com/pulibrary/lockers_and_study_spaces/pull/87",
+      "repository_html_url": "https://github.com/pulibrary/lockers_and_study_spaces",
+      "repository_name": "lockers_and_study_spaces",
+      "state": "open",
+      "title": "Email users to check if they would like to renew",
+      "user_name": "Jane Sandberg",
+      "comments": [
+        {
+          "user_name": "Jane Sandberg",
+          "updated_at": "2022-06-22T18:23:46",
+          "html_url": "https://github.com/pulibrary/lockers_and_study_spaces/pull/87#issuecomment-1163463671",
+          "body": "@kevinreiss thanks!  I squashed the commits, and removed that scaffold-generated file."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-06-22T18:22:43",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-06-22T18:23:47",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-06-22T18:23:47",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-06-22T18:24:40",
+          "type": "review_requested"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/lockers_and_study_spaces/pull/87",
+      "action": "pull_request_open"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2022-06-22T22:56:09",
+      "updated_at": "2022-06-22T22:56:09",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/3047",
+      "number": 3047,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/3047",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Upgrade blacklight to 7.25.3",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T22:56:40",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-06-22T23:04:33",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/3047",
+      "action": "pull_request_open"
+    }
+  ],
+  "pdc_describe": [
+    {
+      "created_at": "2022-06-21T20:32:06",
+      "updated_at": "2022-06-21T20:32:06",
+      "html_url": "https://github.com/pulibrary/pdc_describe/pull/167",
+      "number": 167,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_describe/pull/167",
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "closed",
+      "title": "Use a known DOI to by pass the S3 service",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T05:12:10",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T05:12:10",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T05:12:10",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T05:12:11",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_describe/pull/167",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-05-18T14:41:09",
+      "updated_at": "2022-05-18T14:41:09",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/127",
+      "number": 127,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "closed",
+      "title": "Create/update users with ORCID IDs from a spreadsheet",
+      "user_name": "Kate Lynch",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2022-06-22T12:43:27",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-06-22T11:39:07",
+      "updated_at": "2022-06-22T11:39:07",
+      "html_url": "https://github.com/pulibrary/pdc_describe/pull/168",
+      "number": 168,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_describe/pull/168",
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "closed",
+      "title": "127 import orcid from spreadsheet",
+      "user_name": "Kate Lynch",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2022-06-22T12:43:27",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2022-06-22T12:43:27",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2022-06-22T12:43:27",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2022-06-22T12:43:28",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_describe/pull/168",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-06-22T13:12:08",
+      "updated_at": "2022-06-22T13:12:08",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/169",
+      "number": 169,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "closed",
+      "title": "Creators in the data entry form and reordering",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2022-06-22T13:12:11",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-06-22T15:29:52",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-06-22T14:59:20",
+      "updated_at": "2022-06-22T14:59:20",
+      "html_url": "https://github.com/pulibrary/pdc_describe/pull/170",
+      "number": 170,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_describe/pull/170",
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "closed",
+      "title": "Preserves the ability to click on the edit textboxes",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-06-22T15:29:52",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-06-22T15:29:52",
+          "type": "merged"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-06-22T15:29:52",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-06-22T15:29:53",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_describe/pull/170",
+      "action": "pull_request_closed"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2022-06-22T15:13:40",
+      "updated_at": "2022-06-22T15:13:40",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3110",
+      "number": 3110,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3110",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "add oawaiver-staging renewed TLS certs",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3110",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-06-16T16:44:44",
+      "updated_at": "2022-06-16T16:44:44",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/3103",
+      "number": 3103,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Create VM for annotations-dev",
+      "user_name": "Kate Lynch",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-06-22T15:41:05",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-06-22T15:25:57",
+      "updated_at": "2022-06-22T15:25:57",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/3111",
+      "number": 3111,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "We should add HONEYBADGER_ENV variable to the bibdata boxes.",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-06-22T18:23:57",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-06-22T18:26:27",
+      "updated_at": "2022-06-22T18:26:27",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/3112",
+      "number": 3112,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Make sure lib_jobs can build",
+      "user_name": "Max Kadel",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-06-22T18:26:27",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "pulfalight": [
+    {
+      "created_at": "2022-06-22T14:02:26",
+      "updated_at": "2022-06-22T14:02:26",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/1089",
+      "number": 1089,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Ask a Question feature are not pulling the name into the contact details",
+      "user_name": "Christa Cleeton",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "recap": [
+    {
+      "created_at": "2022-06-16T20:20:59",
+      "updated_at": "2022-06-16T20:20:59",
+      "html_url": "https://github.com/pulibrary/recap/issues/193",
+      "number": 193,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/recap",
+      "repository_name": "recap",
+      "state": "open",
+      "title": "Upgrade to Drupal 9.4.0",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-06-22T15:55:54",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 36,
+    "closed_count": 7,
+    "created_count": 10,
+    "pull_request_closed_count": 5,
+    "pull_request_open_count": 8,
+    "updated_count": 6,
+    "today": "2022-06-22T22:00:05",
+    "yesterday": "2022-06-21T22:00:05"
+  }
+}
