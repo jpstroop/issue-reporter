@@ -1,0 +1,1531 @@
+{
+  "bibdata": [
+    {
+      "created_at": "2022-06-21T20:59:09",
+      "updated_at": "2022-06-21T20:59:09",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/1903",
+      "number": 1903,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/1903",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "i1874: deploy as bibdata, not marc_liberation",
+      "user_name": "Jane Sandberg",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2022-06-24T15:44:00",
+          "html_url": "https://github.com/pulibrary/bibdata/pull/1903#issuecomment-1165698848",
+          "body": "Discussed with @acozine and @kayiwa the https://github.com/pulibrary/princeton_ansible/pull/2781. @acozine will  update the pr to ensure that it renames the directory and not deletes it. \r\nWe will test the updated https://github.com/pulibrary/princeton_ansible/pull/2781 pr on bibdata-staging. \r\nWe want to make sure that files in directory with name `marc_liberation_files` will not be deleted when we change it to `bibdata`: \r\ndata/marc_liberation_files -> /data/bibdata_files , \r\n/data/marc_liberation_files/scsb_update_files -> /data/bibdata_files/scsb_update_files,\r\n/data/marc_liberation_files/figgy_ark_cache -> /data/bibdata_files/figgy_ark_cache,\r\n/data/marc_liberation_files/partner_update_scratch -> /data/bibdata_files/partner_update_scratch\r\n\r\nTo test:\r\n\r\n- [ ] Run the updated playbook. @acozine will let us know when it's ready to test.\r\n- [ ] Deploy this bibdata branch to bibdata-staging\r\n- [ ] Trigger an incremental publishing job in the Alma sandbox\r\n- [ ] Trigger a General publishing job in the alma sandbox.\r\n- [ ] Make sure the files will transfer in the right directories in bibdata-staging\r\n- [ ] Make sure the incremental files will be indexed.\r\n- [ ] Make sure you can run a full reindex.\r\n- [ ] In order to run the playbook on bibdata production make sure that will happen not in hours that we get incremental files from Alma. The files are initializing in Alma at 4am, 10am, 4pm, 10pm and are in bibdata in the next 60 mins."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-06-24T15:43:47",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-06-24T15:43:47",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2022-06-24T15:43:47",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2022-06-24T15:43:47",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/1903",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2021-07-21T12:14:36",
+      "updated_at": "2021-07-21T12:14:36",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1547",
+      "number": 1547,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "[Alma after go live] Alma - location cleanup",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T19:16:38",
+          "type": "unlabeled"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T19:19:06",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2021-04-06T17:30:14",
+      "updated_at": "2021-04-06T17:30:14",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1209",
+      "number": 1209,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Delete ETAS code",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "Max Kadel",
+          "updated_at": "2022-06-24T19:24:15",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/1209#issuecomment-1165858969",
+          "body": "On catalog.princeton.edu there are 5 works that are listed under the location `online$etas`\n* https://catalog.princeton.edu/catalog/9948595283506421\n  * Looking at this one in Alma, it appears that there is a holding record in Alma for etas, which appears to have been imported from Voyager, and hasn't been updated since. \n* https://catalog.princeton.edu/catalog/9911897463506421\n* https://catalog.princeton.edu/catalog/9910009553506421\n* https://catalog.princeton.edu/catalog/9910407913506421\n* https://catalog.princeton.edu/catalog/995642993506421"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-06-24T18:52:14",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-01-25T14:14:15",
+      "updated_at": "2022-01-25T14:14:15",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/1759",
+      "number": 1759,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Include in the docs the schedule of the publishing jobs in alma",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-06-24T19:55:50",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-06-24T19:32:52",
+      "updated_at": "2022-06-24T19:32:52",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/1906",
+      "number": 1906,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/1906",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Add doc with schedule for Alma publishing jobs",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T19:33:44",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T19:42:38",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T19:42:48",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-06-24T19:55:50",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-06-24T19:55:50",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-06-24T19:55:50",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-06-24T19:55:51",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/1906",
+      "action": "pull_request_closed"
+    }
+  ],
+  "dacs_handbook": [
+    {
+      "created_at": "2022-06-24T11:45:52",
+      "updated_at": "2022-06-24T11:45:52",
+      "html_url": "https://github.com/pulibrary/dacs_handbook/issues/32",
+      "number": 32,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dacs_handbook",
+      "repository_name": "dacs_handbook",
+      "state": "open",
+      "title": "Tools we use to test accessibility",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-06-23T15:26:34",
+      "updated_at": "2022-06-23T15:26:34",
+      "html_url": "https://github.com/pulibrary/dacs_handbook/pull/31",
+      "number": 31,
+      "pull_request_html_url": "https://github.com/pulibrary/dacs_handbook/pull/31",
+      "repository_html_url": "https://github.com/pulibrary/dacs_handbook",
+      "repository_name": "dacs_handbook",
+      "state": "open",
+      "title": "Create a separate \"initial setup\" step for runner role",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/dacs_handbook/pull/31",
+      "action": "pull_request_open"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2022-06-13T20:16:28",
+      "updated_at": "2022-06-13T20:16:28",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5164",
+      "number": 5164,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Bootstrap 4: Fix FileManager page",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2022-06-24T18:54:23",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-06-24T13:21:34",
+      "updated_at": "2022-06-24T13:21:34",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5213",
+      "number": 5213,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Requiring DPUL URL to create a Collection is confusing",
+      "user_name": "Esmé Cowles",
+      "comments": [
+        {
+          "user_name": "Esmé Cowles",
+          "updated_at": "2022-06-24T18:48:05",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5213#issuecomment-1165842377",
+          "body": "Another option would be to make that field not required, and implement error handling in DPUL so if you tried to create an exhibit from a collection without a slug, it would tell you what you needed to do to fix it."
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2022-06-24T18:54:47",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5213#issuecomment-1165846855",
+          "body": "I really like the second option you suggest,  @escowles .  There is only a limited number of us who create the actual collection in DPUL, so hopefully that would help minimalize the confusion with the error."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2022-06-24T18:54:47",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Esmé Cowles",
+          "created_at": "2022-06-24T18:54:47",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-06-23T18:57:08",
+      "updated_at": "2022-06-23T18:57:08",
+      "html_url": "https://github.com/pulibrary/figgy/pull/5211",
+      "number": 5211,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/5211",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Adds Track listing back to Playlist show page",
+      "user_name": "Shaun Ellis",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-06-24T19:39:02",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-06-24T19:39:02",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-06-24T19:39:02",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-06-24T19:39:03",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/5211",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-06-23T20:00:50",
+      "updated_at": "2022-06-23T20:00:50",
+      "html_url": "https://github.com/pulibrary/figgy/pull/5212",
+      "number": 5212,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/5212",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Adds bottom margin to claim/unclaim buttons",
+      "user_name": "Shaun Ellis",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-06-24T19:41:58",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-06-24T19:56:07",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-06-24T19:56:07",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-06-24T19:56:07",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2022-06-24T19:56:08",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/5212",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-06-16T22:07:58",
+      "updated_at": "2022-06-16T22:07:58",
+      "html_url": "https://github.com/pulibrary/figgy/pull/5207",
+      "number": 5207,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/5207",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Review and Approval styling",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-06-24T19:57:32",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-06-24T19:57:33",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-06-24T19:57:33",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-06-24T19:57:33",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/5207",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-05-12T17:44:48",
+      "updated_at": "2022-05-12T17:44:48",
+      "html_url": "https://github.com/pulibrary/figgy/pull/5115",
+      "number": 5115,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/5115",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Upgrade Bootstrap and Rails",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/5115",
+      "action": "pull_request_open"
+    }
+  ],
+  "friends_of_pul": [
+    {
+      "created_at": "2022-06-24T16:29:34",
+      "updated_at": "2022-06-24T16:29:34",
+      "html_url": "https://github.com/pulibrary/friends_of_pul/pull/114",
+      "number": 114,
+      "pull_request_html_url": "https://github.com/pulibrary/friends_of_pul/pull/114",
+      "repository_html_url": "https://github.com/pulibrary/friends_of_pul",
+      "repository_name": "friends_of_pul",
+      "state": "closed",
+      "title": "update to drupal core 7.90",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-06-24T16:40:06",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T16:52:29",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T16:52:39",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/friends_of_pul/pull/114",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-03-30T15:06:07",
+      "updated_at": "2022-03-30T15:06:07",
+      "html_url": "https://github.com/pulibrary/friends_of_pul/pull/107",
+      "number": 107,
+      "pull_request_html_url": "https://github.com/pulibrary/friends_of_pul/pull/107",
+      "repository_html_url": "https://github.com/pulibrary/friends_of_pul",
+      "repository_name": "friends_of_pul",
+      "state": "closed",
+      "title": "Update step 12 to generate dump.sql",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T16:52:41",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/friends_of_pul/pull/107",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-06-24T17:39:44",
+      "updated_at": "2022-06-24T17:39:44",
+      "html_url": "https://github.com/pulibrary/friends_of_pul/pull/115",
+      "number": 115,
+      "pull_request_html_url": "https://github.com/pulibrary/friends_of_pul/pull/115",
+      "repository_html_url": "https://github.com/pulibrary/friends_of_pul",
+      "repository_name": "friends_of_pul",
+      "state": "open",
+      "title": "Update drupal core to 7.90",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2022-06-24T17:40:33",
+          "html_url": "https://github.com/pulibrary/friends_of_pul/pull/115#issuecomment-1165793436",
+          "body": "Deployed on staging and checked https://fpul-staging.princeton.edu/#overlay=admin/reports/updates"
+        }
+      ],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/friends_of_pul/pull/115",
+      "action": "pull_request_open"
+    }
+  ],
+  "lib_jobs": [
+    {
+      "created_at": "2022-06-23T13:08:02",
+      "updated_at": "2022-06-23T13:08:02",
+      "html_url": "https://github.com/pulibrary/lib_jobs/pull/374",
+      "number": 374,
+      "pull_request_html_url": "https://github.com/pulibrary/lib_jobs/pull/374",
+      "repository_html_url": "https://github.com/pulibrary/lib_jobs",
+      "repository_name": "lib_jobs",
+      "state": "closed",
+      "title": "Update bundler for ruby_s ansible role",
+      "user_name": "Max Kadel",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-06-24T13:56:15",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-06-24T14:00:25",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T14:01:59",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T14:01:59",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T14:01:59",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T14:02:00",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/lib_jobs/pull/374",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-06-23T13:37:04",
+      "updated_at": "2022-06-23T13:37:04",
+      "html_url": "https://github.com/pulibrary/lib_jobs/pull/375",
+      "number": 375,
+      "pull_request_html_url": "https://github.com/pulibrary/lib_jobs/pull/375",
+      "repository_html_url": "https://github.com/pulibrary/lib_jobs",
+      "repository_name": "lib_jobs",
+      "state": "closed",
+      "title": "Bump shell-quote from 1.7.2 to 1.7.3",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-06-24T19:49:19",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T19:54:23",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T19:54:23",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T19:54:24",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T19:54:25",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/lib_jobs/pull/375",
+      "action": "pull_request_closed"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2022-06-24T13:49:47",
+      "updated_at": "2022-06-24T13:49:47",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/3052",
+      "number": 3052,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "NoMethodError in selected_items_validator",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-06-24T13:51:47",
+      "updated_at": "2022-06-24T13:51:47",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/3053",
+      "number": 3053,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "NoMethodError in build_cas_patron",
+      "user_name": "Jane Sandberg",
+      "comments": [
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2022-06-24T15:27:27",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/3053#issuecomment-1165684543",
+          "body": "We should handle this error case better, but I suspect the root cause is an empty user api response from Alma's API. "
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-01-27T13:29:43",
+      "updated_at": "2022-01-27T13:29:43",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2845",
+      "number": 2845,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Include the browselists documentation in Orangelight",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T16:41:50",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-06-23T11:23:48",
+      "updated_at": "2022-06-23T11:23:48",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/3048",
+      "number": 3048,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/3048",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Include documentation for browse-lists",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T16:41:50",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T16:41:50",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T16:41:51",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T16:41:52",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/3048",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-06-22T22:56:09",
+      "updated_at": "2022-06-22T22:56:09",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/3047",
+      "number": 3047,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/3047",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Upgrade blacklight to 7.25.3",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T18:34:15",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T18:34:15",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T18:34:15",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T18:34:16",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/3047",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-06-24T00:34:39",
+      "updated_at": "2022-06-24T00:34:39",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/3051",
+      "number": 3051,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/3051",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Bump rack from 2.2.3 to 2.2.3.1",
+      "user_name": "dependabot[bot]",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2022-06-24T00:47:17",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/3051#issuecomment-1165049977",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/50320255/badge)](https://coveralls.io/builds/50320255)\n\nCoverage remained the same at 94.182% when pulling **e3db3bf96c60994fc10d0af45547263d1b4ad1b6 on dependabot/bundler/rack-2.2.3.1** into **9c18265cc7e425faabdad6ab4cc7884b4bffa102 on main**.\n"
+        },
+        {
+          "user_name": "dependabot[bot]",
+          "updated_at": "2022-06-24T18:35:12",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/3051#issuecomment-1165834111",
+          "body": "Looks like rack is up-to-date now, so this is no longer needed."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-06-24T00:34:40",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-06-24T18:35:14",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-06-24T18:35:16",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/3051",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-04-05T14:16:25",
+      "updated_at": "2022-04-05T14:16:25",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/2921",
+      "number": 2921,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/2921",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Add cypress for testing",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T19:43:45",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/2921",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-03-18T15:55:58",
+      "updated_at": "2022-03-18T15:55:58",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2900",
+      "number": 2900,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Consider using Cypress",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2022-06-24T19:44:05",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/2900#issuecomment-1165884392",
+          "body": "no time for this now"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T19:44:05",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-05-10T20:52:57",
+      "updated_at": "2022-05-10T20:52:57",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/2995",
+      "number": 2995,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Search results - CDL result does not display an 'Online' label next to the availability status.",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T19:45:37",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "pdc_describe": [
+    {
+      "created_at": "2022-06-23T19:36:28",
+      "updated_at": "2022-06-23T19:36:28",
+      "html_url": "https://github.com/pulibrary/pdc_describe/pull/177",
+      "number": 177,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_describe/pull/177",
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "closed",
+      "title": "Prototyping a new layout based on discussions with Hannah",
+      "user_name": "Hector Correa",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2022-06-24T14:28:23",
+          "html_url": "https://github.com/pulibrary/pdc_describe/pull/177#issuecomment-1165631406",
+          "body": "Coveralls is not showing a decrease in code coverage on https://coveralls.io/builds/50336130"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-06-24T13:32:41",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2022-06-24T13:35:03",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-06-24T14:23:20",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-06-24T14:26:11",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-06-24T14:28:29",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-06-24T14:28:29",
+          "type": "merged"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-06-24T14:28:30",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-06-24T14:28:30",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_describe/pull/177",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-06-24T15:57:54",
+      "updated_at": "2022-06-24T15:57:54",
+      "html_url": "https://github.com/pulibrary/pdc_describe/pull/178",
+      "number": 178,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_describe/pull/178",
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "closed",
+      "title": "isOrcid JavaScript refactor",
+      "user_name": "Hector Correa",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2022-06-24T16:07:23",
+          "html_url": "https://github.com/pulibrary/pdc_describe/pull/178#issuecomment-1165719331",
+          "body": "Comparing the test coverage reports to https://app.circleci.com/pipelines/github/pulibrary/pdc_describe/407/workflows/d57c525b-e594-496c-9a1f-8eb660c98d87/jobs/1185/artifacts (https://output.circle-artifacts.com/output/job/236838a3-ffaa-4d59-8afe-036f290691b9/artifacts/0/coverage/index.html#_AllFiles and https://output.circle-artifacts.com/output/job/81d557eb-62ed-41bd-b1cf-980004061afe/artifacts/0/coverage/index.html#_AllFiles), the coverage appears to have remained the same. I am going to proceed with merging this given the delay in the response from Coveralls."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-06-24T15:57:54",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-06-24T15:57:54",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-06-24T16:07:29",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-06-24T16:07:30",
+          "type": "merged"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-06-24T16:07:30",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-06-24T16:07:31",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_describe/pull/178",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-06-24T16:26:09",
+      "updated_at": "2022-06-24T16:26:09",
+      "html_url": "https://github.com/pulibrary/pdc_describe/pull/179",
+      "number": 179,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_describe/pull/179",
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "closed",
+      "title": "Displays description in show page and DataCite XML",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2022-06-24T17:49:36",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2022-06-24T17:49:36",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2022-06-24T17:49:37",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2022-06-24T17:49:37",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_describe/pull/179",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-06-23T19:26:12",
+      "updated_at": "2022-06-23T19:26:12",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/176",
+      "number": 176,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Curator dashboard",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2022-06-22T18:26:27",
+      "updated_at": "2022-06-22T18:26:27",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/3112",
+      "number": 3112,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Make sure lib_jobs can build",
+      "user_name": "Max Kadel",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-06-24T14:00:58",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-06-23T13:06:49",
+      "updated_at": "2022-06-23T13:06:49",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3114",
+      "number": 3114,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3114",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Use ruby_s role rather than ruby role",
+      "user_name": "Max Kadel",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-06-24T13:59:27",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-06-24T14:00:58",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-06-24T14:00:58",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-06-24T14:00:58",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-06-24T14:01:00",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3114",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-06-24T13:59:01",
+      "updated_at": "2022-06-24T13:59:01",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3119",
+      "number": 3119,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3119",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Update staging db_host",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2022-06-24T14:03:25",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3119#issuecomment-1165605088",
+          "body": "When I ran the playbook I got: \r\nTASK [mariadb : run permissive script]\r\nfatal: [recap-www-staging1.princeton.edu]: FAILED! => {\"changed\": false, \"cmd\": [\"/home/deploy/sql/set_permission.sh\"], \"delta\": \"0:00:00.014813\", \"end\": \"2022-06-24 13:56:29.117147\", \"msg\": \"non-zero return code\", \"rc\": 1, \"start\": \"2022-06-24 13:56:29.102334\", \"stderr\": \"mysql: [Warning] Using a password on the command line interface can be insecure.\\nERROR 1045 (28000): Access denied for user 'root'@'recap-www-staging1.princeton.edu' (using password: YES)\", \"stderr_lines\": [\"mysql: [Warning] Using a password on the command line interface can be insecure.\", \"ERROR 1045 (28000): Access denied for user 'root'@'recap-www-staging1.princeton.edu' (using password: YES)\"], \"stdout\": \"\", \"stdout_lines\": []}"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2022-06-24T14:20:41",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3119#issuecomment-1165623899",
+          "body": "Use this branch https://github.com/pulibrary/princeton_ansible/pull/3091/files until we do a database upgrade of production to maria 10.3"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T14:20:47",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3119",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-06-24T13:38:58",
+      "updated_at": "2022-06-24T13:38:58",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/3118",
+      "number": 3118,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Update mysql db variables in recap playbooks",
+      "user_name": "Kevin Reiss",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2022-06-24T14:33:11",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/3118#issuecomment-1165635868",
+          "body": "Use this branch https://github.com/pulibrary/princeton_ansible/pull/3091/files until we do a database upgrade of production to maria 10.3 https://github.com/pulibrary/princeton_ansible/pull/3119#issuecomment-1165623899"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T13:54:15",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-06-24T14:33:14",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-06-24T14:33:27",
+      "updated_at": "2022-06-24T14:33:27",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3120",
+      "number": 3120,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3120",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add lib-solr-mirror tls certs",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-06-24T14:33:50",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3120",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-02-22T21:35:59",
+      "updated_at": "2022-02-22T21:35:59",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/2781",
+      "number": 2781,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2781",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "[Bibdata] Use 'bibdata', not 'marc_liberation' in app configs",
+      "user_name": "Alicia Cozine",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/2781",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-06-23T18:31:25",
+      "updated_at": "2022-06-23T18:31:25",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3116",
+      "number": 3116,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3116",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add lib-confluence-staging renewed TLS certs",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-06-24T16:06:03",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-06-24T16:06:03",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-06-24T16:06:04",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-06-24T16:06:05",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3116",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-06-10T13:01:00",
+      "updated_at": "2022-06-10T13:01:00",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3091",
+      "number": 3091,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3091",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "i3090 migrate recap",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3091",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-06-24T16:42:40",
+      "updated_at": "2022-06-24T16:42:40",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3121",
+      "number": 3121,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3121",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "For lib_jobs use production, not prod",
+      "user_name": "Max Kadel",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-06-24T18:01:03",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-06-24T18:01:12",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-06-24T18:01:16",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-06-24T18:43:27",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-06-24T18:43:27",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-06-24T18:43:27",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-06-24T18:43:28",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3121",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-06-22T15:25:57",
+      "updated_at": "2022-06-22T15:25:57",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/3111",
+      "number": 3111,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "We should add HONEYBADGER_ENV variable to the bibdata boxes.",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-06-24T19:01:17",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-06-23T14:54:45",
+      "updated_at": "2022-06-23T14:54:45",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3115",
+      "number": 3115,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3115",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Add HONEYBADGER_ENV to bibdata environments",
+      "user_name": "Max Kadel",
+      "comments": [
+        {
+          "user_name": "Max Kadel",
+          "updated_at": "2022-06-24T15:21:11",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3115#issuecomment-1165678973",
+          "body": "Ran on bibdata-qa, Honeybadger is now showing the correct environment (see screenshot, under \"Location\")\r\n![image](https://user-images.githubusercontent.com/45948126/175566435-26a6cf3d-50ac-4a5f-9f47-afa9657c932d.png)\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-06-24T14:02:58",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-06-24T15:19:22",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-06-24T19:01:17",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-06-24T19:01:17",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-06-24T19:01:17",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-06-24T19:01:18",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3115",
+      "action": "pull_request_closed"
+    }
+  ],
+  "pul_library_drupal": [
+    {
+      "created_at": "2022-06-24T12:39:18",
+      "updated_at": "2022-06-24T12:39:18",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1904",
+      "number": 1904,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1904",
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "closed",
+      "title": "Update README.md",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-06-24T13:30:46",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-06-24T13:30:46",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-06-24T13:30:46",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-06-24T13:30:47",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1904",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-06-24T14:48:43",
+      "updated_at": "2022-06-24T14:48:43",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1905",
+      "number": 1905,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1905",
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "open",
+      "title": "Update drupal core to 7.90",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2022-06-24T16:37:51",
+          "html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1905#issuecomment-1165744625",
+          "body": "deployed on staging and checked (https://library-staging.princeton.edu/admin/reports/updates)"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-06-24T16:32:15",
+          "type": "deployed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/1905",
+      "action": "pull_request_open"
+    }
+  ],
+  "recap": [
+    {
+      "created_at": "2022-06-24T20:40:04",
+      "updated_at": "2022-06-24T20:40:04",
+      "html_url": "https://github.com/pulibrary/recap/pull/195",
+      "number": 195,
+      "pull_request_html_url": "https://github.com/pulibrary/recap/pull/195",
+      "repository_html_url": "https://github.com/pulibrary/recap",
+      "repository_name": "recap",
+      "state": "open",
+      "title": "Drupal 9.4.1 upgrade",
+      "user_name": "rladdusaw",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/recap/pull/195",
+      "action": "pull_request_open"
+    }
+  ],
+  "researchdata": [
+    {
+      "created_at": "2022-06-24T15:52:10",
+      "updated_at": "2022-06-24T15:52:10",
+      "html_url": "https://github.com/pulibrary/researchdata/pull/165",
+      "number": 165,
+      "pull_request_html_url": "https://github.com/pulibrary/researchdata/pull/165",
+      "repository_html_url": "https://github.com/pulibrary/researchdata",
+      "repository_name": "researchdata",
+      "state": "closed",
+      "title": "Output of drush -y cex after running 9.4.0 database update.",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-06-24T15:53:40",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-06-24T16:07:43",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-06-24T16:07:43",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-06-24T16:07:43",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-06-24T16:07:44",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/researchdata/pull/165",
+      "action": "pull_request_closed"
+    }
+  ],
+  "special_collections": [
+    {
+      "created_at": "2022-06-24T15:13:37",
+      "updated_at": "2022-06-24T15:13:37",
+      "html_url": "https://github.com/pulibrary/special_collections/pull/714",
+      "number": 714,
+      "pull_request_html_url": "https://github.com/pulibrary/special_collections/pull/714",
+      "repository_html_url": "https://github.com/pulibrary/special_collections",
+      "repository_name": "special_collections",
+      "state": "open",
+      "title": "update drupal core to 7.90",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2022-06-24T16:45:01",
+          "html_url": "https://github.com/pulibrary/special_collections/pull/714#issuecomment-1165750476",
+          "body": "Deployed on staging and checked https://library-staging.princeton.edu/special-collections/admin/reports/updates."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-06-24T16:41:16",
+          "type": "deployed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/special_collections/pull/714",
+      "action": "pull_request_open"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 47,
+    "closed_count": 6,
+    "created_count": 5,
+    "pull_request_closed_count": 23,
+    "pull_request_open_count": 9,
+    "updated_count": 4,
+    "today": "2022-06-24T22:00:05",
+    "yesterday": "2022-06-23T22:00:05"
+  }
+}
