@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5fda38894b.js" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" type="text/css" href="../../../../css/main.css" />
+    <title>PUL GitHub Issues for 2022-08-06T22:00:07</title>
+  </head>
+
+<body>
+  <div class="container-fluid">
+    <a id="btt-button"></a>
+    
+<h1 class="bg-dark text-light">PUL GitHub Issues<br />
+  <small class="text-white-70">2022-08-06</small></h1>
+<nav class="navbar sticky-top navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar-toggler">
+    <ul class="navbar-nav mr-auto mt-2 pt-3 mt-lg-0">
+      <li class="nav-item not-mono">
+        <a class="nav-link" href="../../../../index.html"><i class="fas fa-arrow-left"></i> Back to Report List Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#figgy">pulibrary/figgy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#nursery-rhyme-taylor">pulibrary/nursery-rhyme-taylor</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pulfalight">pulibrary/pulfalight</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#recap">pulibrary/recap</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#researchdata">pulibrary/researchdata</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#titiler-aws">pulibrary/titiler-aws</a>
+      </li>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    
+    <section class="repo" id="figgy">
+      <h2><a href="https://github.com/pulibrary/figgy">pulibrary/figgy</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="figgy-5339">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/5339">#5339</a> duplicate images in resource</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackartisan</dd>
+          <dt>Created:</dt>
+          <dd>2022-08-05 18:31:06</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Trey Pendragon at <a href="https://github.com/pulibrary/figgy/issues/5339#issuecomment-1206998290">2022-08-05 22:12:59</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Query:</p>
+
+<pre><code class="language-sql">select a.metadata-&gt;&#39;cached_parent_id&#39;-&gt;0-&gt;&#39;id&#39;, a.id, b.id from orm_resources a, jsonb_array_elements(a.metadata-&gt;&#39;file_metadata&#39;) AS file_metadata, orm_resources b, jsonb_array_elements(b.metadata-&gt;&#39;file_metadata&#39;) AS file_metadata_again WHERE a.internal_resource=&#39;FileSet&#39; AND a.updated_at &gt; &#39;2022-08-01&#39; AND b.internal_resource=&#39;FileSet&#39; AND b.updated_at &gt; &#39;2022-08-01&#39; AND file_metadata @&gt; &#39;{&quot;checksum&quot;: [{}]}&#39; AND file_metadata_again @&gt; &#39;{&quot;checksum&quot;: [{}]}&#39; AND file_metadata-&gt;&#39;checksum&#39;-&gt;0-&gt;&#39;md5&#39; = file_metadata_again-&gt;&#39;checksum&#39;-&gt;0-&gt;&#39;md5&#39; AND a.id != b.id AND a.metadata-&gt;&#39;cached_parent_id&#39;-&gt;0-&gt;&#39;id&#39; = b.metadata-&gt;&#39;cached_parent_id&#39;-&gt;0-&gt;&#39;id&#39; GROUP BY a.metadata-&gt;&#39;cached_parent_id&#39;-&gt;0-&gt;&#39;id&#39;, a.id, b.id;
+
+</code></pre>
+
+<p>Result: There are two. The previously found one, and <a href="https://figgy.princeton.edu/catalog/63567ec1-7d83-47de-b7f4-3f70913fa13a">https://figgy.princeton.edu/catalog/63567ec1-7d83-47de-b7f4-3f70913fa13a</a>. I&#39;ll message Dan that he should redo that record.</p>
+
+              </dd>
+              <dt>Trey Pendragon at <a href="https://github.com/pulibrary/figgy/issues/5339#issuecomment-1207086427">2022-08-05 23:27:39</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>I ran the query over every FileSet, and the same two resources returned.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-5087">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/5087">#5087</a> Adding nested structure for a microfilm reel in figgy structure manager is not saving</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kim Leaman</dd>
+          <dt>Created:</dt>
+          <dd>2022-04-22 18:11:56</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>unlabeled</code> by Trey Pendragon at 2022-08-05 23:35:15.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="figgy-5240">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/5240">#5240</a> Archival Media Bag ingest issue</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Eliot Jordan</dd>
+          <dt>Created:</dt>
+          <dd>2022-07-13 19:47:32</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>assigned</code> by Trey Pendragon at 2022-08-05 23:46:07.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="figgy-5342">
+        <h3><a href="https://github.com/pulibrary/figgy/pull/5342">#5342</a> Support new pbcore format for main title in Archival Media Bags</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Trey Pendragon</dd>
+          <dt>Created:</dt>
+          <dd>2022-08-05 23:46:24</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/figgy/pull/5342">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>ready_for_review</code> by Trey Pendragon at 2022-08-05 23:46:29.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="nursery-rhyme-taylor">
+      <h2><a href="https://github.com/pulibrary/nursery-rhyme-taylor">pulibrary/nursery-rhyme-taylor</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="nursery-rhyme-taylor-4">
+        <h3><a href="https://github.com/pulibrary/nursery-rhyme-taylor/pull/4">#4</a> add method and tests for semi-randomized nursery rhyme</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>taylor-yamashita</dd>
+          <dt>Created:</dt>
+          <dd>2022-08-05 18:25:43</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/nursery-rhyme-taylor/pull/4">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by None at 2022-08-05 22:28:59.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="pulfalight">
+      <h2><a href="https://github.com/pulibrary/pulfalight">pulibrary/pulfalight</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="pulfalight-1108">
+        <h3><a href="https://github.com/pulibrary/pulfalight/pull/1108">#1108</a> Increase sticky bar contrast</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>taylor-yamashita</dd>
+          <dt>Created:</dt>
+          <dd>2022-07-29 18:20:45</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/pulfalight/pull/1108">pull request</a>)
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>taylor-yamashita at <a href="https://github.com/pulibrary/pulfalight/pull/1108#issuecomment-1207015099">2022-08-05 22:17:00</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>@hackartisan I made some more changes after consulting with Shaun!</p>
+
+<p>Sticky bar fills width of div: 
+<img width="939" alt="image" src="https://user-images.githubusercontent.com/80173363/183218423-b1d79af4-320f-4094-b04b-885f1e46b4ea.png"></p>
+
+<p>Sticky bar has more contrast with footer:
+<img width="1033" alt="image" src="https://user-images.githubusercontent.com/80173363/183218309-54a3bd68-751e-4baa-8eff-afccc78c13e2.png"></p>
+
+<p>Sticky bar link colors/borders styled to be consistent with top navbar:
+<img width="1427" alt="image" src="https://user-images.githubusercontent.com/80173363/183218328-5cb22b6b-2a3f-4ffa-8833-8ae518087300.png"></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by None at 2022-08-05 22:05:36.</li>
+  <li class="event odd">
+    <code>mentioned</code> by None at 2022-08-05 22:17:00.</li>
+  <li class="event even">
+    <code>subscribed</code> by None at 2022-08-05 22:17:01.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="recap">
+      <h2><a href="https://github.com/pulibrary/recap">pulibrary/recap</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="recap-206">
+        <h3><a href="https://github.com/pulibrary/recap/pull/206">#206</a> Bump @ckeditor/ckeditor5-html-support from 34.1.0 to 35.0.1 in /core</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>dependabot[bot]</dd>
+          <dt>Created:</dt>
+          <dd>2022-08-06 09:48:18</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/recap/pull/206">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by None at 2022-08-06 09:48:19.</li>
+  <li class="event odd">
+    <code>labeled</code> by None at 2022-08-06 09:48:19.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="researchdata">
+      <h2><a href="https://github.com/pulibrary/researchdata">pulibrary/researchdata</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="researchdata-177">
+        <h3><a href="https://github.com/pulibrary/researchdata/pull/177">#177</a> Bump @ckeditor/ckeditor5-html-support from 34.1.0 to 35.0.1 in /core</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>dependabot[bot]</dd>
+          <dt>Created:</dt>
+          <dd>2022-08-06 09:48:58</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/researchdata/pull/177">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>labeled</code> by None at 2022-08-06 09:48:59.</li>
+  <li class="event odd">
+    <code>labeled</code> by None at 2022-08-06 09:48:59.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="titiler-aws">
+      <h2><a href="https://github.com/pulibrary/titiler-aws">pulibrary/titiler-aws</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="titiler-aws-47">
+        <h3><a href="https://github.com/pulibrary/titiler-aws/pull/47">#47</a> Replace API Gateway with lambda url</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Eliot Jordan</dd>
+          <dt>Created:</dt>
+          <dd>2022-08-05 23:08:10</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/titiler-aws/pull/47">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Trey Pendragon at 2022-08-05 23:29:29.</li>
+  <li class="event odd">
+    <code>merged</code> by Trey Pendragon at 2022-08-05 23:29:29.</li>
+  <li class="event even">
+    <code>closed</code> by Trey Pendragon at 2022-08-05 23:29:29.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Trey Pendragon at 2022-08-05 23:29:29.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="titiler-aws-46">
+        <h3><a href="https://github.com/pulibrary/titiler-aws/issues/46">#46</a> Tiles at certain zoom levels aren't loading</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackartisan</dd>
+          <dt>Created:</dt>
+          <dd>2022-04-11 13:37:12</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by Trey Pendragon at 2022-08-05 23:30:27.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../../../../js/report.js"></script>
+  </div>
+</body>
+
+</html>
