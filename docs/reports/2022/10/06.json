@@ -1,0 +1,1086 @@
+{
+  "RDOS_Publishing": [
+    {
+      "created_at": "2022-09-20T21:08:57",
+      "updated_at": "2022-09-20T21:08:57",
+      "html_url": "https://github.com/pulibrary/RDOS_Publishing/issues/7",
+      "number": 7,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/RDOS_Publishing",
+      "repository_name": "RDOS_Publishing",
+      "state": "open",
+      "title": "Describe Form: Additional Metadata (tab details)",
+      "user_name": "Hannah H",
+      "comments": [
+        {
+          "user_name": "Chun Ly",
+          "updated_at": "2022-10-06T13:53:24",
+          "html_url": "https://github.com/pulibrary/RDOS_Publishing/issues/7#issuecomment-1270093677",
+          "body": "Chun, does OSTI have a position on this?\n\nAileen Pritch\n*Manager, Institutional Requirements & Research Products*\nPerformance Assurance and Contract Management\nPrinceton Plasma Physics Laboratory\nOffice:  609-243-2245\nCell:  848-203-4005\n***@***.***\n\n\n\nOn Thu, Oct 6, 2022 at 9:34 AM Chun Ly ***@***.***> wrote:\n\n> Hannah and Kate,\n>\n> Thanks for bringing this to my attention. I've CC-ed Aileen so she's\n> aware. You bring up an interesting point of how to disclose funding\n> metadata. I can show how DOE does this for those records in question. I\n> believe DOE/OSTI has taken an easier approach of populating identifiers fields\n> in the DataCite metadata schema for funding instead of using any specific\n> funding field.\n>\n> Here are two DataSpace datasets with DOI minting from DOE:\n> 88435/dsp011g05ff77b:\n> https://api.datacite.org/dois/application/vnd.datacite.datacite+json/10.11578/1888276\n> 88435/dsp013j3335393:\n> https://api.datacite.org/dois/application/vnd.datacite.datacite+json/10.11578/1888262\n>\n> As you can see, a separate identifiers field is provided with the grants\n> numbers.\n>\n> Regarding the original question, having additional metadata of who the\n> funder is and a URI to the grant is a good idea as Crossref and a number of\n> open infrastructures are moving in this direction with RORs and other\n> persistent identifiers. However, I'm not sure how feasible this is for all\n> grants. While most PPPL funding is from DOE, there are separate\n> sub-divisions (e.g., Office of Science), and there are also non-DOE funding\n> such as NASA and NSF. Also, I'm not sure if our prime contract grant\n> (DE-AC02-09CH11466) has a URI. I would not consider having full funding\n> metadata as MVP, but it could be something that we need in the future with\n> the push for NSPM-33 to use persistent identifiers (we had received\n> inquiries from DOE on our current use of persistent identifiers - ORCID,\n> ROR, grants, etc.).\n>\n> Award DOIs have been discussed by the DOE community, but it's used\n> sparingly at the moment. DOE has the following service that PPPL has not\n> used: https://www.osti.gov/award-doi-service/. I know of only two labs\n> that have begun to experiment with this for their user facilities.\n>\n> Cheers,\n> - Chun\n>\n> Research Data Developer\n> Princeton Plasma Physics Laboratory\n> Performance Assurance & Contract Management\n> ORCID: 0000-0002-4245-2318 <https://orcid.org/0000-0002-4245-2318>\n>\n>\n>\n> On Wed, Oct 5, 2022 at 11:12 AM Hannah H ***@***.***> wrote:\n>\n>> Thanks @kelynch <https://github.com/kelynch>! These are PPPL\n>> submissions, so let's check with Chun about how these would fit into\n>> Datacite.\n>>\n>> @astrochun <https://github.com/astrochun>, We are examining how to\n>> transcribe the funder information in these records to Datacite. We are\n>> currently assuming to use the following properties for Funding Reference\n>> <https://support.datacite.org/docs/datacite-metadata-schema-v44-recommended-and-optional-properties#19-fundingreference>.\n>> (note: We will eventually have all of Datacite, but this is what we\n>> anticipate to start with.):\n>>\n>>    - Funder Name\n>>    - Award Number\n>>    - Award URI\n>>\n>> Do you see the information in your currently published records fitting\n>> into these fields? Please let us know if you see a need (in the near future\n>> vs waiting a bit for the full Datacite schema to be properly added) for\n>> additional or different fields for the properties under Funding Reference.\n>> Thanks!\n>>\n>> —\n>> Reply to this email directly, view it on GitHub\n>> <https://github.com/pulibrary/RDOS_Publishing/issues/7#issuecomment-1268772948>,\n>> or unsubscribe\n>> <https://github.com/notifications/unsubscribe-auth/AE25ORQDQ23EXJPCGQREFFTWBXAI3ANCNFSM6AAAAAAQROTYHQ>\n>> .\n>> You are receiving this because you were mentioned.Message ID:\n>> ***@***.***>\n>>\n>\n"
+        },
+        {
+          "user_name": "Chun Ly",
+          "updated_at": "2022-10-06T13:55:19",
+          "html_url": "https://github.com/pulibrary/RDOS_Publishing/issues/7#issuecomment-1270097025",
+          "body": "Not sure why my response via email did not show up here, but I see Aileen's response so see above for my full initial response."
+        },
+        {
+          "user_name": "Chun Ly",
+          "updated_at": "2022-10-06T14:01:48",
+          "html_url": "https://github.com/pulibrary/RDOS_Publishing/issues/7#issuecomment-1270108375",
+          "body": "Aileen,\n\nMy recollection from a few months ago when the Award DOI was discussed at\none of the community calls is that they would like to see more labs adopt\nthe Award DOIs, but it was still in the early stages of awareness for many\nlabs.  I think many labs currently don't have the bandwidth and would\nrather see a few labs (PNNL for example) lead the way before making a\ndecision. At that time, it wasn't apparent to me how we would entirely use\nthe Award DOI service since I think PNNL is providing grants/sub-grants(?)\nfor users. Namely, they have a separate award number and thus tracking it\nvia an Award DOI makes sense.\n\nIf you think we should reach out to them now and explain our current\nscenario with our data repository, I can reach out.\n\nCheers,\n- Chun\n\nResearch Data Developer\nPrinceton Plasma Physics Laboratory\nPerformance Assurance & Contract Management\nORCID: 0000-0002-4245-2318 <https://orcid.org/0000-0002-4245-2318>\n\n\n\nOn Thu, Oct 6, 2022 at 6:53 AM Aileen Pritch ***@***.***> wrote:\n\n> Chun, does OSTI have a position on this?\n>\n> Aileen Pritch\n> *Manager, Institutional Requirements & Research Products*\n> Performance Assurance and Contract Management\n> Princeton Plasma Physics Laboratory\n> Office:  609-243-2245\n> Cell:  848-203-4005\n> ***@***.***\n>\n>\n>\n> On Thu, Oct 6, 2022 at 9:34 AM Chun Ly ***@***.***> wrote:\n>\n>> Hannah and Kate,\n>>\n>> Thanks for bringing this to my attention. I've CC-ed Aileen so she's\n>> aware. You bring up an interesting point of how to disclose funding\n>> metadata. I can show how DOE does this for those records in question. I\n>> believe DOE/OSTI has taken an easier approach of populating identifiers fields\n>> in the DataCite metadata schema for funding instead of using any specific\n>> funding field.\n>>\n>> Here are two DataSpace datasets with DOI minting from DOE:\n>> 88435/dsp011g05ff77b:\n>> https://api.datacite.org/dois/application/vnd.datacite.datacite+json/10.11578/1888276\n>> 88435/dsp013j3335393:\n>> https://api.datacite.org/dois/application/vnd.datacite.datacite+json/10.11578/1888262\n>>\n>> As you can see, a separate identifiers field is provided with the grants\n>> numbers.\n>>\n>> Regarding the original question, having additional metadata of who the\n>> funder is and a URI to the grant is a good idea as Crossref and a number of\n>> open infrastructures are moving in this direction with RORs and other\n>> persistent identifiers. However, I'm not sure how feasible this is for all\n>> grants. While most PPPL funding is from DOE, there are separate\n>> sub-divisions (e.g., Office of Science), and there are also non-DOE funding\n>> such as NASA and NSF. Also, I'm not sure if our prime contract grant\n>> (DE-AC02-09CH11466) has a URI. I would not consider having full funding\n>> metadata as MVP, but it could be something that we need in the future with\n>> the push for NSPM-33 to use persistent identifiers (we had received\n>> inquiries from DOE on our current use of persistent identifiers - ORCID,\n>> ROR, grants, etc.).\n>>\n>> Award DOIs have been discussed by the DOE community, but it's used\n>> sparingly at the moment. DOE has the following service that PPPL has not\n>> used: https://www.osti.gov/award-doi-service/. I know of only two labs\n>> that have begun to experiment with this for their user facilities.\n>>\n>> Cheers,\n>> - Chun\n>>\n>> Research Data Developer\n>> Princeton Plasma Physics Laboratory\n>> Performance Assurance & Contract Management\n>> ORCID: 0000-0002-4245-2318 <https://orcid.org/0000-0002-4245-2318>\n>>\n>>\n>>\n>> On Wed, Oct 5, 2022 at 11:12 AM Hannah H ***@***.***>\n>> wrote:\n>>\n>>> Thanks @kelynch <https://github.com/kelynch>! These are PPPL\n>>> submissions, so let's check with Chun about how these would fit into\n>>> Datacite.\n>>>\n>>> @astrochun <https://github.com/astrochun>, We are examining how to\n>>> transcribe the funder information in these records to Datacite. We are\n>>> currently assuming to use the following properties for Funding Reference\n>>> <https://support.datacite.org/docs/datacite-metadata-schema-v44-recommended-and-optional-properties#19-fundingreference>.\n>>> (note: We will eventually have all of Datacite, but this is what we\n>>> anticipate to start with.):\n>>>\n>>>    - Funder Name\n>>>    - Award Number\n>>>    - Award URI\n>>>\n>>> Do you see the information in your currently published records fitting\n>>> into these fields? Please let us know if you see a need (in the near future\n>>> vs waiting a bit for the full Datacite schema to be properly added) for\n>>> additional or different fields for the properties under Funding Reference.\n>>> Thanks!\n>>>\n>>> —\n>>> Reply to this email directly, view it on GitHub\n>>> <https://github.com/pulibrary/RDOS_Publishing/issues/7#issuecomment-1268772948>,\n>>> or unsubscribe\n>>> <https://github.com/notifications/unsubscribe-auth/AE25ORQDQ23EXJPCGQREFFTWBXAI3ANCNFSM6AAAAAAQROTYHQ>\n>>> .\n>>> You are receiving this because you were mentioned.Message ID:\n>>> ***@***.***>\n>>>\n>>\n"
+        },
+        {
+          "user_name": "Hannah H",
+          "updated_at": "2022-10-06T15:11:20",
+          "html_url": "https://github.com/pulibrary/RDOS_Publishing/issues/7#issuecomment-1270237077",
+          "body": "@astrochun Thanks so much for this information!\r\n\r\nYes, being able to facilitate property fields to describe complete funding will probably take us beyond the MVP. In the short term we don't want to lose what has already been entered for records in DataSpace. \r\n\r\nRegarding the funder info properties that we are planning to have in the MVP, please let us know if the following translation from what is currently recorded in DataSpace to funder properties in Describe is correct:\r\n\r\n### Example of funder info in DataSpace for a PPPL submission: \r\n\r\n**dc.contributor.funder** | U.S. Department of Energy (DE-AC02- 09CH11466)\r\n\r\n### Proposed translation to our available funder properties in Describe (note: These are optional properties to fill in, so it's ok to leave blank when needed):\r\n\r\n**Funder Name:** U.S. Department of Energy\r\n\r\n**Award Number:** DE-AC02- 09CH11466\r\n\r\n\r\n\r\n\r\n "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2022-10-06T13:53:24",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2022-10-06T13:53:25",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Chun Ly",
+          "created_at": "2022-10-06T13:53:25",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Chun Ly",
+          "created_at": "2022-10-06T13:53:25",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2022-10-06T14:01:48",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2022-10-06T14:01:48",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Chun Ly",
+          "created_at": "2022-10-06T14:01:48",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Chun Ly",
+          "created_at": "2022-10-06T14:01:48",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Chun Ly",
+          "created_at": "2022-10-06T15:10:48",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Chun Ly",
+          "created_at": "2022-10-06T15:10:48",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-10-03T16:25:07",
+      "updated_at": "2022-10-03T16:25:07",
+      "html_url": "https://github.com/pulibrary/RDOS_Publishing/issues/12",
+      "number": 12,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/RDOS_Publishing",
+      "repository_name": "RDOS_Publishing",
+      "state": "open",
+      "title": "Repository Versioning",
+      "user_name": "Hannah H",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "bibdata": [
+    {
+      "created_at": "2022-10-06T13:36:16",
+      "updated_at": "2022-10-06T13:36:16",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/2004",
+      "number": 2004,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/2004",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Try un-nesting db calls to make debugging easier",
+      "user_name": "Max Kadel",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-10-06T15:36:11",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-10-06T15:36:11",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-10-06T15:36:12",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-10-06T15:36:13",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/2004",
+      "action": "pull_request_closed"
+    }
+  ],
+  "cicognara-rails": [
+    {
+      "created_at": "2022-10-06T18:04:09",
+      "updated_at": "2022-10-06T18:04:09",
+      "html_url": "https://github.com/pulibrary/cicognara-rails/pull/542",
+      "number": 542,
+      "pull_request_html_url": "https://github.com/pulibrary/cicognara-rails/pull/542",
+      "repository_html_url": "https://github.com/pulibrary/cicognara-rails",
+      "repository_name": "cicognara-rails",
+      "state": "closed",
+      "title": "Force rake tasks to run sequentially",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T18:11:07",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T18:20:51",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T18:22:44",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T18:25:57",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T18:29:26",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T18:31:01",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T18:48:22",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2022-10-06T19:56:14",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2022-10-06T20:00:26",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2022-10-06T20:22:35",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2022-10-06T20:22:35",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2022-10-06T20:22:35",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2022-10-06T20:22:36",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/cicognara-rails/pull/542",
+      "action": "pull_request_closed"
+    }
+  ],
+  "command_line_curriculum": [
+    {
+      "created_at": "2022-10-06T16:54:30",
+      "updated_at": "2022-10-06T16:54:30",
+      "html_url": "https://github.com/pulibrary/command_line_curriculum/pull/15",
+      "number": 15,
+      "pull_request_html_url": "https://github.com/pulibrary/command_line_curriculum/pull/15",
+      "repository_html_url": "https://github.com/pulibrary/command_line_curriculum",
+      "repository_name": "command_line_curriculum",
+      "state": "open",
+      "title": "improve on environment of our linux vms",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-10-06T18:17:45",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/command_line_curriculum/pull/15",
+      "action": "pull_request_open"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2022-08-11T16:07:03",
+      "updated_at": "2022-08-11T16:07:03",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5352",
+      "number": 5352,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "fileset with too many derivatives",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2022-10-06T16:50:14",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5352#issuecomment-1270402132",
+          "body": "The merged PR ensures these derivatives don't continue to be re-generated. The next step is to identify resources with too many derivatives and regenerate derivatives for them to clean up the ones with too many."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-10-06T16:59:00",
+      "updated_at": "2022-10-06T16:59:00",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5457",
+      "number": 5457,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Resource with `.jpf` files failing derivative generation",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T16:59:00",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T16:59:00",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-10-06T17:00:44",
+      "updated_at": "2022-10-06T17:00:44",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5458",
+      "number": 5458,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Lots of weird files on resource with no derivatives, pdf errors",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T17:00:44",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T17:00:44",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T17:00:44",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-08-18T18:18:52",
+      "updated_at": "2022-08-18T18:18:52",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5370",
+      "number": 5370,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Order Manager doesn't display graphql error messages",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Shaun Ellis",
+          "updated_at": "2022-10-06T18:26:09",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5370#issuecomment-1270507132",
+          "body": "Duplicate of #4847"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-10-06T18:51:59",
+      "updated_at": "2022-10-06T18:51:59",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5459",
+      "number": 5459,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "figgy item doesn't link to correct finding aid page",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2022-10-06T18:55:51",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5459#issuecomment-1270546772",
+          "body": "Note that in figgy it needs to be entered with the dot or else dao updater doesn't work."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T18:52:05",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T18:52:11",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2020-12-11T20:17:30",
+      "updated_at": "2020-12-11T20:17:30",
+      "html_url": "https://github.com/pulibrary/figgy/issues/4352",
+      "number": 4352,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "PDF generation fails for scanned_resources/4f951479-915d-481a-b157-33250e73ba3d/pdf",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2022-10-06T18:57:09",
+          "html_url": "https://github.com/pulibrary/figgy/issues/4352#issuecomment-1270497814",
+          "body": "https://figgy.princeton.edu/concern/scanned_resources/8b01ee9b-d156-4d5a-8cb5-a8066750bd6d/pdf also failing.\r\n\r\nSomebody really wants this one."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-10-06T21:03:14",
+      "updated_at": "2022-10-06T21:03:14",
+      "html_url": "https://github.com/pulibrary/figgy/pull/5460",
+      "number": 5460,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/5460",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "I5370 graphql error alerts",
+      "user_name": "Shaun Ellis",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/5460",
+      "action": "pull_request_open"
+    }
+  ],
+  "friends_of_pul": [
+    {
+      "created_at": "2022-10-05T22:48:47",
+      "updated_at": "2022-10-05T22:48:47",
+      "html_url": "https://github.com/pulibrary/friends_of_pul/pull/122",
+      "number": 122,
+      "pull_request_html_url": "https://github.com/pulibrary/friends_of_pul/pull/122",
+      "repository_html_url": "https://github.com/pulibrary/friends_of_pul",
+      "repository_name": "friends_of_pul",
+      "state": "open",
+      "title": "Bump addressable from 2.4.0 to 2.8.1 in /sites/all/themes/omega/omega",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-10-05T22:48:48",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-10-05T22:48:48",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/friends_of_pul/pull/122",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-10-05T22:48:47",
+      "updated_at": "2022-10-05T22:48:47",
+      "html_url": "https://github.com/pulibrary/friends_of_pul/pull/121",
+      "number": 121,
+      "pull_request_html_url": "https://github.com/pulibrary/friends_of_pul/pull/121",
+      "repository_html_url": "https://github.com/pulibrary/friends_of_pul",
+      "repository_name": "friends_of_pul",
+      "state": "open",
+      "title": "Bump addressable from 2.3.4 to 2.8.1 in /sites/all/themes/omega/ohm",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-10-05T22:48:48",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-10-05T22:48:48",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/friends_of_pul/pull/121",
+      "action": "pull_request_open"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2022-10-05T19:11:35",
+      "updated_at": "2022-10-05T19:11:35",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/3225",
+      "number": 3225,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/3225",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Update Supervised Use SCSB items",
+      "user_name": "Max Kadel",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-10-06T02:22:28",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-10-06T02:22:28",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-10-06T02:22:28",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-10-06T02:22:29",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/3225",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-10-06T14:08:41",
+      "updated_at": "2022-10-06T14:08:41",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/3228",
+      "number": 3228,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Orangelight connection to Bibdata times out when object with many items is requested",
+      "user_name": "Max Kadel",
+      "comments": [
+        {
+          "user_name": "Max Kadel",
+          "updated_at": "2022-10-06T14:11:38",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/3228#issuecomment-1270125888",
+          "body": "Note that the request to https://bibdata.princeton.edu/bibliographic/9933643713506421/holdings/22727480400006421/availability.json takes over 1 minute to respond:\n![image.png](https://images.zenhubusercontent.com/5d51624a5b89150001ae0b03/aca8d286-87ed-4781-a659-77eae3eb3059)"
+        },
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2022-10-06T16:53:34",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/3228#issuecomment-1270405815",
+          "body": "There are two options for managing holdings with many item records.\n\n1. Implement pagination or lazy loading on the bibdata availability response.\n2. Build the form with the item level data for Alma holdings stored in the solr document (we already do this for SCSB items). For real-time status checking we could either check only items patrons select for requesting or lazy load the availability data on top of the already built form after the intial form load happens with the indexed data. Example record from Alma with a large amount of item data: https://catalog.princeton.edu/catalog/9933643713506421/raw. \n\n"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-10-06T16:42:53",
+      "updated_at": "2022-10-06T16:42:53",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/3230",
+      "number": 3230,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Do not display alma detailed item status on request form",
+      "user_name": "Kevin Reiss",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2022-10-06T17:35:59",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/3230#issuecomment-1270452619",
+          "body": "Orangelight meeting 10/6/22: the issue was discussed and we decided to display 'Available' and 'Not Available' in the request form."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-10-06T16:42:53",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-10-06T14:27:19",
+      "updated_at": "2022-10-06T14:27:19",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/3229",
+      "number": 3229,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "\"Item does not have a delivery mode\" - being logged as error, but not displayed to users",
+      "user_name": "Max Kadel",
+      "comments": [
+        {
+          "user_name": "Max Kadel",
+          "updated_at": "2022-10-06T17:52:40",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/3229#issuecomment-1270470106",
+          "body": "This may be a duplicate of #3208"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-10-04T03:10:04",
+      "updated_at": "2022-10-04T03:10:04",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/3220",
+      "number": 3220,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Users of any type do not need to authenticate in the catalog in order to make Aeon Requests",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2022-10-06T02:12:24",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-10-06T17:57:03",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-09-29T14:49:35",
+      "updated_at": "2022-09-29T14:49:35",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/3216",
+      "number": 3216,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Alma login form fields not associated with their labels",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-10-06T17:57:11",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-10-06T19:50:44",
+      "updated_at": "2022-10-06T19:50:44",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/3231",
+      "number": 3231,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/3231",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Use rails helpers for labels",
+      "user_name": "Max Kadel",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T19:51:38",
+          "type": "deployed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/3231",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-10-05T20:06:07",
+      "updated_at": "2022-10-05T20:06:07",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/3227",
+      "number": 3227,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Add all Numismatics fields to CSV report available for download  in saved bookmarks options",
+      "user_name": "Kim Leaman",
+      "comments": [
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2022-10-06T12:26:09",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/3227#issuecomment-1269947700",
+          "body": "Reaching out to stakeholders on 10/06/2022 to get confirmation on:\r\n\r\n- whether or not all fields are of the same priority of importance\r\n- If they are not,  Ill ask them to prioritize the list of fields: First Priority (asap), Second Priority (your PO/Tech Liaison can help with prioritization)\r\n\r\nSound good, @maxkadel ?"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2022-10-06T17:26:21",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/3227#issuecomment-1270442161",
+          "body": "see https://github.com/pulibrary/orangelight/blob/209b6879e0c513cb35a6fd37b533fd4940689cf6/app/controllers/bookmarks_controller.rb#L74"
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2022-10-06T19:24:06",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/3227#issuecomment-1270576364",
+          "body": "Confirmed from Primary Stakeholder, @christinach and @maxkadel : Yes, all numismatic fields visible in the online catalog are expected to be within the CSV download.  What do you need from me and how can I help?"
+        },
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2022-10-06T20:02:24",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/3227#issuecomment-1270614709",
+          "body": "@kelea99 we are all set. We'll let you know when the csv is ready for review. Thanks!"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-10-06T12:26:09",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-10-06T12:26:09",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-10-06T19:24:06",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-10-06T19:24:06",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-10-06T19:24:06",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2022-10-06T19:24:06",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2022-10-06T20:02:24",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2022-10-06T20:02:25",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "pdc_describe": [
+    {
+      "created_at": "2022-10-04T13:48:26",
+      "updated_at": "2022-10-04T13:48:26",
+      "html_url": "https://github.com/pulibrary/pdc_describe/pull/462",
+      "number": 462,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_describe/pull/462",
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Removing DspaceImportJob and HumanizedDiskService; Increasing the test coverage to 100%",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-10-06T15:12:32",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-10-06T15:13:18",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-10-06T16:05:37",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2022-10-06T16:05:41",
+          "type": "ready_for_review"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_describe/pull/462",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-10-06T20:07:43",
+      "updated_at": "2022-10-06T20:07:43",
+      "html_url": "https://github.com/pulibrary/pdc_describe/pull/467",
+      "number": 467,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_describe/pull/467",
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Integrating ResourceType and resourceTypeGeneral into the Work forms",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/pdc_describe/pull/467",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-10-06T18:32:49",
+      "updated_at": "2022-10-06T18:32:49",
+      "html_url": "https://github.com/pulibrary/pdc_describe/pull/466",
+      "number": 466,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_describe/pull/466",
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Explicitly deleting files as they change",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/pdc_describe/pull/466",
+      "action": "pull_request_open"
+    }
+  ],
+  "pdc_discovery": [
+    {
+      "created_at": "2022-09-29T15:21:36",
+      "updated_at": "2022-09-29T15:21:36",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/340",
+      "number": 340,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "First pass at PDC Describe indexing in PDC Discovery",
+      "user_name": "Bess Sadler",
+      "comments": [
+        {
+          "user_name": "Bess Sadler",
+          "updated_at": "2022-10-06T15:54:10",
+          "html_url": "https://github.com/pulibrary/pdc_discovery/issues/340#issuecomment-1270299777",
+          "body": "Current state of a solr record for our first sample: \r\n```\r\n     {\r\n        \"id\":\"doi-10-34770-r75s-9j74\",\r\n        \"author_tesim\":[\"Trueman, Daniel\",\r\n          \"Wang, Matthew\",\r\n          \"Villalta, Andrés\",\r\n          \"Chou, Katie\",\r\n          \"Ayres, Christien\"],\r\n        \"title_tesim\":[\"bitKlavier Grand Sample Library—Binaural Mic Image\"],\r\n        \"publisher_ssim\":[\"Princeton University\"],\r\n        \"hashed_id_ssi\":\"c1b9e120d1b6416d\",\r\n        \"timestamp\":\"2022-10-06T15:43:33.337Z\",\r\n        \"score\":2.682568}]\r\n  },\r\n```\r\n\r\nCurrent state of the same record indexed from DataSpace:\r\n```\r\n {\r\n        \"abstract_tsim\":[\"The bitKlavier Grand consists of sample collections of a new Steinway D grand piano from nine different stereo mic images, with: 16 velocity layers, at every minor 3rd (starting at A0); Hammer release samples; Release resonance samples; Pedal samples. Release packages at 96k/24bit, 88.2k/24bit, 48k/24bit, 44.1k/16bit are available for various applications.\"],\r\n        \"contributor_tsim\":[\"Wang, Matthew\",\r\n          \"Villalta, Andrés\",\r\n          \"Gordon, Jeffrey\",\r\n          \"Chou, Katie\",\r\n          \"Ayers, Christien\"],\r\n        \"description_tsim\":[\"Binaural: Neumann KU100\\r\\nThis is the binaural head placed in the same location as a seated pianist. It accurately captures what the player would hear while playing the instrument.\\r\\n\\r\\nFile Naming Convention: C4 = middle C\\u2028. Main note names: [note name][octave]v[velocity].wav\\u2028 -- e.g., “D#5v13.wav”\\u2028. Release resonance notes:  harm[note name][octave]v[velocity].wav\\u2028 -- e.g., “harmC2v2.wav”. Hammer samples:\\u2028 rel[1-88].wav (one per key)\\u2028 -- e.g., “rel23.wav”\\u2028. Pedal samples:\\u2028 pedal[D/U][velocity].wav\\u2028 -- e.g., “pedalU2.wav” => pedal release (U = up), velocity = 2 (quicker release than velocity = 1)\\u2028.\",\r\n          \"This dataset is too large to download directly from this item page. You can access and download the data via Globus (See \\\"https://www.youtube.com/watch?v=uf2c7Y1fiFs\\\" for instructions on how to use Globus).\"],\r\n        \"handle_ssim\":[\"88435/dsp01nv9356017\"],\r\n        \"id\":\"125444\",\r\n        \"uri_ssim\":[\"http://arks.princeton.edu/ark:/88435/dsp01nv9356017\",\r\n          \"https://doi.org/10.34770/zztk-f783\",\r\n          \"https://app.globus.org/file-manager?destination_id=dc43f461-0ca7-4203-848c-33a9fc00a464&destination_path=%2Fzztk-f783%2F\"],\r\n        \"collection_id_ssi\":\"3387\",\r\n        \"handle_ssi\":\"88435/dsp01nv9356017\",\r\n        \"community_name_ssi\":\"Music and Arts\",\r\n        \"community_root_name_ssi\":\"Music and Arts\",\r\n        \"community_path_name_ssi\":\"Music and Arts\",\r\n        \"collection_name_ssi\":\"bitKlavier\",\r\n        \"author_tesim\":[\"Trueman, Daniel\"],\r\n        \"author_ssim\":[\"Trueman, Daniel\"],\r\n        \"title_tesim\":[\"bitKlavier Grand Sample Library—Binaural Mic Image\"],\r\n        \"domain_ssi\":\"Humanities\",\r\n        \"date_accessioned_ssim\":[\"24 March 2022\"],\r\n        \"date_available_ssim\":[\"24 March 2022\"],\r\n        \"year_available_itsi\":2022,\r\n        \"date_created_ssim\":[\"1 September 2021\"],\r\n        \"issue_date_ssim\":[\"24 March 2022\"],\r\n        \"issue_date_strict_ssi\":\"2022-03-24\",\r\n        \"tableofcontents_tesim\":[\"bitKlavierGrand_Binaural_44k16b, bitKlavierGrand_Binaural_48k24b, bitKlavierGrand_Binaural_88k24b, bitKlavierGrand_Binaural_96k24b\"],\r\n        \"language_ssim\":[\"en_US\"],\r\n        \"publisher_ssim\":[\"Princeton University\"],\r\n        \"rights_ssim\":[\"CC BY 4.0 International\"],\r\n        \"subject_tesim\":[\"bitKlavier\",\r\n          \"sample library\",\r\n          \"piano\"],\r\n        \"subject_all_ssim\":[\"bitKlavier\",\r\n          \"sample library\",\r\n          \"piano\"],\r\n        \"subject_all_tesim\":[\"bitKlavier\",\r\n          \"sample library\",\r\n          \"piano\"],\r\n        \"genre_ssim\":[\"Dataset\",\r\n          \"Sound\"],\r\n        \"files_ss\":\"[{\\\"name\\\":\\\"The bitKlavier Grand.pdf\\\",\\\"description\\\":\\\"\\\",\\\"format\\\":\\\"Adobe PDF\\\",\\\"size\\\":\\\"8718840\\\",\\\"mime_type\\\":\\\"application/pdf\\\",\\\"sequence\\\":\\\"1\\\",\\\"bundle_name\\\":\\\"ORIGINAL\\\",\\\"handle\\\":\\\"88435/dsp01nv9356017\\\"},{\\\"name\\\":\\\"README_Binaural.txt\\\",\\\"description\\\":\\\"\\\",\\\"format\\\":\\\"Text\\\",\\\"size\\\":\\\"10336\\\",\\\"mime_type\\\":\\\"text/plain\\\",\\\"sequence\\\":\\\"2\\\",\\\"bundle_name\\\":\\\"ORIGINAL\\\",\\\"handle\\\":\\\"88435/dsp01nv9356017\\\"}]\",\r\n        \"hashed_id_ssi\":\"e760f80cfa49b13c\",\r\n        \"timestamp\":\"2022-10-06T15:51:34.974Z\",\r\n        \"score\":2.69924}]\r\n  },\r\n```"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-10-06T19:52:11",
+      "updated_at": "2022-10-06T19:52:11",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/pull/345",
+      "number": 345,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_discovery/pull/345",
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Start indexing our bitklavier fixture object",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2022-10-06T19:52:17",
+          "type": "convert_to_draft"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_discovery/pull/345",
+      "action": "pull_request_open"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2022-03-04T21:16:05",
+      "updated_at": "2022-03-04T21:16:05",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2817",
+      "number": 2817,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "upgrade zookeeper vms",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2022-10-06T12:49:30",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2817#issuecomment-1269983892",
+          "body": "Zookeeper VMs successfully upgraded to Bionic. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-10-06T12:49:30",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-10-06T13:01:30",
+      "updated_at": "2022-10-06T13:01:30",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3381",
+      "number": 3381,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3381",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "add hc3 and hc3-test permanent redirects",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3381",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-09-30T14:13:55",
+      "updated_at": "2022-09-30T14:13:55",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3373",
+      "number": 3373,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3373",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Update bibdata staging to ruby 3.1",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2022-10-06T23:02:16",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3373#issuecomment-1270816317",
+          "body": "@christinach and I will work on this again next week.\r\n\r\nAlso related to #3117."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-10-06T23:02:16",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2022-10-06T23:02:16",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3373",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-10-06T23:41:04",
+      "updated_at": "2022-10-06T23:41:04",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3382",
+      "number": 3382,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3382",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "triggers an nginx restart when new config gets loaded",
+      "user_name": "Alicia Cozine",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3382",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-10-04T15:19:11",
+      "updated_at": "2022-10-04T15:19:11",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3377",
+      "number": 3377,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3377",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Builds deploy authorized_keys from a template",
+      "user_name": "Alicia Cozine",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2022-10-06T17:05:17",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2022-10-06T17:05:46",
+          "type": "ready_for_review"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3377",
+      "action": "pull_request_open"
+    }
+  ],
+  "pulfalight": [
+    {
+      "created_at": "2022-10-04T20:10:47",
+      "updated_at": "2022-10-04T20:10:47",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/1177",
+      "number": 1177,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/1177",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Display \"Other Finding Aids\" under \"Find Related Materials\"",
+      "user_name": "taylor-yamashita",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T15:05:55",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T15:08:21",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T15:08:21",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T15:08:21",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T15:08:22",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/1177",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-01-20T20:15:22",
+      "updated_at": "2022-01-20T20:15:22",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/967",
+      "number": 967,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "closed",
+      "title": "Other Finding Aids note should be display under Find Related Materials",
+      "user_name": "faithc",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-10-06T15:08:22",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 34,
+    "closed_count": 3,
+    "created_count": 6,
+    "pull_request_closed_count": 4,
+    "pull_request_open_count": 13,
+    "updated_count": 8,
+    "today": "2022-10-06T22:00:06",
+    "yesterday": "2022-10-05T22:00:06"
+  }
+}
