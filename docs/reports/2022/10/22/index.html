@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5fda38894b.js" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" type="text/css" href="../../../../css/main.css" />
+    <title>PUL GitHub Issues for 2022-10-22T22:00:07</title>
+  </head>
+
+<body>
+  <div class="container-fluid">
+    <a id="btt-button"></a>
+    
+<h1 class="bg-dark text-light">PUL GitHub Issues<br />
+  <small class="text-white-70">2022-10-22</small></h1>
+<nav class="navbar sticky-top navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar-toggler">
+    <ul class="navbar-nav mr-auto mt-2 pt-3 mt-lg-0">
+      <li class="nav-item not-mono">
+        <a class="nav-link" href="../../../../index.html"><i class="fas fa-arrow-left"></i> Back to Report List Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#figgy">pulibrary/figgy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pdc_describe">pulibrary/pdc_describe</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#princeton_ansible">pulibrary/princeton_ansible</a>
+      </li>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    
+    <section class="repo" id="figgy">
+      <h2><a href="https://github.com/pulibrary/figgy">pulibrary/figgy</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="figgy-180">
+        <h3><a href="https://github.com/pulibrary/figgy/issues/180">#180</a> Improve density of structure editor</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Esmé Cowles</dd>
+          <dt>Created:</dt>
+          <dd>2017-09-11 17:35:01</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Cliff Wulfman at <a href="https://github.com/pulibrary/figgy/issues/180#issuecomment-1287853057">2022-10-22 16:50:18</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Don&#39;t remember closing it; definitely an error</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="pdc_describe">
+      <h2><a href="https://github.com/pulibrary/pdc_describe">pulibrary/pdc_describe</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="pdc_describe-533">
+        <h3><a href="https://github.com/pulibrary/pdc_describe/issues/533">#533</a> Refactor the way we handle controlled vocabularies in js</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Bess Sadler</dd>
+          <dt>Created:</dt>
+          <dd>2022-10-20 13:22:15</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Chuck McCallum at <a href="https://github.com/pulibrary/pdc_describe/issues/533#issuecomment-1287484030">2022-10-21 22:10:18</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>One possibility is to tackle #535 first, so we have standalone JS with lists of hard-coded values.</p>
+
+<p><em>Then</em> change that to a <code>.js.erb</code>, with a line like:
+<code>
+const relatedIdentifierTypes = &lt;%= Datacite::Mapping::RelationType.to_a.map{ |rel| { key: rel.key, value: rel.value } }.to_json %&gt;;
+</code></p>
+
+<p>(Or we can do that before factoring out the JS, as long as we don&#39;t get blocked by the ruby-in-js down the road.)</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+      <div class="issue odd" id="pdc_describe-537">
+        <h3><a href="https://github.com/pulibrary/pdc_describe/pull/537">#537</a> document deployment</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Chuck McCallum</dd>
+          <dt>Created:</dt>
+          <dd>2022-10-21 13:40:02</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/pdc_describe/pull/537">pull request</a>)
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Bess Sadler at <a href="https://github.com/pulibrary/pdc_describe/pull/537#issuecomment-1287832861">2022-10-22 15:50:32</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>@mccalluc This is great documentation, but I think it belongs more in the rdss handbook. Maybe here? <a href="https://github.com/pulibrary/rdss-handbook/blob/main/release_process.md">https://github.com/pulibrary/rdss-handbook/blob/main/release_process.md</a>
+We could change that page to be more inclusive, maybe &quot;Deploying and Release Process&quot;? </p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>mentioned</code> by Chuck McCallum at 2022-10-22 15:50:33.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Chuck McCallum at 2022-10-22 15:50:33.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="pdc_describe-539">
+        <h3><a href="https://github.com/pulibrary/pdc_describe/pull/539">#539</a> Move publish step to approve</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>carolyncole</dd>
+          <dt>Created:</dt>
+          <dd>2022-10-21 15:00:04</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/pdc_describe/pull/539">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Bess Sadler at 2022-10-22 16:12:02.</li>
+  <li class="event odd">
+    <code>merged</code> by Bess Sadler at 2022-10-22 16:12:02.</li>
+  <li class="event even">
+    <code>closed</code> by Bess Sadler at 2022-10-22 16:12:02.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Bess Sadler at 2022-10-22 16:12:03.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="princeton_ansible">
+      <h2><a href="https://github.com/pulibrary/princeton_ansible">pulibrary/princeton_ansible</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="princeton_ansible-3373">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/3373">#3373</a> Update bibdata staging to ruby 3.1</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2022-09-30 14:13:55</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/3373">pull request</a>)
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Alicia Cozine at <a href="https://github.com/pulibrary/princeton_ansible/pull/3373#issuecomment-1287511174">2022-10-21 22:52:55</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Idempotency fails because we are comparing the output of <code>ruby -v</code> to the bare version variable. Once we add the regex and tasks mentioned in 76795b0c461d3854f35a1bf200927fc90d4af502 this should pass CI and also be able to handle upgrading and downgrading ruby installed from source.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by Alicia Cozine at 2022-10-21 22:49:09.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../../../../js/report.js"></script>
+  </div>
+</body>
+
+</html>
