@@ -1,0 +1,1045 @@
+{
+  "approvals": [
+    {
+      "created_at": "2022-11-23T16:26:01",
+      "updated_at": "2022-11-23T16:26:01",
+      "html_url": "https://github.com/pulibrary/approvals/pull/836",
+      "number": 836,
+      "pull_request_html_url": "https://github.com/pulibrary/approvals/pull/836",
+      "repository_html_url": "https://github.com/pulibrary/approvals",
+      "repository_name": "approvals",
+      "state": "open",
+      "title": "Added Timecop to tests",
+      "user_name": "rladdusaw",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/approvals/pull/836",
+      "action": "pull_request_open"
+    }
+  ],
+  "dpul": [
+    {
+      "created_at": "2022-10-18T20:54:23",
+      "updated_at": "2022-10-18T20:54:23",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1405",
+      "number": 1405,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "open",
+      "title": "Try enabling vite gzip/brotli compression",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2022-11-23T20:48:04",
+          "html_url": "https://github.com/pulibrary/dpul/issues/1405#issuecomment-1325641843",
+          "body": "Closing this ticket means trying it and seeing how it goes."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2022-11-11T21:44:37",
+      "updated_at": "2022-11-11T21:44:37",
+      "html_url": "https://github.com/pulibrary/figgy/pull/5524",
+      "number": 5524,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/5524",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "2598 visibility badge",
+      "user_name": "m-ichelleliu",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/5524",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2019-02-18T21:03:27",
+      "updated_at": "2019-02-18T21:03:27",
+      "html_url": "https://github.com/pulibrary/figgy/issues/2598",
+      "number": 2598,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "visibility info badge error",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2022-11-23T15:01:49",
+          "html_url": "https://github.com/pulibrary/figgy/issues/2598#issuecomment-1325214312",
+          "body": "More analysis: EphemeraFolder state readability is as permissive as possible: If it's containing box has a readable state, it will treated as having readable state no matter what its own state is, and if it's containing box doesn't have a readable state, its own state will be used to determine.\r\n\r\nhttps://github.com/pulibrary/figgy/blob/150e9def951fd0b1ea8f948069f5a0225fff4f4f/app/decorators/ephemera_folder_decorator.rb#L212-L221\r\n\r\nHowever, the mechanism that powers this relies on a hack that codes \"needs_qa\" as a readable state. Then lots of other code relies on that readable state array.\r\n\r\nreadable state definition: https://github.com/pulibrary/figgy/blob/150e9def951fd0b1ea8f948069f5a0225fff4f4f/app/models/folder_workflow.rb#L30\r\n\r\nCode relying on that array:\r\n* https://github.com/pulibrary/figgy/blob/28ce5082801c4e62a6cc1d2992e3aa8372f73194/app/decorators/valkyrie/resource_decorator.rb#L183-L188\r\n  * https://github.com/pulibrary/figgy/blob/6b66dc52aa4187a2a2d0d2e2fb087cefd35f3e1e/app/presenters/permission_badge.rb#L37-L40\r\n  * https://github.com/pulibrary/figgy/blob/c5f851aea6e7c65306e17fb40ec9cf74c40a0a7f/app/change_set_persisters/change_set_persister/mint_identifier.rb#L30\r\n  * https://github.com/pulibrary/figgy/blob/9ac0402b4255b356f83360c5453a6b49d0ce1602/app/models/ability.rb#L203-L218\r\n  * \r\n* https://github.com/pulibrary/figgy/blob/9ac0402b4255b356f83360c5453a6b49d0ce1602/app/models/ability.rb#L120-L123\r\n\r\nAll the ephemera folders currently say they will sync to discovery sites, regardless of the state of their containing box. Here's one example with a \"shipped\" box: \r\n* folder: https://figgy.princeton.edu/catalog/b43b32bd-874b-415a-8350-75e553342d42\r\n* box: https://figgy.princeton.edu/catalog/626af16f-152f-4985-a106-70afd3d80320\r\n\r\nI'm not sure if they actually are syncing to discovery sites. More investigation needed on that point.\r\n\r\nIt seems like we might want to change this so that the public read states are accurate, and update child state at save time the way we do with other propagations. This might necessitate a migration."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-11-23T16:31:07",
+      "updated_at": "2022-11-23T16:31:07",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5539",
+      "number": 5539,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "UI Use Case: Fixity check has failed, how do I fix it?",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-11-23T16:31:40",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-11-23T16:31:46",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-11-15T17:00:18",
+      "updated_at": "2022-11-15T17:00:18",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5526",
+      "number": 5526,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Diagram preservation process",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-11-04T19:29:00",
+      "updated_at": "2022-11-04T19:29:00",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5508",
+      "number": 5508,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Research + Document Existing Preservation Decisions + What's Missing",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-11-23T16:36:35",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-11-18T16:24:44",
+      "updated_at": "2022-11-18T16:24:44",
+      "html_url": "https://github.com/pulibrary/figgy/pull/5530",
+      "number": 5530,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/5530",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Create preservation documentation directory and begin diagram",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/5530",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-11-22T18:16:09",
+      "updated_at": "2022-11-22T18:16:09",
+      "html_url": "https://github.com/pulibrary/figgy/pull/5537",
+      "number": 5537,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/5537",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Add a rake task and job to box all boxless ephemera folders",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-11-23T19:09:48",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-11-23T19:09:48",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-11-23T19:09:49",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-11-23T19:09:49",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/5537",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-09-02T17:40:31",
+      "updated_at": "2022-09-02T17:40:31",
+      "html_url": "https://github.com/pulibrary/figgy/pull/5411",
+      "number": 5411,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/5411",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Document RDSS' theses bulk ingest use case.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-11-23T19:14:45",
+          "type": "review_dismissed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-11-23T19:14:45",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/5411",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-10-11T22:04:44",
+      "updated_at": "2022-10-11T22:04:44",
+      "html_url": "https://github.com/pulibrary/figgy/pull/5467",
+      "number": 5467,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/5467",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Viewer flow documentation",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-11-23T19:34:20",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-11-23T19:34:26",
+          "type": "ready_for_review"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/5467",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-08-11T19:23:28",
+      "updated_at": "2022-08-11T19:23:28",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5362",
+      "number": 5362,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Scanned Map with single raster child is not displaying correctly in the viewer. ",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2022-11-23T20:09:32",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5362#issuecomment-1325603692",
+          "body": "We're getting a CORS error, thinking that we set up CORS for the mosaic endpoint and not the COG endpoint."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-11-09T13:05:02",
+      "updated_at": "2022-11-09T13:05:02",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5516",
+      "number": 5516,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Numismatics \"People\": Find all instances of \"Alexius I\" and replace with \"Alexios I Komnenus\".",
+      "user_name": "Kim Leaman",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-04-22T22:53:37",
+      "updated_at": "2022-04-22T22:53:37",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5090",
+      "number": 5090,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Add warnings about harmful content to our viewer",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2022-11-23T20:16:19",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5090#issuecomment-1325610297",
+          "body": "Implementing this for MARC records will mean adding a harmful_content tag to Orangelight if the right metadata appears (which CAMS hasn't decided on yet), so we may be able to create a ticket in Orangelight and leave implementation to DACS."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-08-25T19:51:30",
+      "updated_at": "2022-08-25T19:51:30",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5395",
+      "number": 5395,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Wireframe a new Structure Manager interface",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Shaun Ellis",
+          "updated_at": "2022-11-23T20:17:23",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5395#issuecomment-1325598561",
+          "body": "Here's the [latest wireframe](https://xd.adobe.com/view/2b10a99b-4fe6-47c1-b2ae-ed743cf7bbbd-7e43/). Still needs work.\r\n"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-11-23T16:02:37",
+      "updated_at": "2022-11-23T16:02:37",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5538",
+      "number": 5538,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "CheckFixityJob should use `primary_file` instead of `original_file`",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-11-23T16:02:58",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-11-23T16:03:30",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-11-23T16:03:36",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-11-23T20:23:00",
+          "type": "unlabeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2022-10-17T14:59:55",
+      "updated_at": "2022-10-17T14:59:55",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5475",
+      "number": 5475,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Document collector systems use case",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-07-26T19:01:47",
+      "updated_at": "2022-07-26T19:01:47",
+      "html_url": "https://github.com/pulibrary/figgy/pull/5289",
+      "number": 5289,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/5289",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Add CollectorSystems use case and requirements.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/5289",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-10-20T19:09:46",
+      "updated_at": "2022-10-20T19:09:46",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5481",
+      "number": 5481,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Missing file is blocking preservation job",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2022-11-23T20:33:23",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5481#issuecomment-1325627745",
+          "body": "@kelea99 will check in with Colleen. "
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2022-11-23T20:33:23",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5481#issuecomment-1325627763",
+          "body": "@kelea99 will check in with Colleen. "
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2022-11-23T20:52:55",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5481#issuecomment-1325645918",
+          "body": "Colleen will rescan the reel next week. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2022-11-23T20:33:23",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2022-11-23T20:33:23",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2022-11-23T20:33:23",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2022-11-23T20:33:24",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-09-12T18:53:44",
+      "updated_at": "2022-09-12T18:53:44",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5422",
+      "number": 5422,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Consider turning off spoofing check",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2022-11-23T20:53:23",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5422#issuecomment-1325646283",
+          "body": "Does turning this off mean we don't get the error or does it mean it lets them through? I'm not sure we want to let them through."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-10-06T16:59:00",
+      "updated_at": "2022-10-06T16:59:00",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5457",
+      "number": 5457,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Resource with `.jpf` files failing derivative generation",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2022-11-23T20:51:32",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5457#issuecomment-1325644808",
+          "body": "@kelea99 will fix this."
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2022-11-23T21:40:14",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5457#issuecomment-1325690943",
+          "body": "Fixed! https://figgy.princeton.edu/catalog/0a61e17a-17b0-431b-bb06-0852c733ed2a"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2022-11-23T20:51:32",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2022-11-23T20:51:32",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2022-11-23T21:40:14",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2022-11-22T21:41:08",
+      "updated_at": "2022-11-22T21:41:08",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/3269",
+      "number": 3269,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/3269",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Include eslint in circleci",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2022-11-23T17:03:57",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/3269#issuecomment-1325395124",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/54510480/badge)](https://coveralls.io/builds/54510480)\n\nCoverage remained the same at 94.498% when pulling **dcb8efb24901b077e03c22ec4cafae18fe802f49 on availabilityjs-continue-2696** into **017dc28a1eceb167f072c14f96687be12292a776 on main**.\n"
+        }
+      ],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/3269",
+      "action": "pull_request_open"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2022-11-09T19:27:07",
+      "updated_at": "2022-11-09T19:27:07",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3427",
+      "number": 3427,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3427",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "i3424 video reserves app",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-11-23T14:01:12",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3427",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-11-22T16:58:38",
+      "updated_at": "2022-11-22T16:58:38",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/3448",
+      "number": 3448,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Update EAL Connection template to use current db name ",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-11-23T16:31:59",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-03-20T13:39:28",
+      "updated_at": "2022-03-20T13:39:28",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2861",
+      "number": 2861,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "use fqcn-builtins for ansible roles",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2022-11-23T16:38:41",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2861#issuecomment-1076228865",
+          "body": "- [x] abid\r\n- [x] apache2\r\n- [x] apache_ant\r\n- [x] apache_maven\r\n- [x] apache_tomcat\r\n- [x] appdeploy\r\n- [x] approvals\r\n- [x] bibdata\r\n- [ ] bibdata_sqs_poller\r\n- [x] bind9\r\n- [ ] blacklight_app\r\n- [ ] cantaloupe\r\n- [ ] capistrano\r\n- [x] clamav\r\n- [x] common\r\n- [ ] composer\r\n- [ ] confluence\r\n- [x] datadog\r\n- [x] deploy_user\r\n- [ ] dpul\r\n- [x] drupal\r\n- [x] drupal9\r\n- [x] drush\r\n- [ ] dss\r\n- [x] elastic\r\n- [x] extra_path\r\n- [x] ezproxy\r\n- [x] ffmpeg\r\n- [ ] figgy\r\n- [ ] figgy_filewatcher_worker\r\n- [ ] figgy_pubsub_worker\r\n- [ ] fits\r\n- [ ] freetds\r\n- [x] friends_of_pul\r\n- [x] geaccirc\r\n- [ ] geoserver\r\n- [ ] hr_share\r\n- [x] imagemagick\r\n- [ ] kakadu\r\n- [x] lae\r\n- [x] lib_jobs\r\n- [ ] lib_solr\r\n- [ ] lib_svn\r\n- [ ] libstatic\r\n- [ ] libwww\r\n- [ ] locator\r\n- [ ] lockers_and_study_spaces\r\n- [ ] mailcatcher\r\n- [x] mariadb\r\n- [ ] mediainfo\r\n- [ ] memcached\r\n- [ ] molecule_mariadb\r\n- [ ] mudd\r\n- [ ] mysql\r\n- [ ] nginx\r\n- [ ] nginxplus\r\n- [ ] nodejs\r\n- [ ] oawaiver\r\n- [ ] ojs\r\n- [ ] omp\r\n- [ ] openjdk\r\n- [ ] oracle_client\r\n- [ ] orangelight\r\n- [x] ouranos\r\n- [ ] pas\r\n- [ ] passenger\r\n- [x] pgbouncer\r\n- [ ] php\r\n- [ ] postfix\r\n- [ ] postgres\r\n- [x] postgresql\r\n- [x] psql\r\n- [ ] pulfalight\r\n- [ ] pulmap\r\n- [ ] rabbitmq\r\n- [x] rails_app\r\n- [ ] recap_www\r\n- [x] redis\r\n- [ ] repec\r\n- [ ] researchdata\r\n- [ ] resque_worker\r\n- [x] ruby\r\n- [ ] rubyoffice\r\n- [ ] rvm\r\n- [x] samba\r\n- [ ] saxon\r\n- [ ] shared_data\r\n- [ ] shibboleth\r\n- [ ] simple_annotation\r\n- [ ] sneakers_worker\r\n- [ ] solr\r\n- [ ] solrcloud\r\n- [x] special_collections\r\n- [ ] subversion\r\n- [ ] svn\r\n- [x] timezone\r\n- [ ] tomcat8\r\n- [ ] vips\r\n- [x] vireo\r\n- [ ] zookeeper"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-11-23T17:08:02",
+      "updated_at": "2022-11-23T17:08:02",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3452",
+      "number": 3452,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3452",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Add fqrns for kakadu role Co-authored-by: Francis Kayiwa <kayiwa@users.noreply.github.com> Co-authored-by: Vickie Karasic <vickiekarasic@users.noreply.github.com>",
+      "user_name": "Robert-Anthony Lee-Faison",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Robert-Anthony Lee-Faison",
+          "created_at": "2022-11-23T17:10:47",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3452",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-11-23T15:27:25",
+      "updated_at": "2022-11-23T15:27:25",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3449",
+      "number": 3449,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3449",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Add playbook to install rapid7",
+      "user_name": "Alicia Cozine",
+      "comments": [
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2022-11-23T15:29:05",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3449#issuecomment-1325255977",
+          "body": "CI has been failing on this branch with:\r\n```\r\n TASK [cantaloupe : Install Cantaloupe] *****************************************\r\n  fatal: [instance]: FAILED! => {\"changed\": false, \"msg\": \"Failure downloading https://github.com/medusa-project/cantaloupe/releases/download/v4.0.3/Cantaloupe-4.0.3.zip, HTTP Error 503: Egress is over the account limit.\"}\r\n```\r\nIs this something we should add to our mirror?"
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2022-11-23T17:21:43",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3449#issuecomment-1325417702",
+          "body": "Could we have this PR ref a ticket that explains why / what rapid7 is? It can point to https://github.com/pulibrary/pul-it-handbook/pull/138"
+        },
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2022-11-23T17:23:15",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3449#issuecomment-1325421118",
+          "body": "Good idea @hackartisan.\r\n\r\nWe put what we know about Rapid7 into a file in pul-it-handbook. I don't think that PR has been merged yet - it's https://github.com/pulibrary/pul-it-handbook/pull/138"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2022-11-23T17:23:15",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-11-23T17:23:16",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3449",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-11-23T16:36:04",
+      "updated_at": "2022-11-23T16:36:04",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3450",
+      "number": 3450,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3450",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "add fqrns to imagemagick role",
+      "user_name": "Vickie Karasic",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Vickie Karasic",
+          "created_at": "2022-11-23T17:01:46",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-11-23T17:35:38",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-11-23T17:35:38",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-11-23T17:35:38",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-11-23T17:35:39",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3450",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2022-11-17T18:58:36",
+      "updated_at": "2022-11-17T18:58:36",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3439",
+      "number": 3439,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3439",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "initial installation",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-11-23T20:25:32",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3439",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-11-23T16:53:56",
+      "updated_at": "2022-11-23T16:53:56",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3451",
+      "number": 3451,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3451",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "i3448: fix copy pasta in ealapps connection template",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-11-23T16:53:56",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-11-23T16:53:56",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2022-11-23T16:53:56",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2022-11-23T21:09:04",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3451",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-11-24T00:20:33",
+      "updated_at": "2022-11-24T00:20:33",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3453",
+      "number": 3453,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3453",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Add fqrns for sneakers_worker role",
+      "user_name": "Robert-Anthony Lee-Faison",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3453",
+      "action": "pull_request_open"
+    }
+  ],
+  "pul-it-handbook": [
+    {
+      "created_at": "2022-11-23T15:47:16",
+      "updated_at": "2022-11-23T15:47:16",
+      "html_url": "https://github.com/pulibrary/pul-it-handbook/pull/138",
+      "number": 138,
+      "pull_request_html_url": "https://github.com/pulibrary/pul-it-handbook/pull/138",
+      "repository_html_url": "https://github.com/pulibrary/pul-it-handbook",
+      "repository_name": "pul-it-handbook",
+      "state": "open",
+      "title": "documents what we know about Rapid7",
+      "user_name": "Vickie Karasic",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/pul-it-handbook/pull/138",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-11-21T21:44:10",
+      "updated_at": "2022-11-21T21:44:10",
+      "html_url": "https://github.com/pulibrary/pul-it-handbook/pull/137",
+      "number": 137,
+      "pull_request_html_url": "https://github.com/pulibrary/pul-it-handbook/pull/137",
+      "repository_html_url": "https://github.com/pulibrary/pul-it-handbook",
+      "repository_name": "pul-it-handbook",
+      "state": "open",
+      "title": "describes new OIT certificate approval email",
+      "user_name": "Alicia Cozine",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/pul-it-handbook/pull/137",
+      "action": "pull_request_open"
+    }
+  ],
+  "pulfalight": [
+    {
+      "created_at": "2022-09-02T15:49:38",
+      "updated_at": "2022-09-02T15:49:38",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/1117",
+      "number": 1117,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Ongoing issues with Sidekiq/Redis",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2022-11-23T20:58:51",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/1117#issuecomment-1325650658",
+          "body": "We noticed this is always at 5 AM and 5 PM. @acozine going to see if there's anything running on those pulfalight boxes at that time."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2022-11-23T20:58:51",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2022-11-23T20:58:51",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2022-11-23T20:59:04",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "pulmap": [
+    {
+      "created_at": "2022-11-07T15:37:00",
+      "updated_at": "2022-11-07T15:37:00",
+      "html_url": "https://github.com/pulibrary/pulmap/issues/1124",
+      "number": 1124,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulmap",
+      "repository_name": "pulmap",
+      "state": "closed",
+      "title": "[Pulmap/production] OpenSSL::SSL::SSLError: SSL_connect returned=1 errno=0 peeraddr=52.203.197.75:443 state=error: certificate verify failed (certificate has expired)",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2022-11-23T20:26:13",
+          "html_url": "https://github.com/pulibrary/pulmap/issues/1124#issuecomment-1325620118",
+          "body": "This was from geodata.mitlib.net, which has renewed its SSL cert, we can close this."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2022-11-23T20:26:13",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "rails-template": [
+    {
+      "created_at": "2022-11-23T02:47:41",
+      "updated_at": "2022-11-23T02:47:41",
+      "html_url": "https://github.com/pulibrary/rails-template/pull/36",
+      "number": 36,
+      "pull_request_html_url": "https://github.com/pulibrary/rails-template/pull/36",
+      "repository_html_url": "https://github.com/pulibrary/rails-template",
+      "repository_name": "rails-template",
+      "state": "open",
+      "title": "Demo: Use docker to build template",
+      "user_name": "Chuck McCallum",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/rails-template/pull/36",
+      "action": "pull_request_open"
+    }
+  ],
+  "rails-template-builder": [
+    {
+      "created_at": "2022-11-23T16:04:51",
+      "updated_at": "2022-11-23T16:04:51",
+      "html_url": "https://github.com/pulibrary/rails-template-builder/pull/1",
+      "number": 1,
+      "pull_request_html_url": "https://github.com/pulibrary/rails-template-builder/pull/1",
+      "repository_html_url": "https://github.com/pulibrary/rails-template-builder",
+      "repository_name": "rails-template-builder",
+      "state": "closed",
+      "title": "Init repo",
+      "user_name": "Chuck McCallum",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Chuck McCallum",
+          "created_at": "2022-11-23T16:05:19",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Chuck McCallum",
+          "created_at": "2022-11-23T16:05:19",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Chuck McCallum",
+          "created_at": "2022-11-23T16:05:19",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Chuck McCallum",
+          "created_at": "2022-11-23T16:05:23",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/rails-template-builder/pull/1",
+      "action": "pull_request_closed"
+    }
+  ],
+  "researchdata": [
+    {
+      "created_at": "2022-11-23T18:06:04",
+      "updated_at": "2022-11-23T18:06:04",
+      "html_url": "https://github.com/pulibrary/researchdata/pull/195",
+      "number": 195,
+      "pull_request_html_url": "https://github.com/pulibrary/researchdata/pull/195",
+      "repository_html_url": "https://github.com/pulibrary/researchdata",
+      "repository_name": "researchdata",
+      "state": "closed",
+      "title": "Update setup instructions",
+      "user_name": "Max Kadel",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-11-23T18:07:48",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-11-23T18:07:48",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-11-23T18:07:48",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2022-11-23T18:07:49",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/researchdata/pull/195",
+      "action": "pull_request_closed"
+    }
+  ],
+  "tiger-data-experiments": [
+    {
+      "created_at": "2022-11-23T19:44:47",
+      "updated_at": "2022-11-23T19:44:47",
+      "html_url": "https://github.com/pulibrary/tiger-data-experiments/pull/49",
+      "number": 49,
+      "pull_request_html_url": "https://github.com/pulibrary/tiger-data-experiments/pull/49",
+      "repository_html_url": "https://github.com/pulibrary/tiger-data-experiments",
+      "repository_name": "tiger-data-experiments",
+      "state": "open",
+      "title": "Tried to apply metadata at the collection level",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/tiger-data-experiments/pull/49",
+      "action": "pull_request_open"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 39,
+    "closed_count": 3,
+    "created_count": 2,
+    "pull_request_closed_count": 4,
+    "pull_request_open_count": 17,
+    "updated_count": 13,
+    "today": "2022-11-23T22:00:04",
+    "yesterday": "2022-11-22T22:00:04"
+  }
+}
