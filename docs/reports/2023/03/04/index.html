@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5fda38894b.js" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" type="text/css" href="../../../../css/main.css" />
+    <title>PUL GitHub Issues for 2023-03-04T22:00:05</title>
+  </head>
+
+<body>
+  <div class="container-fluid">
+    <a id="btt-button"></a>
+    
+<h1 class="bg-dark text-light">PUL GitHub Issues<br />
+  <small class="text-white-70">2023-03-04</small></h1>
+<nav class="navbar sticky-top navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar-toggler">
+    <ul class="navbar-nav mr-auto mt-2 pt-3 mt-lg-0">
+      <li class="nav-item not-mono">
+        <a class="nav-link" href="../../../../index.html"><i class="fas fa-arrow-left"></i> Back to Report List Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#bibdata">pulibrary/bibdata</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#figgy">pulibrary/figgy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#orangelight">pulibrary/orangelight</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#princeton_ansible">pulibrary/princeton_ansible</a>
+      </li>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    
+    <section class="repo" id="bibdata">
+      <h2><a href="https://github.com/pulibrary/bibdata">pulibrary/bibdata</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="bibdata-2081">
+        <h3><a href="https://github.com/pulibrary/bibdata/issues/2081">#2081</a> Add the updated proxy_base in bibdata to 856 link during indexing time</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2023-03-03 16:36:04</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>renamed</code> by Kevin Reiss at 2023-03-03 22:42:52.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="bibdata-2069">
+        <h3><a href="https://github.com/pulibrary/bibdata/issues/2069">#2069</a> Indexing updates for ISO 639-3 three-letter codes</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>esmé cowles</dd>
+          <dt>Created:</dt>
+          <dd>2023-01-24 20:58:37</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Jane Sandberg at <a href="https://github.com/pulibrary/bibdata/issues/2069#issuecomment-1454216906">2023-03-03 23:12:35</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>We aren&#39;t always guaranteed to be able to find the more general language name (the &quot;macrolanguage&quot; using ISO 639-3 terminology) given a certain ISO 639-3 code.</p>
+
+<p>The provided example, <code>wuu</code>, is included in the <a href="https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3-macrolanguages.tab">ISO 639-3 macrolanguage table</a> with a macrolanguage of <code>zho</code> (Chinese).  In the example MARC record, the 008 contains the ISO 639-2B code <code>chi</code> (Chinese), so we could also generate the requested facet &quot;Chinese&quot; from that.</p>
+
+<p>However, another example: <code>nuz</code> (Tlamacazapa Nahuatl) isn&#39;t mapped to a macrolanguage of Nahuatl, since no such macrolanguage exists in ISO 639-3 (it does in ISO-639-2 and ISO-639-1).  It seems that we would want both &quot;Tlamacazapa Nahuatl&quot; and &quot;Nahuatl&quot; in the facets -- will CaMS catalogers always put in both the ISO 639-3 and 639-2B code in these records?</p>
+
+              </dd>
+              <dt>Jane Sandberg at <a href="https://github.com/pulibrary/bibdata/issues/2069#issuecomment-1454229206">2023-03-03 23:00:58</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>Some possible gems:</p>
+
+<ul>
+<li><a href="https://github.com/bbenno/languages">https://github.com/bbenno/languages</a> -- it does not currently include macrolanguages and has not yet had a version 1.0.0 release, but does have CI and a nice script for updating the code data.</li>
+<li><a href="https://github.com/mlj/iso-codes">https://github.com/mlj/iso-codes</a> -- on version 1.2.0, tests but no CI, does include macrolanguages</li>
+</ul>
+
+<p>We could also forego using an additional gem, and use the <a href="https://packages.debian.org/sid/iso-codes">debian iso-codes package</a> or <a href="https://iso639-3.sil.org/code_tables/download_tables">the tables directly from SIL</a>.</p>
+
+              </dd>
+              <dt>Jane Sandberg at <a href="https://github.com/pulibrary/bibdata/issues/2069#issuecomment-1454247228">2023-03-03 23:14:16</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Also noting that, while we currently use the <code>language_facet</code> field for both the facet and the show page, we&#39;ll have to use two separate fields (and do the appropriate orangelight work) in order to meet these requirements.</p>
+
+<p>Also, for the facet display, do we want them to be presented as a list, or as a &quot;pivot facet&quot; like the call number facet?</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="figgy">
+      <h2><a href="https://github.com/pulibrary/figgy">pulibrary/figgy</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="figgy-5701">
+        <h3><a href="https://github.com/pulibrary/figgy/pull/5701">#5701</a> Create task to sync all pulfalight resources</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>m-ichelleliu</dd>
+          <dt>Created:</dt>
+          <dd>2023-03-03 21:59:54</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/figgy/pull/5701">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>review_request_removed</code> by None at 2023-03-03 22:00:18.</li>
+  <li class="event odd">
+    <code>head_ref_force_pushed</code> by None at 2023-03-03 22:01:28.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="orangelight">
+      <h2><a href="https://github.com/pulibrary/orangelight">pulibrary/orangelight</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="orangelight-3433">
+        <h3><a href="https://github.com/pulibrary/orangelight/issues/3433">#3433</a> Remove features related to the proxy_base url value. </h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Kevin Reiss</dd>
+          <dt>Created:</dt>
+          <dd>2023-02-24 16:00:51</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>renamed</code> by Kevin Reiss at 2023-03-03 22:55:55.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="princeton_ansible">
+      <h2><a href="https://github.com/pulibrary/princeton_ansible">pulibrary/princeton_ansible</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="princeton_ansible-3724">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/pull/3724">#3724</a> [dss] update to jammy jelly</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2023-03-01 13:49:55</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/princeton_ansible/pull/3724">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>head_ref_force_pushed</code> by Francis Kayiwa at 2023-03-04 00:26:52.</li>
+  <li class="event odd">
+    <code>referenced</code> by Francis Kayiwa at 2023-03-04 02:17:56.</li>
+  <li class="event even">
+    <code>merged</code> by Francis Kayiwa at 2023-03-04 02:17:56.</li>
+  <li class="event odd">
+    <code>closed</code> by Francis Kayiwa at 2023-03-04 02:17:57.</li>
+  <li class="event even">
+    <code>head_ref_deleted</code> by Francis Kayiwa at 2023-03-04 02:17:58.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="princeton_ansible-3706">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/issues/3706">#3706</a> redirect hishi URL</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Francis Kayiwa</dd>
+          <dt>Created:</dt>
+          <dd>2023-02-17 14:52:45</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by Francis Kayiwa at 2023-03-04 02:23:00.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="princeton_ansible-3657">
+        <h3><a href="https://github.com/pulibrary/princeton_ansible/issues/3657">#3657</a> oawaiver verify fails intermittently</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Alicia Cozine</dd>
+          <dt>Created:</dt>
+          <dd>2023-01-24 17:49:35</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Francis Kayiwa at <a href="https://github.com/pulibrary/princeton_ansible/issues/3657#issuecomment-1454340067">2023-03-04 02:25:29</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>closed by <a href="https://github.com/pulibrary/princeton_ansible/pull/3705">https://github.com/pulibrary/princeton_ansible/pull/3705</a></p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>closed</code> by Francis Kayiwa at 2023-03-04 02:25:29.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../../../../js/report.js"></script>
+  </div>
+</body>
+
+</html>

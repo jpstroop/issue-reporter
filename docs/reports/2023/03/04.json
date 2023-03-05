@@ -1,0 +1,218 @@
+{
+  "bibdata": [
+    {
+      "created_at": "2023-03-03T16:36:04",
+      "updated_at": "2023-03-03T16:36:04",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/2081",
+      "number": 2081,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Add the updated proxy_base in bibdata to 856 link during indexing time",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2023-03-03T22:42:52",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-01-24T20:58:37",
+      "updated_at": "2023-01-24T20:58:37",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/2069",
+      "number": 2069,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Indexing updates for ISO 639-3 three-letter codes",
+      "user_name": "esmé cowles",
+      "comments": [
+        {
+          "user_name": "Jane Sandberg",
+          "updated_at": "2023-03-03T23:12:35",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/2069#issuecomment-1454216906",
+          "body": "We aren't always guaranteed to be able to find the more general language name (the \"macrolanguage\" using ISO 639-3 terminology) given a certain ISO 639-3 code.\r\n\r\nThe provided example, `wuu`, is included in the [ISO 639-3 macrolanguage table](https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3-macrolanguages.tab) with a macrolanguage of `zho` (Chinese).  In the example MARC record, the 008 contains the ISO 639-2B code `chi` (Chinese), so we could also generate the requested facet \"Chinese\" from that.\r\n\r\nHowever, another example: `nuz` (Tlamacazapa Nahuatl) isn't mapped to a macrolanguage of Nahuatl, since no such macrolanguage exists in ISO 639-3 (it does in ISO-639-2 and ISO-639-1).  It seems that we would want both \"Tlamacazapa Nahuatl\" and \"Nahuatl\" in the facets -- will CaMS catalogers always put in both the ISO 639-3 and 639-2B code in these records?"
+        },
+        {
+          "user_name": "Jane Sandberg",
+          "updated_at": "2023-03-03T23:00:58",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/2069#issuecomment-1454229206",
+          "body": "Some possible gems:\r\n\r\n* https://github.com/bbenno/languages -- it does not currently include macrolanguages and has not yet had a version 1.0.0 release, but does have CI and a nice script for updating the code data.\r\n* https://github.com/mlj/iso-codes -- on version 1.2.0, tests but no CI, does include macrolanguages\r\n\r\nWe could also forego using an additional gem, and use the [debian iso-codes package](https://packages.debian.org/sid/iso-codes) or [the tables directly from SIL](https://iso639-3.sil.org/code_tables/download_tables)."
+        },
+        {
+          "user_name": "Jane Sandberg",
+          "updated_at": "2023-03-03T23:14:16",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/2069#issuecomment-1454247228",
+          "body": "Also noting that, while we currently use the `language_facet` field for both the facet and the show page, we'll have to use two separate fields (and do the appropriate orangelight work) in order to meet these requirements.\r\n\r\nAlso, for the facet display, do we want them to be presented as a list, or as a \"pivot facet\" like the call number facet?"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2023-03-03T21:59:54",
+      "updated_at": "2023-03-03T21:59:54",
+      "html_url": "https://github.com/pulibrary/figgy/pull/5701",
+      "number": 5701,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/5701",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Create task to sync all pulfalight resources",
+      "user_name": "m-ichelleliu",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-03-03T22:00:18",
+          "type": "review_request_removed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-03-03T22:01:28",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/5701",
+      "action": "pull_request_open"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2023-02-24T16:00:51",
+      "updated_at": "2023-02-24T16:00:51",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/3433",
+      "number": 3433,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Remove features related to the proxy_base url value. ",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2023-03-03T22:55:55",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2023-03-01T13:49:55",
+      "updated_at": "2023-03-01T13:49:55",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3724",
+      "number": 3724,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3724",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[dss] update to jammy jelly",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2023-03-04T00:26:52",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2023-03-04T02:17:56",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2023-03-04T02:17:56",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2023-03-04T02:17:57",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2023-03-04T02:17:58",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3724",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-02-17T14:52:45",
+      "updated_at": "2023-02-17T14:52:45",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/3706",
+      "number": 3706,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "redirect hishi URL",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2023-03-04T02:23:00",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2023-01-24T17:49:35",
+      "updated_at": "2023-01-24T17:49:35",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/3657",
+      "number": 3657,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "oawaiver verify fails intermittently",
+      "user_name": "Alicia Cozine",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2023-03-04T02:25:29",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/3657#issuecomment-1454340067",
+          "body": "closed by https://github.com/pulibrary/princeton_ansible/pull/3705"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2023-03-04T02:25:29",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 7,
+    "closed_count": 2,
+    "pull_request_closed_count": 1,
+    "pull_request_open_count": 1,
+    "updated_count": 3,
+    "today": "2023-03-04T22:00:05",
+    "yesterday": "2023-03-03T22:00:05"
+  }
+}
