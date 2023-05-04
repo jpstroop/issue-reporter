@@ -1,0 +1,2138 @@
+{
+  "aspace_helpers": [
+    {
+      "created_at": "2023-03-29T17:19:41",
+      "updated_at": "2023-03-29T17:19:41",
+      "html_url": "https://github.com/pulibrary/aspace_helpers/issues/359",
+      "number": 359,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/aspace_helpers",
+      "repository_name": "aspace_helpers",
+      "state": "open",
+      "title": "test new ASpace plugin for component-level aspace2alma",
+      "user_name": "regineheberlein",
+      "comments": [
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2023-05-03T15:04:08",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/359#issuecomment-1533203412",
+          "body": "Plugin is having trouble connecting to the lib-sftp. Working with Francis on adjusting timeouts. "
+        },
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2023-05-03T15:07:40",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/359#issuecomment-1533210399",
+          "body": "After increasing the timeout parameter, the connection is still failing.\r\n\r\nFrom Blake:\r\n\r\n> Logs attached.\r\n> Something interesting I caught this time, I did \"sftp\" once, and it took about 48 seconds to return anything, but I forgot the \"-vvvv\" so I stopped that and did it again with the Vs and it connected instantly. No big strange pause. That first connection woke something up?\r\n>  \r\n> mtr in case that helps\r\n\r\n \r\n```\r\n                                                                                       My traceroute  [v0.93]\r\nip-10-14-1-180 (10.14.1.180)                                                                                                                                               2023-05-03T14:02:56+0000\r\nKeys:  Help   Display mode   Restart statistics   Order of fields   quit\r\n                                                                                                                                                           Packets               Pings\r\n Host                                                                                                                                                    Loss%   Snt   Last   Avg  Best  Wrst StDev\r\n 1. (waiting for reply)\r\n 2. (waiting for reply)\r\n 3. (waiting for reply)\r\n 4. 241.0.2.64                                                                                                                                            0.0%    12    0.2   0.2   0.2   0.3   0.0\r\n 5. 108.166.236.8                                                                                                                                         0.0%    12    0.2   0.4   0.2   2.0   0.5\r\n 6. 108.166.236.25                                                                                                                                        0.0%    12    0.2   0.2   0.2   0.2   0.0\r\n 7. 240.192.3.147                                                                                                                                         0.0%    12    0.2   0.2   0.2   0.2   0.0\r\n 8. 108.166.236.25                                                                                                                                        0.0%    12    0.2   0.2   0.2   0.2   0.0\r\n 9. 108.166.236.6                                                                                                                                         0.0%    12    0.2   0.2   0.2   0.3   0.0\r\n10. 242.0.51.17                                                                                                                                           0.0%    12    3.1   0.9   0.3   3.1   0.8\r\n11. 100.95.1.29                                                                                                                                           0.0%    12    0.8   0.5   0.3   0.9   0.2\r\n12. 100.100.2.108                                                                                                                                         0.0%    12    0.4   2.6   0.3  26.9   7.7\r\n13. 100.92.31.56                                                                                                                                          0.0%    12    8.0   9.0   7.3  19.5   3.5\r\n14. 100.92.26.52                                                                                                                                          0.0%    12    6.2   6.7   6.2   7.6   0.4\r\n15. 100.92.26.69                                                                                                                                          0.0%    12    8.5   8.6   7.8  12.3   1.3\r\n16. 100.92.28.68                                                                                                                                          0.0%    11    6.4   6.8   6.4   7.3   0.3\r\n17. 100.92.28.49                                                                                                                                          0.0%    11    7.1   6.8   6.4   7.3   0.3\r\n18. 52.93.131.73                                                                                                                                          0.0%    11    6.9   6.2   5.7   6.9   0.4\r\n19. 100.92.127.120                                                                                                                                        0.0%    11    7.4   8.3   6.2  14.5   2.8\r\n20. 100.92.127.135                                                                                                                                        0.0%    11    7.3   8.0   7.3  12.3   1.5\r\n21. 100.92.125.134                                                                                                                                        0.0%    11    6.2   6.3   5.8   6.7   0.4\r\n22. 100.92.125.121                                                                                                                                        0.0%    11    6.8   8.3   6.3  18.1   3.8\r\n23. 100.92.133.9                                                                                                                                          0.0%    11    6.3   7.8   6.3  16.4   3.1\r\n24. 240.1.228.12                                                                                                                                         60.0%    11  764.5 751.5 744.6 764.5   8.9\r\n25. 242.4.195.193                                                                                                                                         0.0%    11    7.6   8.7   7.6  15.1   2.2\r\n26. 52.95.52.11                                                                                                                                           0.0%    11    6.2   6.6   6.1   8.0   0.7\r\n27. 99.82.178.93                                                                                                                                          0.0%    11    9.7  10.3   9.6  11.4   0.6\r\n28. fourhundredge-0-0-0-20.4079.core1.seat.net.internet2.edu                                                                                              0.0%    11   84.1  83.3  82.5  84.1   0.4\r\n29. fourhundredge-0-0-0-0.4079.core1.salt.net.internet2.edu                                                                                               0.0%    11   81.7  81.2  80.2  82.4   0.6\r\n30. fourhundredge-0-0-0-0.4079.core1.denv.net.internet2.edu                                                                                               0.0%    11   81.8  83.2  81.8  84.8   0.9\r\n```\r\n "
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "bibdata": [
+    {
+      "created_at": "2023-05-03T16:22:00",
+      "updated_at": "2023-05-03T16:22:00",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/2146",
+      "number": 2146,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/2146",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Null edit to test auto-merge",
+      "user_name": "Max Kadel",
+      "comments": [
+        {
+          "user_name": "Max Kadel",
+          "updated_at": "2023-05-03T17:47:44",
+          "html_url": "https://github.com/pulibrary/bibdata/pull/2146#issuecomment-1533458245",
+          "body": "No longer needed - was for testing."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2023-05-03T16:22:32",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2023-05-03T16:35:44",
+          "type": "convert_to_draft"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:46:31",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2023-05-03T17:47:44",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2023-05-03T17:47:54",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/2146",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-05-03T18:38:45",
+      "updated_at": "2023-05-03T18:38:45",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/2147",
+      "number": 2147,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/2147",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Index 852 subfield k to holdings_1display",
+      "user_name": "Max Kadel",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2023-05-03T19:08:44",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2023-05-03T19:11:44",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2023-05-03T19:11:44",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2023-05-03T19:11:44",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2023-05-03T19:11:45",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/2147",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2020-10-27T02:33:20",
+      "updated_at": "2020-10-27T02:33:20",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/873",
+      "number": 873,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Add 852 subfield k to holdings location indexed data",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2023-05-03T15:24:55",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2023-05-03T18:31:00",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2023-05-03T19:11:45",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "dspace-development": [
+    {
+      "created_at": "2023-05-02T14:00:18",
+      "updated_at": "2023-05-02T14:00:18",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/748",
+      "number": 748,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "closed",
+      "title": "DataSpace authentication failures (Shibboleth/SAML 2.0)",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-05-03T15:06:57",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2023-05-03T14:44:15",
+      "updated_at": "2023-05-03T14:44:15",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/749",
+      "number": 749,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "open",
+      "title": "Prohibited Access from the Mudd Reading Room for DataSpace (SN@P INC0488226)",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2023-05-03T14:44:25",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2023-05-03T14:44:30",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2023-05-03T14:44:38",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-05-03T15:07:51",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2023-04-20T16:01:15",
+      "updated_at": "2023-04-20T16:01:15",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/744",
+      "number": 744,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "closed",
+      "title": "User reported errors when attempting to access ThesisCentral (production) using the Chrome browser",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "Kate Lynch",
+          "updated_at": "2023-05-03T15:32:46",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/744#issuecomment-1533255932",
+          "body": "Closing, user was able to accomplish their task in another browser."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2023-05-03T15:32:53",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2023-04-27T17:41:40",
+      "updated_at": "2023-04-27T17:41:40",
+      "html_url": "https://github.com/pulibrary/dspace-development/issues/747",
+      "number": 747,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dspace-development",
+      "repository_name": "dspace-development",
+      "state": "closed",
+      "title": "Users report that e-mail notifications contain missing information for ThesisCentral submissions",
+      "user_name": "James R. Griffin III",
+      "comments": [
+        {
+          "user_name": "Kate Lynch",
+          "updated_at": "2023-05-03T15:34:16",
+          "html_url": "https://github.com/pulibrary/dspace-development/issues/747#issuecomment-1533258726",
+          "body": "Factor in the need for email notifications in migration to a new application for thesis submissions."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2023-05-03T15:34:17",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "etd_transformer": [
+    {
+      "created_at": "2023-04-18T18:44:25",
+      "updated_at": "2023-04-18T18:44:25",
+      "html_url": "https://github.com/pulibrary/etd_transformer/issues/157",
+      "number": 157,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/etd_transformer",
+      "repository_name": "etd_transformer",
+      "state": "open",
+      "title": "Change Mudd message for dissertation imports",
+      "user_name": "Bess Sadler",
+      "comments": [
+        {
+          "user_name": "carolyncole",
+          "updated_at": "2023-05-03T15:48:23",
+          "html_url": "https://github.com/pulibrary/etd_transformer/issues/157#issuecomment-1533280266",
+          "body": "May help: https://github.com/search?q=org%3Apulibrary%20The%20Mudd%20Manuscript%20Library%20retains%20one%20bound%20copy&type=code"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2023-05-03T16:19:59",
+      "updated_at": "2023-05-03T16:19:59",
+      "html_url": "https://github.com/pulibrary/figgy/pull/5785",
+      "number": 5785,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/5785",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Add label to graphql Types::Numismatics::MonogramType",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:20:05",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2023-05-03T16:22:48",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2023-05-03T16:22:48",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2023-05-03T16:22:48",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2023-05-03T16:22:49",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/5785",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-05-03T14:55:36",
+      "updated_at": "2023-05-03T14:55:36",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5782",
+      "number": 5782,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Monogram images not loading in viewer",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2023-05-03T14:55:36",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2023-05-03T14:55:36",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T14:55:48",
+          "type": "renamed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T15:17:00",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T15:17:17",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T15:28:35",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2023-05-03T16:22:50",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2023-05-03T15:13:07",
+      "updated_at": "2023-05-03T15:13:07",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5784",
+      "number": 5784,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Numismatic Monograms should preserve their images",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "Eliot Jordan",
+          "updated_at": "2023-05-03T16:50:05",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5784#issuecomment-1533373982",
+          "body": "Monograms are preserving their binaries. We we're looking at the PreservationObject of the Monogram instead of the FileSet. I checked a few on the Figgy prod terminal, and they are there."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T15:13:17",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T15:13:18",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T15:13:31",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2023-05-03T16:36:42",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2023-05-03T16:50:05",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2023-05-03T14:22:12",
+      "updated_at": "2023-05-03T14:22:12",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5781",
+      "number": 5781,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Recover deleted monogram",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2023-05-03T16:51:39",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5781#issuecomment-1533376017",
+          "body": "We found the deleted resource id in the deletion marker search ui. We used `query_service.custom_queries.find_by_property(property: :numismatic_monogram_ids, value: Valkyrie::ID.new(that_id)` to see whether the links were still in place, and they were. We restored the monograph using its deletion marker in the ui.\r\n\r\nWe discovered and created https://github.com/pulibrary/figgy/issues/5784 but in this case the user confirmed that there had not been an image."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T14:22:12",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:51:39",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2023-05-03T15:10:18",
+      "updated_at": "2023-05-03T15:10:18",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5783",
+      "number": 5783,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Monograms cannot be removed from issues.",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:53:34",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:56:16",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2023-05-03T17:00:45",
+      "updated_at": "2023-05-03T17:00:45",
+      "html_url": "https://github.com/pulibrary/figgy/pull/5786",
+      "number": 5786,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/5786",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Add holding location contact info to the cover page.",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2023-05-03T19:36:03",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2023-05-03T19:36:03",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2023-05-03T19:36:03",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2023-05-03T19:36:04",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/5786",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-04-28T20:03:46",
+      "updated_at": "2023-04-28T20:03:46",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5775",
+      "number": 5775,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "closed",
+      "title": "Full Contact Information does not display for Library Locations in PDF Cover sheet for Item Downloads",
+      "user_name": "Kim Leaman",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2023-05-03T16:36:59",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2023-05-03T17:00:28",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2023-05-03T19:36:04",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-11-30T21:21:43",
+      "updated_at": "2022-11-30T21:21:43",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5557",
+      "number": 5557,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Run preservation fire drills",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2023-05-03T20:09:13",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5557#issuecomment-1533667759",
+          "body": "Notes document: https://docs.google.com/document/d/1Di6pOyj9IdWBLy44IbvTkaMyoMM8WRS4q6QN0b6ZD0U/edit"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-05-03T20:58:14",
+      "updated_at": "2023-05-03T20:58:14",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5787",
+      "number": 5787,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "EphemeraFolder / EphemeraBox / Recording are all preserving before completion",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2023-05-03T20:58:14",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "imagecat-rails": [
+    {
+      "created_at": "2023-04-26T13:21:50",
+      "updated_at": "2023-04-26T13:21:50",
+      "html_url": "https://github.com/pulibrary/imagecat-rails/issues/66",
+      "number": 66,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/imagecat-rails",
+      "repository_name": "imagecat-rails",
+      "state": "closed",
+      "title": "Guide cards index page should pagenate",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Robert-Anthony Lee-Faison",
+          "created_at": "2023-05-03T20:14:56",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2023-04-26T13:31:11",
+      "updated_at": "2023-04-26T13:31:11",
+      "html_url": "https://github.com/pulibrary/imagecat-rails/issues/67",
+      "number": 67,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/imagecat-rails",
+      "repository_name": "imagecat-rails",
+      "state": "open",
+      "title": "Implement initial home page",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "Robert-Anthony Lee-Faison",
+          "updated_at": "2023-05-03T20:17:06",
+          "html_url": "https://github.com/pulibrary/imagecat-rails/issues/67#issuecomment-1533677644",
+          "body": "Welcome controller: https://github.com/pulibrary/pdc_describe/blob/main/app/controllers/welcome_controller.rb"
+        },
+        {
+          "user_name": "Robert-Anthony Lee-Faison",
+          "updated_at": "2023-05-03T20:18:55",
+          "html_url": "https://github.com/pulibrary/imagecat-rails/issues/67#issuecomment-1533679888",
+          "body": "https://github.com/pulibrary/pdc_describe/commit/f9120c03c139becb7bba3fdcf257e1465bea7008"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-01-20T17:39:55",
+      "updated_at": "2023-01-20T17:39:55",
+      "html_url": "https://github.com/pulibrary/imagecat-rails/issues/24",
+      "number": 24,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/imagecat-rails",
+      "repository_name": "imagecat-rails",
+      "state": "open",
+      "title": "Princeton Branding ",
+      "user_name": "Robert-Anthony Lee-Faison",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-05-03T20:32:34",
+      "updated_at": "2023-05-03T20:32:34",
+      "html_url": "https://github.com/pulibrary/imagecat-rails/pull/71",
+      "number": 71,
+      "pull_request_html_url": "https://github.com/pulibrary/imagecat-rails/pull/71",
+      "repository_html_url": "https://github.com/pulibrary/imagecat-rails",
+      "repository_name": "imagecat-rails",
+      "state": "open",
+      "title": "Add Princeton favicon",
+      "user_name": "Robert-Anthony Lee-Faison",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/imagecat-rails/pull/71",
+      "action": "pull_request_open"
+    }
+  ],
+  "openpublishing": [
+    {
+      "created_at": "2023-03-08T14:56:40",
+      "updated_at": "2023-03-08T14:56:40",
+      "html_url": "https://github.com/pulibrary/openpublishing/issues/60",
+      "number": 60,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/openpublishing",
+      "repository_name": "openpublishing",
+      "state": "closed",
+      "title": "Failed AJAX Request Message",
+      "user_name": "Hannah H",
+      "comments": [
+        {
+          "user_name": "Kate Lynch",
+          "updated_at": "2023-05-03T21:00:19",
+          "html_url": "https://github.com/pulibrary/openpublishing/issues/60#issuecomment-1533742118",
+          "body": "The above-described AJAX issue appears to be inconsistently occurring across browsers, and is not the root cause of the issue of not being able to see submissions in a published issue.  While upgrading to OJS 3.3.0-14 simplifies the workflow, this issue is resolvable within the current UI.\r\n\r\nIssues 16, 17, 18, and 19 were fixed (and confirmed as fixed with Yuan and Hannah over Slack) through the following method.\r\n\r\nEach submission that is linked to a published issue must be published in production.  Submissions can be unpublished after an issue has been published, and would therefore disappear from the public UI.  If submissions are not appearing in a published issue, this can be fixed as follows:\r\n\r\n## Step 1 \r\n\r\nGo to the \"Submissions\" section and locate the submission that is not displaying.  These are searchable under \"All Active\" or \"Archives,\" depending on the state of the submission.  If the submission's state is anything other than \"Published,\" it will not display publicly in the issue table of contents.\r\n\r\n## Step 2\r\n\r\nOnce you have located the submission, click the \"View\" button.\r\n\r\n<img width=\"1558\" alt=\"step1\" src=\"https://user-images.githubusercontent.com/7795797/236047060-a3232dae-5627-466a-8b6f-903a6cd61161.png\">\r\n\r\n## Step 3 \r\n\r\nFrom the \"Workflow > Production\" tab, click on the \"Schedule for Publication\" button.\r\n\r\n<img width=\"1550\" alt=\"step2\" src=\"https://user-images.githubusercontent.com/7795797/236047433-92fd4f6e-df7a-406c-a62f-0ca7baafe8c6.png\">\r\n\r\n## Step 4 \r\n\r\nYou will be forwarded to the \"Workflow > Publication\" tab for the submission.  Click the \"Schedule for Publication\" button here as well.\r\n\r\n<img width=\"1550\" alt=\"step3\" src=\"https://user-images.githubusercontent.com/7795797/236047577-4b62628b-45eb-43bc-8755-70316baaecd2.png\">\r\n\r\n## Step 5\r\n\r\nIf everything is correctly set within the submission, you will receive a confirmation dialog box like the following:\r\n\r\n<img width=\"1550\" alt=\"step3 5\" src=\"https://user-images.githubusercontent.com/7795797/236047744-1992c376-21f0-4371-a2b9-1c9c8f58a7be.png\">\r\n\r\nClick \"Publish\" to complete publishing the submission.\r\n\r\n## Step 6\r\n\r\nOnce a submission is published, you will see the red band warning that the submission is published and cannot be edited:\r\n\r\n<img width=\"1550\" alt=\"step4\" src=\"https://user-images.githubusercontent.com/7795797/236048004-d5442a2b-4ac3-4cb3-ac9b-f840e5e58860.png\">\r\n\r\nIf you need to edit a submission that has been published, you will need to unpublish it first, then re-publish it when you are done.\r\n\r\n## Step 7\r\n\r\nTo validate that your submission should be visible in the public UI, you can look it up in the \"Submissions > Archives\" section.  If your submission is present in the search results and has the solid green \"Published\" label as shown below, your submission should be correctly configured to display in the public UI:\r\n\r\n<img width=\"1466\" alt=\"step5\" src=\"https://user-images.githubusercontent.com/7795797/236048201-81523323-1fa9-4be7-a1ea-871ad75b1bdc.png\">\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
+        },
+        {
+          "user_name": "Kate Lynch",
+          "updated_at": "2023-05-03T21:00:55",
+          "html_url": "https://github.com/pulibrary/openpublishing/issues/60#issuecomment-1533742920",
+          "body": "I will share the above tutorial with Hannah and Yuan.  Any additional actions needed should be taken on a new ticket."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2023-05-03T21:00:55",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2023-05-02T19:36:10",
+      "updated_at": "2023-05-02T19:36:10",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/3541",
+      "number": 3541,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/3541",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Show fill-in form when there are too many items to retrieve",
+      "user_name": "Max Kadel",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2023-05-03T14:50:55",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/3541#issuecomment-1532065379",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/59580496/badge)](https://coveralls.io/builds/59580496)\n\nCoverage: 95.314% (-0.01%) from 95.324% when pulling **2587fb498c8a5af05b5910712ff3904b68007cb3 on many_items_request_fresh** into **a60910573f2ce6cfa435d424aea481b2ae337d77 on main**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2023-05-03T15:21:29",
+          "type": "review_requested"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/3541",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-12-02T19:24:51",
+      "updated_at": "2022-12-02T19:24:51",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/3273",
+      "number": 3273,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Submit Alma constituent record metadata with Aeon Requests",
+      "user_name": "Don Thornbury",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2023-05-03T19:21:42",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-05-03T21:32:58",
+      "updated_at": "2023-05-03T21:32:58",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/3542",
+      "number": 3542,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/3542",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Add helper method to stub single holding locations",
+      "user_name": "Max Kadel",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2023-05-03T21:41:23",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/3542#issuecomment-1533789942",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/59595697/badge)](https://coveralls.io/builds/59595697)\n\nCoverage: 95.306% (-0.02%) from 95.324% when pulling **292459975c8f739ca42f2ca458ca292b70bc96bd on refactor_holding_location_stub** into **a60910573f2ce6cfa435d424aea481b2ae337d77 on main**.\n"
+        }
+      ],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/3542",
+      "action": "pull_request_open"
+    }
+  ],
+  "pdc_describe": [
+    {
+      "created_at": "2023-05-02T19:44:38",
+      "updated_at": "2023-05-02T19:44:38",
+      "html_url": "https://github.com/pulibrary/pdc_describe/pull/1112",
+      "number": 1112,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_describe/pull/1112",
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "closed",
+      "title": "Checking to make sure the ARK is unique",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T11:37:54",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T12:32:32",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T12:45:36",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T12:48:51",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2023-05-03T12:58:34",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2023-05-03T12:58:35",
+          "type": "merged"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2023-05-03T12:58:35",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2023-05-03T12:58:36",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_describe/pull/1112",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-04-14T14:20:28",
+      "updated_at": "2023-04-14T14:20:28",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/1062",
+      "number": 1062,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "closed",
+      "title": "ARKs and DOIs must be unique",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2023-05-03T12:58:36",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2023-05-03T12:58:37",
+          "type": "referenced"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2023-04-27T14:01:34",
+      "updated_at": "2023-04-27T14:01:34",
+      "html_url": "https://github.com/pulibrary/pdc_describe/pull/1098",
+      "number": 1098,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_describe/pull/1098",
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Renaming the Collection class to the Group class and ensures that legacy table names are preserved",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2023-05-03T13:10:17",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_describe/pull/1098",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2023-05-03T14:33:33",
+      "updated_at": "2023-05-03T14:33:33",
+      "html_url": "https://github.com/pulibrary/pdc_describe/pull/1113",
+      "number": 1113,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_describe/pull/1113",
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "closed",
+      "title": "Add migration to rename UploadSnapshot uri to url",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "Hector Correa",
+          "updated_at": "2023-05-03T14:49:09",
+          "html_url": "https://github.com/pulibrary/pdc_describe/pull/1113#issuecomment-1533168453",
+          "body": "@carolyncole would be a good start, but unfortunately I think the are more fields that just the URL that need to be fixed :( \r\n\r\nI'll update ticket with the details #1110 "
+        },
+        {
+          "user_name": "Hector Correa",
+          "updated_at": "2023-05-03T14:56:49",
+          "html_url": "https://github.com/pulibrary/pdc_describe/pull/1113#issuecomment-1533189216",
+          "body": "@carolyncole I am wondering if we should create a migration to drop the table and recreate it since the table in staging is so out of whack with the one in schema.rb (rather than patching field by field)"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T14:49:09",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T14:49:09",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T14:56:50",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T14:56:50",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T15:01:27",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-05-03T15:06:54",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-05-03T15:06:55",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-05-03T15:06:55",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-05-03T15:06:56",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_describe/pull/1113",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-02-17T17:04:25",
+      "updated_at": "2023-02-17T17:04:25",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/991",
+      "number": 991,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "closed",
+      "title": "Track Changes to Files in Globus (AWS) In the Change History",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2023-05-03T15:35:25",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2023-04-14T20:36:18",
+      "updated_at": "2023-04-14T20:36:18",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/1067",
+      "number": 1067,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Globus URLs in descriptions do not work as expected",
+      "user_name": "Bess Sadler",
+      "comments": [
+        {
+          "user_name": "Kate Lynch",
+          "updated_at": "2023-05-03T15:45:13",
+          "html_url": "https://github.com/pulibrary/pdc_describe/issues/1067#issuecomment-1533275604",
+          "body": "When we migrate objects from DataSpace with Globus information from the description.\n\nSeparately, someone will need to indicate that this error may happen sometimes, and how to address it.  This could be a help screen/part of a training issue."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-09-14T13:42:25",
+      "updated_at": "2022-09-14T13:42:25",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/409",
+      "number": 409,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "PDC Describe Production set and ready for data migration",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2023-05-03T15:49:14",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-02-21T20:26:04",
+      "updated_at": "2023-02-21T20:26:04",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/1000",
+      "number": 1000,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Install DataDog",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2023-05-03T15:51:45",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-05-01T21:22:30",
+      "updated_at": "2023-05-01T21:22:30",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/1110",
+      "number": 1110,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "closed",
+      "title": "Describe Staging: Error Message",
+      "user_name": "Hannah H",
+      "comments": [
+        {
+          "user_name": "Hannah H",
+          "updated_at": "2023-05-03T13:13:07",
+          "html_url": "https://github.com/pulibrary/pdc_describe/issues/1110#issuecomment-1533010260",
+          "body": "Update: Others in PRDS are experiencing this same error message."
+        },
+        {
+          "user_name": "Hector Correa",
+          "updated_at": "2023-05-03T14:03:40",
+          "html_url": "https://github.com/pulibrary/pdc_describe/issues/1110#issuecomment-1533085823",
+          "body": "The error happens when editing any published record. The logs show a problem with a missing column in the `upload_snapshots` table:\r\n\r\n```\r\nF, [2023-05-03T14:00:54.961517 #710907] FATAL -- : [5f01e5db-6165-422e-b331-18ef6fdd8077]   \r\n[5f01e5db-6165-422e-b331-18ef6fdd8077] ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column upload_snapshots.url does not exist\r\nLINE 1: ...hots\" WHERE \"upload_snapshots\".\"work_id\" = $1 AND \"upload_sn...\r\n                                                             ^\r\nHINT:  Perhaps you meant to reference the column \"upload_snapshots.uri\".\r\n):\r\n[5f01e5db-6165-422e-b331-18ef6fdd8077]   \r\n[5f01e5db-6165-422e-b331-18ef6fdd8077] app/models/work.rb:480:in `block in new_s3_files'\r\n[5f01e5db-6165-422e-b331-18ef6fdd8077] app/models/work.rb:479:in `reject'\r\n[5f01e5db-6165-422e-b331-18ef6fdd8077] app/models/work.rb:479:in `new_s3_files'\r\n[5f01e5db-6165-422e-b331-18ef6fdd8077] app/models/work.rb:485:in `new_snapshots'\r\n[5f01e5db-6165-422e-b331-18ef6fdd8077] app/models/work.rb:491:in `current_snapshots'\r\n[5f01e5db-6165-422e-b331-18ef6fdd8077] app/models/work.rb:495:in `invalid_snapshots'\r\n[5f01e5db-6165-422e-b331-18ef6fdd8077] app/models/work.rb:528:in `reload_snapshots'\r\n[5f01e5db-6165-422e-b331-18ef6fdd8077] app/controllers/works_controller.rb:69:in `show'\r\n```\r\n\r\n@carolyncole and I ran into this issue in our local environments and we had to re-create the database to get around it, but I don't think we want to do this in our staging/production server."
+        },
+        {
+          "user_name": "carolyncole",
+          "updated_at": "2023-05-03T14:34:52",
+          "html_url": "https://github.com/pulibrary/pdc_describe/issues/1110#issuecomment-1533138138",
+          "body": "@hectorcorrea https://github.com/pulibrary/pdc_describe/pull/1113 I tested this locally.\r\n\r\nUnfortunately we merged a PR that modified the database create. 😢 I think that might have been me..."
+        },
+        {
+          "user_name": "Hector Correa",
+          "updated_at": "2023-05-03T14:50:01",
+          "html_url": "https://github.com/pulibrary/pdc_describe/issues/1110#issuecomment-1533170982",
+          "body": "Table in staging:\r\n\r\n```\r\npdc_describe_staging=> \\d upload_snapshots\r\n                                          Table \"public.upload_snapshots\"\r\n   Column   |              Type              | Collation | Nullable |                   Default                    \r\n------------+--------------------------------+-----------+----------+----------------------------------------------\r\n id         | bigint                         |           | not null | nextval('upload_snapshots_id_seq'::regclass)\r\n uri        | character varying              |           | not null | \r\n work_id    | bigint                         |           | not null | \r\n created_at | timestamp(6) without time zone |           | not null | \r\n updated_at | timestamp(6) without time zone |           | not null | \r\nIndexes:\r\n    \"upload_snapshots_pkey\" PRIMARY KEY, btree (id)\r\n    \"index_upload_snapshots_on_work_id\" btree (work_id)\r\nForeign-key constraints:\r\n    \"fk_rails_0e01bc9fbb\" FOREIGN KEY (work_id) REFERENCES works(id)\r\n```\r\n\r\nTable as we create it:\r\n\r\n```\r\n  create_table \"upload_snapshots\", force: :cascade do |t|\r\n    t.string \"filename\"\r\n    t.string \"url\"\r\n    t.bigint \"version\"\r\n    t.string \"checksum\"\r\n    t.bigint \"work_id\", null: false\r\n    t.datetime \"created_at\", precision: 6, null: false\r\n    t.datetime \"updated_at\", precision: 6, null: false\r\n    t.index [\"work_id\"], name: \"index_upload_snapshots_on_work_id\"\r\n  end\r\n```"
+        },
+        {
+          "user_name": "Hector Correa",
+          "updated_at": "2023-05-03T15:57:51",
+          "html_url": "https://github.com/pulibrary/pdc_describe/issues/1110#issuecomment-1533298419",
+          "body": "Fixed with PR https://github.com/pulibrary/pdc_describe/pull/1113\r\n\r\nDatabase in staging now has the correct fields:\r\n\r\n```\r\npdc_describe_staging=> \\d upload_snapshots\r\n                                          Table \"public.upload_snapshots\"\r\n   Column   |              Type              | Collation | Nullable |                   Default                    \r\n------------+--------------------------------+-----------+----------+----------------------------------------------\r\n id         | bigint                         |           | not null | nextval('upload_snapshots_id_seq'::regclass)\r\n url        | character varying              |           | not null | \r\n work_id    | bigint                         |           | not null | \r\n created_at | timestamp(6) without time zone |           | not null | \r\n updated_at | timestamp(6) without time zone |           | not null | \r\n filename   | character varying              |           |          | \r\n version    | bigint                         |           |          | \r\n checksum   | character varying              |           |          | \r\nIndexes:\r\n    \"upload_snapshots_pkey\" PRIMARY KEY, btree (id)\r\n    \"index_upload_snapshots_on_work_id\" btree (work_id)\r\nForeign-key constraints:\r\n    \"fk_rails_0e01bc9fbb\" FOREIGN KEY (work_id) REFERENCES works(id)\r\n```\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-05-03T13:50:40",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-05-03T14:00:04",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-05-03T14:00:15",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T14:03:41",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T14:03:41",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T14:33:07",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-05-03T14:34:52",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-05-03T14:34:52",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-05-03T15:57:59",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2022-10-18T17:06:32",
+      "updated_at": "2022-10-18T17:06:32",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/513",
+      "number": 513,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Ensure that checksums are appropriately configured in S3 for preservation",
+      "user_name": "Kate Lynch",
+      "comments": [
+        {
+          "user_name": "carolyncole",
+          "updated_at": "2023-05-03T17:55:18",
+          "html_url": "https://github.com/pulibrary/pdc_describe/issues/513#issuecomment-1533473581",
+          "body": "@kelynch The link here is talking about additional checksums.  What kind of additional checksums are you expecting AWS to calculate?  We currently utilize MD5 checksums that are built in, but no additional checksum, nor do we ask AWS to calculate an additional checksum during any processing."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2023-05-03T17:55:19",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2023-05-03T17:55:19",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-02-06T17:56:27",
+      "updated_at": "2023-02-06T17:56:27",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/959",
+      "number": 959,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Describe Form: Add Affiliation (and ROR) to the Creator Property Set",
+      "user_name": "Hannah H",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T17:57:53",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T17:58:10",
+          "type": "unassigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-05-01T19:51:03",
+      "updated_at": "2023-05-01T19:51:03",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/1109",
+      "number": 1109,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Dspace migration in provenance log",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "Bess Sadler",
+          "updated_at": "2023-05-03T14:12:00",
+          "html_url": "https://github.com/pulibrary/pdc_describe/issues/1109#issuecomment-1533101593",
+          "body": "![Screenshot 2023-05-03 at 10 11 16 AM](https://user-images.githubusercontent.com/65608/235941572-d63bd60f-7423-400b-96e9-203ef7eff0c7.png)\r\n"
+        },
+        {
+          "user_name": "carolyncole",
+          "updated_at": "2023-05-03T14:19:38",
+          "html_url": "https://github.com/pulibrary/pdc_describe/issues/1109#issuecomment-1533113852",
+          "body": "We could hide some of the migration provenance from the user (possibly roll it up) so it looks more like 👆\n\nCan we roll up all migration steps into one (approve, metadata, files).  This could be a separate ticket or part of this one.  How do do this..."
+        },
+        {
+          "user_name": "Kate Lynch",
+          "updated_at": "2023-05-03T15:26:55",
+          "html_url": "https://github.com/pulibrary/pdc_describe/issues/1109#issuecomment-1533246182",
+          "body": "Whoever added the metadata and whoever hit the file migration button should be recorded (not necessarily displayed in the UI).  Also a timestamp for each activity.\n\nWe will need to produce proof that files that were in DataSpace were migrated intact to PDC Describe if we get audited.  We can use checksums for this.\n\nWe should record all activities in the system and be able to tag them as \"migration\" so they do not show up in the UI."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T17:59:06",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-04-13T20:25:32",
+      "updated_at": "2023-04-13T20:25:32",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/1058",
+      "number": 1058,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Add ORCIDs for all authors on migration specs",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Chun Ly",
+          "created_at": "2023-05-03T15:09:21",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Chun Ly",
+          "created_at": "2023-05-03T15:09:21",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-03-07T14:15:30",
+      "updated_at": "2023-03-07T14:15:30",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/1026",
+      "number": 1026,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Links in descriptions should be clickable",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2023-05-03T20:23:39",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-04-14T14:39:36",
+      "updated_at": "2023-04-14T14:39:36",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/1063",
+      "number": 1063,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Disable Spring",
+      "user_name": "Kate Lynch",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-05-03T20:52:38",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-05-03T20:54:20",
+      "updated_at": "2023-05-03T20:54:20",
+      "html_url": "https://github.com/pulibrary/pdc_describe/pull/1114",
+      "number": 1114,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_describe/pull/1114",
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Remove Spring gem",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T20:58:40",
+          "type": "deployed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_describe/pull/1114",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2023-05-03T21:09:49",
+      "updated_at": "2023-05-03T21:09:49",
+      "html_url": "https://github.com/pulibrary/pdc_describe/pull/1115",
+      "number": 1115,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_describe/pull/1115",
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Added label for Additional Metadata tab",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/pdc_describe/pull/1115",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-12-09T16:47:38",
+      "updated_at": "2022-12-09T16:47:38",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/1011",
+      "number": 1011,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Describe Form: Add text for \"Additional Metadata\" tab page",
+      "user_name": "Hannah H",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-05-03T21:11:12",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-02-27T14:49:48",
+      "updated_at": "2023-02-27T14:49:48",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/1013",
+      "number": 1013,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Fix formatting for related objects field.",
+      "user_name": "Tyler Wade",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-05-03T21:12:10",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "pdc_discovery": [
+    {
+      "created_at": "2023-01-11T21:13:24",
+      "updated_at": "2023-01-11T21:13:24",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/376",
+      "number": 376,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Author ordering for PDC Describe records",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2023-05-03T15:38:46",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-04-12T15:11:54",
+      "updated_at": "2023-04-12T15:11:54",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/416",
+      "number": 416,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Index new PPPL Collections to mimic dspace collections",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kate Lynch",
+          "created_at": "2023-05-03T15:41:53",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-05-01T13:44:21",
+      "updated_at": "2023-05-01T13:44:21",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/pull/430",
+      "number": 430,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_discovery/pull/430",
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "closed",
+      "title": "Update README.md",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:07:32",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:13:16",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:13:16",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:13:16",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:13:17",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_discovery/pull/430",
+      "action": "pull_request_closed"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2023-05-03T12:51:22",
+      "updated_at": "2023-05-03T12:51:22",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3863",
+      "number": 3863,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3863",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[TOWER DEPLOY] Adding deployment notification to github",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "James R. Griffin III",
+          "updated_at": "2023-05-03T13:14:09",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3863#issuecomment-1533011672",
+          "body": "This has been tested successfully using Slack:\r\n![image](https://user-images.githubusercontent.com/1443986/235926340-ac9026c7-79d6-485d-a826-76cf9de611db.png)\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2023-05-03T13:14:14",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2023-05-03T13:14:14",
+          "type": "merged"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2023-05-03T13:14:14",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2023-05-03T13:14:15",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3863",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-05-02T20:30:43",
+      "updated_at": "2023-05-02T20:30:43",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3861",
+      "number": 3861,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3861",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Add username to the slack mesages for code deploys",
+      "user_name": "Alicia Cozine",
+      "comments": [
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2023-05-03T14:12:49",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3861#issuecomment-1533102909",
+          "body": "Closing in favor of #3864."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-05-03T14:12:49",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3861",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-05-03T14:39:14",
+      "updated_at": "2023-05-03T14:39:14",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3866",
+      "number": 3866,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3866",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Removing hard coded pdc_describe",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "Max Kadel",
+          "updated_at": "2023-05-03T14:46:48",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3866#issuecomment-1533161997",
+          "body": "I had a failure when trying to deploy Orangelight using this branch - see https://ansible-tower.princeton.edu/#/jobs/playbook/837/output "
+        },
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2023-05-03T15:01:24",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3866#issuecomment-1533199244",
+          "body": "The GitHub connection isn't quite ready for prime time yet. It still relies on pulbot and it auto-merges main into branches. Reverting for now in #3865 and closing this enhancement. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T14:47:40",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-05-03T15:01:24",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3866",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-05-03T14:35:25",
+      "updated_at": "2023-05-03T14:35:25",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3865",
+      "number": 3865,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3865",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Revert \"Adding deployment notification to github\"",
+      "user_name": "Max Kadel",
+      "comments": [
+        {
+          "user_name": "carolyncole",
+          "updated_at": "2023-05-03T14:39:43",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3865#issuecomment-1533146205",
+          "body": "@maxkadel does this fix your issue? https://github.com/pulibrary/princeton_ansible/pull/3866"
+        },
+        {
+          "user_name": "Max Kadel",
+          "updated_at": "2023-05-03T14:40:44",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3865#issuecomment-1533148986",
+          "body": "> @maxkadel does this fix your issue? #3866\r\n\r\n@carolyncole  - let me try! Thanks!"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2023-05-03T14:39:44",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2023-05-03T14:39:44",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T14:40:44",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T14:40:45",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2023-05-03T14:40:45",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2023-05-03T14:40:45",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2023-05-03T14:52:40",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-05-03T15:01:58",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-05-03T15:01:58",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-05-03T15:01:58",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-05-03T15:01:59",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3865",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-05-03T13:22:08",
+      "updated_at": "2023-05-03T13:22:08",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3864",
+      "number": 3864,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3864",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[TOWER DEPLOY] Adding user information to starting slack message",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-05-03T15:04:12",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-05-03T15:04:12",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-05-03T15:04:12",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-05-03T15:04:13",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3864",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-04-11T16:41:57",
+      "updated_at": "2023-04-11T16:41:57",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/3781",
+      "number": 3781,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "make towerdeploy more sensitive to changes",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-05-03T16:00:42",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-05-03T16:59:59",
+      "updated_at": "2023-05-03T16:59:59",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/3868",
+      "number": 3868,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Add github status check to tower deployment",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:59:59",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:59:59",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2023-05-01T15:56:34",
+      "updated_at": "2023-05-01T15:56:34",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/3847",
+      "number": 3847,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Retiring pulbot - cleanup",
+      "user_name": "Alicia Cozine",
+      "comments": [
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2023-05-03T17:03:22",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/3847#issuecomment-1533398787",
+          "body": "If possible, rename the GitHub token used in #3867 - currently it's called `pulbot` even though it does not use any code from the pulbot repo. The name `pulbot` currently shows up on deployment updates to GitHub PRs and on notifications from GitHub to slack, which is a little confusing. If we don't change this, document it so we don't forgot how things fit together. "
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-05-03T17:58:31",
+      "updated_at": "2023-05-03T17:58:31",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3869",
+      "number": 3869,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3869",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "[libwww and special collections] add nfs fileshare mounts",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3869",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2022-03-20T13:39:28",
+      "updated_at": "2022-03-20T13:39:28",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2861",
+      "number": 2861,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "use fqrn-builtins for ansible roles",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Francis Kayiwa",
+          "updated_at": "2023-05-03T18:40:37",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2861#issuecomment-1076228865",
+          "body": "- [x] abid\r\n- [x] apache2\r\n- [x] apache_ant\r\n- [x] apache_maven\r\n- [x] apache_tomcat\r\n- [x] appdeploy\r\n- [x] approvals\r\n- [x] bibdata\r\n- [x] bibdata_sqs_poller\r\n- [x] bind9\r\n- [x] blacklight_app\r\n- [x] cantaloupe\r\n- [x] capistrano\r\n- [x] clamav\r\n- [x] common\r\n- [x] composer\r\n- [x] confluence\r\n- [x] datadog\r\n- [x] deploy_user\r\n- [x] dpul\r\n- [x] drupal\r\n- [x] drupal9\r\n- [x] drush\r\n- [x] dss\r\n- [x] elastic\r\n- [x] extra_path\r\n- [x] ezproxy\r\n- [x] ffmpeg\r\n- [ ] figgy\r\n- [ ] figgy_filewatcher_worker\r\n- [ ] figgy_pubsub_worker\r\n- [ ] fits\r\n- [ ] freetds\r\n- [x] friends_of_pul\r\n- [x] geaccirc\r\n- [ ] geoserver\r\n- [ ] hr_share\r\n- [x] imagemagick\r\n- [ ] kakadu\r\n- [x] lae\r\n- [x] lib_jobs\r\n- [x] lib_solr\r\n- [x] lib_svn\r\n- [x] libstatic\r\n- [x] libwww\r\n- [ ] locator\r\n- [x] lockers_and_study_spaces\r\n- [x] mailcatcher\r\n- [x] mariadb\r\n- [ ] mediainfo\r\n- [ ] memcached\r\n- [ ] molecule_mariadb\r\n- [ ] mudd\r\n- [ ] mysql\r\n- [ ] nginx\r\n- [ ] nginxplus\r\n- [x] nodejs\r\n- [x] oawaiver\r\n- [ ] ojs\r\n- [x] omp\r\n- [x] openjdk\r\n- [ ] oracle_client\r\n- [ ] orangelight\r\n- [x] ouranos\r\n- [ ] pas\r\n- [ ] passenger\r\n- [x] pgbouncer\r\n- [x] php\r\n- [ ] postfix\r\n- [ ] postgres\r\n- [x] postgresql\r\n- [x] psql\r\n- [ ] pulfalight\r\n- [ ] pulmap\r\n- [ ] rabbitmq\r\n- [x] rails_app\r\n- [ ] recap_www\r\n- [x] redis\r\n- [ ] repec\r\n- [ ] researchdata\r\n- [ ] resque_worker\r\n- [x] ruby\r\n- [x] rubyoffice\r\n- [ ] rvm\r\n- [x] samba\r\n- [ ] saxon\r\n- [ ] shared_data\r\n- [x] shibboleth\r\n- [ ] simple_annotation\r\n- [x] sneakers_worker\r\n- [ ] solr\r\n- [x] solrcloud\r\n- [x] special_collections\r\n- [ ] subversion\r\n- [ ] svn\r\n- [x] timezone\r\n- [x] tomcat8\r\n- [x] vips\r\n- [x] vireo\r\n- [x] zookeeper"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-05-03T19:06:32",
+      "updated_at": "2023-05-03T19:06:32",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3870",
+      "number": 3870,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3870",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Update fqrn for solrcloud",
+      "user_name": "Robert-Anthony Lee-Faison",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3870",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2023-05-03T15:58:07",
+      "updated_at": "2023-05-03T15:58:07",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3867",
+      "number": 3867,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3867",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Adding deployment tracking in git to ansible tower deployment",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T15:58:29",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T15:58:30",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:03:06",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:06:04",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:43:50",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:53:43",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-05-03T20:03:23",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-05-03T20:03:23",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-05-03T20:03:23",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-05-03T20:03:24",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3867",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-05-03T12:21:43",
+      "updated_at": "2023-05-03T12:21:43",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/3862",
+      "number": 3862,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3862",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "[nginxplus/datadog] conditional logging",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/3862",
+      "action": "pull_request_open"
+    }
+  ],
+  "pul-it-handbook": [
+    {
+      "created_at": "2023-05-03T03:16:42",
+      "updated_at": "2023-05-03T03:16:42",
+      "html_url": "https://github.com/pulibrary/pul-it-handbook/issues/162",
+      "number": 162,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul-it-handbook",
+      "repository_name": "pul-it-handbook",
+      "state": "open",
+      "title": "Update Documentation on Forcing a Switch of the Active LoadBalancer Node",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2023-05-03T03:16:55",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2023-05-01T19:52:10",
+      "updated_at": "2023-05-01T19:52:10",
+      "html_url": "https://github.com/pulibrary/pul-it-handbook/pull/161",
+      "number": 161,
+      "pull_request_html_url": "https://github.com/pulibrary/pul-it-handbook/pull/161",
+      "repository_html_url": "https://github.com/pulibrary/pul-it-handbook",
+      "repository_name": "pul-it-handbook",
+      "state": "closed",
+      "title": "moves image into image folder",
+      "user_name": "Alicia Cozine",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:56:20",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:56:20",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:56:20",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-03T16:56:21",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul-it-handbook/pull/161",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-05-03T16:57:09",
+      "updated_at": "2023-05-03T16:57:09",
+      "html_url": "https://github.com/pulibrary/pul-it-handbook/issues/163",
+      "number": 163,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul-it-handbook",
+      "repository_name": "pul-it-handbook",
+      "state": "open",
+      "title": "Update deployment to include the information about deployment",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "pul_library_drupal": [
+    {
+      "created_at": "2023-03-28T20:19:58",
+      "updated_at": "2023-03-28T20:19:58",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1986",
+      "number": 1986,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "open",
+      "title": "Migrate Marquand Sales Catalogs",
+      "user_name": "Kevin Reiss",
+      "comments": [
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2023-05-03T15:08:45",
+          "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1986#issuecomment-1533211780",
+          "body": "Trying to use the Google Sheet as CSV input to the JS app. Looking at Alpine.js. "
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-05-04T01:57:02",
+      "updated_at": "2023-05-04T01:57:02",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/pull/2003",
+      "number": 2003,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/2003",
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "open",
+      "title": "Bump engine.io from 6.4.1 to 6.4.2 in /sites/all/themes/pul_base",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-05-04T01:57:03",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-05-04T01:57:03",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/2003",
+      "action": "pull_request_open"
+    }
+  ],
+  "rdss-catchall": [
+    {
+      "created_at": "2023-05-03T14:02:15",
+      "updated_at": "2023-05-03T14:02:15",
+      "html_url": "https://github.com/pulibrary/rdss-catchall/issues/95",
+      "number": 95,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/rdss-catchall",
+      "repository_name": "rdss-catchall",
+      "state": "open",
+      "title": "Samvera Virtual Connect 2023",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2023-05-03T14:02:18",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 67,
+    "closed_count": 10,
+    "created_count": 10,
+    "pull_request_closed_count": 14,
+    "pull_request_open_count": 10,
+    "updated_count": 23,
+    "today": "2023-05-03T22:00:09",
+    "yesterday": "2023-05-02T22:00:09"
+  }
+}
