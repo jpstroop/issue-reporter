@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5fda38894b.js" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" type="text/css" href="../../../../css/main.css" />
+    <title>PUL GitHub Issues for 2023-07-23T22:00:04</title>
+  </head>
+
+<body>
+  <div class="container-fluid">
+    <a id="btt-button"></a>
+    
+<h1 class="bg-dark text-light">PUL GitHub Issues<br />
+  <small class="text-white-70">2023-07-23</small></h1>
+<nav class="navbar sticky-top navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar-toggler">
+    <ul class="navbar-nav mr-auto mt-2 pt-3 mt-lg-0">
+      <li class="nav-item not-mono">
+        <a class="nav-link" href="../../../../index.html"><i class="fas fa-arrow-left"></i> Back to Report List Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#DSS">pulibrary/DSS</a>
+      </li>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    
+    <section class="repo" id="DSS">
+      <h2><a href="https://github.com/pulibrary/DSS">pulibrary/DSS</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="DSS-355">
+        <h3><a href="https://github.com/pulibrary/DSS/issues/355">#355</a> Search bar should be lined up visually with the mathematical header</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Jane Sandberg</dd>
+          <dt>Created:</dt>
+          <dd>2023-07-14 21:45:12</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Jane Sandberg at <a href="https://github.com/pulibrary/DSS/issues/355#issuecomment-1646964728">2023-07-23 21:33:16</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>@Phil94comp : thanks for asking the questions!  Thanks for sticking with this.  Lando saves us time and confusion when setting up postgres and solr locally, but it&#39;ll be totally possible to get this setup without lando -- it&#39;ll just require more time and experimentation, so thanks for your willingness on both of those.</p>
+
+<p>You will still want to run the remaining rake tasks, which are responsible for setting up the databases and adding some sample data to them.  The <code>dss:servers:start</code> one is the only one that relies on lando.</p>
+
+<p>For the solr config in blacklight.yml: when you start solr, are you able to go to your browser and see the solr interface at <a href="http://localhost:8983/solr">http://localhost:8983/solr</a>?  If so, you can use the solr interface to create a new core using the configuration in solr/conf within this repo.  You would then set <code>url</code> in the configuration file to <code>http://localhost:8983/solr/name-of-the-core-you-made</code>.</p>
+
+<p>For the postgres config in database.yml, it&#39;s a similar story.  Are you able to connect to the database at localhost:5432 with a particular username and password?  Does the user have the permissions to create a new database?  If so, you could use <code>localhost</code> as the host, <code>5432</code> as the port, the username and password you used.  If not, you may have to configure your local version of postgresql differently (different port, different username, etc.)</p>
+
+              </dd>
+              <dt>Jane Sandberg at <a href="https://github.com/pulibrary/DSS/issues/355#issuecomment-1646965519">2023-07-23 21:37:36</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>I should say, that instead of editing the configuration files, you could set the environment variables in your terminal.  So, for example, if postgres is running at port 5432, you could leave the config file intact, you could type the following command into cmd/powershell before running other commands.</p>
+
+<pre><code>set lando_dss_database_conn_port=5432
+</code></pre>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>mentioned</code> by None at 2023-07-23 21:33:16.</li>
+  <li class="event odd">
+    <code>subscribed</code> by None at 2023-07-23 21:33:16.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../../../../js/report.js"></script>
+  </div>
+</body>
+
+</html>

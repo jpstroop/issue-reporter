@@ -1,0 +1,50 @@
+{
+  "DSS": [
+    {
+      "created_at": "2023-07-14T21:45:12",
+      "updated_at": "2023-07-14T21:45:12",
+      "html_url": "https://github.com/pulibrary/DSS/issues/355",
+      "number": 355,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/DSS",
+      "repository_name": "DSS",
+      "state": "open",
+      "title": "Search bar should be lined up visually with the mathematical header",
+      "user_name": "Jane Sandberg",
+      "comments": [
+        {
+          "user_name": "Jane Sandberg",
+          "updated_at": "2023-07-23T21:33:16",
+          "html_url": "https://github.com/pulibrary/DSS/issues/355#issuecomment-1646964728",
+          "body": "@Phil94comp : thanks for asking the questions!  Thanks for sticking with this.  Lando saves us time and confusion when setting up postgres and solr locally, but it'll be totally possible to get this setup without lando -- it'll just require more time and experimentation, so thanks for your willingness on both of those.\r\n\r\nYou will still want to run the remaining rake tasks, which are responsible for setting up the databases and adding some sample data to them.  The `dss:servers:start` one is the only one that relies on lando.\r\n\r\nFor the solr config in blacklight.yml: when you start solr, are you able to go to your browser and see the solr interface at http://localhost:8983/solr?  If so, you can use the solr interface to create a new core using the configuration in solr/conf within this repo.  You would then set `url` in the configuration file to `http://localhost:8983/solr/name-of-the-core-you-made`.\r\n\r\nFor the postgres config in database.yml, it's a similar story.  Are you able to connect to the database at localhost:5432 with a particular username and password?  Does the user have the permissions to create a new database?  If so, you could use `localhost` as the host, `5432` as the port, the username and password you used.  If not, you may have to configure your local version of postgresql differently (different port, different username, etc.)"
+        },
+        {
+          "user_name": "Jane Sandberg",
+          "updated_at": "2023-07-23T21:37:36",
+          "html_url": "https://github.com/pulibrary/DSS/issues/355#issuecomment-1646965519",
+          "body": "I should say, that instead of editing the configuration files, you could set the environment variables in your terminal.  So, for example, if postgres is running at port 5432, you could leave the config file intact, you could type the following command into cmd/powershell before running other commands.\r\n\r\n```\r\nset lando_dss_database_conn_port=5432\r\n```"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-07-23T21:33:16",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-07-23T21:33:16",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 1,
+    "updated_count": 1,
+    "today": "2023-07-23T22:00:04",
+    "yesterday": "2023-07-22T22:00:04"
+  }
+}
