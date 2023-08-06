@@ -1,0 +1,191 @@
+{
+  "abid": [
+    {
+      "created_at": "2022-05-20T13:58:14",
+      "updated_at": "2022-05-20T13:58:14",
+      "html_url": "https://github.com/pulibrary/abid/issues/89",
+      "number": 89,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/abid",
+      "repository_name": "abid",
+      "state": "open",
+      "title": "Migrate away from webpacker",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-04T22:02:43",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-08-04T20:29:53",
+      "updated_at": "2023-08-04T20:29:53",
+      "html_url": "https://github.com/pulibrary/abid/pull/127",
+      "number": 127,
+      "pull_request_html_url": "https://github.com/pulibrary/abid/pull/127",
+      "repository_html_url": "https://github.com/pulibrary/abid",
+      "repository_name": "abid",
+      "state": "open",
+      "title": "Fix build and upgrade to rails 7.0",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-04T22:04:33",
+          "type": "renamed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-08-04T22:12:42",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/abid/pull/127",
+      "action": "pull_request_open"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2021-04-27T15:20:50",
+      "updated_at": "2021-04-27T15:20:50",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2227",
+      "number": 2227,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Nginxplus should pass through the error status code provided by the upstream server instead of a generic 200.",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2023-08-04T22:11:40",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/2227#issuecomment-1666227200",
+          "body": "An expert from F5 showed me how to configure this correctly.\r\n\r\nWe just needed to delete the `=500`, including the `=`, and then any site config that uses `errors.conf` (instead of `<env>-maintenance.conf`) and has `proxy_intercept_errors on;` in its `location` definition will pass any error from the upstream server to the client. \r\n\r\nI know @rlskoeser doesn't want to use this functionality on all sites, or possibly for all error codes. And I plan to create an option for this in the ansible template for nginx site configs. So there's more work to do to make this flexible. But now we understand how to do it!"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Rebecca Sutton Koeser",
+          "created_at": "2023-08-04T22:11:41",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Rebecca Sutton Koeser",
+          "created_at": "2023-08-04T22:11:41",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-07-18T15:03:29",
+      "updated_at": "2023-07-18T15:03:29",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/4073",
+      "number": 4073,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Add responsible rate limiting to the catalog",
+      "user_name": "Alicia Cozine",
+      "comments": [
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2023-08-04T22:24:12",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/4073#issuecomment-1666235162",
+          "body": "By default NGINX responds with status code `503 Service Temporarily Unavailable` when a client exceeds its rate limit. I propose we configure it to use  `429 Too Many Requests`. (Another options would be `413 Payload Too Large`.)"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-08-04T22:40:58",
+      "updated_at": "2023-08-04T22:40:58",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4122",
+      "number": 4122,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4122",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "[nginx] special handling for rate-limited traffic on the catalog",
+      "user_name": "Alicia Cozine",
+      "comments": [
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2023-08-04T22:42:27",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4122#issuecomment-1666246495",
+          "body": "Partially addresses https://github.com/pulibrary/orangelight/issues/3638"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-08-04T22:41:02",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-08-04T22:41:30",
+          "type": "review_requested"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4122",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2023-08-04T19:14:17",
+      "updated_at": "2023-08-04T19:14:17",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4119",
+      "number": 4119,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4119",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "templatize EZProxy role",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2023-08-05T15:43:28",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4119",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2023-08-04T22:06:28",
+      "updated_at": "2023-08-04T22:06:28",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4121",
+      "number": 4121,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4121",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Pass bibdata error codes to the client",
+      "user_name": "Alicia Cozine",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4121",
+      "action": "pull_request_open"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 7,
+    "pull_request_open_count": 4,
+    "updated_count": 3,
+    "today": "2023-08-05T22:00:05",
+    "yesterday": "2023-08-04T22:00:05"
+  }
+}
