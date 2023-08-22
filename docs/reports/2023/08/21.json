@@ -1,0 +1,1920 @@
+{
+  "aspace_helpers": [
+    {
+      "created_at": "2022-04-07T17:36:16",
+      "updated_at": "2022-04-07T17:36:16",
+      "html_url": "https://github.com/pulibrary/aspace_helpers/issues/186",
+      "number": 186,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/aspace_helpers",
+      "repository_name": "aspace_helpers",
+      "state": "closed",
+      "title": "we need to inherit restrictions down in the ACLU report",
+      "user_name": "regineheberlein",
+      "comments": [
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2023-08-21T10:50:13",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/186#issuecomment-1104020882",
+          "body": "Adding logic in the form of an Excel formula to allow for timely tweaking (including by stakeholders):\r\n\r\nRun in column K, starting row 4 with rows 2, 3 - J2,3:\r\n\r\nIF(OR(G4=0, NOT(ISBLANK(J4))),J4,IF(AND(J4=\"\",G4>0,G4=G3+1),K3,INDEX(K$2:K3,MATCH(2,1/(G$2:G3=G4-1)))))\r\n\r\nStarting at row 4:\r\n\r\nIf level (G4) is 0 (i.e., collection) or restriction note (J4) is present, grab what's in the original restriction note field (J4).\r\nElse, if restriction note is blank and it is component-level (G4 is greater than 0) and it is a child of preceding (G4 is one greater than preceding), grab preceding computed restriction note,\r\nelse find parent (first value in all of preceding G that is one less than G4)and grab its computed restriction note (K). "
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2023-08-16T19:21:21",
+      "updated_at": "2023-08-16T19:21:21",
+      "html_url": "https://github.com/pulibrary/aspace_helpers/issues/410",
+      "number": 410,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/aspace_helpers",
+      "repository_name": "aspace_helpers",
+      "state": "open",
+      "title": "Report ACLU restrictions data",
+      "user_name": "regineheberlein",
+      "comments": [
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2023-08-21T11:05:06",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/410#issuecomment-1686104630",
+          "body": "The logic will need to be different from #186.\r\n\r\nIf level is 0 (i.e. collection-level) or the note is populated, return false (i.e. not a concern)\r\nIf level is greater than 0 and note is blank, then:\r\n    check note of the parent (from column J), and if that is also blank, then return true (i.e. a concern)\r\n    else return false\r\nelse return false\r\n\r\nIF(OR(G4=0, NOT(ISBLANK(J4))), FALSE, IF(AND(G4>0, ISBLANK(J4)), IF(ISBLANK(INDEX(J$2:J3,MATCH(2,1/(G$2:G3=G4-1)))), TRUE, FALSE), FALSE))"
+        },
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2023-08-21T21:42:04",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/410#issuecomment-1687082492",
+          "body": "Logic update: Check all the file-level (except 1 and 2) without a note for any children that don't have a note--the important thing is that the lowest-level components all have a note\r\n\r\nRun on row 3, where row 2 is collection-level (0), G is the level and J is the note\r\n\r\n```\r\n=IF(AND(\r\n#node is file level\r\nG3>=3, \r\n#and has no restriction note\r\nISBLANK(J3), \r\n#and is leaf, i.e. following is either the same or a higher level (=smaller number)\r\nOR(G4=G3, G4<G3)), \r\n#then, if true\r\n#check if note of first parent is blank\r\nIF(ISBLANK(LOOKUP(2,1/($G$2:G2=(G3-1)), $J$2:J3)), \r\n#then, if true, return true (i.e. this is of concern)\r\nTRUE, \r\n#else return false (i.e. not of concern)\r\nFALSE), \r\n#else return false\r\nFALSE)\r\n```\r\n\r\n\r\n\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T10:50:49",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T15:07:19",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-08-16T19:15:45",
+      "updated_at": "2023-08-16T19:15:45",
+      "html_url": "https://github.com/pulibrary/aspace_helpers/issues/409",
+      "number": 409,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/aspace_helpers",
+      "repository_name": "aspace_helpers",
+      "state": "closed",
+      "title": "Import ACLU restrictions",
+      "user_name": "regineheberlein",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T22:02:56",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2023-08-21T22:40:05",
+      "updated_at": "2023-08-21T22:40:05",
+      "html_url": "https://github.com/pulibrary/aspace_helpers/issues/412",
+      "number": 412,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/aspace_helpers",
+      "repository_name": "aspace_helpers",
+      "state": "open",
+      "title": "we need a report of the hard-coded access notes in ACLU that diverge from their ancestor notes",
+      "user_name": "regineheberlein",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T22:40:05",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T22:40:06",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T22:40:21",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "dls-handbook": [
+    {
+      "created_at": "2023-08-21T20:58:31",
+      "updated_at": "2023-08-21T20:58:31",
+      "html_url": "https://github.com/pulibrary/dls-handbook/issues/88",
+      "number": 88,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dls-handbook",
+      "repository_name": "dls-handbook",
+      "state": "open",
+      "title": "Document the location of the Student Developers zenhub board",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T20:58:37",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "dpul": [
+    {
+      "created_at": "2021-10-29T18:02:37",
+      "updated_at": "2021-10-29T18:02:37",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1183",
+      "number": 1183,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "open",
+      "title": "\"EDM rights\" field title should be changed to \"Rights\"",
+      "user_name": "Kim Leaman",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T20:35:22",
+          "type": "unlabeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "fellowship": [
+    {
+      "created_at": "2023-08-21T15:02:48",
+      "updated_at": "2023-08-21T15:02:48",
+      "html_url": "https://github.com/pulibrary/fellowship/issues/4",
+      "number": 4,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/fellowship",
+      "repository_name": "fellowship",
+      "state": "open",
+      "title": "Update description of in-person interview ",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2023-08-16T16:10:23",
+      "updated_at": "2023-08-16T16:10:23",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5958",
+      "number": 5958,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Wireframe user optimized Virtual Reading Room path options",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2023-08-21T12:16:23",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5958#issuecomment-1686219450",
+          "body": "Great ticket, with all these details on motivations, use cases, and pros / cons. Love seeing the success metric! It would be cool to record the current value of that metric and the \"acceptably low\" value."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-05-15T14:55:48",
+      "updated_at": "2023-05-15T14:55:48",
+      "html_url": "https://github.com/pulibrary/figgy/pull/5810",
+      "number": 5810,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/5810",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Update universalviewer from 3 to 4, use package via yarn",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/5810",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2019-02-18T21:03:27",
+      "updated_at": "2019-02-18T21:03:27",
+      "html_url": "https://github.com/pulibrary/figgy/issues/2598",
+      "number": 2598,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "visibility info badge error",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T20:46:34",
+          "type": "unlabeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-08-24T18:37:45",
+      "updated_at": "2022-08-24T18:37:45",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5388",
+      "number": 5388,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Prevent unwanted ligature from displaying automatically in arabic word ",
+      "user_name": "Shaun Ellis",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T20:47:01",
+          "type": "unlabeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-11-01T15:06:33",
+      "updated_at": "2022-11-01T15:06:33",
+      "html_url": "https://github.com/pulibrary/figgy/issues/5495",
+      "number": 5495,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Order Manager: automatic 4-up page numbering needed",
+      "user_name": "Kim Leaman",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2023-08-21T20:34:56",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5495#issuecomment-1687006090",
+          "body": "@kelea99 There is work in progress here but unfortunately not finished. It may need to be prioritized again."
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2023-08-21T20:39:13",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5495#issuecomment-1687011664",
+          "body": "Since it is learning friendly, would you like to hold off until you feel one of our student developers is ready to give it a try?  Im happy to reprioritize for fall?"
+        },
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2023-08-21T21:07:33",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5495#issuecomment-1687044299",
+          "body": "We have de-emphasized our javascript training which makes this issue less learning-friendly, unfortunately."
+        },
+        {
+          "user_name": "Kim Leaman",
+          "updated_at": "2023-08-21T21:13:12",
+          "html_url": "https://github.com/pulibrary/figgy/issues/5495#issuecomment-1687052237",
+          "body": "Ok. I do know this is needed  for cicognara and some microforms, and there is also a ticket for automated bracketing on both sides. I wonder if this is a discussion with @tpendragon and @sdellis as to when Shaun might be able to prioritize and work on both? "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2023-08-21T20:34:56",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2023-08-21T20:34:57",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T20:35:02",
+          "type": "unlabeled"
+        },
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2023-08-21T21:13:12",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Shaun Ellis",
+          "created_at": "2023-08-21T21:13:12",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2023-08-21T21:13:12",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2023-08-21T21:13:12",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "imagecat-rails": [
+    {
+      "created_at": "2023-08-19T01:50:14",
+      "updated_at": "2023-08-19T01:50:14",
+      "html_url": "https://github.com/pulibrary/imagecat-rails/pull/127",
+      "number": 127,
+      "pull_request_html_url": "https://github.com/pulibrary/imagecat-rails/pull/127",
+      "repository_html_url": "https://github.com/pulibrary/imagecat-rails",
+      "repository_name": "imagecat-rails",
+      "state": "closed",
+      "title": "Bump puma from 5.6.5 to 5.6.7",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Robert-Anthony Lee-Faison",
+          "created_at": "2023-08-21T13:52:42",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Robert-Anthony Lee-Faison",
+          "created_at": "2023-08-21T13:52:42",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Robert-Anthony Lee-Faison",
+          "created_at": "2023-08-21T13:52:42",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Robert-Anthony Lee-Faison",
+          "created_at": "2023-08-21T13:52:43",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/imagecat-rails/pull/127",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-08-21T18:34:51",
+      "updated_at": "2023-08-21T18:34:51",
+      "html_url": "https://github.com/pulibrary/imagecat-rails/pull/128",
+      "number": 128,
+      "pull_request_html_url": "https://github.com/pulibrary/imagecat-rails/pull/128",
+      "repository_html_url": "https://github.com/pulibrary/imagecat-rails",
+      "repository_name": "imagecat-rails",
+      "state": "open",
+      "title": "Add progress bar with increments for GuideCards",
+      "user_name": "Robert-Anthony Lee-Faison",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/imagecat-rails/pull/128",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2023-08-11T20:55:34",
+      "updated_at": "2023-08-11T20:55:34",
+      "html_url": "https://github.com/pulibrary/imagecat-rails/issues/121",
+      "number": 121,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/imagecat-rails",
+      "repository_name": "imagecat-rails",
+      "state": "open",
+      "title": "Create progress bar for rake tasks",
+      "user_name": "Robert-Anthony Lee-Faison",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "lae-blacklight": [
+    {
+      "created_at": "2023-08-18T15:58:32",
+      "updated_at": "2023-08-18T15:58:32",
+      "html_url": "https://github.com/pulibrary/lae-blacklight/issues/356",
+      "number": 356,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/lae-blacklight",
+      "repository_name": "lae-blacklight",
+      "state": "closed",
+      "title": "LAE site not pulling in new completions for LAE ephemera in Figgy",
+      "user_name": "Kim Leaman",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2023-08-21T12:32:15",
+          "html_url": "https://github.com/pulibrary/lae-blacklight/issues/356#issuecomment-1686241998",
+          "body": "Do we know what brought the queues down? It wasn't too long ago that I discovered they were down, brought them all back up, and reindexed all the dpul collections 😞 "
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2022-05-20T18:20:00",
+      "updated_at": "2022-05-20T18:20:00",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/3009",
+      "number": 3009,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/3009",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Link IIIF to `#viewer-container`",
+      "user_name": "Max Kadel",
+      "comments": [
+        {
+          "user_name": "Max Kadel",
+          "updated_at": "2023-08-21T13:50:31",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/3009#issuecomment-1686371396",
+          "body": "Outdated and probably no longer helpful."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2023-08-21T13:50:31",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/3009",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-08-18T21:55:50",
+      "updated_at": "2023-08-18T21:55:50",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/3690",
+      "number": 3690,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/3690",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Bump puma from 6.0.1 to 6.3.1",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T13:52:41",
+          "type": "deployed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T14:23:20",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2023-08-21T14:25:45",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2023-08-21T14:25:45",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2023-08-21T14:25:46",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Max Kadel",
+          "created_at": "2023-08-21T14:25:46",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/3690",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-08-21T14:34:46",
+      "updated_at": "2023-08-21T14:34:46",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/3692",
+      "number": 3692,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/3692",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Update deploy qa file to read rails_env:qa",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2023-08-21T14:42:56",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/3692#issuecomment-1686466831",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/62115941/badge)](https://coveralls.io/builds/62115941)\n\ncoverage: 95.429%. remained the same when pulling **6e8f3f04fecaeef93c986cfc36446ea79ac351c0 on remove-alma-qa-part2** into **8075136337d443ba8411448b35d9ff38c868bb01 on main**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T14:37:43",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2023-08-21T16:20:04",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2023-08-21T16:20:04",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2023-08-21T16:20:05",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2023-08-21T16:20:05",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/3692",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-08-21T14:32:59",
+      "updated_at": "2023-08-21T14:32:59",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/3691",
+      "number": 3691,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Remove stale alma_qa env. Also update deploy/qa o read qa rails env",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2023-08-21T14:32:59",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2023-08-21T14:33:03",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2023-08-21T16:20:06",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2023-08-09T19:45:21",
+      "updated_at": "2023-08-09T19:45:21",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/3675",
+      "number": 3675,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/3675",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Updated Aeon Base URL and Query String",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2023-08-21T16:22:37",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T19:36:24",
+          "type": "deployed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/3675",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2023-08-21T20:16:50",
+      "updated_at": "2023-08-21T20:16:50",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/3693",
+      "number": 3693,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/3693",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "[Don't merge] Use different request handler for JSON Query DSL",
+      "user_name": "Jane Sandberg",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2023-08-21T20:22:42",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/3693#issuecomment-1686990761",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/62125460/badge)](https://coveralls.io/builds/62125460)\n\ncoverage: 95.361% (-0.07%) from 95.429% when pulling **e26fdd79ab53843f9e49555d3305bad05e87e5d9 on use-blacklight-fix** into **2c7cf113a796fbb61c05bd45877cfc70a49e4e8d on main**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T20:47:18",
+          "type": "deployed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/3693",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2023-07-27T19:15:54",
+      "updated_at": "2023-07-27T19:15:54",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/3651",
+      "number": 3651,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Remove unused geohash field from solr schema.xml",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T20:36:46",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-08-21T20:17:04",
+      "updated_at": "2023-08-21T20:17:04",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/3694",
+      "number": 3694,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/3694",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Added flipper feature for new aeon url",
+      "user_name": "rladdusaw",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2023-08-21T20:29:17",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/3694#issuecomment-1686998648",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/62125644/badge)](https://coveralls.io/builds/62125644)\n\ncoverage: 95.38% (-0.05%) from 95.429% when pulling **a451df07b8d76979419b0968891636687df72737 on 3676-toggle-aeon-url** into **2c7cf113a796fbb61c05bd45877cfc70a49e4e8d on main**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T20:36:24",
+          "type": "ready_for_review"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/3694",
+      "action": "pull_request_open"
+    }
+  ],
+  "pdc_describe": [
+    {
+      "created_at": "2023-08-17T19:12:49",
+      "updated_at": "2023-08-17T19:12:49",
+      "html_url": "https://github.com/pulibrary/pdc_describe/pull/1457",
+      "number": 1457,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_describe/pull/1457",
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "closed",
+      "title": "Allowing the Affiliation changes to be displayed in provenance log",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T11:52:46",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T12:06:43",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T12:16:15",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T12:58:11",
+          "type": "review_dismissed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T12:58:11",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T13:55:04",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T13:55:04",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T13:55:04",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T13:55:05",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_describe/pull/1457",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-08-17T18:18:43",
+      "updated_at": "2023-08-17T18:18:43",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/1456",
+      "number": 1456,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "closed",
+      "title": "ROR changes are not chowing up in provenance log",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T11:52:46",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T12:06:42",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T12:16:15",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T12:58:10",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T13:55:06",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T13:55:07",
+          "type": "referenced"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2023-08-07T20:41:36",
+      "updated_at": "2023-08-07T20:41:36",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/1399",
+      "number": 1399,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "closed",
+      "title": "ARKs and DOIs are not updating when a work is published in production",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T14:03:52",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2023-08-21T14:22:51",
+      "updated_at": "2023-08-21T14:22:51",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/1460",
+      "number": 1460,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Update migration spreadsheet with recently added objects",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T14:22:52",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2023-08-19T01:27:23",
+      "updated_at": "2023-08-19T01:27:23",
+      "html_url": "https://github.com/pulibrary/pdc_describe/pull/1459",
+      "number": 1459,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_describe/pull/1459",
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "closed",
+      "title": "Bump puma from 5.6.4 to 5.6.7",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T14:47:14",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T14:47:14",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T14:47:14",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T14:47:15",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_describe/pull/1459",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-08-17T20:52:36",
+      "updated_at": "2023-08-17T20:52:36",
+      "html_url": "https://github.com/pulibrary/pdc_describe/pull/1458",
+      "number": 1458,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_describe/pull/1458",
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "closed",
+      "title": "Document how to recover from a partial migration",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T14:50:30",
+          "type": "review_dismissed"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T14:58:06",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T14:58:06",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T14:58:06",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T14:58:07",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_describe/pull/1458",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-08-21T14:57:29",
+      "updated_at": "2023-08-21T14:57:29",
+      "html_url": "https://github.com/pulibrary/pdc_describe/pull/1461",
+      "number": 1461,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_describe/pull/1461",
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "closed",
+      "title": "Fix typo in file name",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-08-21T15:38:29",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-08-21T15:38:29",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-08-21T15:38:29",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-08-21T15:38:30",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_describe/pull/1461",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-08-21T18:20:38",
+      "updated_at": "2023-08-21T18:20:38",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/1462",
+      "number": 1462,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Author name display bug",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T18:20:39",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-08-21T18:52:01",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2023-08-21T21:32:07",
+      "updated_at": "2023-08-21T21:32:07",
+      "html_url": "https://github.com/pulibrary/pdc_describe/pull/1463",
+      "number": 1463,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_describe/pull/1463",
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Encode creator names properly",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/pdc_describe/pull/1463",
+      "action": "pull_request_open"
+    }
+  ],
+  "pdc_discovery": [
+    {
+      "created_at": "2023-08-21T11:25:42",
+      "updated_at": "2023-08-21T11:25:42",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/485",
+      "number": 485,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "closed",
+      "title": "Error Indexing cron: [pdc_discovery/staging] Net::ReadTimeout: Net::ReadTimeout with #<Socket:(closed)>",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "Hector Correa",
+          "updated_at": "2023-08-21T14:47:48",
+          "html_url": "https://github.com/pulibrary/pdc_discovery/issues/485#issuecomment-1686475460",
+          "body": "The related HoneyBadger notice for production: https://app.honeybadger.io/projects/95072/faults/99595191"
+        },
+        {
+          "user_name": "Hector Correa",
+          "updated_at": "2023-08-21T15:42:38",
+          "html_url": "https://github.com/pulibrary/pdc_discovery/issues/485#issuecomment-1686572876",
+          "body": "The culprit was that our Solr cluster in staging became unstable. \r\n\r\nThe problem logged by our app was that it could not create a new Solr collection and in looking closer I noticed that we could not perform this activity from the Solr Web UI either. I restarted the Solr nodes via `sudo service solr restart` in staging (`lib-solr-staging4-5-6`) and the problem went away. Restarting the service in `lib-solr-staging6` took an abnormal amount of time (like 10 minutes) but eventually it restarted and was OK.\r\n\r\nI reindexed in staging via `bundle exec rake index:research_data` and the reindex completed as normal.\r\n"
+        },
+        {
+          "user_name": "Hector Correa",
+          "updated_at": "2023-08-21T15:48:11",
+          "html_url": "https://github.com/pulibrary/pdc_discovery/issues/485#issuecomment-1686582662",
+          "body": "Ran reindex in production to make sure that cluster was OK and reindex completed successfully. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T11:26:18",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-08-21T14:16:32",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-08-21T15:48:13",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2023-08-21T15:55:09",
+      "updated_at": "2023-08-21T15:55:09",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/pull/486",
+      "number": 486,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_discovery/pull/486",
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "open",
+      "title": "Better logging for indexing",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/pdc_discovery/pull/486",
+      "action": "pull_request_open"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2023-08-21T15:04:24",
+      "updated_at": "2023-08-21T15:04:24",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4161",
+      "number": 4161,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4161",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "#4160 update some more envs for qa env",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2023-08-21T16:19:25",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2023-08-21T16:19:25",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2023-08-21T16:19:26",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2023-08-21T16:19:26",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4161",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-08-21T15:02:32",
+      "updated_at": "2023-08-21T15:02:32",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/4160",
+      "number": 4160,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Update passenger rails_env",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2023-08-21T15:03:55",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2023-08-21T16:19:27",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2023-08-21T16:19:28",
+          "type": "referenced"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2023-07-31T16:22:09",
+      "updated_at": "2023-07-31T16:22:09",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/4094",
+      "number": 4094,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Manage certs transition",
+      "user_name": "Alicia Cozine",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-08-18T15:31:04",
+      "updated_at": "2023-08-18T15:31:04",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4159",
+      "number": 4159,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4159",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "main RDSS sites pass errors through the load balancer",
+      "user_name": "Alicia Cozine",
+      "comments": [
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2023-08-21T18:21:42",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4159#issuecomment-1686813148",
+          "body": "Deployed and spot-tested. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-08-21T18:21:52",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-08-21T18:21:52",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-08-21T18:21:53",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-08-21T18:21:53",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4159",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-08-21T16:44:33",
+      "updated_at": "2023-08-21T16:44:33",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4162",
+      "number": 4162,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4162",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "moves certs for svn prod and staging to ACME",
+      "user_name": "Alicia Cozine",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-08-21T18:23:11",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-08-21T18:23:11",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-08-21T18:23:11",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-08-21T18:23:12",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4162",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-08-11T19:56:27",
+      "updated_at": "2023-08-11T19:56:27",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/4142",
+      "number": 4142,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "[nginx] update all sites to pass error codes through the load balancer",
+      "user_name": "Alicia Cozine",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-06-22T17:32:05",
+      "updated_at": "2023-06-22T17:32:05",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4016",
+      "number": 4016,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4016",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "[postgres] remove unused roles",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2023-08-21T18:47:08",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4016#issuecomment-1604768867",
+          "body": "CI is broken because the `figgy` role depends on the `postgres` role - see https://github.com/pulibrary/princeton_ansible/blob/main/roles/figgy/meta/main.yml#L27.\r\n\r\nIs figgy the only reason we need the new \"create a read-only user\" playbook? If this is a pattern we want to move away from, we could incorporate those tasks into the figgy role as `roles/figgy/tasks/readonly_pg_user.yml` instead of having a playbook for them."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-08-21T20:30:51",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4016",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2023-08-21T21:21:59",
+      "updated_at": "2023-08-21T21:21:59",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4163",
+      "number": 4163,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4163",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[nginx] add config stanza for logo",
+      "user_name": "Alicia Cozine",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2023-08-21T21:34:01",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2023-08-21T21:34:01",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2023-08-21T21:34:01",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2023-08-21T21:34:02",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4163",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-08-09T19:54:09",
+      "updated_at": "2023-08-09T19:54:09",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/4134",
+      "number": 4134,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[nginx] PUL logo does not load on error pages",
+      "user_name": "Alicia Cozine",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2023-08-21T21:34:02",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2023-08-18T13:55:20",
+      "updated_at": "2023-08-18T13:55:20",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4156",
+      "number": 4156,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4156",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "[Nginx] set 'always' tag on nginx validation",
+      "user_name": "Alicia Cozine",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-08-21T18:25:16",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2023-08-21T21:35:06",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4156",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2023-07-31T20:59:51",
+      "updated_at": "2023-07-31T20:59:51",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4098",
+      "number": 4098,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4098",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "Add headers to help troubleshooting error pages",
+      "user_name": "Jane Sandberg",
+      "comments": [
+        {
+          "user_name": "Jane Sandberg",
+          "updated_at": "2023-08-21T21:37:50",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4098#issuecomment-1687079505",
+          "body": "This was a temporary troubleshooting step, and is no longer needed."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2023-08-21T21:37:26",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4098",
+      "action": "pull_request_closed"
+    }
+  ],
+  "pul_rails_template": [
+    {
+      "created_at": "2023-04-17T15:23:04",
+      "updated_at": "2023-04-17T15:23:04",
+      "html_url": "https://github.com/pulibrary/pul_rails_template/issues/10",
+      "number": 10,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_rails_template",
+      "repository_name": "pul_rails_template",
+      "state": "closed",
+      "title": "Run DLS labeler on this repo",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T20:41:36",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2023-04-17T15:22:21",
+      "updated_at": "2023-04-17T15:22:21",
+      "html_url": "https://github.com/pulibrary/pul_rails_template/issues/9",
+      "number": 9,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_rails_template",
+      "repository_name": "pul_rails_template",
+      "state": "open",
+      "title": "Quality Assurance on this new repo",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T20:41:53",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-04-28T15:39:24",
+      "updated_at": "2023-04-28T15:39:24",
+      "html_url": "https://github.com/pulibrary/pul_rails_template/issues/18",
+      "number": 18,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_rails_template",
+      "repository_name": "pul_rails_template",
+      "state": "open",
+      "title": "Cap task to write public text file with SHA of last deploy",
+      "user_name": "Taylor Yamashita",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2023-08-21T20:45:18",
+          "html_url": "https://github.com/pulibrary/pul_rails_template/issues/18#issuecomment-1687019141",
+          "body": "Let's enhance this to include more than 1 line -- maybe do everything in revisions.log, but with the newest at the top. Format it a little?"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T20:45:39",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "pul_solr": [
+    {
+      "created_at": "2023-08-11T19:32:43",
+      "updated_at": "2023-08-11T19:32:43",
+      "html_url": "https://github.com/pulibrary/pul_solr/pull/371",
+      "number": 371,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_solr/pull/371",
+      "repository_html_url": "https://github.com/pulibrary/pul_solr",
+      "repository_name": "pul_solr",
+      "state": "closed",
+      "title": "I370 request handler jsondsl",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2023-08-21T19:37:42",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2023-08-21T19:40:30",
+          "type": "convert_to_draft"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2023-08-21T19:53:31",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2023-08-21T20:00:26",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2023-08-21T20:00:26",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2023-08-21T20:00:26",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2023-08-21T20:00:27",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul_solr/pull/371",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-08-02T15:39:37",
+      "updated_at": "2023-08-02T15:39:37",
+      "html_url": "https://github.com/pulibrary/pul_solr/issues/370",
+      "number": 370,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_solr",
+      "repository_name": "pul_solr",
+      "state": "closed",
+      "title": "[orangelight] Add new request handler for json queries",
+      "user_name": "Max Kadel",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2023-08-21T20:00:27",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "pulfalight": [
+    {
+      "created_at": "2022-04-06T13:15:09",
+      "updated_at": "2022-04-06T13:15:09",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/1008",
+      "number": 1008,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Document smtp allow list step for newly provisioned boxes",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T20:50:14",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-05-06T16:57:42",
+      "updated_at": "2022-05-06T16:57:42",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/1059",
+      "number": 1059,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Poorly formatted component IDs in URL triggering exception",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2023-08-21T20:52:42",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/1059#issuecomment-1687027741",
+          "body": "This looks the same as #1207. Make them 404?"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-07-10T19:56:47",
+      "updated_at": "2023-07-10T19:56:47",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/1269",
+      "number": 1269,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Restart workers on deploy rollback",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T20:53:58",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-07-06T21:49:31",
+      "updated_at": "2023-07-06T21:49:31",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/1265",
+      "number": 1265,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Install Sidekiq Pro",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T20:54:38",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-07-06T21:38:47",
+      "updated_at": "2023-07-06T21:38:47",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/1264",
+      "number": 1264,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Production log grows too fast",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2023-08-21T20:56:27",
+          "html_url": "https://github.com/pulibrary/pulfalight/issues/1264#issuecomment-1687031915",
+          "body": "Catch the error and give some info about how to find the EAD, instead of logging it in its entirety. It's stored in a database cache."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T20:56:36",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-07-03T13:03:55",
+      "updated_at": "2023-07-03T13:03:55",
+      "html_url": "https://github.com/pulibrary/pulfalight/issues/1250",
+      "number": 1250,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Move search table expiration to whenever",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T20:57:00",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "rails-template": [
+    {
+      "created_at": "2023-02-15T16:37:41",
+      "updated_at": "2023-02-15T16:37:41",
+      "html_url": "https://github.com/pulibrary/rails-template/issues/37",
+      "number": 37,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/rails-template",
+      "repository_name": "rails-template",
+      "state": "open",
+      "title": "Use .railsrc and template.rb to generate a new application",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2023-08-21T20:37:20",
+          "html_url": "https://github.com/pulibrary/rails-template/issues/37#issuecomment-1687009212",
+          "body": "There's a project started at https://github.com/pulibrary/pul_rails_template."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Taylor Yamashita",
+          "created_at": "2023-08-21T20:37:33",
+          "type": "unassigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-04-17T15:23:35",
+      "updated_at": "2023-04-17T15:23:35",
+      "html_url": "https://github.com/pulibrary/rails-template/issues/40",
+      "number": 40,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/rails-template",
+      "repository_name": "rails-template",
+      "state": "closed",
+      "title": "Run labeler on new repo",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T20:40:39",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2023-04-17T16:02:34",
+      "updated_at": "2023-04-17T16:02:34",
+      "html_url": "https://github.com/pulibrary/rails-template/issues/41",
+      "number": 41,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/rails-template",
+      "repository_name": "rails-template",
+      "state": "open",
+      "title": "Rename repo to rails-example",
+      "user_name": "hackartisan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T20:41:02",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2022-11-04T16:40:53",
+      "updated_at": "2022-11-04T16:40:53",
+      "html_url": "https://github.com/pulibrary/rails-template/issues/31",
+      "number": 31,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/rails-template",
+      "repository_name": "rails-template",
+      "state": "closed",
+      "title": "Update to rails 7, Vite instead of webpacker",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2023-08-21T20:41:25",
+          "html_url": "https://github.com/pulibrary/rails-template/issues/31#issuecomment-1687014368",
+          "body": "close in favor of #37"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T20:41:27",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "tiger-data-app": [
+    {
+      "created_at": "2023-08-18T14:07:41",
+      "updated_at": "2023-08-18T14:07:41",
+      "html_url": "https://github.com/pulibrary/tiger-data-app/pull/143",
+      "number": 143,
+      "pull_request_html_url": "https://github.com/pulibrary/tiger-data-app/pull/143",
+      "repository_html_url": "https://github.com/pulibrary/tiger-data-app",
+      "repository_name": "tiger-data-app",
+      "state": "closed",
+      "title": "Installing and initializing the configuration for DataDog monitoring in the production environment",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T14:08:22",
+          "type": "deployed"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T14:14:30",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T14:14:30",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T14:14:30",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2023-08-21T14:14:31",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/tiger-data-app/pull/143",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-08-21T15:58:11",
+      "updated_at": "2023-08-21T15:58:11",
+      "html_url": "https://github.com/pulibrary/tiger-data-app/pull/144",
+      "number": 144,
+      "pull_request_html_url": "https://github.com/pulibrary/tiger-data-app/pull/144",
+      "repository_html_url": "https://github.com/pulibrary/tiger-data-app",
+      "repository_name": "tiger-data-app",
+      "state": "closed",
+      "title": "Get all test passing locally by updating bundle",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T16:03:25",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2023-08-21T16:04:39",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-08-21T16:17:13",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-08-21T16:17:13",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-08-21T16:17:13",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2023-08-21T16:17:14",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/tiger-data-app/pull/144",
+      "action": "pull_request_closed"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 63,
+    "closed_count": 10,
+    "created_count": 8,
+    "pull_request_closed_count": 16,
+    "pull_request_open_count": 9,
+    "updated_count": 20,
+    "today": "2023-08-21T22:00:07",
+    "yesterday": "2023-08-20T22:00:07"
+  }
+}
