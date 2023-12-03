@@ -1,0 +1,153 @@
+{
+  "allsearch_api": [
+    {
+      "created_at": "2023-11-27T15:38:34",
+      "updated_at": "2023-11-27T15:38:34",
+      "html_url": "https://github.com/pulibrary/allsearch_api/issues/167",
+      "number": 167,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/allsearch_api",
+      "repository_name": "allsearch_api",
+      "state": "closed",
+      "title": "Swagger file does not conform to OpenAPI standard",
+      "user_name": "Jane Sandberg",
+      "comments": [
+        {
+          "user_name": "Jane Sandberg",
+          "updated_at": "2023-12-01T22:52:45",
+          "html_url": "https://github.com/pulibrary/allsearch_api/issues/167#issuecomment-1836884011",
+          "body": "Thanks for correcting the record, @Stranger6667, and for your offer to help !  Yeah, it seems that #168 didn't change the situation for me as far as running schemathesis.\r\n\r\n* The following works fine: `st run --checks all swagger/v1/swagger.yaml --base-url https://allsearch-api.princeton.edu`.\r\n* But when I try to run `st run --checks all https://allsearch-api.princeton.edu/api-docs/v1/swagger.yaml` (which should be the identical swagger.yaml file), I get:\r\n\r\n```\r\nSchema Loading Error\r\n\r\nReceived unsupported content while expecting a JSON or YAML payload for Open API\r\n\r\nTip: Verify that the URL points directly to the Open API schema\r\n```\r\n\r\nSo it seems that there is something happening with either how schemathesis fetches the yaml file, or how we serve it?"
+        },
+        {
+          "user_name": "Dmitry Dygalo",
+          "updated_at": "2023-12-01T23:07:09",
+          "html_url": "https://github.com/pulibrary/allsearch_api/issues/167#issuecomment-1836894618",
+          "body": "Thank you for sharing the reproducing command!\r\n\r\nThe underlying error comes from the YAML parser:\r\n\r\n```\r\nunacceptable character #x0080: control characters are not allowed\r\n  in \"<unicode string>\", position 758\r\n```\r\n\r\nIt is here - `Theophile-Alexandre Steinlen, 1859\\xe2\\x80\\x931923;`. It is raw content received from the network\r\n\r\nI am going to adjust the error messages so it is easier to observe the underlying issue"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Dmitry Dygalo",
+          "created_at": "2023-12-01T22:52:46",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Dmitry Dygalo",
+          "created_at": "2023-12-01T22:52:46",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "allsearch_frontend": [
+    {
+      "created_at": "2023-12-01T22:41:10",
+      "updated_at": "2023-12-01T22:41:10",
+      "html_url": "https://github.com/pulibrary/allsearch_frontend/pull/174",
+      "number": 174,
+      "pull_request_html_url": "https://github.com/pulibrary/allsearch_frontend/pull/174",
+      "repository_html_url": "https://github.com/pulibrary/allsearch_frontend",
+      "repository_name": "allsearch_frontend",
+      "state": "closed",
+      "title": "Reduce layout shifts from the Skip to Section",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2023-12-01T23:38:17",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2023-12-01T23:38:17",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2023-12-01T23:38:17",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2023-12-01T23:38:18",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/allsearch_frontend/pull/174",
+      "action": "pull_request_closed"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2023-12-02T13:49:33",
+      "updated_at": "2023-12-02T13:49:33",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/3868",
+      "number": 3868,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Harmful content form and/or controller should validate email addresses before trying to send email",
+      "user_name": "Eliot Jordan",
+      "comments": [
+        {
+          "user_name": "esmé cowles",
+          "updated_at": "2023-12-02T13:54:30",
+          "html_url": "https://github.com/pulibrary/orangelight/issues/3868#issuecomment-1837153335",
+          "body": "Original title: \" [Orangelight/production] Net::SMTPFatalError: 553 5.5.4 <Haarlem>... Domain name required for sender address Haarlem\"\r\n\r\nThis looks like a spam submission, but it reveals a potential issue that would impact users who enter invalid email addresses: we are not validating submitted email addresses. The [form](https://github.com/pulibrary/orangelight/blob/main/app/forms/report_harmful_language_form.rb#L30) is trying to make sure there's a return address by having a fallback if no email is entered, so it could also validate that submitted addresses are syntactically valid.\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "esmé cowles",
+          "created_at": "2023-12-02T13:50:36",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2023-12-02T15:29:39",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "pulfalight": [
+    {
+      "created_at": "2023-11-30T22:06:17",
+      "updated_at": "2023-11-30T22:06:17",
+      "html_url": "https://github.com/pulibrary/pulfalight/pull/1353",
+      "number": 1353,
+      "pull_request_html_url": "https://github.com/pulibrary/pulfalight/pull/1353",
+      "repository_html_url": "https://github.com/pulibrary/pulfalight",
+      "repository_name": "pulfalight",
+      "state": "open",
+      "title": "Use refs instead of ID when fetching xml",
+      "user_name": "hackartisan",
+      "comments": [
+        {
+          "user_name": "hackartisan",
+          "updated_at": "2023-12-01T22:07:25",
+          "html_url": "https://github.com/pulibrary/pulfalight/pull/1353#issuecomment-1836843973",
+          "body": "I put this back in draft because deploying it to staging crashes the staging webserver with the following error in `/var/log/nginx/error.log`\r\n\r\n```\r\nApp 10435 output: Error: The application encountered the following error: You have already activated stringio 3.0.1, but your Gemfile requires stringio 3.1.0. Since stringio is a default gem, you can either remove your dependency on it or try updating to a newer version of bundler that supports stringio as a default gem. (Gem::LoadError)\r\nApp 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/runtime.rb:308:in `check_for_activated_spec!'\r\nApp 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/runtime.rb:25:in `block in setup'\r\nApp 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/spec_set.rb:140:in `each'\r\nApp 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/spec_set.rb:140:in `each'\r\nApp 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/runtime.rb:24:in `map'\r\nApp 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/runtime.rb:24:in `setup'\r\nApp 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler.rb:162:in `setup'\r\nApp 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/setup.rb:20:in `block in <top (required)>'\r\nApp 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/ui/shell.rb:136:in `with_level'\r\nApp 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/ui/shell.rb:88:in `silence'\r\nApp 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/setup.rb:20:in `<top (required)>'\r\nApp 10435 output:     <internal:/usr/local/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:85:in `require'\r\nApp 10435 output:     <internal:/usr/local/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:85:in `require'\r\nApp 10435 output:     /usr/lib/ruby/vendor_ruby/phusion_passenger/loader_shared_helpers.rb:380:in `activate_gem'\r\nApp 10435 output:     /usr/lib/ruby/vendor_ruby/phusion_passenger/loader_shared_helpers.rb:221:in `block in run_load_path_setup_code'\r\nApp 10435 output:     /usr/lib/ruby/vendor_ruby/phusion_passenger/loader_shared_helpers.rb:544:in `running_bundler'\r\nApp 10435 output:     /usr/lib/ruby/vendor_ruby/phusion_passenger/loader_shared_helpers.rb:220:in `run_load_path_setup_code'\r\nApp 10435 output:     /usr/share/passenger/helper-scripts/rack-preloader.rb:91:in `preload_app'\r\nApp 10435 output:     /usr/share/passenger/helper-scripts/rack-preloader.rb:189:in `block in <module:App>'\r\nApp 10435 output:     /usr/lib/ruby/vendor_ruby/phusion_passenger/loader_shared_helpers.rb:397:in `run_block_and_record_step_progress'\r\nApp 10435 output:     /usr/share/passenger/helper-scripts/rack-preloader.rb:188:in `<module:App>'\r\nApp 10435 output:     /usr/share/passenger/helper-scripts/rack-preloader.rb:30:in `<module:PhusionPassenger>'\r\nApp 10435 output:     /usr/share/passenger/helper-scripts/rack-preloader.rb:29:in `<main>'\r\n[ E 2023-12-01 22:06:04.2404 8834/Tqd age/Cor/App/Implementation.cpp:221 ]: Could not spawn process for application /opt/pulfalight/current: The application encountered the following error: You have already activated stringio 3.0.1, but your Gemfile requires stringio 3.1.0. Since stringio is a default gem, you can either remove your dependency on it or try updating to a newer version of bundler that supports stringio as a default gem. (Gem::LoadError)\r\n  Error ID: e9d58719\r\n  Error details saved to: /tmp/passenger-error-GnKFOE.html\r\n\r\n[ E 2023-12-01 22:06:04.2473 8834/T8 age/Cor/Con/CheckoutSession.cpp:283 ]: [Client 1-2231] Cannot checkout session because a spawning error occurred. The identifier of the error is e9d58719. Please see earlier logs for details about the error.\r\n```\r\n"
+        }
+      ],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/pulfalight/pull/1353",
+      "action": "pull_request_open"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 4,
+    "closed_count": 1,
+    "created_count": 1,
+    "pull_request_closed_count": 1,
+    "pull_request_open_count": 1,
+    "today": "2023-12-02T22:00:11",
+    "yesterday": "2023-12-01T22:00:11"
+  }
+}

@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5fda38894b.js" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" type="text/css" href="../../../../css/main.css" />
+    <title>PUL GitHub Issues for 2023-12-02T22:00:11</title>
+  </head>
+
+<body>
+  <div class="container-fluid">
+    <a id="btt-button"></a>
+    
+<h1 class="bg-dark text-light">PUL GitHub Issues<br />
+  <small class="text-white-70">2023-12-02</small></h1>
+<nav class="navbar sticky-top navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar-toggler">
+    <ul class="navbar-nav mr-auto mt-2 pt-3 mt-lg-0">
+      <li class="nav-item not-mono">
+        <a class="nav-link" href="../../../../index.html"><i class="fas fa-arrow-left"></i> Back to Report List Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#allsearch_api">pulibrary/allsearch_api</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#allsearch_frontend">pulibrary/allsearch_frontend</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#orangelight">pulibrary/orangelight</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pulfalight">pulibrary/pulfalight</a>
+      </li>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    
+    <section class="repo" id="allsearch_api">
+      <h2><a href="https://github.com/pulibrary/allsearch_api">pulibrary/allsearch_api</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="allsearch_api-167">
+        <h3><a href="https://github.com/pulibrary/allsearch_api/issues/167">#167</a> Swagger file does not conform to OpenAPI standard</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Jane Sandberg</dd>
+          <dt>Created:</dt>
+          <dd>2023-11-27 15:38:34</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Jane Sandberg at <a href="https://github.com/pulibrary/allsearch_api/issues/167#issuecomment-1836884011">2023-12-01 22:52:45</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Thanks for correcting the record, @Stranger6667, and for your offer to help !  Yeah, it seems that #168 didn&#39;t change the situation for me as far as running schemathesis.</p>
+
+<ul>
+<li>The following works fine: <code>st run --checks all swagger/v1/swagger.yaml --base-url https://allsearch-api.princeton.edu</code>.</li>
+<li>But when I try to run <code>st run --checks all https://allsearch-api.princeton.edu/api-docs/v1/swagger.yaml</code> (which should be the identical swagger.yaml file), I get:</li>
+</ul>
+
+<pre><code>Schema Loading Error
+
+Received unsupported content while expecting a JSON or YAML payload for Open API
+
+Tip: Verify that the URL points directly to the Open API schema
+</code></pre>
+
+<p>So it seems that there is something happening with either how schemathesis fetches the yaml file, or how we serve it?</p>
+
+              </dd>
+              <dt>Dmitry Dygalo at <a href="https://github.com/pulibrary/allsearch_api/issues/167#issuecomment-1836894618">2023-12-01 23:07:09</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="odd">
+                <p>Thank you for sharing the reproducing command!</p>
+
+<p>The underlying error comes from the YAML parser:</p>
+
+<pre><code>unacceptable character #x0080: control characters are not allowed
+  in &quot;&lt;unicode string&gt;&quot;, position 758
+</code></pre>
+
+<p>It is here - <code>Theophile-Alexandre Steinlen, 1859\xe2\x80\x931923;</code>. It is raw content received from the network</p>
+
+<p>I am going to adjust the error messages so it is easier to observe the underlying issue</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>mentioned</code> by Dmitry Dygalo at 2023-12-01 22:52:46.</li>
+  <li class="event odd">
+    <code>subscribed</code> by Dmitry Dygalo at 2023-12-01 22:52:46.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="allsearch_frontend">
+      <h2><a href="https://github.com/pulibrary/allsearch_frontend">pulibrary/allsearch_frontend</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="allsearch_frontend-174">
+        <h3><a href="https://github.com/pulibrary/allsearch_frontend/pull/174">#174</a> Reduce layout shifts from the Skip to Section</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Jane Sandberg</dd>
+          <dt>Created:</dt>
+          <dd>2023-12-01 22:41:10</dd>
+          <dt>Status:</dt>
+          <dd>Closed
+          (<a href="https://github.com/pulibrary/allsearch_frontend/pull/174">pull request</a>)
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>referenced</code> by Christina Chortaria at 2023-12-01 23:38:17.</li>
+  <li class="event odd">
+    <code>merged</code> by Christina Chortaria at 2023-12-01 23:38:17.</li>
+  <li class="event even">
+    <code>closed</code> by Christina Chortaria at 2023-12-01 23:38:17.</li>
+  <li class="event odd">
+    <code>head_ref_deleted</code> by Christina Chortaria at 2023-12-01 23:38:18.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="orangelight">
+      <h2><a href="https://github.com/pulibrary/orangelight">pulibrary/orangelight</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="orangelight-3868">
+        <h3><a href="https://github.com/pulibrary/orangelight/issues/3868">#3868</a> Harmful content form and/or controller should validate email addresses before trying to send email</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Eliot Jordan</dd>
+          <dt>Created:</dt>
+          <dd>2023-12-02 13:49:33</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>esmé cowles at <a href="https://github.com/pulibrary/orangelight/issues/3868#issuecomment-1837153335">2023-12-02 13:54:30</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Original title: &quot; [Orangelight/production] Net::SMTPFatalError: 553 5.5.4 <Haarlem>... Domain name required for sender address Haarlem&quot;</p>
+
+<p>This looks like a spam submission, but it reveals a potential issue that would impact users who enter invalid email addresses: we are not validating submitted email addresses. The <a href="https://github.com/pulibrary/orangelight/blob/main/app/forms/report_harmful_language_form.rb#L30">form</a> is trying to make sure there&#39;s a return address by having a fallback if no email is entered, so it could also validate that submitted addresses are syntactically valid.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>renamed</code> by esmé cowles at 2023-12-02 13:50:36.</li>
+  <li class="event odd">
+    <code>labeled</code> by Kevin Reiss at 2023-12-02 15:29:39.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="pulfalight">
+      <h2><a href="https://github.com/pulibrary/pulfalight">pulibrary/pulfalight</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="pulfalight-1353">
+        <h3><a href="https://github.com/pulibrary/pulfalight/pull/1353">#1353</a> Use refs instead of ID when fetching xml</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>hackartisan</dd>
+          <dt>Created:</dt>
+          <dd>2023-11-30 22:06:17</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/pulfalight/pull/1353">pull request</a>)
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>hackartisan at <a href="https://github.com/pulibrary/pulfalight/pull/1353#issuecomment-1836843973">2023-12-01 22:07:25</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>I put this back in draft because deploying it to staging crashes the staging webserver with the following error in <code>/var/log/nginx/error.log</code></p>
+
+<pre><code>App 10435 output: Error: The application encountered the following error: You have already activated stringio 3.0.1, but your Gemfile requires stringio 3.1.0. Since stringio is a default gem, you can either remove your dependency on it or try updating to a newer version of bundler that supports stringio as a default gem. (Gem::LoadError)
+App 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/runtime.rb:308:in `check_for_activated_spec!&#39;
+App 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/runtime.rb:25:in `block in setup&#39;
+App 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/spec_set.rb:140:in `each&#39;
+App 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/spec_set.rb:140:in `each&#39;
+App 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/runtime.rb:24:in `map&#39;
+App 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/runtime.rb:24:in `setup&#39;
+App 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler.rb:162:in `setup&#39;
+App 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/setup.rb:20:in `block in &lt;top (required)&gt;&#39;
+App 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/ui/shell.rb:136:in `with_level&#39;
+App 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/ui/shell.rb:88:in `silence&#39;
+App 10435 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.18/lib/bundler/setup.rb:20:in `&lt;top (required)&gt;&#39;
+App 10435 output:     &lt;internal:/usr/local/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb&gt;:85:in `require&#39;
+App 10435 output:     &lt;internal:/usr/local/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb&gt;:85:in `require&#39;
+App 10435 output:     /usr/lib/ruby/vendor_ruby/phusion_passenger/loader_shared_helpers.rb:380:in `activate_gem&#39;
+App 10435 output:     /usr/lib/ruby/vendor_ruby/phusion_passenger/loader_shared_helpers.rb:221:in `block in run_load_path_setup_code&#39;
+App 10435 output:     /usr/lib/ruby/vendor_ruby/phusion_passenger/loader_shared_helpers.rb:544:in `running_bundler&#39;
+App 10435 output:     /usr/lib/ruby/vendor_ruby/phusion_passenger/loader_shared_helpers.rb:220:in `run_load_path_setup_code&#39;
+App 10435 output:     /usr/share/passenger/helper-scripts/rack-preloader.rb:91:in `preload_app&#39;
+App 10435 output:     /usr/share/passenger/helper-scripts/rack-preloader.rb:189:in `block in &lt;module:App&gt;&#39;
+App 10435 output:     /usr/lib/ruby/vendor_ruby/phusion_passenger/loader_shared_helpers.rb:397:in `run_block_and_record_step_progress&#39;
+App 10435 output:     /usr/share/passenger/helper-scripts/rack-preloader.rb:188:in `&lt;module:App&gt;&#39;
+App 10435 output:     /usr/share/passenger/helper-scripts/rack-preloader.rb:30:in `&lt;module:PhusionPassenger&gt;&#39;
+App 10435 output:     /usr/share/passenger/helper-scripts/rack-preloader.rb:29:in `&lt;main&gt;&#39;
+[ E 2023-12-01 22:06:04.2404 8834/Tqd age/Cor/App/Implementation.cpp:221 ]: Could not spawn process for application /opt/pulfalight/current: The application encountered the following error: You have already activated stringio 3.0.1, but your Gemfile requires stringio 3.1.0. Since stringio is a default gem, you can either remove your dependency on it or try updating to a newer version of bundler that supports stringio as a default gem. (Gem::LoadError)
+  Error ID: e9d58719
+  Error details saved to: /tmp/passenger-error-GnKFOE.html
+
+[ E 2023-12-01 22:06:04.2473 8834/T8 age/Cor/Con/CheckoutSession.cpp:283 ]: [Client 1-2231] Cannot checkout session because a spawning error occurred. The identifier of the error is e9d58719. Please see earlier logs for details about the error.
+</code></pre>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../../../../js/report.js"></script>
+  </div>
+</body>
+
+</html>
