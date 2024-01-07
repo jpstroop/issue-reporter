@@ -1,0 +1,180 @@
+{
+  "approvals": [
+    {
+      "created_at": "2024-01-05T22:12:29",
+      "updated_at": "2024-01-05T22:12:29",
+      "html_url": "https://github.com/pulibrary/approvals/issues/985",
+      "number": 985,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/approvals",
+      "repository_name": "approvals",
+      "state": "open",
+      "title": "Links on the help page aren't clickable",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2024-01-05T22:15:32",
+      "updated_at": "2024-01-05T22:15:32",
+      "html_url": "https://github.com/pulibrary/approvals/issues/986",
+      "number": 986,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/approvals",
+      "repository_name": "approvals",
+      "state": "open",
+      "title": "Missing images on the help page",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2024-01-05T22:23:48",
+      "updated_at": "2024-01-05T22:23:48",
+      "html_url": "https://github.com/pulibrary/approvals/issues/987",
+      "number": 987,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/approvals",
+      "repository_name": "approvals",
+      "state": "open",
+      "title": "AASM::InvalidTransition: Event 'change_request' cannot transition from 'changes_requested'",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "bibdata": [
+    {
+      "created_at": "2024-01-05T21:18:17",
+      "updated_at": "2024-01-05T21:18:17",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/2287",
+      "number": 2287,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Full reindex of SCSB looks to old pathname",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2024-01-05T22:40:31",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/2287#issuecomment-1879343868",
+          "body": "- Searched the inode of one of these files to see if it's duplicate or symlinked to another path but it doesn't. \r\n- Checked /etc/mstab to confirm we dont have mounted marc_liberation to /mnt/....\r\n- Confirmed that these files exist in the directory bibdata_files and not in marc_liberation\r\n- Checked the retry sidekiq jobs to confirm that it has the path `/data/marc_liberation/scsb_update_files` for some old files.\r\n- Searched princeton_ansible code base for any marc_liberation path.\r\n- Searched bibdata code base for any marc_liberation path.\r\n- Searched the rails vars on the boxes and confirmed that they have the bibdata_files path \r\n- `Deleted all` the jobs that have the deprecated path. "
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "lib_jobs": [
+    {
+      "created_at": "2023-09-27T16:39:05",
+      "updated_at": "2023-09-27T16:39:05",
+      "html_url": "https://github.com/pulibrary/lib_jobs/issues/643",
+      "number": 643,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/lib_jobs",
+      "repository_name": "lib_jobs",
+      "state": "open",
+      "title": "File ArgumentError in process_data_sync_exceptions rake task",
+      "user_name": "Jane Sandberg",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2024-01-05T22:44:10",
+          "html_url": "https://github.com/pulibrary/lib_jobs/issues/643#issuecomment-1879346802",
+          "body": "Same error happened on January 3rd, 2024."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-09-27T00:07:38",
+      "updated_at": "2023-09-27T00:07:38",
+      "html_url": "https://github.com/pulibrary/lib_jobs/issues/642",
+      "number": 642,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/lib_jobs",
+      "repository_name": "lib_jobs",
+      "state": "open",
+      "title": "/library-events.csv returned an error",
+      "user_name": "Jane Sandberg",
+      "comments": [
+        {
+          "user_name": "Christina Chortaria",
+          "updated_at": "2024-01-05T22:48:51",
+          "html_url": "https://github.com/pulibrary/lib_jobs/issues/642#issuecomment-1879350432",
+          "body": "[Happened most recently on 12/14/2023](https://app.honeybadger.io/projects/100710/faults/100541409) \r\n```\r\n\r\n12/14/2023 at 9:01 AM -05:00 | lib-jobs-prod2 | NoMethodError: undefined method `data_file' for nil:NilClass File.open(most_recent_dataset.data_file) do \\|file\\|\r\n[12/14/2023 at 9:01 AM -05:00](https://app.honeybadger.io/projects/100710/faults/100541409/01HHMA2WGGEEMM15M0802T146F?page=0)\tlib-jobs-prod2\t\r\nNoMethodError: undefined method `data_file' for nil:NilClass File.open(most_recent_dataset.data_file) do |file|\r\n```"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2024-01-05T22:13:37",
+      "updated_at": "2024-01-05T22:13:37",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/3928",
+      "number": 3928,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Can't write Marc record in binary format. It's too long.",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2024-01-05T22:13:37",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2024-01-05T22:13:37",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "tiger-data-app": [
+    {
+      "created_at": "2024-01-05T16:56:42",
+      "updated_at": "2024-01-05T16:56:42",
+      "html_url": "https://github.com/pulibrary/tiger-data-app/pull/332",
+      "number": 332,
+      "pull_request_html_url": "https://github.com/pulibrary/tiger-data-app/pull/332",
+      "repository_html_url": "https://github.com/pulibrary/tiger-data-app",
+      "repository_name": "tiger-data-app",
+      "state": "open",
+      "title": "Displays user projects in sections in the dashboard",
+      "user_name": "Jaymee Hyppolite",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/tiger-data-app/pull/332",
+      "action": "pull_request_open"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 8,
+    "created_count": 4,
+    "pull_request_open_count": 1,
+    "updated_count": 3,
+    "today": "2024-01-06T22:00:05",
+    "yesterday": "2024-01-05T22:00:05"
+  }
+}

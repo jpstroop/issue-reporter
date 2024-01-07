@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5fda38894b.js" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" type="text/css" href="../../../../css/main.css" />
+    <title>PUL GitHub Issues for 2024-01-06T22:00:05</title>
+  </head>
+
+<body>
+  <div class="container-fluid">
+    <a id="btt-button"></a>
+    
+<h1 class="bg-dark text-light">PUL GitHub Issues<br />
+  <small class="text-white-70">2024-01-06</small></h1>
+<nav class="navbar sticky-top navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar-toggler">
+    <ul class="navbar-nav mr-auto mt-2 pt-3 mt-lg-0">
+      <li class="nav-item not-mono">
+        <a class="nav-link" href="../../../../index.html"><i class="fas fa-arrow-left"></i> Back to Report List Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#approvals">pulibrary/approvals</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#bibdata">pulibrary/bibdata</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#lib_jobs">pulibrary/lib_jobs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#orangelight">pulibrary/orangelight</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#tiger-data-app">pulibrary/tiger-data-app</a>
+      </li>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    
+    <section class="repo" id="approvals">
+      <h2><a href="https://github.com/pulibrary/approvals">pulibrary/approvals</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="approvals-985">
+        <h3><a href="https://github.com/pulibrary/approvals/issues/985">#985</a> Links on the help page aren't clickable</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Jane Sandberg</dd>
+          <dt>Created:</dt>
+          <dd>2024-01-05 22:12:29</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+        </dl>
+      </div>
+      <div class="issue odd" id="approvals-986">
+        <h3><a href="https://github.com/pulibrary/approvals/issues/986">#986</a> Missing images on the help page</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Jane Sandberg</dd>
+          <dt>Created:</dt>
+          <dd>2024-01-05 22:15:32</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+        </dl>
+      </div>
+      <div class="issue even" id="approvals-987">
+        <h3><a href="https://github.com/pulibrary/approvals/issues/987">#987</a> AASM::InvalidTransition: Event 'change_request' cannot transition from 'changes_requested'</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2024-01-05 22:23:48</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="bibdata">
+      <h2><a href="https://github.com/pulibrary/bibdata">pulibrary/bibdata</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="bibdata-2287">
+        <h3><a href="https://github.com/pulibrary/bibdata/issues/2287">#2287</a> Full reindex of SCSB looks to old pathname</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2024-01-05 21:18:17</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Christina Chortaria at <a href="https://github.com/pulibrary/bibdata/issues/2287#issuecomment-1879343868">2024-01-05 22:40:31</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <ul>
+<li>Searched the inode of one of these files to see if it&#39;s duplicate or symlinked to another path but it doesn&#39;t. </li>
+<li>Checked /etc/mstab to confirm we dont have mounted marc_liberation to /mnt/....</li>
+<li>Confirmed that these files exist in the directory bibdata<em>files and not in marc</em>liberation</li>
+<li>Checked the retry sidekiq jobs to confirm that it has the path <code>/data/marc_liberation/scsb_update_files</code> for some old files.</li>
+<li>Searched princeton<em>ansible code base for any marc</em>liberation path.</li>
+<li>Searched bibdata code base for any marc_liberation path.</li>
+<li>Searched the rails vars on the boxes and confirmed that they have the bibdata_files path </li>
+<li><code>Deleted all</code> the jobs that have the deprecated path. </li>
+</ul>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="lib_jobs">
+      <h2><a href="https://github.com/pulibrary/lib_jobs">pulibrary/lib_jobs</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="lib_jobs-643">
+        <h3><a href="https://github.com/pulibrary/lib_jobs/issues/643">#643</a> File ArgumentError in process_data_sync_exceptions rake task</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Jane Sandberg</dd>
+          <dt>Created:</dt>
+          <dd>2023-09-27 16:39:05</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Christina Chortaria at <a href="https://github.com/pulibrary/lib_jobs/issues/643#issuecomment-1879346802">2024-01-05 22:44:10</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p>Same error happened on January 3rd, 2024.</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+      <div class="issue odd" id="lib_jobs-642">
+        <h3><a href="https://github.com/pulibrary/lib_jobs/issues/642">#642</a> /library-events.csv returned an error</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Jane Sandberg</dd>
+          <dt>Created:</dt>
+          <dd>2023-09-27 00:07:38</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Comments:</dt>
+          
+
+          <dd class="comments">
+            <dl>
+              <dt>Christina Chortaria at <a href="https://github.com/pulibrary/lib_jobs/issues/642#issuecomment-1879350432">2024-01-05 22:48:51</a> <i class="fas fa-external-link-alt fa-xs"></i> :</dt>
+              <dd class="even">
+                <p><a href="https://app.honeybadger.io/projects/100710/faults/100541409">Happened most recently on 12/14/2023</a> 
+```</p>
+
+<p>12/14/2023 at 9:01 AM -05:00 | lib-jobs-prod2 | NoMethodError: undefined method <code>data_file&#39; for nil:NilClass File.open(most_recent_dataset.data_file) do \|file\|
+[12/14/2023 at 9:01 AM -05:00](https://app.honeybadger.io/projects/100710/faults/100541409/01HHMA2WGGEEMM15M0802T146F?page=0)   lib-jobs-prod2  
+NoMethodError: undefined method</code>data<em>file&#39; for nil:NilClass File.open(most</em>recent<em>dataset.data</em>file) do |file|
+```</p>
+
+              </dd>
+            </dl>
+          </dd>
+
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="orangelight">
+      <h2><a href="https://github.com/pulibrary/orangelight">pulibrary/orangelight</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="orangelight-3928">
+        <h3><a href="https://github.com/pulibrary/orangelight/issues/3928">#3928</a> Can't write Marc record in binary format. It's too long.</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Christina Chortaria</dd>
+          <dt>Created:</dt>
+          <dd>2024-01-05 22:13:37</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          </dd>
+          <dt>Events:</dt>
+          <dd>
+            <ul class="events">
+            
+  <li class="event even">
+    <code>mentioned</code> by None at 2024-01-05 22:13:37.</li>
+  <li class="event odd">
+    <code>subscribed</code> by None at 2024-01-05 22:13:37.</li>
+
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+    <section class="repo" id="tiger-data-app">
+      <h2><a href="https://github.com/pulibrary/tiger-data-app">pulibrary/tiger-data-app</a> <i class="fas fa-external-link-alt fa-xs"></i></h2>
+      <div class="issues">
+        
+      <div class="issue even" id="tiger-data-app-332">
+        <h3><a href="https://github.com/pulibrary/tiger-data-app/pull/332">#332</a> Displays user projects in sections in the dashboard</h3>
+        <dl>
+          <dt>Creator:</dt>
+          <dd>Jaymee Hyppolite</dd>
+          <dt>Created:</dt>
+          <dd>2024-01-05 16:56:42</dd>
+          <dt>Status:</dt>
+          <dd>Open
+          (<a href="https://github.com/pulibrary/tiger-data-app/pull/332">pull request</a>)
+          </dd>
+        </dl>
+      </div>
+
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../../../../js/report.js"></script>
+  </div>
+</body>
+
+</html>
