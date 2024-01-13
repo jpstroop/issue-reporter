@@ -1,0 +1,1881 @@
+{
+  "DSS": [
+    {
+      "created_at": "2024-01-08T16:23:41",
+      "updated_at": "2024-01-08T16:23:41",
+      "html_url": "https://github.com/pulibrary/DSS/pull/399",
+      "number": 399,
+      "pull_request_html_url": "https://github.com/pulibrary/DSS/pull/399",
+      "repository_html_url": "https://github.com/pulibrary/DSS",
+      "repository_name": "DSS",
+      "state": "closed",
+      "title": "Bump puma from 6.4.0 to 6.4.2",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:19:13",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:19:13",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:19:13",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:19:14",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/DSS/pull/399",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2024-01-04T22:05:47",
+      "updated_at": "2024-01-04T22:05:47",
+      "html_url": "https://github.com/pulibrary/DSS/pull/398",
+      "number": 398,
+      "pull_request_html_url": "https://github.com/pulibrary/DSS/pull/398",
+      "repository_html_url": "https://github.com/pulibrary/DSS",
+      "repository_name": "DSS",
+      "state": "closed",
+      "title": "Bump view_component from 3.8.0 to 3.9.0",
+      "user_name": "dependabot[bot]",
+      "comments": [
+        {
+          "user_name": "dependabot[bot]",
+          "updated_at": "2024-01-12T16:19:53",
+          "html_url": "https://github.com/pulibrary/DSS/pull/398#issuecomment-1889591288",
+          "body": "Superseded by #402."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2024-01-12T16:19:53",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2024-01-12T16:19:55",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/DSS/pull/398",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2024-01-12T16:19:50",
+      "updated_at": "2024-01-12T16:19:50",
+      "html_url": "https://github.com/pulibrary/DSS/pull/402",
+      "number": 402,
+      "pull_request_html_url": "https://github.com/pulibrary/DSS/pull/402",
+      "repository_html_url": "https://github.com/pulibrary/DSS",
+      "repository_name": "DSS",
+      "state": "closed",
+      "title": "Bump view_component from 3.8.0 to 3.10.0",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2024-01-12T16:19:51",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2024-01-12T16:19:51",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:26:23",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:26:23",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:26:23",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:26:24",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/DSS/pull/402",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2024-01-10T15:39:46",
+      "updated_at": "2024-01-10T15:39:46",
+      "html_url": "https://github.com/pulibrary/DSS/issues/400",
+      "number": 400,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/DSS",
+      "repository_name": "DSS",
+      "state": "closed",
+      "title": "Report of Resources with Subject \"Indigenous Studies\"",
+      "user_name": "Kevin Reiss",
+      "comments": [
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2024-01-12T17:47:50",
+          "html_url": "https://github.com/pulibrary/DSS/issues/400#issuecomment-1889670683",
+          "body": "Query used:\r\n\r\n```\r\ndef no_lines(field)\r\n    unless field.nil?\r\n        return field.gsub(\"\\n\", \" \")\r\n    end\r\nend\r\n\r\ndef country_list(countries)\r\nlist = []\r\n   countries.each do |country|\r\n      list.push(country.name)\r\n   end\r\n   country_list = list.join(\"; \")\r\n   country_list\r\nend\r\n\r\nrequire 'csv'\r\nresource_file = \"#{Rails.root}/log/ind_studes_resources.csv\"\r\nresources = Subject.eager_load(:resources).find(48).resources\r\nheaders = [\"name\", \"url\", \"blurb\", \"countries\"]] \r\nCSV.open(resource_file, 'w', write_headers: true, headers: headers) do |writer|\r\n   resources.each do |resource|\r\n     writer << [resource.name, resource.url, no_lines(resource.blurb), country_list(resouce.countries)]\r\n   end\r\nend"
+        },
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2024-01-12T17:48:25",
+          "html_url": "https://github.com/pulibrary/DSS/issues/400#issuecomment-1889716499",
+          "body": "[ind_studes_resources.csv](https://github.com/pulibrary/DSS/files/13922462/ind_studes_resources.csv)\r\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2024-01-12T16:16:51",
+          "type": "unassigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2024-01-12T16:19:06",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2024-01-12T16:19:13",
+          "type": "assigned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2024-01-12T16:19:14",
+          "type": "unassigned"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2024-01-12T17:48:42",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "approvals": [
+    {
+      "created_at": "2024-01-05T22:23:48",
+      "updated_at": "2024-01-05T22:23:48",
+      "html_url": "https://github.com/pulibrary/approvals/issues/987",
+      "number": 987,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/approvals",
+      "repository_name": "approvals",
+      "state": "open",
+      "title": "AASM::InvalidTransition: Event 'change_request' cannot transition from 'changes_requested'",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2024-01-12T16:12:03",
+          "html_url": "https://github.com/pulibrary/approvals/issues/987#issuecomment-1889578693",
+          "body": "Heard back, the final approver opened the request and there was no data, the request was sent back to the submitter who filled it out again, sent it back, and then the data was there and the request was successfully approved. "
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "aspace_helpers": [
+    {
+      "created_at": "2023-11-07T14:16:18",
+      "updated_at": "2023-11-07T14:16:18",
+      "html_url": "https://github.com/pulibrary/aspace_helpers/issues/471",
+      "number": 471,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/aspace_helpers",
+      "repository_name": "aspace_helpers",
+      "state": "closed",
+      "title": "report out Subjects and Agents",
+      "user_name": "regineheberlein",
+      "comments": [
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2024-01-12T13:47:56",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/471#issuecomment-1800210103",
+          "body": "- [x] Subjects\r\n- [x] Agents"
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2023-12-01T18:02:04",
+      "updated_at": "2023-12-01T18:02:04",
+      "html_url": "https://github.com/pulibrary/aspace_helpers/issues/480",
+      "number": 480,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/aspace_helpers",
+      "repository_name": "aspace_helpers",
+      "state": "open",
+      "title": "\"Princeton University\" should be a corporate body Agent in ASpace",
+      "user_name": "regineheberlein",
+      "comments": [
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2024-01-12T17:02:53",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/480#issuecomment-1889655166",
+          "body": "Some of the Princeton headings exist as both subjects and agents; in some cases they are linked to the same descriptive record (coming, no doubt, from EAD `<subject>` and `<corpname>` respectively). There is also a significant amount of duplication within the Agent headings that needs cleanup."
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2024-01-12T23:58:42",
+      "updated_at": "2024-01-12T23:58:42",
+      "html_url": "https://github.com/pulibrary/aspace_helpers/pull/506",
+      "number": 506,
+      "pull_request_html_url": "https://github.com/pulibrary/aspace_helpers/pull/506",
+      "repository_html_url": "https://github.com/pulibrary/aspace_helpers",
+      "repository_name": "aspace_helpers",
+      "state": "open",
+      "title": "get agents links from resource and ao records",
+      "user_name": "regineheberlein",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2024-01-13T00:01:10",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/aspace_helpers/pull/506",
+      "action": "pull_request_open"
+    }
+  ],
+  "bibdata": [
+    {
+      "created_at": "2024-01-12T16:10:15",
+      "updated_at": "2024-01-12T16:10:15",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/2297",
+      "number": 2297,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/2297",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Update delete events rake task ",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:23:29",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:29:25",
+          "type": "convert_to_draft"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:41:07",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:43:28",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:43:57",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T16:50:41",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T16:50:41",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T16:50:42",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T16:50:42",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/2297",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2024-01-09T16:11:02",
+      "updated_at": "2024-01-09T16:11:02",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/2289",
+      "number": 2289,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Update delete events task to purge daily SCSB Partner Files and SCSB Partner Full files Older than two months. ",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T16:50:43",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2024-01-12T18:10:43",
+      "updated_at": "2024-01-12T18:10:43",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/2298",
+      "number": 2298,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/2298",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Pin orangetheses to the main branch",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/2298",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2023-12-15T17:27:43",
+      "updated_at": "2023-12-15T17:27:43",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/2282",
+      "number": 2282,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "open",
+      "title": "Pointing orangetheses to main breaks bibdata",
+      "user_name": "Christina Chortaria",
+      "comments": [
+        {
+          "user_name": "Jane Sandberg",
+          "updated_at": "2024-01-12T18:26:31",
+          "html_url": "https://github.com/pulibrary/bibdata/issues/2282#issuecomment-1889764773",
+          "body": "Adding `passenger_preload_bundler on;` to the passenger nginx config changed the error that we got in the nginx logs, from:\n```\nApp 230012 output: Error: The application encountered the following error: You have already activated stringio 3.0.1, but your Gemfile requires stringio 3.1.0. Since stringio is a default gem, you can either remove your dependency on it or try updating to a newer version of bundler that supports stringio as a default gem. (Gem::LoadError)\nApp 230012 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.25/lib/bundler/runtime.rb:308:in `check_for_activated_spec!'\nApp 230012 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.25/lib/bundler/runtime.rb:25:in `block in setup'\nApp 230012 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.25/lib/bundler/spec_set.rb:155:in `each'\nApp 230012 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.25/lib/bundler/spec_set.rb:155:in `each'\nApp 230012 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.25/lib/bundler/runtime.rb:24:in `map'\nApp 230012 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.25/lib/bundler/runtime.rb:24:in `setup'\nApp 230012 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.25/lib/bundler.rb:161:in `setup'\nApp 230012 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.25/lib/bundler/setup.rb:20:in `block in <top (required)>'\nApp 230012 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.25/lib/bundler/ui/shell.rb:136:in `with_level'\nApp 230012 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.25/lib/bundler/ui/shell.rb:88:in `silence'\nApp 230012 output:     /usr/local/lib/ruby/gems/3.1.0/gems/bundler-2.3.25/lib/bundler/setup.rb:20:in `<top (required)>'\nApp 230012 output:     <internal:/usr/local/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:127:in `require'\nApp 230012 output:     <internal:/usr/local/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:127:in `require'\nApp 230012 output:     /usr/lib/ruby/vendor_ruby/phusion_passenger/loader_shared_helpers.rb:380:in `activate_gem'\nApp 230012 output:     /usr/lib/ruby/vendor_ruby/phusion_passenger/loader_shared_helpers.rb:221:in `block in run_load_path_setup_code'\nApp 230012 output:     /usr/lib/ruby/vendor_ruby/phusion_passenger/loader_shared_helpers.rb:544:in `running_bundler'\nApp 230012 output:     /usr/lib/ruby/vendor_ruby/phusion_passenger/loader_shared_helpers.rb:220:in `run_load_path_setup_code'\nApp 230012 output:     /usr/share/passenger/helper-scripts/rack-preloader.rb:91:in `preload_app'\nApp 230012 output:     /usr/share/passenger/helper-scripts/rack-preloader.rb:189:in `block in <module:App>'\nApp 230012 output:     /usr/lib/ruby/vendor_ruby/phusion_passenger/loader_shared_helpers.rb:397:in `run_block_and_record_step_progress'\nApp 230012 output:     /usr/share/passenger/helper-scripts/rack-preloader.rb:188:in `<module:App>'\nApp 230012 output:     /usr/share/passenger/helper-scripts/rack-preloader.rb:30:in `<module:PhusionPassenger>'\nApp 230012 output:     /usr/share/passenger/helper-scripts/rack-preloader.rb:29:in `<main>'\n```\n\nto:\n\n```\nApp 231086 output: /usr/local/lib/ruby/site_ruby/3.1.0/rubygems.rb:259:in `find_spec_for_exe'\nApp 231086 output: :\nApp 231086 output: can't find gem bundler (= 2.5.4) with executable bundle\nApp 231086 output:  (\nApp 231086 output: Gem::GemNotFoundException\nApp 231086 output: )\nApp 231086 output:\nApp 231086 output:      from /usr/local/lib/ruby/site_ruby/3.1.0/rubygems.rb:239:in `bin_path'\nApp 231086 output:      from /usr/local/lib/ruby/site_ruby/3.1.0/bundler/rubygems_integration.rb:151:in `bin_path'\nApp 231086 output:      from /usr/local/lib/ruby/site_ruby/3.1.0/bundler/shared_helpers.rb:321:in `bundle_bin_path'\nApp 231086 output:      from /usr/local/lib/ruby/site_ruby/3.1.0/bundler/shared_helpers.rb:307:in `set_bundle_variables'\nApp 231086 output:      from /usr/local/lib/ruby/site_ruby/3.1.0/bundler/shared_helpers.rb:76:in `set_bundle_environment'\nApp 231086 output:      from /usr/local/lib/ruby/site_ruby/3.1.0/bundler/runtime.rb:20:in `setup'\nApp 231086 output:      from /usr/local/lib/ruby/site_ruby/3.1.0/bundler.rb:162:in `setup'\nApp 231086 output:      from /usr/local/lib/ruby/site_ruby/3.1.0/bundler/setup.rb:26:in `block in <top (required)>'\nApp 231086 output:      from /usr/local/lib/ruby/site_ruby/3.1.0/bundler/ui/shell.rb:159:in `with_level'\nApp 231086 output:      from /usr/local/lib/ruby/site_ruby/3.1.0/bundler/ui/shell.rb:111:in `silence'\nApp 231086 output:      from /usr/local/lib/ruby/site_ruby/3.1.0/bundler/setup.rb:26:in `<top (required)>'\nApp 231086 output:      from <internal:/usr/local/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:127:in `require'\nApp 231086 output:      from <internal:/usr/local/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:127:in `require'\n[ E 2024-01-12 13:20:51.4231 230079/T2x age/Cor/App/Implementation.cpp:221 ]: Could not spawn process for application /opt/bibdata/current: The application process exited prematurely.\n```"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T17:48:50",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2024-01-12T19:29:13",
+      "updated_at": "2024-01-12T19:29:13",
+      "html_url": "https://github.com/pulibrary/bibdata/pull/2300",
+      "number": 2300,
+      "pull_request_html_url": "https://github.com/pulibrary/bibdata/pull/2300",
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Cleanup factories/specs that are not used",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T19:35:32",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T19:35:42",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T19:38:48",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T19:38:48",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T19:38:48",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T19:38:49",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/bibdata/pull/2300",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2024-01-12T19:26:50",
+      "updated_at": "2024-01-12T19:26:50",
+      "html_url": "https://github.com/pulibrary/bibdata/issues/2299",
+      "number": 2299,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/bibdata",
+      "repository_name": "bibdata",
+      "state": "closed",
+      "title": "Cleanup factories in event factory",
+      "user_name": "Christina Chortaria",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T19:26:51",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T19:26:51",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T19:38:49",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "byzantine_translations": [
+    {
+      "created_at": "2024-01-11T22:09:52",
+      "updated_at": "2024-01-11T22:09:52",
+      "html_url": "https://github.com/pulibrary/byzantine_translations/issues/50",
+      "number": 50,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/byzantine_translations",
+      "repository_name": "byzantine_translations",
+      "state": "closed",
+      "title": "Set the cookie SameSite directive to Strict",
+      "user_name": "Jane Sandberg",
+      "comments": [
+        {
+          "user_name": "Jane Sandberg",
+          "updated_at": "2024-01-12T16:45:24",
+          "html_url": "https://github.com/pulibrary/byzantine_translations/issues/50#issuecomment-1889629712",
+          "body": "Closing in favor of https://github.com/pulibrary/princeton_ansible/issues/4585"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-11T22:09:52",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T16:45:24",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "dacs_handbook": [
+    {
+      "created_at": "2024-01-12T15:48:05",
+      "updated_at": "2024-01-12T15:48:05",
+      "html_url": "https://github.com/pulibrary/dacs_handbook/pull/156",
+      "number": 156,
+      "pull_request_html_url": "https://github.com/pulibrary/dacs_handbook/pull/156",
+      "repository_html_url": "https://github.com/pulibrary/dacs_handbook",
+      "repository_name": "dacs_handbook",
+      "state": "closed",
+      "title": "Include allsearch repos in dependabot link",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:27:04",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:27:04",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:27:04",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:27:05",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/dacs_handbook/pull/156",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-12-14T16:33:23",
+      "updated_at": "2023-12-14T16:33:23",
+      "html_url": "https://github.com/pulibrary/dacs_handbook/issues/154",
+      "number": 154,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dacs_handbook",
+      "repository_name": "dacs_handbook",
+      "state": "closed",
+      "title": "Investigate the use of the SameSite Directive for Cookies",
+      "user_name": "Kevin Reiss",
+      "comments": [
+        {
+          "user_name": "Jane Sandberg",
+          "updated_at": "2024-01-12T16:47:12",
+          "html_url": "https://github.com/pulibrary/dacs_handbook/issues/154#issuecomment-1889632204",
+          "body": "Investigation complete, we opened tickets for the various applications to accomplish this."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T16:47:12",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    }
+  ],
+  "dpul": [
+    {
+      "created_at": "2024-01-12T17:02:40",
+      "updated_at": "2024-01-12T17:02:40",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1500",
+      "number": 1500,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "open",
+      "title": "User received a login invitation and then an error",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2024-01-12T17:02:40",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2024-01-12T17:02:40",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2024-01-12T17:04:13",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2024-01-12T14:48:56",
+      "updated_at": "2024-01-12T14:48:56",
+      "html_url": "https://github.com/pulibrary/dpul/issues/1499",
+      "number": 1499,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul",
+      "repository_name": "dpul",
+      "state": "open",
+      "title": "multiple description box entries from Figgy Ephemerra are not viewing as separate paraggraphs anymore in DPUL",
+      "user_name": "Kim Leaman",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2024-01-12T14:48:56",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2024-01-12T14:48:56",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Kim Leaman",
+          "created_at": "2024-01-12T14:48:56",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2024-01-12T14:48:57",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2024-01-12T14:48:57",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2024-01-12T21:05:52",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "figgy": [
+    {
+      "created_at": "2024-01-12T22:18:08",
+      "updated_at": "2024-01-12T22:18:08",
+      "html_url": "https://github.com/pulibrary/figgy/pull/6156",
+      "number": 6156,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/6156",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Save characterization failure messages ",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/6156",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2023-11-17T18:21:37",
+      "updated_at": "2023-11-17T18:21:37",
+      "html_url": "https://github.com/pulibrary/figgy/pull/6091",
+      "number": 6091,
+      "pull_request_html_url": "https://github.com/pulibrary/figgy/pull/6091",
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "improve mosaics",
+      "user_name": "Eliot Jordan",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Eliot Jordan",
+          "created_at": "2024-01-12T22:20:00",
+          "type": "head_ref_force_pushed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/figgy/pull/6091",
+      "action": "pull_request_open"
+    }
+  ],
+  "friends_of_pul": [
+    {
+      "created_at": "2024-01-11T22:17:44",
+      "updated_at": "2024-01-11T22:17:44",
+      "html_url": "https://github.com/pulibrary/friends_of_pul/issues/145",
+      "number": 145,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/friends_of_pul",
+      "repository_name": "friends_of_pul",
+      "state": "closed",
+      "title": "Set the cookie SameSite directive to Strict",
+      "user_name": "Jane Sandberg",
+      "comments": [
+        {
+          "user_name": "Jane Sandberg",
+          "updated_at": "2024-01-12T16:45:12",
+          "html_url": "https://github.com/pulibrary/friends_of_pul/issues/145#issuecomment-1889629427",
+          "body": "Closing in favor of https://github.com/pulibrary/princeton_ansible/issues/4585"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-11T22:17:44",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T16:45:12",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "marquand-catalogs": [
+    {
+      "created_at": "2024-01-12T19:59:42",
+      "updated_at": "2024-01-12T19:59:42",
+      "html_url": "https://github.com/pulibrary/marquand-catalogs/issues/18",
+      "number": 18,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/marquand-catalogs",
+      "repository_name": "marquand-catalogs",
+      "state": "open",
+      "title": "Refactor application for reusability",
+      "user_name": "rladdusaw",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "orangelight": [
+    {
+      "created_at": "2024-01-08T16:15:26",
+      "updated_at": "2024-01-08T16:15:26",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/3929",
+      "number": 3929,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/3929",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Bump puma from 6.4.0 to 6.4.2",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:28:28",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:28:28",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:28:28",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Christina Chortaria",
+          "created_at": "2024-01-12T16:28:28",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/3929",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2024-01-12T19:29:35",
+      "updated_at": "2024-01-12T19:29:35",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/3935",
+      "number": 3935,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/3935",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Using hostname as ga cookie domain",
+      "user_name": "rladdusaw",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/3935",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2024-01-12T23:59:27",
+      "updated_at": "2024-01-12T23:59:27",
+      "html_url": "https://github.com/pulibrary/orangelight/issues/3936",
+      "number": 3936,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "open",
+      "title": "Can't log in via CAS when running locally",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2024-01-12T23:59:41",
+      "updated_at": "2024-01-12T23:59:41",
+      "html_url": "https://github.com/pulibrary/orangelight/pull/3937",
+      "number": 3937,
+      "pull_request_html_url": "https://github.com/pulibrary/orangelight/pull/3937",
+      "repository_html_url": "https://github.com/pulibrary/orangelight",
+      "repository_name": "orangelight",
+      "state": "closed",
+      "title": "Fix CAS Login for local development",
+      "user_name": "Jane Sandberg",
+      "comments": [
+        {
+          "user_name": "Coveralls",
+          "updated_at": "2024-01-13T00:03:57",
+          "html_url": "https://github.com/pulibrary/orangelight/pull/3937#issuecomment-1890162049",
+          "body": "\n[![Coverage Status](https://coveralls.io/builds/65053438/badge)](https://coveralls.io/builds/65053438)\n\ncoverage: 95.528% (+29.0%) from 66.531%\nwhen pulling **899e0f32b47e5ee1b78d3561626c99e6c13190cb on fix-cas-login-for-devs**\ninto **13f40b6fbf065c891c5c2ce912fac9e7891bd6e7 on main**.\n"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T23:59:50",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2024-01-13T01:12:21",
+          "type": "referenced"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2024-01-13T01:12:21",
+          "type": "merged"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2024-01-13T01:12:21",
+          "type": "closed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2024-01-13T01:12:22",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orangelight/pull/3937",
+      "action": "pull_request_closed"
+    }
+  ],
+  "orcid_princeton": [
+    {
+      "created_at": "2023-12-05T23:48:27",
+      "updated_at": "2023-12-05T23:48:27",
+      "html_url": "https://github.com/pulibrary/orcid_princeton/pull/118",
+      "number": 118,
+      "pull_request_html_url": "https://github.com/pulibrary/orcid_princeton/pull/118",
+      "repository_html_url": "https://github.com/pulibrary/orcid_princeton",
+      "repository_name": "orcid_princeton",
+      "state": "closed",
+      "title": "Bump vite from 4.4.11 to 4.4.12",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2024-01-12T15:05:07",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2024-01-12T15:05:07",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2024-01-12T15:05:08",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2024-01-12T15:05:08",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/orcid_princeton/pull/118",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2024-01-08T20:37:44",
+      "updated_at": "2024-01-08T20:37:44",
+      "html_url": "https://github.com/pulibrary/orcid_princeton/pull/119",
+      "number": 119,
+      "pull_request_html_url": "https://github.com/pulibrary/orcid_princeton/pull/119",
+      "repository_html_url": "https://github.com/pulibrary/orcid_princeton",
+      "repository_name": "orcid_princeton",
+      "state": "open",
+      "title": "Bump puma from 5.6.7 to 5.6.8",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/orcid_princeton/pull/119",
+      "action": "pull_request_open"
+    }
+  ],
+  "pdc_describe": [
+    {
+      "created_at": "2024-01-12T16:07:09",
+      "updated_at": "2024-01-12T16:07:09",
+      "html_url": "https://github.com/pulibrary/pdc_describe/issues/1649",
+      "number": 1649,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_describe",
+      "repository_name": "pdc_describe",
+      "state": "open",
+      "title": "Changes to Group are not logged in history",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "pdc_discovery": [
+    {
+      "created_at": "2023-08-21T11:25:42",
+      "updated_at": "2023-08-21T11:25:42",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/485",
+      "number": 485,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "closed",
+      "title": "Error Indexing cron: [pdc_discovery/staging] Net::ReadTimeout: Net::ReadTimeout with #<Socket:(closed)>",
+      "user_name": "carolyncole",
+      "comments": [
+        {
+          "user_name": "Bess Sadler",
+          "updated_at": "2024-01-12T15:11:57",
+          "html_url": "https://github.com/pulibrary/pdc_discovery/issues/485#issuecomment-1889473897",
+          "body": "We will close this ticket for now because the plan is to re-build the solr staging cluster on jammy. It needs to be rebuilt anyway to ensure that it can be built with ansible so it's repeatable. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2024-01-12T15:11:57",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2024-01-11T17:23:11",
+      "updated_at": "2024-01-11T17:23:11",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/pull/549",
+      "number": 549,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_discovery/pull/549",
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "closed",
+      "title": "Sort dataset so that README is first",
+      "user_name": "Robert-Anthony Lee-Faison",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Robert-Anthony Lee-Faison",
+          "created_at": "2024-01-12T18:44:57",
+          "type": "renamed"
+        },
+        {
+          "actor_name": "Robert-Anthony Lee-Faison",
+          "created_at": "2024-01-12T18:45:09",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2024-01-12T18:56:59",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2024-01-12T18:56:59",
+          "type": "merged"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2024-01-12T18:56:59",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2024-01-12T18:57:00",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_discovery/pull/549",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2024-01-12T19:47:01",
+      "updated_at": "2024-01-12T19:47:01",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/pull/551",
+      "number": 551,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_discovery/pull/551",
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "closed",
+      "title": "Sort the rest of the dataset table alphabetically",
+      "user_name": "Robert-Anthony Lee-Faison",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2024-01-12T19:56:22",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2024-01-12T19:56:22",
+          "type": "merged"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2024-01-12T19:56:22",
+          "type": "closed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2024-01-12T19:56:23",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_discovery/pull/551",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2024-01-09T17:53:38",
+      "updated_at": "2024-01-09T17:53:38",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/issues/547",
+      "number": 547,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "closed",
+      "title": "Data Table Updates - File size sort and README file sort",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Robert-Anthony Lee-Faison",
+          "created_at": "2024-01-12T20:50:12",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2024-01-12T20:47:09",
+      "updated_at": "2024-01-12T20:47:09",
+      "html_url": "https://github.com/pulibrary/pdc_discovery/pull/552",
+      "number": 552,
+      "pull_request_html_url": "https://github.com/pulibrary/pdc_discovery/pull/552",
+      "repository_html_url": "https://github.com/pulibrary/pdc_discovery",
+      "repository_name": "pdc_discovery",
+      "state": "closed",
+      "title": "Sort datatable by file size",
+      "user_name": "Robert-Anthony Lee-Faison",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2024-01-12T20:50:49",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2024-01-12T20:50:50",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2024-01-12T20:50:50",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2024-01-12T20:50:50",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pdc_discovery/pull/552",
+      "action": "pull_request_closed"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2024-01-12T16:43:06",
+      "updated_at": "2024-01-12T16:43:06",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/4585",
+      "number": 4585,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "[php] Set the cookie SameSite directive to Strict",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    },
+    {
+      "created_at": "2024-01-11T19:33:18",
+      "updated_at": "2024-01-11T19:33:18",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4583",
+      "number": 4583,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4583",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "closed",
+      "title": "[nfs/bibdata] add qa nfs ",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T17:52:34",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T17:52:34",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T17:52:34",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T17:52:35",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4583",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-10-11T19:22:33",
+      "updated_at": "2023-10-11T19:22:33",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/4396",
+      "number": 4396,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Adjust Error Handling for the All Search API ",
+      "user_name": "Kevin Reiss",
+      "comments": [
+        {
+          "user_name": "Jane Sandberg",
+          "updated_at": "2024-01-12T18:02:45",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/4396#issuecomment-1889734782",
+          "body": "We should wait to adjust the error handling until the allsearch_api nginx config is generated by an ansible template (#4397 )"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T18:02:52",
+          "type": "unassigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2024-01-12T18:14:14",
+      "updated_at": "2024-01-12T18:14:14",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4586",
+      "number": 4586,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4586",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "[bibdata] passenger: preload bundler to avoid error with psych gem dependency",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4586",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2024-01-12T18:49:23",
+      "updated_at": "2024-01-12T18:49:23",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4587",
+      "number": 4587,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4587",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "[solr8cloud] install zookeeper and solr8cloud",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2024-01-12T19:44:45",
+          "type": "review_requested"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4587",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2024-01-12T19:49:12",
+      "updated_at": "2024-01-12T19:49:12",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/4588",
+      "number": 4588,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "solr9cloud  variables",
+      "user_name": "Francis Kayiwa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Francis Kayiwa",
+          "created_at": "2024-01-12T19:49:12",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "pul_library_drupal": [
+    {
+      "created_at": "2024-01-12T15:36:44",
+      "updated_at": "2024-01-12T15:36:44",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/pull/2035",
+      "number": 2035,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/2035",
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "closed",
+      "title": "File entity patch",
+      "user_name": "Kevin Reiss",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T15:42:45",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T15:42:45",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T15:42:45",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T15:42:46",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/2035",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2024-01-11T18:26:39",
+      "updated_at": "2024-01-11T18:26:39",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/2034",
+      "number": 2034,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "closed",
+      "title": "Set the cookie SameSite directive to Strict",
+      "user_name": "Jane Sandberg",
+      "comments": [
+        {
+          "user_name": "Jane Sandberg",
+          "updated_at": "2024-01-12T16:44:25",
+          "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/2034#issuecomment-1889628337",
+          "body": "Closing in favor of https://github.com/pulibrary/princeton_ansible/issues/4585"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T16:44:25",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2024-01-12T16:42:40",
+      "updated_at": "2024-01-12T16:42:40",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/pull/2036",
+      "number": 2036,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/2036",
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "closed",
+      "title": "Core 7.99.",
+      "user_name": "Kevin Reiss",
+      "comments": [
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2024-01-12T17:27:51",
+          "html_url": "https://github.com/pulibrary/pul_library_drupal/pull/2036#issuecomment-1889688716",
+          "body": "Deploy to staging hung on this command \r\n```sudo -u www-data /usr/local/bin/drush -r /var/www/library_cap/releases/20240112164030 -y updatedb```\r\n\r\nNeed to check permissions possibly to see if user that is executing this can run updates of the mysql db. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2024-01-12T17:26:39",
+          "type": "convert_to_draft"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2024-01-12T20:05:18",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2024-01-12T20:25:44",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2024-01-12T20:25:44",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2024-01-12T20:25:44",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2024-01-12T20:25:45",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/2036",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2024-01-12T20:43:49",
+      "updated_at": "2024-01-12T20:43:49",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/pull/2037",
+      "number": 2037,
+      "pull_request_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/2037",
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "closed",
+      "title": "contrib point releases.",
+      "user_name": "Kevin Reiss",
+      "comments": [
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2024-01-12T20:43:58",
+          "html_url": "https://github.com/pulibrary/pul_library_drupal/pull/2037#issuecomment-1889926185",
+          "body": "Deployed to staging"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2024-01-12T21:05:20",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2024-01-12T21:19:52",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2024-01-12T21:19:52",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2024-01-12T21:19:53",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Kevin Reiss",
+          "created_at": "2024-01-12T21:19:53",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/pul_library_drupal/pull/2037",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2023-03-20T18:03:01",
+      "updated_at": "2023-03-20T18:03:01",
+      "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1978",
+      "number": 1978,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/pul_library_drupal",
+      "repository_name": "pul_library_drupal",
+      "state": "open",
+      "title": "Update to Panels 7.x-3.11 Fails on Database Update",
+      "user_name": "Kevin Reiss",
+      "comments": [
+        {
+          "user_name": "Kevin Reiss",
+          "updated_at": "2024-01-12T21:23:42",
+          "html_url": "https://github.com/pulibrary/pul_library_drupal/issues/1978#issuecomment-1889966359",
+          "body": "This is still an issue when you try to upgrade to latest stable panels (7.x-3.12). The site runs fine locally with this new code but the database is out of sync with the updates. Every time this code is deployed this update will attempt to run and fail. Need to find a way to tell Drupal it's already run or we need to alter the database to the previous state to allow the database update to run. "
+        }
+      ],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "rdss-handbook": [
+    {
+      "created_at": "2024-01-10T22:00:55",
+      "updated_at": "2024-01-10T22:00:55",
+      "html_url": "https://github.com/pulibrary/rdss-handbook/pull/219",
+      "number": 219,
+      "pull_request_html_url": "https://github.com/pulibrary/rdss-handbook/pull/219",
+      "repository_html_url": "https://github.com/pulibrary/rdss-handbook",
+      "repository_name": "rdss-handbook",
+      "state": "open",
+      "title": "WIP revising roadmap to reflect 2024 priorities",
+      "user_name": "Kate Lynch",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/rdss-handbook/pull/219",
+      "action": "pull_request_open"
+    }
+  ],
+  "recap": [
+    {
+      "created_at": "2024-01-11T22:30:21",
+      "updated_at": "2024-01-11T22:30:21",
+      "html_url": "https://github.com/pulibrary/recap/issues/263",
+      "number": 263,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/recap",
+      "repository_name": "recap",
+      "state": "closed",
+      "title": "Set the cookie SameSite directive to Strict",
+      "user_name": "Jane Sandberg",
+      "comments": [
+        {
+          "user_name": "Jane Sandberg",
+          "updated_at": "2024-01-12T16:45:37",
+          "html_url": "https://github.com/pulibrary/recap/issues/263#issuecomment-1889629976",
+          "body": "Closing in favor of https://github.com/pulibrary/princeton_ansible/issues/4585"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-11T22:30:21",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T16:45:37",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "researchdata": [
+    {
+      "created_at": "2024-01-11T22:32:48",
+      "updated_at": "2024-01-11T22:32:48",
+      "html_url": "https://github.com/pulibrary/researchdata/issues/270",
+      "number": 270,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/researchdata",
+      "repository_name": "researchdata",
+      "state": "closed",
+      "title": "Set the cookie SameSite directive to Strict",
+      "user_name": "Jane Sandberg",
+      "comments": [
+        {
+          "user_name": "Jane Sandberg",
+          "updated_at": "2024-01-12T16:45:52",
+          "html_url": "https://github.com/pulibrary/researchdata/issues/270#issuecomment-1889630371",
+          "body": "Closing in favor of https://github.com/pulibrary/princeton_ansible/issues/4585"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-11T22:32:48",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T16:45:53",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "special_collections": [
+    {
+      "created_at": "2024-01-11T22:14:49",
+      "updated_at": "2024-01-11T22:14:49",
+      "html_url": "https://github.com/pulibrary/special_collections/issues/772",
+      "number": 772,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/special_collections",
+      "repository_name": "special_collections",
+      "state": "closed",
+      "title": "Set the cookie SameSite directive to Strict",
+      "user_name": "Jane Sandberg",
+      "comments": [
+        {
+          "user_name": "Jane Sandberg",
+          "updated_at": "2024-01-12T16:44:50",
+          "html_url": "https://github.com/pulibrary/special_collections/issues/772#issuecomment-1889628911",
+          "body": "Closing in favor of https://github.com/pulibrary/princeton_ansible/issues/4585"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-11T22:14:49",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-12T16:44:50",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "tiger-data-app": [
+    {
+      "created_at": "2024-01-08T22:05:15",
+      "updated_at": "2024-01-08T22:05:15",
+      "html_url": "https://github.com/pulibrary/tiger-data-app/pull/335",
+      "number": 335,
+      "pull_request_html_url": "https://github.com/pulibrary/tiger-data-app/pull/335",
+      "repository_html_url": "https://github.com/pulibrary/tiger-data-app",
+      "repository_name": "tiger-data-app",
+      "state": "closed",
+      "title": "First pass at disconnecting interactions with MediaFlux",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2024-01-11T22:21:01",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/tiger-data-app/pull/335",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2024-01-10T13:40:16",
+      "updated_at": "2024-01-10T13:40:16",
+      "html_url": "https://github.com/pulibrary/tiger-data-app/issues/338",
+      "number": 338,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/tiger-data-app",
+      "repository_name": "tiger-data-app",
+      "state": "closed",
+      "title": "Ensure honeybadger is set up for tigerdata-app",
+      "user_name": "Bess Sadler",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Bess Sadler",
+          "created_at": "2024-01-12T15:07:46",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2024-01-12T16:01:40",
+      "updated_at": "2024-01-12T16:01:40",
+      "html_url": "https://github.com/pulibrary/tiger-data-app/pull/349",
+      "number": 349,
+      "pull_request_html_url": "https://github.com/pulibrary/tiger-data-app/pull/349",
+      "repository_html_url": "https://github.com/pulibrary/tiger-data-app",
+      "repository_name": "tiger-data-app",
+      "state": "closed",
+      "title": "Updating the tigerdata schema",
+      "user_name": "Jaymee Hyppolite",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Jaymee Hyppolite",
+          "created_at": "2024-01-12T16:54:10",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Jaymee Hyppolite",
+          "created_at": "2024-01-12T16:54:18",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2024-01-12T16:54:43",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2024-01-12T16:54:43",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2024-01-12T16:54:43",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2024-01-12T16:54:44",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/tiger-data-app/pull/349",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2024-01-09T16:02:04",
+      "updated_at": "2024-01-09T16:02:04",
+      "html_url": "https://github.com/pulibrary/tiger-data-app/issues/336",
+      "number": 336,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/tiger-data-app",
+      "repository_name": "tiger-data-app",
+      "state": "closed",
+      "title": "Add a field in the tigerdata metadata for the project id",
+      "user_name": "carolyncole",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Jaymee Hyppolite",
+          "created_at": "2024-01-12T15:25:32",
+          "type": "assigned"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2024-01-12T16:54:44",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2023-03-08T14:53:47",
+      "updated_at": "2023-03-08T14:53:47",
+      "html_url": "https://github.com/pulibrary/tiger-data-app/issues/113",
+      "number": 113,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/tiger-data-app",
+      "repository_name": "tiger-data-app",
+      "state": "open",
+      "title": "Preliminary project creation form",
+      "user_name": "Matthew J. Chandler",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2024-01-11T21:41:12",
+      "updated_at": "2024-01-11T21:41:12",
+      "html_url": "https://github.com/pulibrary/tiger-data-app/pull/348",
+      "number": 348,
+      "pull_request_html_url": "https://github.com/pulibrary/tiger-data-app/pull/348",
+      "repository_html_url": "https://github.com/pulibrary/tiger-data-app",
+      "repository_name": "tiger-data-app",
+      "state": "closed",
+      "title": "Second pass at disconnecting interactions with MediaFlux",
+      "user_name": "Hector Correa",
+      "comments": [
+        {
+          "user_name": "Hector Correa",
+          "updated_at": "2024-01-12T17:03:10",
+          "html_url": "https://github.com/pulibrary/tiger-data-app/pull/348#issuecomment-1888073887",
+          "body": "~~@carolyncole I tagged you on this PR since you are familiar with the MF calls and are in the process of updating them. I still have one issue with Coveralls I think because we are not calling the \"update\" methods anymore, only the create.~~\r\n\r\nCarolyn is out of the office today."
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2024-01-11T22:23:22",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2024-01-11T22:23:33",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2024-01-11T22:32:06",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2024-01-11T22:32:06",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2024-01-12T17:03:22",
+          "type": "review_request_removed"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2024-01-12T17:03:22",
+          "type": "review_requested"
+        },
+        {
+          "actor_name": "Hector Correa",
+          "created_at": "2024-01-12T17:08:03",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Jaymee Hyppolite",
+          "created_at": "2024-01-12T17:24:36",
+          "type": "referenced"
+        },
+        {
+          "actor_name": "Jaymee Hyppolite",
+          "created_at": "2024-01-12T17:24:36",
+          "type": "merged"
+        },
+        {
+          "actor_name": "Jaymee Hyppolite",
+          "created_at": "2024-01-12T17:24:36",
+          "type": "closed"
+        },
+        {
+          "actor_name": "Jaymee Hyppolite",
+          "created_at": "2024-01-12T17:24:37",
+          "type": "head_ref_deleted"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/tiger-data-app/pull/348",
+      "action": "pull_request_closed"
+    },
+    {
+      "created_at": "2024-01-05T14:34:32",
+      "updated_at": "2024-01-05T14:34:32",
+      "html_url": "https://github.com/pulibrary/tiger-data-app/issues/330",
+      "number": 330,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/tiger-data-app",
+      "repository_name": "tiger-data-app",
+      "state": "closed",
+      "title": "Remove calls to MediaFlux to create and update projects",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Jaymee Hyppolite",
+          "created_at": "2024-01-12T17:24:37",
+          "type": "closed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "closed"
+    },
+    {
+      "created_at": "2024-01-11T21:04:21",
+      "updated_at": "2024-01-11T21:04:21",
+      "html_url": "https://github.com/pulibrary/tiger-data-app/pull/347",
+      "number": 347,
+      "pull_request_html_url": "https://github.com/pulibrary/tiger-data-app/pull/347",
+      "repository_html_url": "https://github.com/pulibrary/tiger-data-app",
+      "repository_name": "tiger-data-app",
+      "state": "open",
+      "title": "Extending the names of Users specified as Project data sponsors, data managers, read only data users, and read/write only data users",
+      "user_name": "James R. Griffin III",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2024-01-12T17:45:23",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2024-01-12T19:45:55",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2024-01-12T19:46:10",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2024-01-12T19:47:28",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "James R. Griffin III",
+          "created_at": "2024-01-12T19:47:42",
+          "type": "renamed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/tiger-data-app/pull/347",
+      "action": "pull_request_open"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 58,
+    "closed_count": 10,
+    "created_count": 13,
+    "pull_request_closed_count": 19,
+    "pull_request_open_count": 10,
+    "updated_count": 6,
+    "today": "2024-01-12T22:00:05",
+    "yesterday": "2024-01-11T22:00:05"
+  }
+}
