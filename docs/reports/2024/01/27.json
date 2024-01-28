@@ -1,0 +1,187 @@
+{
+  "figgy": [
+    {
+      "created_at": "2024-01-26T22:01:44",
+      "updated_at": "2024-01-26T22:01:44",
+      "html_url": "https://github.com/pulibrary/figgy/issues/6189",
+      "number": 6189,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/figgy",
+      "repository_name": "figgy",
+      "state": "open",
+      "title": "Build out \"Collection Item And Image Count Report\" to include PBCore types",
+      "user_name": "Kim Leaman",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2024-01-26T12:41:07",
+      "updated_at": "2024-01-26T12:41:07",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/4618",
+      "number": 4618,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "pg_stat_statements extension will not install",
+      "user_name": "Francis Kayiwa",
+      "comments": [
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2024-01-26T23:19:23",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/4618#issuecomment-1912818764",
+          "body": "Hm. Maybe the extension is ONLY added by updating the config and we should remove that task? Let's look on Monday. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2024-01-26T23:19:27",
+          "type": "assigned"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2023-06-30T20:05:08",
+      "updated_at": "2023-06-30T20:05:08",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/4043",
+      "number": 4043,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Tower reports 404s on /websocket",
+      "user_name": "Alicia Cozine",
+      "comments": [
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2024-01-26T22:37:20",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/4043#issuecomment-1912420530",
+          "body": "In the load balancer's Nginx access logs, I see:\r\n\r\n```\r\n73.xxx.xxx.xxx - - [26/Jan/2024:14:36:58 +0000] \"GET /websocket/ HTTP/1.1\" 404 2502 \"-\" 128.112.IP-of-ansible-control-node:443, 404, 0.091, 0.091\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\" \"-\"\r\n```\r\nfor the IPs of both control nodes."
+        },
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2024-01-26T22:55:52",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/4043#issuecomment-1912800930",
+          "body": "@VickieKarasic found some resources for nginx config for websockets:\r\n\r\nhttps://www.nginx.com/blog/websocket-nginx/\r\nhttps://nginx.org/en/docs/http/websocket.html"
+        },
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2024-01-26T23:23:50",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/issues/4043#issuecomment-1912821455",
+          "body": "@sandbergja filled in a vital piece of the puzzle. These lines:\r\n```\r\n          proxy_set_header Upgrade $http_upgrade;\r\n          proxy_set_header Connection \"Upgrade\";\r\n```\r\nmean that the incoming request should be handled by a different protocol (not HTTP/S). Those directives should only be applied to `/websocket/` and not to any other URLs (especially not to `/`, which would alter the protocol for all incoming requests to the site). With a nested definition for `/websocket/` that applied those directives only to the one URL, live updates started working.\r\n "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Vickie Karasic",
+          "created_at": "2024-01-26T22:55:52",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Vickie Karasic",
+          "created_at": "2024-01-26T22:55:52",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-26T23:23:50",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-26T23:23:50",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2024-01-24T22:35:54",
+      "updated_at": "2024-01-24T22:35:54",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4612",
+      "number": 4612,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4612",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Configure nginx to allow tower to call /websocket/",
+      "user_name": "Alicia Cozine",
+      "comments": [
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2024-01-26T23:43:38",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4612#issuecomment-1912834492",
+          "body": "@VickieKarasic and @sandbergja and I fixed this today - in addition to this nginx config update, we had to add a config file to Tower. The file is called `/etc/tower/conf.d/websocket_config.py` and the content is:\r\n\r\n```\r\n# support headers for real-time updates via websocket\r\nBROADCAST_WEBSOCKET_PROTOCOL = 'https'\r\nBROADCAST_WEBSOCKET_PORT = 443\r\nBROADCAST_WEBSOCKET_VERIFY_CERT = True\r\n```\r\n\r\nWith those two changes, the WebSockets connections works and live updates come through. If you inspect the web browser, there are still some errors listed, but they don't seem to affect performance, so we are ignoring them for now. "
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2024-01-26T22:50:00",
+          "type": "head_ref_force_pushed"
+        },
+        {
+          "actor_name": "Alicia Cozine",
+          "created_at": "2024-01-26T22:56:47",
+          "type": "ready_for_review"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-26T23:43:39",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Jane Sandberg",
+          "created_at": "2024-01-26T23:43:39",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": "Vickie Karasic",
+          "created_at": "2024-01-26T23:43:39",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Vickie Karasic",
+          "created_at": "2024-01-26T23:43:39",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4612",
+      "action": "pull_request_open"
+    }
+  ],
+  "tiger-data-app": [
+    {
+      "created_at": "2024-01-26T22:01:33",
+      "updated_at": "2024-01-26T22:01:33",
+      "html_url": "https://github.com/pulibrary/tiger-data-app/pull/412",
+      "number": 412,
+      "pull_request_html_url": "https://github.com/pulibrary/tiger-data-app/pull/412",
+      "repository_html_url": "https://github.com/pulibrary/tiger-data-app",
+      "repository_name": "tiger-data-app",
+      "state": "open",
+      "title": "Aterm experimental",
+      "user_name": "Hector Correa",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/tiger-data-app/pull/412",
+      "action": "pull_request_open"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 5,
+    "created_count": 1,
+    "pull_request_open_count": 2,
+    "updated_count": 2,
+    "today": "2024-01-27T22:00:04",
+    "yesterday": "2024-01-26T22:00:04"
+  }
+}
