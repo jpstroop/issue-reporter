@@ -1,0 +1,120 @@
+{
+  "aspace_helpers": [
+    {
+      "created_at": "2024-02-13T14:24:10",
+      "updated_at": "2024-02-13T14:24:10",
+      "html_url": "https://github.com/pulibrary/aspace_helpers/issues/514",
+      "number": 514,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/aspace_helpers",
+      "repository_name": "aspace_helpers",
+      "state": "open",
+      "title": "\"Buyer\" and \"Dealer\" are not on the MARC relator list",
+      "user_name": "regineheberlein",
+      "comments": [
+        {
+          "user_name": "regineheberlein",
+          "updated_at": "2024-02-17T16:19:38",
+          "html_url": "https://github.com/pulibrary/aspace_helpers/issues/514#issuecomment-1950247566",
+          "body": "@Will-Clements and @amycvo will take this to ADAPT to discuss"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Will-Clements",
+          "created_at": "2024-02-17T16:19:39",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": "Will-Clements",
+          "created_at": "2024-02-17T16:19:39",
+          "type": "subscribed"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2024-02-17T16:19:39",
+          "type": "mentioned"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2024-02-17T16:19:40",
+          "type": "subscribed"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "dacs_handbook": [
+    {
+      "created_at": "2024-02-15T22:10:58",
+      "updated_at": "2024-02-15T22:10:58",
+      "html_url": "https://github.com/pulibrary/dacs_handbook/issues/157",
+      "number": 157,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dacs_handbook",
+      "repository_name": "dacs_handbook",
+      "state": "open",
+      "title": "Node upgrades",
+      "user_name": "Jane Sandberg",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2024-02-08T20:55:02",
+      "updated_at": "2024-02-08T20:55:02",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4652",
+      "number": 4652,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4652",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Create draft playbook for checkmk agent",
+      "user_name": "Robert-Anthony Lee-Faison",
+      "comments": [
+        {
+          "user_name": "Alicia Cozine",
+          "updated_at": "2024-02-16T22:03:19",
+          "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4652#issuecomment-1949382690",
+          "body": "As of 0c700761bc0ba43b4a04b85a146e5e7260eddf7e the playbook successfully installs the agent and creates a host record on the checkMK server. It still fails on the `Fetch fresh monitoring data from host` task, but we get a new error:\r\n```\r\nfatal: [ansible-tower2.princeton.edu -> localhost]: FAILED! => {\"attempts\": 3, \"changed\": false, \"msg\": \"-1 - Error calling API Details: Connection failure: Remote end closed connection without response\"}\r\n```\r\nAnsible seems to be delegating this task to `localhost` . . . maybe that is related to the failure? \r\n\r\nI tried to register the new host from the command line with:\r\n```\r\n[pulsys@ansible-tower2 ~]$ sudo cmk-agent-ctl register --hostname ansible-tower2.princeton.edu --server pulcheck-staging1.princeton.edu:8000 --site pulmonitor --user troubleshooting --password ***REDACTED***\r\n```\r\nwhich got me this:\r\n```\r\nDo you want to establish this connection? [Y/n]\r\n> y\r\nRegistration complete.\r\n```\r\nand the registration went into the list of pending changes. So maybe the host creation is also getting stuck in pending changes and the handler that activates pending changes isn't running or is failing, and that's causing this issue? Even when I activated the pending changes manually, the new host showed up in the folder I set, but the agent connection fails with `Communication failed: [Errno 113] No route to host`.\r\n"
+        }
+      ],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4652",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2024-02-17T00:51:33",
+      "updated_at": "2024-02-17T00:51:33",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/pull/4677",
+      "number": 4677,
+      "pull_request_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4677",
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Bump cryptography from 42.0.0 to 42.0.2",
+      "user_name": "dependabot[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2024-02-17T00:51:34",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/princeton_ansible/pull/4677",
+      "action": "pull_request_open"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 4,
+    "pull_request_open_count": 2,
+    "updated_count": 2,
+    "today": "2024-02-17T22:00:06",
+    "yesterday": "2024-02-16T22:00:06"
+  }
+}
