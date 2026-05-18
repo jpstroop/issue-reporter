@@ -1,0 +1,219 @@
+{
+  "abid": [
+    {
+      "created_at": "2026-03-16T00:42:52",
+      "updated_at": "2026-03-16T00:42:52",
+      "html_url": "https://github.com/pulibrary/abid/issues/285",
+      "number": 285,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/abid",
+      "repository_name": "abid",
+      "state": "open",
+      "title": "Container Vulnerability Scanner Failed",
+      "user_name": "github-actions[bot]",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "dpul-collections": [
+    {
+      "created_at": "2026-05-16T18:20:08",
+      "updated_at": "2026-05-16T18:20:08",
+      "html_url": "https://github.com/pulibrary/dpul-collections/pull/1210",
+      "number": 1210,
+      "pull_request_html_url": "https://github.com/pulibrary/dpul-collections/pull/1210",
+      "repository_html_url": "https://github.com/pulibrary/dpul-collections",
+      "repository_name": "dpul-collections",
+      "state": "open",
+      "title": "What if we unleashed the beast?",
+      "user_name": "Trey Pendragon",
+      "comments": [
+        {
+          "user_name": "github-actions[bot]",
+          "updated_at": "2026-05-17T05:54:52",
+          "html_url": "https://github.com/pulibrary/dpul-collections/pull/1210#issuecomment-4467732610",
+          "body": "## Container Scanning Status: ✅ Success\n```\nNo vulnerabilities found\n```"
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2026-05-17T00:22:20",
+          "html_url": "https://github.com/pulibrary/dpul-collections/pull/1210#issuecomment-4468624787",
+          "body": "Some interesting things I found doing this:\r\n\r\nThe index went slow because the transaction locks would lock up for 1-10 seconds per insert, because a single INSERT was taking that long to complete and we serialized them. Logs in Signoz:\r\n\r\n```\r\n\r\n2026-05-16 17:14:41.762 | process 3334005 acquired ExclusiveLock on advisory lock [326099,8,1,2] after 2104.452 ms\r\n2026-05-16 17:14:41.762 | connection received: host=172.20.80.147 port=51342\r\n2026-05-16 17:14:41.657 | process 2447243 acquired ExclusiveLock on advisory lock [326099,8,1,2] after 2632.016 ms\r\n2026-05-16 17:14:41.644 | process 3143476 still waiting for ExclusiveLock on advisory lock [326099,8,1,2] after 1000.054 ms\r\n2026-05-16 17:14:41.544 | process 3365898 still waiting for ExclusiveLock on advisory lock [326099,8,1,2] after 1000.055 ms\r\n2026-05-16 17:14:41.156 | process 3366026 still waiting for ExclusiveLock on advisory lock [326099,8,1,2] after 1000.060 ms\r\n2026-05-16 17:14:41.027 | process 3335796 acquired ExclusiveLock on advisory lock [326099,8,1,2] after 2093.266 ms\r\n2026-05-16 17:14:40.950 | process 3378303 still waiting for ExclusiveLock on advisory lock [326099,8,1,2] after 1000.059 ms\r\n2026-05-16 17:14:40.852 | process 3243599 still waiting for ExclusiveLock on advisory lock [326099,8,1,2] after 1000.181 ms\r\n2026-05-16 17:14:40.720 | process 3335745 still waiting for ExclusiveLock on advisory lock [326099,8,1,2] after 1000.051 ms\r\n2026-05-16 17:14:40.693 | process 3365905 still waiting for ExclusiveLock on advisory lock [326099,8,1,2] after 1000.054 ms\r\n2026-05-16 17:14:40.679 | process 2530570 still waiting for ExclusiveLock on advisory lock [326099,8,1,2] after 1000.052 ms\r\n2026-05-16 17:14:40.658 | process 3334005 still waiting for ExclusiveLock on advisory lock [326099,8,1,2] after 1000.062 ms\r\n2026-05-16 17:14:40.569 | process 3302877 acquired ExclusiveLock on advisory lock [326099,8,1,2] after 1843.388 ms\r\n2026-05-16 17:14:40.437 | process 3365883 acquired ExclusiveLock on advisory lock [326099,8,1,2] after 1716.484 ms\r\n2026-05-16 17:14:40.025 | process 2447243 still waiting for ExclusiveLock on advisory lock [326099,8,1,2] after 1000.059 ms\r\n2026-05-16 17:14:39.994 | process 3365914 acquired ExclusiveLock on advisory lock [326099,8,1,2] after 1278.619 ms\r\n2026-05-16 17:14:39.933 | process 3335796 still waiting for ExclusiveLock on advisory lock [326099,8,1,2] after 1000.069 ms\r\n2026-05-16 17:14:39.904 | process 3302939 acquired ExclusiveLock on advisory lock [326099,8,1,2] after 1235.318 ms\r\n2026-05-16 17:14:39.836 | process 3335639 acquired ExclusiveLock on advisory lock [326099,8,1,2] after 1376.493 ms\r\n```\r\n\r\nThat query is VERY simple, just a basic write. But it's a lot of them, the disk can't keep up with the transaction commits to the WAL. If we look at that postgres box in Signoz we see it queuing up writes REALLY bad (that number should be 0 -always-, maybe 1 or 2, but here it hits like 20)\r\n\r\n<img width=\"596\" height=\"313\" alt=\"Screenshot 2026-05-16 at 5 15 12 PM\" src=\"https://github.com/user-attachments/assets/44f8c3d4-368b-4ed3-9300-f7455a19d4e3\" />\r\n\r\nPostgres' staging disk is a logical volume that's striped across four disks (everything that says lvm here):\r\n\r\n```\r\nsda                         8:0    0   30G  0 disk\r\n├─sda1                      8:1    0    1M  0 part\r\n├─sda2                      8:2    0    2G  0 part /boot\r\n└─sda3                      8:3    0   28G  0 part\r\n  └─ubuntu--vg-ubuntu--lv 253:0    0  384G  0 lvm  /\r\nsdb                         8:16   0  120G  0 disk\r\n└─sdb1                      8:17   0  120G  0 part\r\n  └─ubuntu--vg-ubuntu--lv 253:0    0  384G  0 lvm  /\r\nsdc                         8:32   0  100G  0 disk\r\n└─sdc1                      8:33   0  100G  0 part\r\n  └─ubuntu--vg-ubuntu--lv 253:0    0  384G  0 lvm  /\r\nsdd                         8:48   0  150G  0 disk\r\n└─sdd1                      8:49   0  150G  0 part\r\n  └─ubuntu--vg-ubuntu--lv 253:0    0  384G  0 lvm  /\r\n ```\r\n \r\n Again, these are very basic commits. I think our indexing bottleneck here is actually postgres' disk, and the worst thing is I suspect we're slowing down everyone on that staging postgres while we're doing those inserts :(\r\n \r\n To fix that performance problem I think we'd need to be able to move the WAL to fast local disk, but I don't think we have any available - all the VM disk comes from the SAN."
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2026-05-17T01:12:33",
+          "html_url": "https://github.com/pulibrary/dpul-collections/pull/1210#issuecomment-4468698181",
+          "body": "Other things:\r\n\r\nIt took 6 hours.\r\nIndexed 122,961 items vs prod's 68,274\r\n[Error breakdowns\r\n](https://grafana-nomad.lib.princeton.edu/explore?schemaVersion=1&panes=%7B%22s8n%22:%7B%22datasource%22:%22PBFA97CFB590B2093%22,%22queries%22:%5B%7B%22refId%22:%22A%22,%22expr%22:%22sum%20by%28name,%20reason%29%20%28delta%28dpul_collections_prom_ex_broadway_process_message_exception_duration_milliseconds_count%5B6h%5D%29%29%22,%22range%22:false,%22instant%22:true,%22datasource%22:%7B%22type%22:%22prometheus%22,%22uid%22:%22PBFA97CFB590B2093%22%7D,%22editorMode%22:%22builder%22,%22legendFormat%22:%22__auto%22,%22useBackend%22:false,%22disableTextWrap%22:false,%22fullMetaSearch%22:false,%22includeNullMetadata%22:true,%22exemplar%22:false,%22format%22:%22table%22%7D%5D,%22range%22:%7B%22from%22:%22now-8h%22,%22to%22:%22now%22%7D%7D%7D&orgId=1)<img width=\"1204\" height=\"307\" alt=\"Screenshot 2026-05-16 at 5 56 23 PM\" src=\"https://github.com/user-attachments/assets/96ccb8e5-dbec-4a03-8c1b-22bb42f68211\" />\r\n\r\nI'm surprised, most of the breakages were in transformation, a bunch hydrated just fine.\r\n\r\nIt looks like the FunctionClauseError are mostly records that don't have imported metadata.\r\n\r\nThe MatchErrors are us failing to extract years."
+        },
+        {
+          "user_name": "Trey Pendragon",
+          "updated_at": "2026-05-17T02:13:24",
+          "html_url": "https://github.com/pulibrary/dpul-collections/pull/1210#issuecomment-4468744263",
+          "body": "Look how cool these are: https://dpul-collections-staging.lib.princeton.edu/search?filter[similar]=5fa8e1fb-99d9-4145-840d-427b7d1bfe91\r\n\r\nThe finding aids materials are totally useless without the series/sub-series metadata context: https://dpul-collections-staging.lib.princeton.edu/i/the-bridal-party/item/60f43001-7d98-4a02-9f4e-94a6d14e9aa9 vs https://findingaids.princeton.edu/catalog/C0187_c91625-41329\r\n\r\nhttps://dpul-collections-staging.lib.princeton.edu/search?sort_by=recently_added Recently Added is so much cooler.\r\n\r\nPretty: https://dpul-collections-staging.lib.princeton.edu/i/spiralbound-sketch-book/item/138a2ce2-e02f-4863-a97f-e7b073571937/viewer/16\r\n\r\nOh this is sick: https://dpul-collections-staging.lib.princeton.edu/i/bottle-playbill-drunkards-children/item/f915ef62-0fb8-49af-9887-dad7fdc19f6f\r\n\r\nWe need more playbills: https://dpul-collections-staging.lib.princeton.edu/search?q=Playbills\r\n\r\nYesss, check these out: https://dpul-collections-staging.lib.princeton.edu/search?filter[subject][]=Drawing\r\n\r\nGorgeous: https://dpul-collections-staging.lib.princeton.edu/search?filter[subject][]=Jewelry%E2%80%94Design\r\n\r\nLol yay metadata:\r\n<img width=\"642\" height=\"204\" alt=\"Screenshot 2026-05-16 at 6 21 26 PM\" src=\"https://github.com/user-attachments/assets/54e33f3b-38ea-4e22-9e69-22a60d3ef794\" />\r\n\r\nBut we can pick them both: https://dpul-collections-staging.lib.princeton.edu/search?filter[format][]=Manuscript&filter[format][]=Manuscripts&q=&sort_by=relevance&page=1&per_page=50\r\n\r\nI am legit excited to OCR this: https://dpul-collections-staging.lib.princeton.edu/i/voiage-discovery-set-fourth-anno/item/f75a9770-eaec-40b0-add4-b916977a3aa1/viewer/8\r\n\r\nThere are a bunch of children's drawings in this one, it's cute as heck: https://dpul-collections-staging.lib.princeton.edu/i/dexter-p-hosleys-journal-from/item/b9700fb8-1b1b-4c31-91a7-780d437a93cb\r\n\r\nOooh sick: https://dpul-collections-staging.lib.princeton.edu/search?filter[publisher][]=Princeton+University.+Office+of+Physical+Planning.\r\n\r\n🐰 https://dpul-collections-staging.lib.princeton.edu/search?filter[author][]=Potter%2C+Beatrix%2C+1866-1943\r\n\r\nMan I gotta stop: https://dpul-collections-staging.lib.princeton.edu/search?filter[author][]=Horeau%2C+Hector%2C+1801-1872\r\n\r\nWooow that's a lot of sheet music for silent films: https://dpul-collections-staging.lib.princeton.edu/browse/focus/56916499-994a-41a3-919a-7010c2b94170\r\n\r\nGORGEOUS: https://dpul-collections-staging.lib.princeton.edu/browse/focus/953038c1-9505-4257-b27e-680e0e1db6bd\r\n\r\n❤️ https://dpul-collections-staging.lib.princeton.edu/browse/focus/5598da0e-c694-4b08-b90e-6e11fc39e470\r\n\r\nhttps://dpul-collections-staging.lib.princeton.edu/i/theological-miscellany/item/100f1efd-a004-4818-b3fa-569b973473af/viewer/2\r\n\r\nJust want neat pictures? Apparently we catalog when it has no text: https://dpul-collections-staging.lib.princeton.edu/search?filter[language][]=No+linguistic+content"
+        }
+      ],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2026-05-17T05:53:19",
+          "type": "deployed"
+        }
+      ],
+      "pr_html_url": "https://github.com/pulibrary/dpul-collections/pull/1210",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2026-05-18T00:52:51",
+      "updated_at": "2026-05-18T00:52:51",
+      "html_url": "https://github.com/pulibrary/dpul-collections/issues/1211",
+      "number": 1211,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/dpul-collections",
+      "repository_name": "dpul-collections",
+      "state": "open",
+      "title": "Container Vulnerability Scanner Failed",
+      "user_name": "github-actions[bot]",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": null,
+          "created_at": "2026-05-18T00:52:52",
+          "type": "labeled"
+        },
+        {
+          "actor_name": null,
+          "created_at": "2026-05-18T00:52:52",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "imagecat-rails": [
+    {
+      "created_at": "2024-11-14T20:16:28",
+      "updated_at": "2024-11-14T20:16:28",
+      "html_url": "https://github.com/pulibrary/imagecat-rails/issues/251",
+      "number": 251,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/imagecat-rails",
+      "repository_name": "imagecat-rails",
+      "state": "open",
+      "title": "Dependency Dashboard",
+      "user_name": "renovate[bot]",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    },
+    {
+      "created_at": "2026-04-07T22:06:07",
+      "updated_at": "2026-04-07T22:06:07",
+      "html_url": "https://github.com/pulibrary/imagecat-rails/issues/360",
+      "number": 360,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/imagecat-rails",
+      "repository_name": "imagecat-rails",
+      "state": "open",
+      "title": "Container Vulnerability Scanner Failed",
+      "user_name": "github-actions[bot]",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "lae-blacklight": [
+    {
+      "created_at": "2024-12-04T20:21:44",
+      "updated_at": "2024-12-04T20:21:44",
+      "html_url": "https://github.com/pulibrary/lae-blacklight/issues/412",
+      "number": 412,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/lae-blacklight",
+      "repository_name": "lae-blacklight",
+      "state": "open",
+      "title": "Dependency Dashboard",
+      "user_name": "renovate[bot]",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "orcid_princeton_hanami": [
+    {
+      "created_at": "2026-05-17T00:40:21",
+      "updated_at": "2026-05-17T00:40:21",
+      "html_url": "https://github.com/pulibrary/orcid_princeton_hanami/pull/301",
+      "number": 301,
+      "pull_request_html_url": "https://github.com/pulibrary/orcid_princeton_hanami/pull/301",
+      "repository_html_url": "https://github.com/pulibrary/orcid_princeton_hanami",
+      "repository_name": "orcid_princeton_hanami",
+      "state": "open",
+      "title": "Update dependency capistrano to v3.20.1",
+      "user_name": "renovate[bot]",
+      "comments": [],
+      "events": [],
+      "pr_html_url": "https://github.com/pulibrary/orcid_princeton_hanami/pull/301",
+      "action": "pull_request_open"
+    },
+    {
+      "created_at": "2025-07-30T13:53:17",
+      "updated_at": "2025-07-30T13:53:17",
+      "html_url": "https://github.com/pulibrary/orcid_princeton_hanami/issues/44",
+      "number": 44,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/orcid_princeton_hanami",
+      "repository_name": "orcid_princeton_hanami",
+      "state": "open",
+      "title": "Dependency Dashboard",
+      "user_name": "renovate[bot]",
+      "comments": [],
+      "events": [],
+      "pr_html_url": null,
+      "action": "updated"
+    }
+  ],
+  "princeton_ansible": [
+    {
+      "created_at": "2026-05-17T00:48:14",
+      "updated_at": "2026-05-17T00:48:14",
+      "html_url": "https://github.com/pulibrary/princeton_ansible/issues/7136",
+      "number": 7136,
+      "pull_request_html_url": null,
+      "repository_html_url": "https://github.com/pulibrary/princeton_ansible",
+      "repository_name": "princeton_ansible",
+      "state": "open",
+      "title": "Postgresql warm standby not enabled",
+      "user_name": "Trey Pendragon",
+      "comments": [],
+      "events": [
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2026-05-17T00:48:15",
+          "type": "labeled"
+        },
+        {
+          "actor_name": "Trey Pendragon",
+          "created_at": "2026-05-17T00:48:21",
+          "type": "labeled"
+        }
+      ],
+      "pr_html_url": null,
+      "action": "created"
+    }
+  ],
+  "__meta__": {
+    "issue_count": 9,
+    "created_count": 2,
+    "pull_request_open_count": 2,
+    "updated_count": 5,
+    "today": "2026-05-17T22:00:05",
+    "yesterday": "2026-05-16T22:00:05"
+  }
+}
